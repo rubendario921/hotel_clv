@@ -11,6 +11,13 @@
 
 
 <a class="h2">Listado de todas las habitaciones</a>
+<br>
 
+ <img class="img-fluid" src="./assets/img/habitación_1.jpg" alt="">
+ <img class="img-fluid" src="./assets/img/Habitación_2.jpg" alt="">
+ <img class="img-fluid" src="./assets/img/habitación_3.jpg" alt="">
+ <img class="img-fluid" src="./assets/img/Habitación_4.jpg" alt="">
+ <img class="img-fluid" src="./assets/img/habitación_5.jpg" alt="">
 
 <%@include file="template/menu/footer_menu.jsp" %>
+
