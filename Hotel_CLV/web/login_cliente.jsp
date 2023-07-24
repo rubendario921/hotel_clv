@@ -6,10 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@include file="template/header_menu.jsp" %>
+<%@include file="template/menu/header_menu.jsp" %>
 <div align="center">
     <h1>Inicio de Sesion</h1>
-    <form action="carga_datos_cliente.jsp" method="POST">
+    <form action="procesos/carga_datos_cliente.jsp" method="POST">
 
         <div class="input-group mb-3">
             <span class="input-group-text" id="correo">Correo Electronico</span>
@@ -28,4 +28,4 @@
         </div>
     </form>
 </div>
-<%@include file="template/footer_menu.jsp" %>
+<%@include file="template/menu/footer_menu.jsp" %>

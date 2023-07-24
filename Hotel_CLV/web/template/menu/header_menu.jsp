@@ -101,7 +101,7 @@
 
                     <!--Inicio de Sesion-->
 
-                    <a class="nav-icon position-relative text-decoration-none" href="pages_cliente/menu_cliente.jsp">
+                    <a class="nav-icon position-relative text-decoration-none" href="login_cliente.jsp">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
                         <button type="button" class="btn btn-success">Iniciar Sesión</button>
                     </a>
