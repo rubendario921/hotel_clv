@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="template/header_menu.jsp" %>
+<%@include file="template/menu/header_menu.jsp" %>
 
 
 <div class="container text-center">
@@ -50,10 +50,6 @@
                 <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
                 </div>
-                <br>
-                <div class="align-items-center">
-                    <button type="submit" class="btn btn-primary" value="nuevo" name="nuevo">Registarme</button>    
-                </div>
             </form>
         </div>
 
@@ -64,4 +60,4 @@
 </div>
 
 
-<%@include file="template/footer_menu.jsp" %>
+<%@include file="template/menu/footer_menu.jsp" %>

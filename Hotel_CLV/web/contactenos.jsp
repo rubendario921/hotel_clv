@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@include file="template/header_menu.jsp" %>
+<%@include file="template/menu/header_menu.jsp" %>
 
 <div class="container text-center">
     <div class="row">
@@ -70,10 +70,4 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-<%@include file="template/footer_menu.jsp" %>
+<%@include file="template/menu/footer_menu.jsp" %>
