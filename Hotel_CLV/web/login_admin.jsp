@@ -32,9 +32,10 @@
             </form>
         </div>
     </div>
-    <div class="col-md-auto">
-        <img class="img-circle img-responsive"  src="assets/img/login_admin.png">
-    </div>
+
+    
+    <!--<img class="img-circle img-responsive"  src="assets/img/login_admin.png">-->
+
 
 </div>
 </div>
