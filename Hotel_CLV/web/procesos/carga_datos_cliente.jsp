@@ -14,14 +14,14 @@
 
         String usuario = request.getParameter("correo");
         String pass = request.getParameter("password");
-        String url = "jdbc:mysql://localhost:3306/proyecto_integrador?autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull";
+        String url = "jdbc:mysql://localhost:3306/hotel_clv?autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull";
         String user = "root";
         String pass1 = "12345";
 
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, user, pass1);
 
-        String sql = "SELECT * FROM usuarios WHERE usu_correo=? and usu_clave=?";
+        String sql = "SELECT * FROM personas WHERE per_correo=? and per_clave=? and per_perfil= 4";
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, usuario);
         pst.setString(2, pass);
@@ -51,7 +51,7 @@
         <% if (loginExitoso) { %>
         <script>
             alert("Inicio de sesión exitoso. ¡Bienvenido!");
-            window.location.href = "menu_cliente.jsp"; // Redirige a la página de bienvenida después del inicio de sesión exitoso
+            window.location.href = "../pages_cliente/menu_cliente.jsp"; // Redirige a la página de bienvenida después del inicio de sesión exitoso
         </script>
         <% } else { %>
         <script>
