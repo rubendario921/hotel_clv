@@ -56,42 +56,40 @@
         <section>
           <form class="row g-3" title="Contact Form">
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Correo electrónico">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
             </div>
-             <div class="col-md-6">
-                            <label for="inputPassword4" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" placeholder="Contraseña 8-10 caracteres" id="inputPassword4" name="contraseña">
-                        </div>
-                        <div class="col-12">
-                            <label for="inputAddress" class="form-label">Dirección</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Av. Pedro Vicente Maldonado,...." name="Direccion">
-                        </div>
-                        <div class="col-12">
-                            <label for="inputAddress2" class="form-label">Dirección 2</label>
-                            <input type="text" class="form-control" id="inputAddress2" placeholder="Departamento, Casa, estudio o piso" name="Dirección2">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="inputCity" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" id="inputCity" placeholder="Quito, Ecuador" name="ciudad">
-                        </div>
-                        <div class="col-md-4">
-                            <label for="inputState" class="form-label">Estado</label>
-                            <select id="inputState" class="form-select" name="estado">
-                                <option selected>Opciones</option>
-                                <option>Precios</option>
-                                <option>Estadia</option>
-                                <option>Habitaciones</option>
-                            </select>
-                        </div>
-                        <div class="col-md-2">
-                            <label for="inputZip" class="form-label">Número</label>
-                            <input type="text" class="form-control" id="inputZip" name="zip">
-                        </div>
-              
-              
-              
-            <!-- Resto de los campos del formulario... -->
+
+            <div class="col-md-6">
+              <label for="correo" class="form-label">Correo Electrónico</label>
+              <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo electrónico" required>
+            </div>
+
+            <div class="col-md-12">
+              <label for="asunto" class="form-label">Asunto</label>
+              <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Ingrese el asunto del mensaje" required>
+            </div>
+
+            <div class="col-md-12">
+              <label for="mensaje" class="form-label">Mensaje</label>
+              <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Escriba aquí su mensaje" required></textarea>
+            </div>
+
+            <div class="col-md-6">
+              <label for="inputCity" class="form-label">Ciudad</label>
+              <input type="text" class="form-control" id="inputCity" placeholder="Quito, Ecuador" name="ciudad">
+            </div>
+
+            <div class="col-md-6">
+              <label for="inputState" class="form-label">Estado</label>
+              <select id="inputState" class="form-select" name="estado">
+                <option selected>Opciones</option>
+                <option>Precios</option>
+                <option>Estadia</option>
+                <option>Habitaciones</option>
+              </select>
+            </div>
+                                      
             <div class="col-12">
               <fieldset>
                 <legend class="form-label">Gracias por Preferirnos..!</legend>
@@ -101,8 +99,9 @@
                 </div>
               </fieldset>
             </div>
+
             <div class="col-12">
-              <button type="submit" class="btn btn-primary">Enviar</button>
+              <button type="submit" class="btn btn-primary btn-block">Enviar</button>
             </div>
           </form>
         </section>
@@ -116,10 +115,5 @@
     </div>
   </div>
 </div>
+
 <%@include file="template/menu/footer_menu.jsp" %>
-
-
-
-
-
-
