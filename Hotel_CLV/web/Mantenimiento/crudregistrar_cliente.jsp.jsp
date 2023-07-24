@@ -20,7 +20,7 @@
         String pass = request.getParameter("pass");
         //int rol = Integer.parseInt(request.getParameter("rol"));
 
-        String sql = "INSERT INTO usuarios (usu_nombres,usu_apellidos,usu_cedula,usu_contacto,usu_correo,usu_clave,usu_estado)values(?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO personas (usu_nombres,usu_apellidos,usu_cedula,usu_contacto,usu_correo,usu_clave,usu_estado)values(?,?,?,?,?,?,?);";
         PreparedStatement pst = con.getConexion().prepareCall(sql);
         pst.setString(1, nom);
         pst.setString(2, ape);

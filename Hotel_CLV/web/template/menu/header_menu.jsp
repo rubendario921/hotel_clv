@@ -80,7 +80,7 @@
                             <a class="nav-link" href="contactenos.jsp">Atención al Cliente</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-success nav-link" role="button" href="registro.jsp ">Crea una Cuenta</a>
+                            <a class="btn btn-outline-success nav-link" role="button" href="registro_cliente.jsp ">Crea una Cuenta</a>
                         </li>
                     </ul>
                 </div>

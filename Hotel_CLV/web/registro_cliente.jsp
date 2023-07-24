@@ -16,7 +16,7 @@
         <div class="col-6">
             <br>
             <h3>Usuario Nuevo</h3>
-            <form action="Mantenimiento/crudregistrar.jsp" method="POST" class="align-items-center">
+            <form action="Mantenimiento/crudregistrar_cliente.jsp.jsp" method="POST" class="align-items-center">
 
                 <div class="row">
                     <div class="col">
@@ -47,9 +47,17 @@
                     </div>
                 </div>
                 <br>
+                <div class="text-center">
+                    <button class="btn btn-success" value="Registrar" name="nuevo">Regsitrar</button>
+                </div>
+
+                <!--
                 <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%"></div>
-                </div>
+                </div>-->
+
+
+
             </form>
         </div>
 
