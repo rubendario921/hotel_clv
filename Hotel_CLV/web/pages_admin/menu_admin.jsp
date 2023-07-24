@@ -5,7 +5,7 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@include file="template/header_admin.jsp" %>
+<%@include file="../template/admin/header_admin.jsp" %>
 
 
 <!-- Page Content -->
@@ -114,7 +114,6 @@
                         <div class="panel-footer">
                             <span class="pull-left">Detalles</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-
                             <div class="clearfix"></div>
                         </div>
                     </a>
@@ -125,4 +124,4 @@
 </div>
 <!-- /.row -->
 
-<%@include file="template/footer_admin.jsp" %>
+<%@include file="../template/admin/footer_admin.jsp" %>
