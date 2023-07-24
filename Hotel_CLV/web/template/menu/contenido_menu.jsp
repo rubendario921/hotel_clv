@@ -30,6 +30,8 @@
 
 
 
+
+
 <!-- Start Banner Hero -->
 <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
     <ol class="carousel-indicators">
@@ -42,25 +44,32 @@
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <br>
+                        <br>
+
                         <img class="img-fluid" src="./assets/img/3page-img13.jpg" alt="">
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
-                        <div class="text-align-left align-self-center">
+                        <div class="text-align-left align-self-center" style="text-align: justify;">
                             <h1 class="h1 text-success"><b>CLV</b> Hotel Deluxe</h1>
-                            <h3 class="h2">El place de descansar con nosotros</h3>
+                            <h3 class="h2">El placer de descansar con nosotros</h3>
                             <p>
-                                Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1). 
-                                This template is 100% free provided by <a rel="sponsored" class="text-success" href="https://templatemo.com" target="_blank">TemplateMo</a> website. 
-                                Image credits go to <a rel="sponsored" class="text-success" href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,
-                                <a rel="sponsored" class="text-success" href="https://unsplash.com/" target="_blank">Unsplash</a> and
-                                <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons 8</a>.
+                                Nuestras lujosas habitaciones han sido diseñadas para los viajeros y las familias modernas. 
+                                Podrás notarlo desde el momento en que ingresas a tu habitación, hasta que la dejas en la fecha de salida. 
+                                Cada detalle ha sido pensado para que tenga la mejor experiencia posible, que una habitación de huéspedes puede brindar. 
+                                En CLV Hotel Delux en Quito te ofrecerá todo el confort que deseas: ropa de cama de lujo, camas con colchones especialmente diseñados para el mejor 
+                                descanso posible, cómodas áreas de descanso que puedes ajustar a tu necesidad particular y una televisión pantalla plana de alta definición. 
+                                Todo ello complementado con la comodidad de nuestras instalaciones y el mejor servicio para que disfrute de una estancia de lujo. 
+
                             </p>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
         <div class="carousel-item">
+
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
@@ -71,29 +80,29 @@
                             <h1 class="h1">Nuestros Servicio</h1>
                             <h3 class="h2">Tarifas y Habitaciones</h3>
                             <p>
-                                You are permitted to use this Zay CSS template for your commercial websites. 
-                                You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
+                                Descubra la magia de Ecuador con nuestras irresistibles tarifas de hotel, 
+                                donde el confort y la aventura se fusionan para ofrecerle una experiencia inolvidable en este paraíso sudamericano.
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="carousel-item">
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
                         <!--<img class="img-fluid" src="./assets/img/banner_img_03" alt="">-->
-                        <img class="img-fluid" src="assets/img/shop_07.jpg" alt="">
+                        <img class="img-fluid" src="assets/img/feature_prod_01.jpg" alt="">
+
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left">
                             <h1 class="h1">Servicio 24 HORAS</h1>
                             <h3 class="h2">Comunicate con Nosotros</h3>
                             <p>
-                                We bring you 100% free CSS templates for your websites. 
-                                If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
+                                "Descubre el arte de la hospitalidad en nuestro hotel, donde la calidez de nuestro equipo te hará sentir como en casa desde el primer momento."
                             </p>
                         </div>
                     </div>
@@ -148,10 +157,10 @@
     <div class="container py-5">
         <div class="row text-center py-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1">Featured Product</h1>
+                <h1 class="h1">Nuestros servicios</h1>
                 <p>
-                    Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident.
+                    Descubre la magia de Ecuador y deja que este destino te envuelva con su belleza y hospitalidad.
+                    Como Hotel te ofrecemos muchas comodidades.
                 </p>
             </div>
         </div>
@@ -159,7 +168,7 @@
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
                     <a href="shop-single.html">
-                        <img src="./assets/img/feature_prod_01.jpg" class="card-img-top" alt="...">
+                        <img src="./assets/img/banner_img_04.jpeg" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
                         <ul class="list-unstyled d-flex justify-content-between">
@@ -170,11 +179,11 @@
                                 <i class="text-muted fa fa-star"></i>
                                 <i class="text-muted fa fa-star"></i>
                             </li>
-                            <li class="text-muted text-right">$240.00</li>
+                            <li class="text-muted text-right">$80.00</li>
                         </ul>
-                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">Gym Weight</a>
+                        <a href=" " class="h2 text-decoration-none text-dark">Habitaciones</a>
                         <p class="card-text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
+                            Las habitaciones, luminosas y sencillas, cuentan con Wi-Fi gratis y TV, además de baño en habitación. Se ofrece servicio a la habitación.
                         </p>
                         <p class="text-muted">Reviews (24)</p>
                     </div>
@@ -183,7 +192,7 @@
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
                     <a href="shop-single.html">
-                        <img src="./assets/img/feature_prod_02.jpg" class="card-img-top" alt="...">
+                        <img src="./assets/img/banner_img_restaurante.jpg" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
                         <ul class="list-unstyled d-flex justify-content-between">
@@ -196,9 +205,9 @@
                             </li>
                             <li class="text-muted text-right">$480.00</li>
                         </ul>
-                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">Cloud Nike Shoes</a>
+                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">Restaurantes</a>
                         <p class="card-text">
-                            Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.
+                            Hablando de los Restaurantes un lugasr muy importange para el usuario. El desayuno se sirve en un restaurante informal. También hay una cocina compartida y un salón.
                         </p>
                         <p class="text-muted">Reviews (48)</p>
                     </div>
@@ -207,7 +216,7 @@
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
                     <a href="shop-single.html">
-                        <img src="./assets/img/feature_prod_03.jpg" class="card-img-top" alt="...">
+                        <img src="./assets/img/banner_img_piscina.jpg" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
                         <ul class="list-unstyled d-flex justify-content-between">
@@ -220,9 +229,9 @@
                             </li>
                             <li class="text-muted text-right">$360.00</li>
                         </ul>
-                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">Summer Addides Shoes</a>
+                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">Recreación</a>
                         <p class="card-text">
-                            Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
+                            El área de recreación es algo indispensable y para eso disponemos de una piscina super comoda para el uso de todos los usuarios. 
                         </p>
                         <p class="text-muted">Reviews (74)</p>
                     </div>
