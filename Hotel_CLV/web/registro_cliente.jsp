@@ -16,7 +16,7 @@
         <div class="col-6">
             <br>
             <h3>Usuario Nuevo</h3>
-            <form action="Mantenimiento/crudregistrar_cliente.jsp.jsp" method="POST" class="align-items-center">
+            <form action="Mantenimiento/crudregistrar_cliente.jsp" method="POST" class="align-items-center">
 
                 <div class="row">
                     <div class="col">
@@ -24,12 +24,15 @@
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" placeholder="Apellidos Completos" aria-label="Last name" id="apellido" name="ape">
-                    </div>
+                    </div>                    
                 </div>
                 <br>
                 <div class="row">
                     <div class="col">
                         <input type="text" class="form-control" placeholder="Cedula de Identidad" aria-label="First name" id="cedula" name="cedu">
+                    </div>  
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Ingrese un usuario" aria-label="Last name" id="usuario" name="usu">
                     </div>
                     <div class="col">
                         <input type="text" class="form-control" placeholder="Telefono de Contacto" aria-label="Last name" id="contacto" name="cont">

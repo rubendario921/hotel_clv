@@ -9,8 +9,8 @@
             <h2>Inicio de Sesión</h2>
             <form action="procesos/carga_datos_cliente.jsp" method="POST" class="mt-4">
                 <div class="mb-3">
-                    <label for="usuario" class="form-label">Usuario</label>
-                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su usuario">
+                    <label for="email" class="form-label">Correo Electronico</label>
+                    <input type="email" class="form-control" id="correo" name="correo" placeholder="example@hoteldeluxe.com">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Contraseña</label>
@@ -27,7 +27,7 @@
     </div>
     <div class="row mt-4">
         <div class="col-md-4 offset-md-4">
-            <img class="img-circle img-responsive" src="assets/img/login_clientes.png" alt="Login Image">
+            <img class="img-circle img-responsive" src="assets/img/login_admin.png" alt="Login Image">
         </div>
     </div>
 </div>

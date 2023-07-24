@@ -14,21 +14,24 @@
     if (request.getParameter("nuevo") != null) {
         String nom = request.getParameter("nom");
         String ape = request.getParameter("ape");
+        String usu = request.getParameter("usu");
         String cedu = request.getParameter("cedu");
-        int cont = Integer.parseInt(request.getParameter("cont"));
+        String cont = request.getParameter("cont");
         String corr = request.getParameter("corr");
         String pass = request.getParameter("pass");
         //int rol = Integer.parseInt(request.getParameter("rol"));
 
-        String sql = "INSERT INTO personas (usu_nombres,usu_apellidos,usu_cedula,usu_contacto,usu_correo,usu_clave,usu_estado)values(?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO personas (per_nombres,per_apellidos,per_cedula,per_telefono,per_correo,per_usuario,per_clave,per_estado,per_perfil)values(?,?,?,?,?,?,?,?,?);";
         PreparedStatement pst = con.getConexion().prepareCall(sql);
         pst.setString(1, nom);
         pst.setString(2, ape);
         pst.setString(3, cedu);
-        pst.setInt(4, cont);
+        pst.setString(4, cont);
         pst.setString(5, corr);
-        pst.setString(6, pass);
-        pst.setString(7, "A");
+        pst.setString(6, usu);
+        pst.setString(7, pass);
+        pst.setString(8, "A");
+        pst.setString(9, "4");
         int n = pst.executeUpdate();
         if (n > 0) {
             out.print("<script>alert('Registro Guardado')</script>");
