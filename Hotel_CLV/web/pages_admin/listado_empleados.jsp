@@ -39,7 +39,7 @@
                             <tbody>
                                 <%
                                     conexion cn = new conexion();
-                                    String sql = "SELECT * FROM personas INNER JOIN perfiles ON personas.per_perfil	= perfiles.perfil_id WHERE personas.per_perfil  NOT IN ('4');";
+                                    String sql = "SELECT * FROM personas INNER JOIN perfiles ON personas.per_perfil = perfiles.perfil_id WHERE personas.per_perfil  NOT IN ('4');";
                                     Statement st = cn.getConexion().createStatement();
                                     ResultSet rs = st.executeQuery(sql);
 
