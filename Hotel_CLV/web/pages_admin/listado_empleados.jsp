@@ -56,7 +56,7 @@
                                     <td><%=rs.getString("emp_estado")%></td>
                                     <td>
                                         <a href="editar_admin.jsp?editar=true&id=<%=rs.getInt("emp_id")%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
-                                        <a href="Mantenimiento/crudeliminar_admin.jsp?eliminar=true&id=<%=rs.getInt("emp_id")%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                        <a href="../Mantenimiento/crudeliminar_admin.jsp?eliminar=true&id=<%=rs.getInt("emp_id")%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                     </td>
                                 </tr>
                                 <%}%>
@@ -74,9 +74,6 @@
     <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
-
-
-
 
 <%@include file="template/footer_admin.jsp" %>
 

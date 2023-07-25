@@ -19,7 +19,7 @@
 
             <!-- /.row -->
             <div>
-                <a href="listado_usuarios.jsp" class="btn btn-success">Listado de Usuarios</a>
+                <a href="listado_clientes.jsp" class="btn btn-success">Listado de Usuarios</a>
                 <a href="listado_empleados.jsp" class="btn btn-success">Listado de Empleados</a>
                 <!--<a href="usuario.jsp" class="btn btn-success">Dashboard</a>-->
                 

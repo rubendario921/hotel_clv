@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
-<%@page import="Model.conexion,java.sql.*" %>
+<%@page import="Model.conexion" %>
 
 <%
     conexion con = new conexion();
