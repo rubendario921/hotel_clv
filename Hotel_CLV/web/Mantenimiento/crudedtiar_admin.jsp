@@ -22,9 +22,10 @@
             String usuario = request.getParameter("usu");
             String password = request.getParameter("pass");
             String estado = request.getParameter("est");
+            String perfil = request.getParameter("perfil");
 
             String sql = "UPDATE personas "
-                    + "SET per_nombres = ?, per_apellidos = ?, per_cedula = ?, per_telefono = ?, per_correo = ?, per_usuario=?, per_clave = ?, per_estado = ?"
+                    + "SET per_nombres = ?, per_apellidos = ?, per_cedula = ?, per_telefono = ?, per_correo = ?, per_usuario=?, per_clave = ?, per_estado = ?, per_perfil = ?"
                     + "WHERE per_id = ?";
 
             PreparedStatement pst = con.getConexion().prepareStatement(sql);
@@ -36,7 +37,8 @@
             pst.setString(6, usuario);
             pst.setString(7, password);
             pst.setString(8, estado);
-            pst.setInt(9, id);
+            pst.setString(9, perfil);
+            pst.setInt(10, id);
 
             int n = pst.executeUpdate();
 
@@ -45,6 +47,7 @@
                 out.print("<script>window.location.href='../pages_admin/listado_empleados.jsp'</script>");
             } else {
                 out.print("<script>alert('Fallo al Editar')</script>");
+                out.print("<script>window.location.href='../pages_admin/editar_admin.jsp'</script>");
             }
         }
     } catch (Exception e) {

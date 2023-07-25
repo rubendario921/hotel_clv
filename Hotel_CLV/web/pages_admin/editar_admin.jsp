@@ -5,9 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Controller.clUsuarios, java.sql.*"%>
-<%@page import="Model.conexion,java.sql.*" %>
-<%@include file="template/header_admin.jsp"%>
+<%@page import="java.sql.*"%>
+<%@page import="Model.conexion" %>
+<%@include file="../template/admin/header_admin.jsp" %>
 
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -19,40 +19,46 @@
                         <h3>Editar Empleado</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="Mantenimiento/crudedtiar_admin.jsp" method="POST">
+                        <form action="../Mantenimiento/crudedtiar_admin.jsp" method="POST">
                             <%
                                 String id = request.getParameter("id");
                                 int idUsuario = Integer.parseInt(id);
                                 conexion cn = new conexion();
 
-                                String sql = "SELECT * FROM empleados WHERE emp_id = ?";
+                                String sql = "SELECT * FROM personas WHERE per_id = ?";
                                 PreparedStatement st = cn.getConexion().prepareStatement(sql);
                                 st.setInt(1, idUsuario);
                                 ResultSet rs = st.executeQuery();
 
                                 while (rs.next()) {%>
 
-                            <label>Codigo_Id: </label><input type="text" value="<%= rs.getInt("emp_id")%>" class="form-control" name="id" disabled="True"/>            
+                            <label>Codigo_Id: </label><input type="text" value="<%= rs.getInt("per_id")%>" class="form-control" name="id" />            
                             <br>
-                            <label>Nombres: </label><input type="text" value="<%=rs.getString("emp_nombres")%>" class="form-control" name="nom"/>
+                            <label>Nombres: </label><input type="text" value="<%=rs.getString("per_nombres")%>" class="form-control" name="nom"/>
                             <br>
-                            <label>Apellidos: </label><input type="text" value="<%=rs.getString("emp_apellidos")%>" class="form-control" name="ape"/>
+                            <label>Apellidos: </label><input type="text" value="<%=rs.getString("per_apellidos")%>" class="form-control" name="ape"/>
                             <br>
-                            <label>Cedula de Identidad: </label><input type="text" value="<%=rs.getString("emp_cedula")%>" class="form-control" name="cedu"/>
+                            <label>Cedula de Identidad: </label><input type="text" value="<%=rs.getString("per_cedula")%>" class="form-control" name="cedu"/>
                             <br>
-                            <label>Usuario: </label><input type="text" value="<%=rs.getString("emp_usuario")%>" class="form-control" name="cedu"/>
+                            <label>Número de Contacto: </label><input type="textr" value="<%=rs.getInt("per_telefono")%>" class="form-control" name="cont"/>
                             <br>
-                            <label>Contraseña: </label><input type="text" value="<%=rs.getString("emp_clave")%>" class="form-control" name="pass"/>
-                            <br>
-                            <label>Número de Contacto: </label><input type="number" value="<%=rs.getInt("emp_contacto")%>" class="form-control" name="cont"/>
-                            <br>
-                            <label>Correo Electronico: </label><input type="email" value="<%=rs.getString("emp_correo")%>" class="form-control" name="corr"/>
+                            <label>Correo Electronico: </label><input type="email" value="<%=rs.getString("per_correo")%>" class="form-control" name="corr"/>
                             <br>                            
-                            <label>Perfil: </label><input type="text" value="<%=rs.getInt("emp_perfil")%>" class="form-control" name="per"/>
+                            <label>Usuario: </label><input type="text" value="<%=rs.getString("per_usuario")%>" class="form-control" name="cedu"/>
                             <br>
-                            <label>Estado: </label><input type="text" value="<%=rs.getString("emp_estado")%>" class="form-control" name="est"/>
+                            <label>Contraseña: </label><input type="text" value="<%=rs.getString("per_clave")%>" class="form-control" name="pass"/>
                             <br>
-                            
+                            <label>Estado: </label><input type="text" value="<%=rs.getString("per_estado")%>" class="form-control" name="est"/>
+                            <br>
+                            <label>Perfil: </label><select name="perfil" id="perfil" class="form-control">
+                                <option>Seleccionar una Opcion</option>
+                                <option value="1">Administrador</option>
+                                <option value="2">Supervisor</option>
+                                <option value="3">Recepcionista</option>
+                                <option value="4">Cliente</option>
+                            </select>
+                            <br>
+
                             <%}%>
                             <input type="submit" value="Editar" name="editar" class="btn-primary"/>
                         </form>                       
@@ -66,4 +72,4 @@
     <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
-<%@include file="template/footer_admin.jsp" %>
+<%@include file="../template/admin/footer_admin.jsp" %>

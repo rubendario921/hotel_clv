@@ -16,9 +16,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div>
-                    <h1 class="page-header">Listado de Empleados <button><a href="registro_admin.jsp" class="btn btn-success">Nuevo Registro</a>
-                        </button></h1>
-
+                    <h1 class="page-header">Listado de Empleados 
+                        <a href="registro_admin.jsp" class="btn btn-success" style="align-items: baseline">Nuevo Registro</a>
+                    </h1>
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-body">

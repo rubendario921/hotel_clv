@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Modificación - Datos del Usuario</h1>
+                <h1 class="page-header">Modificación - Datos del Cliente</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3>Editar Cliente</h3>
