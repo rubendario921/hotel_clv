@@ -41,6 +41,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <%
+ 
+        // Agrega los encabezados para evitar el almacenamiento en caché
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Expires", "0");
+
+    // Verifica si la sesión existe y si no, redirecciona al usuario al inicio de sesión
+    if (session.getAttribute("nombre") == null) {
+    response.sendRedirect("../login_admin.jsp");
+    }
+    %>
 </head>
 
 <body>
@@ -50,7 +63,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" href="../pages_admin/menu_admin.jsp">Panel Administrativo</a>
+                <a class="navbar-brand" href="../pages_admin/menu_admin.jsp">Panel Administrativo</a>                
             </div>
 
             <!--<ul class="nav navbar-nav navbar-left navbar-top-links">
@@ -118,7 +131,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="login_admin.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión                           
+                            <a href="../procesos/cerrar_sesion_admin.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión                           
                             </a>
                         </li>
                     </ul>
@@ -219,19 +232,6 @@
                             </li>
                         </ul>
                         <br>
-                        <div class="w-100 bg-black py-3">
-                            <div class="container">
-                                <div class="row pt-2">
-                                    <div class="col-12">
-                                        <p class="text-left text-light">
-                                            Copyright &copy; 2023 Hotel CLV Deluxe
-                                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">Derechos
-                                                Reservados</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <!-- /.nav-second-level -->
                     </li>
                 </ul>
