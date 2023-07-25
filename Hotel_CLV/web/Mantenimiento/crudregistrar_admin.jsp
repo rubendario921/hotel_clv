@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
-<%@page import="Model.conexion,java.sql.*" %>
+<%@page import="Model.conexion"%>
 
 <%
     conexion con = new conexion();
@@ -15,30 +15,30 @@
         String nom = request.getParameter("nom");
         String ape = request.getParameter("ape");
         String cedu = request.getParameter("cedu");
+        String cont = request.getParameter("cont");
+        String corr = request.getParameter("corr");
         String usu = request.getParameter("usu");
         String pass = request.getParameter("pass");
-        int cont = Integer.parseInt(request.getParameter("cont"));
-        String corr = request.getParameter("corr");
         int perfil = Integer.parseInt(request.getParameter("perfil"));
 
-        String sql = "INSERT INTO proyecto_integrador.empleados (emp_nombres, emp_apellidos, emp_cedula, emp_usuario, emp_clave, emp_contacto, emp_correo, emp_perfil, emp_estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO personas (per_nombres, per_apellidos, per_cedula,per_telefono,per_correo, per_usuario, per_clave, per_estado, per_perfil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
         PreparedStatement pst = con.getConexion().prepareStatement(sql);
         pst.setString(1, nom);
         pst.setString(2, ape);
         pst.setString(3, cedu);
-        pst.setString(4, usu);
-        pst.setString(5, pass);
-        pst.setInt(6, cont);
-        pst.setString(7, corr);
-        pst.setInt(8, perfil);
-        pst.setString(9, "A");
+        pst.setString(4, cont);
+        pst.setString(5, corr);
+        pst.setString(6, usu);
+        pst.setString(7, pass);
+        pst.setString(8, "A");
+        pst.setInt(9, perfil);
         int n = pst.executeUpdate();
         if (n > 0) {
             out.print("<script>alert('Registro Guardado')</script>");
-            out.print("<script>window.location.href='../listado_empleados.jsp'</script>");
+            out.print("<script>window.location.href='../pages_admin/listado_empleados.jsp'</script>");
         } else {
             out.print("<script>alert('Registro NO Guardado')</script>");
-            out.print("<script>window.location.href='../registro_admin.jsp'</script>");
+            out.print("<script>window.location.href='../pages_admin/registro_admin.jsp'</script>");
         }
     }
 %>

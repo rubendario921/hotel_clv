@@ -5,31 +5,26 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Model.conexion,java.sql.*" %>
-<%@page import="java.sql.PreparedStatement"%>
+<%@page import="Model.conexion" %>
+<%@page import="java.sql.*"%>
 <!DOCTYPE html>
 <%
+    boolean eliminar_registro = false;
     try {
+        conexion con = new conexion();
+
         if (request.getParameter("eliminar") != null && request.getParameter("eliminar").equals("true")) {
             int id = Integer.parseInt(request.getParameter("id"));
-
-            String sql = "DELETE FROM empleados WHERE emp_id = ?";
-            String url = "jdbc:mysql://localhost:3306/proyecto_integrador?autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull";
-            String user = "root";
-            String pass = "12345";
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, user, pass);
-            PreparedStatement pst = con.prepareStatement(sql);
+            String sql = "DELETE FROM personas WHERE per_id = ?";
+            PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setInt(1, id);
             int n = pst.executeUpdate();
-
             if (n > 0) {
-                out.print("<script>alert('Eliminado con éxito')</script>");
-                out.print("<script>window.location.href='../listado_empleados.jsp'</script>");
+                eliminar_registro = true;
             } else {
-                out.print("<script>alert('Fallo al eliminar')</script>");
+                eliminar_registro = false;
             }
+
         }
     } catch (Exception e) {
         System.out.println("ERROR: " + e.getMessage());
@@ -37,3 +32,24 @@
 
 
 %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Eliminar Registro</title>
+    </head>
+
+    <body>
+        <% if (eliminar_registro) { %>
+        <script>
+            alert("Registro Eliminado Exitosamente");
+            window.location.href = "../pages_admin/listado_empleados.jsp"; // Redirige a la página de bienvenida después del inicio de sesión exitoso
+        </script>
+        <% } else { %>
+        <script>
+            alert("Fallo en eliminar lo datos. Intenta nuevamente.");
+            window.history.back(); // Regresa a la página anterior después del inicio de sesión incorrecto
+        </script>
+        <% }%>
+    </body>
+</html>

@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="template/header_admin.jsp" %>
+<%@include file="../template/admin/header_admin.jsp" %>
 <!DocumentHTML>
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -15,7 +15,7 @@
                     <h2 class="page-header">Registro de Nuevo Colaborador </h2>
                 </div>
 
-                <form action="Mantenimiento/crudregistrar_admin.jsp" method="POST" class="align-items-center">
+                <form action="../Mantenimiento/crudregistrar_admin.jsp" method="POST" class="align-items-center">
 
                     <div class="row">
                         <div class="col">
@@ -37,6 +37,9 @@
                     <br>
                     <div class="row">
                         <div class="col">
+                            <input type="email" class="form-control" placeholder="Correo Electronico" aria-label="First name" id="correo" name="corr">
+                        </div>
+                        <div class="col">
                             <input type="text" class="form-control" placeholder="Usuario" aria-label="First name" id="usuario" name="usu">
                         </div>
                         <div class="col">
@@ -46,21 +49,23 @@
                     <br>
                     <div class="row">
                         <div class="col">
-                            <input type="email" class="form-control" placeholder="Correo Electronico" aria-label="First name" id="correo" name="corr">
-                        </div>
-                        <div class="col">
-                            <input type="number" class="form-control" placeholder="Perfil" aria-label="Last name" id="perfil" name="perfil">
+                            <label>Rol: </label>
+                            <select name="perfil" id="perfil" class="form-control">
+                                <option>Seleccionar una Opcion</option>
+                                <option value="1">Administrador</option>
+                                <option value="2">Supervisor</option>
+                                <option value="3">Recepcionista</option>
+                                <option value="4">Cliente</option>
+                            </select>
                         </div>
                     </div>
                     <br>    
                     <div class="align-items-center">
                         <button type="submit" class="btn btn-primary" value="nuevo" name="nuevo">Registrar</button>    
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-<%@include file="template/footer_admin.jsp" %>
+<%@include file="../template/admin/footer_admin.jsp" %>

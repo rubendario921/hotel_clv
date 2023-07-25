@@ -43,7 +43,7 @@
                                     <td><%=rs.getString("per_nombres")%></td>
                                     <td><%=rs.getString("per_apellidos")%></td>
                                     <td><%=rs.getString("per_cedula")%></td>
-                                    <td><%=rs.getInt("per_telefono")%></td>
+                                    <td><%=rs.getString("per_telefono")%></td>
                                     <td><%=rs.getString("per_correo")%></td>
                                     <td>
                                         <a href="editar_cliente.jsp?editar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>

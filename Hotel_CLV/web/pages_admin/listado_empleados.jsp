@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <%@page import="Model.conexion"%>
-<%@include file="template/header_admin.jsp" %>
+<%@include file="../template/admin/header_admin.jsp" %>
 <!DOCTYPE html>
 
 
@@ -29,34 +29,34 @@
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>Cedula</th>
-                                    <th>Usuario</th>
                                     <th>Contacto</th>
-                                    <th>Perfil</th>                                    
-                                    <th>Estado</th>                      
+                                    <th>Usuario</th> 
+                                    <th>Perfil</th>
+                                    <th>Estado</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <%
                                     conexion cn = new conexion();
-                                    String sql = "SELECT * FROM empleados";
+                                    String sql = "SELECT * FROM personas INNER JOIN perfiles ON personas.per_perfil	= perfiles.perfil_id WHERE personas.per_perfil  NOT IN ('4');";
                                     Statement st = cn.getConexion().createStatement();
                                     ResultSet rs = st.executeQuery(sql);
 
                                     while (rs.next()) {%>
 
                                 <tr>
-                                    <td><%=rs.getInt("emp_id")%></td>
-                                    <td><%=rs.getString("emp_nombres")%></td>
-                                    <td><%=rs.getString("emp_apellidos")%></td>
-                                    <td><%=rs.getString("emp_cedula")%></td>
-                                    <td><%=rs.getString("emp_usuario")%></td>
-                                    <td><%=rs.getInt("emp_contacto")%></td>
-                                    <td><%=rs.getInt("emp_perfil")%></td>
-                                    <td><%=rs.getString("emp_estado")%></td>
+                                    <td><%=rs.getInt("per_id")%></td>
+                                    <td><%=rs.getString("per_nombres")%></td>
+                                    <td><%=rs.getString("per_apellidos")%></td>
+                                    <td><%=rs.getString("per_cedula")%></td>
+                                    <td><%=rs.getString("per_telefono")%></td>
+                                    <td><%=rs.getString("per_usuario")%></td>
+                                    <td><%=rs.getString("per_perfil")%></td>
+                                    <td><%=rs.getString("perfil_nombre")%></td>
                                     <td>
-                                        <a href="editar_admin.jsp?editar=true&id=<%=rs.getInt("emp_id")%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
-                                        <a href="../Mantenimiento/crudeliminar_admin.jsp?eliminar=true&id=<%=rs.getInt("emp_id")%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                        <a href="editar_admin.jsp?editar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="../Mantenimiento/crudeliminar_admin.jsp?eliminar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                     </td>
                                 </tr>
                                 <%}%>
@@ -75,5 +75,5 @@
 </div>
 <!-- /#page-wrapper -->
 
-<%@include file="template/footer_admin.jsp" %>
+<%@include file="../template/admin/footer_admin.jsp" %>
 
