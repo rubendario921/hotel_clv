@@ -51,6 +51,30 @@
     }
 </style>
 
+<script>
+    function validarFormulario() {
+        // Obtener los valores de los campos
+        var nombres = document.getElementById("nombre").value.trim();
+        var apellidos = document.getElementById("apellido").value.trim();
+        var cedula = document.getElementById("cedula").value.trim();
+        var usuario = document.getElementById("usuario").value.trim();
+        var telefono = document.getElementById("contacto").value.trim();
+        var correo = document.getElementById("correo").value.trim();
+        var clave = document.getElementById("clave").value.trim();
+
+        // Validar campos obligatorios
+        if (nombres === "" || apellidos === "" || cedula === "" || usuario === "" || telefono === "" || correo === "" || clave === "") {
+            alert("Por favor, complete todos los campos.");
+            return false; // Detener el envío del formulario
+        }
+
+        // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
+
+        return true; // Permitir el envío del formulario si todos los campos están llenos
+    }
+</script>
+
+
 <div class="container">
     <div class="row">
         <div class="col text-center">
@@ -59,12 +83,12 @@
             <br>
         </div>
     </div>
-    
+
     <div class="row justify-content-center">
         <div class="col-6">
             <h3 class="text-center">Usuario Nuevo</h3>
             <br>
-            <form action="Mantenimiento/crudregistrar_cliente.jsp" method="POST">
+            <form action="Mantenimiento/crudregistrar_cliente.jsp" method="POST" onsubmit="return validarFormulario();">
                 <div class="row">
                     <div class="col">
                         <label for="nombre" class="label-text">Nombres Completos</label>
@@ -75,7 +99,7 @@
                         <input type="text" class="form-control" id="apellido" name="ape">
                     </div>                    
                 </div>
-                
+
                 <div class="row mt-3">
                     <div class="col">
                         <label for="cedula" class="label-text">Cédula de Identidad</label>
@@ -90,7 +114,7 @@
                         <input type="text" class="form-control" id="contacto" name="cont">
                     </div>
                 </div>
-                
+
                 <div class="row mt-3">
                     <div class="col">
                         <label for="correo" class="label-text">Correo Electrónico</label>
@@ -103,7 +127,7 @@
                         <small class="form-text">*Entre 8 y 16 dígitos con caracteres especiales</small>
                     </div>
                 </div>
-                
+
                 <div class="row mt-3 justify-content-center">
                     <div class="col-6 text-center">
                         <button class="btn btn-success" value="Registrar" name="nuevo">Registrar</button>
