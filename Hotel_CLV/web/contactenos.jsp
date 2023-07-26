@@ -64,6 +64,11 @@
               <label for="correo" class="form-label">Correo Electrónico</label>
               <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo electrónico" required>
             </div>
+              
+              <div class="col-md-66">
+              <label for="telefono" class="form-label">Telefono</label>
+              <input type="text" class="form-control" id="correo" name="telefono" placeholder="Ingrese su numero de contacto" required>
+            </div>
 
             <div class="col-md-12">
               <label for="asunto" class="form-label">Asunto</label>
@@ -81,7 +86,7 @@
             </div>
 
             <div class="col-md-6">
-              <label for="inputState" class="form-label">Estado</label>
+              <label for="inputState" class="form-label">Opciones</label>
               <select id="inputState" class="form-select" name="estado">
                 <option selected>Opciones</option>
                 <option>Precios</option>
