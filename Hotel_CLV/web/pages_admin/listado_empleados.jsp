@@ -25,10 +25,10 @@
                         <table class="table table">
                             <thead>
                                 <tr>
-                                    <th>Codigo</th>
+                                    <th>Código</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
-                                    <th>Cedula</th>
+                                    <th>Cédula</th>
                                     <th>Contacto</th>
                                     <th>Usuario</th> 
                                     <th>Perfil</th>
