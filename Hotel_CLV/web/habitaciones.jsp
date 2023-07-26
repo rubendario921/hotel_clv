@@ -78,7 +78,7 @@
                             + "<p class='text-center text-success' style='font-family: monospace'>"
                             + descripcion
                             + "</div>"
-                            + "</p>"
+                            + "</p>" 
                             + "</div>");
                 }
 
