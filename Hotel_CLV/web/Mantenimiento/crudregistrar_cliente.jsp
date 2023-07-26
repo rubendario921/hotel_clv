@@ -44,12 +44,11 @@
 
     } catch (SQLException e) {
         if (e.getErrorCode() == 1062) {
-            out.print("<script>alert('El correo ingresado ya existe en la base de datos');</script>");// 1062 es el código de error para valor duplicado en MySQL
+            out.print("<script>alert('El registro  ya existe en la base de datos, intente nuevamente');</script>");// 1062 es el código de error para valor duplicado en MySQL
+            out.print("<script>window.location.href='../registro.jsp'</script>");
         } else {
             // Si la excepción es por otro motivo, muestra un mensaje de error genérico
             out.print("<script>alert('Error al insertar el registro');</script>");
         }
     }
-
-
 %>
