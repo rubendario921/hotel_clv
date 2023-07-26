@@ -4,6 +4,7 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="Model.conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 
@@ -12,17 +13,10 @@
     String pass = request.getParameter("password");
 
     try {
-        String url = "jdbc:mysql://localhost:3306/hotel_clv?autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull";
-        String user = "root";
-        String pass1 = "12345";
-
+        conexion con = new conexion();
         String nombre = "";
-
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection(url, user, pass1);
-
         String sql = "SELECT * FROM personas WHERE per_usuario=? AND per_clave=?";
-        PreparedStatement pst = con.prepareStatement(sql);
+        PreparedStatement pst = con.getConexion().prepareCall(sql);
         pst.setString(1, usuario);
         pst.setString(2, pass);
         ResultSet rs = pst.executeQuery();
@@ -36,7 +30,6 @@
 <script>
     alert("Bienvenido, Administrador.");
     window.location.href = "../pages_admin/menu_admin.jsp"; // Redirige al menú del administrador
-
 </script>
 <%
 } else if (perfil == 2) {
@@ -46,7 +39,13 @@
     window.location.href = "../pages_admin/menu_admin.jsp"; // Redirige al menú del vendedor
 </script>
 <%
-    }
+} else if (perfil == 3) {
+%>
+<script>
+    alert("Bienvenido, Recepcionista.");
+    window.location.href = "../pages_admin/menu_admin.jsp"; // Redirige al menú del vendedor
+</script>
+<%
 } else {
 %>
 <script>
@@ -54,8 +53,8 @@
     window.history.back(); // Regresa a la página anterior después del inicio de sesión incorrecto
 </script>
 <%
+            }
         }
-
     } catch (Exception e) {
         e.printStackTrace();
     }
