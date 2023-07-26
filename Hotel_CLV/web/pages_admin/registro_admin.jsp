@@ -21,17 +21,20 @@
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Nombres Completos" aria-label="First name" id="nombre" name="nom">
                         </div>
+                        <br>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Apellidos Completos" aria-label="Last name" id="apellido" name="ape">
                         </div>
+                
                     </div>
                     <br>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Cedula de Identidad" aria-label="First name" id="cedula" name="cedu">
+                            <input type="text" class="form-control" placeholder="Cédula de Identidad" aria-label="First name" id="cedula" name="cedu">
                         </div>
+                        <br>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Telefono de Contacto" aria-label="Last name" id="contacto" name="cont">
+                            <input type="text" class="form-control" placeholder="Teléfono de Contacto" aria-label="Last name" id="contacto" name="cont">
                         </div>
                     </div>
                     <br>
@@ -40,8 +43,10 @@
                             <input type="email" class="form-control" placeholder="Correo Electronico" aria-label="First name" id="correo" name="corr">
                         </div>
                         <div class="col">
+                            <br>
                             <input type="text" class="form-control" placeholder="Usuario" aria-label="First name" id="usuario" name="usu">
                         </div>
+                        <br>
                         <div class="col">
                             <input type="password" class="form-control" placeholder="Contraseña" aria-label="Last name" id="clave" name="pass">
                         </div>
@@ -51,7 +56,7 @@
                         <div class="col">
                             <label>Rol: </label>
                             <select name="perfil" id="perfil" class="form-control">
-                                <option>Seleccionar una Opcion</option>
+                                <option>Seleccionar una Opción</option>
                                 <option value="1">Administrador</option>
                                 <option value="2">Supervisor</option>
                                 <option value="3">Recepcionista</option>
