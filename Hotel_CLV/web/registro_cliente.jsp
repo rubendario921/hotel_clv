@@ -55,12 +55,15 @@
     <div class="row">
         <div class="col text-center">
             <img class="img-fluid oval-image" src="assets/img/banner_img_registrate.jpg" alt="">
+            <br>
+            <br>
         </div>
     </div>
     
     <div class="row justify-content-center">
         <div class="col-6">
             <h3 class="text-center">Usuario Nuevo</h3>
+            <br>
             <form action="Mantenimiento/crudregistrar_cliente.jsp" method="POST">
                 <div class="row">
                     <div class="col">
@@ -79,7 +82,7 @@
                         <input type="text" class="form-control" id="cedula" name="cedu">
                     </div>  
                     <div class="col">
-                        <label for="usuario" class="label-text">Ingrese un usuario</label>
+                        <label for="usuario" class="label-text">Ingrese un Usuario</label>
                         <input type="text" class="form-control" id="usuario" name="usu">
                     </div>
                     <div class="col">
