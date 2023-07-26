@@ -38,17 +38,20 @@
                 out.print("<script>window.location.href='../login_cliente.jsp'</script>");
             } else {
                 out.print("<script>alert('Registro NO Guardado')</script>");
-                out.print("<script>window.location.href='../registro.jsp'</script>");
+                out.print("<script>window.location.href='../registro_cliente.jsp'</script>");
             }
         }
 
     } catch (SQLException e) {
         if (e.getErrorCode() == 1062) {
             out.print("<script>alert('El registro  ya existe en la base de datos, intente nuevamente');</script>");// 1062 es el código de error para valor duplicado en MySQL
-            out.print("<script>window.location.href='../registro.jsp'</script>");
+            out.print("<script>window.location.href='../registro_cliente.jsp'</script>");
+        } else if (e.getErrorCode() == 1048) {
+            out.print("<script>alert('Los campos no puede estar vacios,, intente nuevamente');</script>");// 1048 es el código de error para valor duplicado en MySQL
+            out.print("<script>window.location.href='../registro_cliente.jsp'</script>");
         } else {
-            // Si la excepción es por otro motivo, muestra un mensaje de error genérico
-            out.print("<script>alert('Error al insertar el registro');</script>");
         }
+        // Si la excepción es por otro motivo, muestra un mensaje de error genérico
+        out.print("<script>alert('Error al insertar el registro');</script>");
     }
 %>
