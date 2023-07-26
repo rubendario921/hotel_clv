@@ -52,8 +52,8 @@
                                     <td><%=rs.getString("per_cedula")%></td>
                                     <td><%=rs.getString("per_telefono")%></td>
                                     <td><%=rs.getString("per_usuario")%></td>
-                                    <td><%=rs.getString("per_perfil")%></td>
                                     <td><%=rs.getString("perfil_nombre")%></td>
+                                    <td><%=rs.getString("per_estado")%></td>
                                     <td>
                                         <a href="editar_admin.jsp?editar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <a href="../Mantenimiento/crudeliminar_admin.jsp?eliminar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
