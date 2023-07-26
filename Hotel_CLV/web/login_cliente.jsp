@@ -2,6 +2,52 @@
 <!DOCTYPE html>
 <%@include file="template/menu/header_menu.jsp" %>
 
+<style>
+    .container {
+        margin-top: 20px;
+    }
+
+    .form-control {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .form-control:focus {
+        outline: none;
+        box-shadow: 0 0 5px #719ECE;
+        border-color: #719ECE;
+    }
+
+    .btn {
+        padding: 10px 20px;
+    }
+
+    .alert-warning {
+        margin-top: 10px;
+    }
+
+    .form-text {
+        font-size: 12px;
+        color: #777;
+    }
+
+    .label-text {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .oval-image {
+        border-radius: 50%;
+        width: 250px; /* Ajusta el tamaño de la imagen */
+        height: 250px; /* Ajusta el tamaño de la imagen */
+        object-fit: cover; /* Ajusta el contenido de la imagen */
+    }
+</style>
+
+
+
 <script>
     function validarFormulario() {
         // Obtener los valores de los campos
@@ -20,10 +66,10 @@
     }
 </script>
 
-<div class="container mt-5">
+<div class="container text-center mt-5">
     <div class="row">
         <div class="col-md-6 offset-md-3 order-md-last">
-            <h1 class="text-success mb-4">Inicio de Sesión Usuarios</h1>
+            <h1 class="text-success mb-4">Portal Usuarios</h1>
             <h2>Inicio de Sesión</h2>
             <form action="procesos/carga_datos_cliente.jsp" method="POST" class="mt-4" onsubmit="return validarFormulario();">
                 <div class="mb-3">
@@ -42,10 +88,14 @@
                 </h6>
             </form>
         </div>
-        <div class="col-md-4 offset-md-1 order-md-first">
-            <img class="img-circle img-responsive" src="assets/img/login_admin.png" alt="Login Image">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <img class="img-fluid oval-image" src="assets/img/banner_img_logo_opcional.jpg" alt="">
+                   
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<%@include file="template/menu/footer_menu.jsp" %>
+    <%@include file="template/menu/footer_menu.jsp" %>
