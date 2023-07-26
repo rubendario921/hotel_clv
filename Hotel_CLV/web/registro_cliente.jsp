@@ -54,7 +54,7 @@
 <div class="container">
     <div class="row">
         <div class="col text-center">
-            <img class="img-fluid oval-image" src="assets/img/banner_img_registrate.jpg" alt="">
+            <img class="img-fluid oval-image" src="assets/img/banner_img_logo_opcional.jpg" alt="">
             <br>
             <br>
         </div>
