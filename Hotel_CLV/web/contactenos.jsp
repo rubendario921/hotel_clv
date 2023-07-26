@@ -66,7 +66,7 @@
             </div>
               
               <div class="col-md-66">
-              <label for="telefono" class="form-label">Telefono</label>
+              <label for="telefono" class="form-label">Teléfono</label>
               <input type="text" class="form-control" id="correo" name="telefono" placeholder="Ingrese su numero de contacto" required>
             </div>
 
@@ -90,7 +90,7 @@
               <select id="inputState" class="form-select" name="estado">
                 <option selected>Opciones</option>
                 <option>Precios</option>
-                <option>Estadia</option>
+                <option>Estadía</option>
                 <option>Habitaciones</option>
               </select>
             </div>
