@@ -9,7 +9,7 @@
 
 <style>
     .container {
-        margin-top: 20px;
+        margin-top: 50px;
     }
 
     .form-control {
@@ -45,9 +45,80 @@
 
     .oval-image {
         border-radius: 50%;
-        width: 250px; /* Ajusta el tamaño de la imagen */
-        height: 250px; /* Ajusta el tamaño de la imagen */
+        width: 200px; /* Ajusta el tamaño de la imagen */
+        height: 200px; /* Ajusta el tamaño de la imagen */
         object-fit: cover; /* Ajusta el contenido de la imagen */
+    }
+
+    /* Estilos para el formulario */
+    .form-wrapper {
+        background-color: #f9f9f9;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        width: 100%;
+    }
+
+    .form-group input[type="text"]:focus,
+    .form-group input[type="email"]:focus,
+    .form-group input[type="password"]:focus {
+        border-color: #719ECE;
+    }
+
+    .form-group .form-text {
+        color: #777;
+    }
+
+    .form-group .alert-warning {
+        margin-top: 5px;
+    }
+
+    .form-group .btn {
+        width: 100%;
+    }
+
+    /* Estilos para el botón Registrar */
+    .btn-registrar {
+        background-color: #27ae60;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    .btn-registrar:hover {
+        background-color: #219653;
+    }
+
+    .btn-registrar:focus {
+        outline: none;
+    }
+
+    /* Estilos para el encabezado del formulario */
+    .form-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .form-header h3 {
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
     }
 </style>
 
@@ -73,69 +144,49 @@
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
-
-
 <div class="container">
-    <div class="row">
-        <div class="col text-center">
-            <img class="img-fluid oval-image" src="assets/img/banner_img_logo_opcional.jpg" alt="">
-            <br>
-            <br>
-        </div>
-    </div>
-
     <div class="row justify-content-center">
-        <div class="col-6">
-            <h3 class="text-center">Usuario Nuevo</h3>
-            <br>
-            <form action="Mantenimiento/crudregistrar_cliente.jsp" method="POST" onsubmit="return validarFormulario();">
-                <div class="row">
-                    <div class="col">
+        <div class="col-md-6">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <img class="img-fluid oval-image" src="assets/img/banner_img_logo_opcional.jpg" alt="">
+                    <h3>Usuario Nuevo</h3>
+                </div>
+                <form action="Mantenimiento/crudregistrar_cliente.jsp" method="POST" onsubmit="return validarFormulario();">
+                    <div class="form-group">
                         <label for="nombre" class="label-text">Nombres Completos</label>
-                        <input type="text" class="form-control" id="nombre" name="nom">
+                        <input type="text" class="form-control" id="nombre" name="nom" required>
                     </div>
-                    <div class="col">
+                    <div class="form-group">
                         <label for="apellido" class="label-text">Apellidos Completos</label>
-                        <input type="text" class="form-control" id="apellido" name="ape">
-                    </div>                    
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col">
+                        <input type="text" class="form-control" id="apellido" name="ape" required>
+                    </div>
+                    <div class="form-group">
                         <label for="cedula" class="label-text">Cédula de Identidad</label>
-                        <input type="text" class="form-control" id="cedula" name="cedu">
-                    </div>  
-                    <div class="col">
+                        <input type="text" class="form-control" id="cedula" name="cedu" required>
+                    </div>
+                    <div class="form-group">
                         <label for="usuario" class="label-text">Ingrese un Usuario</label>
-                        <input type="text" class="form-control" id="usuario" name="usu">
+                        <input type="text" class="form-control" id="usuario" name="usu" required>
                     </div>
-                    <div class="col">
+                    <div class="form-group">
                         <label for="contacto" class="label-text">Teléfono</label>
-                        <input type="text" class="form-control" id="contacto" name="cont">
+                        <input type="text" class="form-control" id="contacto" name="cont" required>
                     </div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col">
+                    <div class="form-group">
                         <label for="correo" class="label-text">Correo Electrónico</label>
-                        <input type="email" class="form-control alert alert-warning" role="alert" id="correo" name="corr">
+                        <input type="email" class="form-control" id="correo" name="corr" required>
                         <small class="form-text">*Su inicio de sesión será con el correo electrónico</small>
                     </div>
-                    <div class="col">
+                    <div class="form-group">
                         <label for="clave" class="label-text">Contraseña</label>
-                        <input type="password" class="form-control alert alert-warning" role="alert" id="clave" name="pass">
+                        <input type="password" class="form-control" id="clave" name="pass" required>
                         <small class="form-text">*Entre 8 y 16 dígitos con caracteres especiales</small>
                     </div>
-                </div>
-
-                <div class="row mt-3 justify-content-center">
-                    <div class="col-6 text-center">
-                        <button class="btn btn-success" value="Registrar" name="nuevo">Registrar</button>
-                    </div>
-                </div>
-            </form>
+                    <button class="btn btn-registrar" value="Registrar" name="nuevo">Registrar</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-
 <%@ include file="template/menu/footer_menu.jsp" %>
