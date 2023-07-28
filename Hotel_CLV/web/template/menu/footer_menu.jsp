@@ -78,7 +78,7 @@
             </div>
             <div class="col-auto me-auto">
                 <i class="fa fa-fw fa-user text-white mr-3"></i>
-                <i class="">Proyecto Integrador - Elaborador por: Wladimir Campaña, Jhon Velasco, Ruben Carrillo,
+                <i class="">Proyecto Integrador - Elaborador por: Wladimir Campaña, Jhon Velasco, Ruben Carrillo
                 </i>
             </div>
         </div>
