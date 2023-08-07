@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Hotel CLV - El placer de dormir</title>
-    <meta charset="utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -77,6 +77,6 @@
     </nav>
     <!-- Close Header -->
     <!--Fin de Encabezado-->
-    <!-- Aquí va el contenido restante de la página -->
+    
 </body>
 </html>

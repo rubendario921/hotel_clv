@@ -57,15 +57,11 @@
         var cuidad = document.getElementById("cuidad").value.trim();
         var estado = document.getElementById("estado").value.trim();
 
-
         // Validar campos obligatorios
         if (nombres === "" || correo === "" || telefono === "" || asunto === "" || mensaje === "" || cuidad === "" || estado === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
-
-        // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
-
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
@@ -76,7 +72,7 @@
             <h2>Formulario de Contacto</h2>
             <div class="card">
                 <section>
-                    <form class="row g-3" title="Contact Form" action="Mantenimiento/crudregistrar_formulario.jsp" method="POST" onsubmit="return validarFormulario();">
+                    <form class="row g-3" action="Mantenimiento/crudregistrar_formulario.jsp" method="POST" onsubmit="return validarFormulario();">
                         <div class="col-md-6">
                             <label for="nombre" class="form-label">Nombre</label>
                             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" >
@@ -87,7 +83,7 @@
                             <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo electrónico" >
                         </div>
 
-                        <div class="col-md-66">
+                        <div class="col-md-6">
                             <label for="telefono" class="form-label">Teléfono</label>
                             <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de contacto" >
                         </div>
@@ -108,11 +104,11 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="estado" class="form-label">Opciones</label>
-                            <select id="estado"  name="estado">
+                            <label for="estado" class="form-label">Opciones</label>-
+                            <select class="btn" id="estado"  name="estado">
                                 <option>Opciones</option>
                                 <option value="1">Precios</option>
-                                <option value="2">Estadía</option
+                                <option value="2">Estadía</option>
                                 <option value="3">Habitaciones</option>
                             </select>
                         </div>
