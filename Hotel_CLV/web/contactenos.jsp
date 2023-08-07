@@ -104,7 +104,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="estado" class="form-label">Opciones</label>-
+                            <label for="estado" class="form-label">Opciones</label>
                             <select class="btn" id="estado"  name="estado">
                                 <option>Opciones</option>
                                 <option value="1">Precios</option>
