@@ -65,7 +65,7 @@
                         </table>
                     </div>
                 </div>
-
+ <a href="menu_admin.jsp" class="btn btn-primary"><i class="fa fa-arrow-left" title="Regresar" name="regresar"></i> Regresar al menú principal</a>
             </div>  
             <!-- /.col-lg-12 -->
         </div>
