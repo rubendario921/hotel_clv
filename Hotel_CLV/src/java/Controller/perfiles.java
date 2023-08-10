@@ -10,20 +10,41 @@ package Controller;
  * @author Ruben Dario
  */
 public class perfiles {
-    
+
     private Integer perfilId;
-    private String letra;
-    private String nombre;
+    private String perfilLetra;
+    private String perfilNombre;
 
     public perfiles() {
     }
 
     public perfiles(Integer perfilId, String letra, String nombre) {
         this.perfilId = perfilId;
-        this.letra = letra;
-        this.nombre = nombre;
+        this.perfilLetra = letra;
+        this.perfilNombre = nombre;
     }
-    
-    
-    
+
+    public Integer getPerfilId() {
+        return perfilId;
+    }
+
+    public void setPerfilId(Integer perfilId) {
+        this.perfilId = perfilId;
+    }
+
+    public String getPerfilLetra() {
+        return perfilLetra;
+    }
+
+    public void setPerfilLetra(String perfilLetra) {
+        this.perfilLetra = perfilLetra;
+    }
+
+    public String getPerfilNombre() {
+        return perfilNombre;
+    }
+
+    public void setPerfilNombre(String perfilNombre) {
+        this.perfilNombre = perfilNombre;
+    } 
 }
