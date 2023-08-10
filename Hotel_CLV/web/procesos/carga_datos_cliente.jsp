@@ -21,7 +21,7 @@
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, user, pass1);
 
-        String sql = "SELECT * FROM personas WHERE per_correo=? and per_clave=? and per_perfil= 4";
+        String sql = "SELECT * FROM personas WHERE per_correo=? and per_clave=? and perfiles_perfil_id= 4";
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, usuario);
         pst.setString(2, pass);

@@ -24,7 +24,7 @@
         if (rs.next()) {
             nombre = rs.getString("per_nombres");
             session.setAttribute("nombre", nombre);
-            int perfil = rs.getInt("per_perfil");
+            int perfil = rs.getInt("perfiles_perfil_id");
             if (perfil == 1) {
 %>
 <script>

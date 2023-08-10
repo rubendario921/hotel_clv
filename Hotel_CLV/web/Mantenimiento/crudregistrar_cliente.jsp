@@ -21,7 +21,7 @@
             String pass = request.getParameter("pass");
             //int rol = Integer.parseInt(request.getParameter("rol"));
 
-            String sql = "INSERT INTO personas (per_nombres,per_apellidos,per_cedula,per_telefono,per_correo,per_usuario,per_clave,per_estado,per_perfil)values(?,?,?,?,?,?,?,?,?);";
+            String sql = "INSERT INTO personas (per_nombres,per_apellidos,per_cedula,per_telefono,per_correo,per_usuario,per_clave,perfiles_perfil_id,estados_esta_id)values(?,?,?,?,?,?,?,?,?);";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setString(1, nom);
             pst.setString(2, ape);
@@ -30,8 +30,8 @@
             pst.setString(5, corr);
             pst.setString(6, usu);
             pst.setString(7, pass);
-            pst.setString(8, "A");
-            pst.setString(9, "4");
+            pst.setString(8, "4");
+            pst.setString(9, "1");
             int n = pst.executeUpdate();
             if (n > 0) {
                 out.print("<script>alert('Registro Guardado')</script>");
