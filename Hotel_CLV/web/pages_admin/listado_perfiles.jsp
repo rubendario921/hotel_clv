@@ -17,8 +17,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
-        
         <!--Tabla para mostrar el listado de los perfiles-->
         <table id="tabMostrar"> 
             <thead>
@@ -39,15 +37,12 @@
                     <td><%= perfil.getPerfilLetra()%></td>
                     <td><%= perfil.getPerfilNombre()%></td>
                     <td>                        
-                        <!--update=":tabMostrar"-->
-                        <a href="editar_cliente.jsp?editar=true&id=<%=perfil.getPerfilId()%>" class="btn btn-warning"><i title="Editar" name="editar"></i></a>
-                                        
-                        <!--update=":tabMostrar"-->
+                        <!--modificar update=":tabMostrar"-->
+                        <!--eliminar update=":tabMostrar"-->
                     </td>
                 </tr>
                 <%}%>
             </tbody>
-        </table>  
-            
+        </table>
     </body>
 </html>

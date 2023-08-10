@@ -19,8 +19,7 @@ public class PerfilesDao {
     conexion con = new conexion();
 
     public List<perfiles> mostrarLista() {
-        List<perfiles> perfiles = new ArrayList<>();
-        //String mostrar = null;
+        List<perfiles> perfiles = new ArrayList<>();        
         try {
             String sql = "SELECT * FROM hotel_clv.perfiles;";
             Statement pst = con.getConexion().prepareCall(sql);
@@ -44,6 +43,28 @@ public class PerfilesDao {
     public String crearPerfil(String letra, String nombre) {
         String nuevo = null;
         try {
+            String sql = "INSERT INTO perfiles (perfil_letra,perfil_nombre) VALUES (?,?);";
+            PreparedStatement pst = con.getConexion().prepareCall(sql);
+            pst.setString(1, letra);
+            pst.setString(2, nombre);
+
+            int n = pst.executeUpdate();
+            if (n > 0) {
+                nuevo = "Registro Exitoso.";
+            } else {
+                nuevo = "Registro no Exitoso.";
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return nuevo;
+    }
+    
+    
+       public String modificarPerfil(String letra, String nombre) {
+        String nuevo = null;
+        try {
             String sql = "INSERT INTO perfiles (perfil_letra,perfil_nombre) VALUES (?,?,?);";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setString(2, letra);
@@ -51,9 +72,9 @@ public class PerfilesDao {
 
             int n = pst.executeUpdate();
             if (n > 0) {
-                nuevo = "Registro Exitoso.";
+                nuevo = "Registro Modificado Exitosamente.";
             } else {
-                nuevo = "Registro no Exitoso.";
+                nuevo = "Registro NO Modificado.";
             }
 
         } catch (Exception e) {

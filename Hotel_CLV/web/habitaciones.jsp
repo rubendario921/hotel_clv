@@ -4,6 +4,9 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="Controller.Habitaciones"%>
+<%@page import="java.util.List"%>
+<%@page import="Controller.HabitacionesDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@page import="java.sql.*"%>
 <!DOCTYPE html>
@@ -47,46 +50,32 @@
     </head>
     <!--Galeria de imagenes-->
     <body>
-
-
-
         <%@include file="template/menu/header_menu.jsp" %>
-
-        <h2>Listado de todas las habitaciones</h2>
+        <table>
+            <h2>Listado de todas las habitaciones</h2>
+            <thead>
+                <tr>
+                    <th>Nombre Habitacion</th>
+                    <th>Tipo de Habitacion</th>
+                    <th>Imagen</th>
+                    <th>Descripcion</th>
+                </tr> 
+            </thead>
+            <tbody>
+                <%
+                    HabitacionesDao mostrar_habi = new HabitacionesDao();
+                    List<Habitaciones> habitaciones = mostrar_habi.mostrarhabi();
+                    for (Habitaciones habitacion : habitaciones) {%>
+                <tr>
+                    <td><%=habitacion.getHabiNombre()%></td>
+                    <td><%=habitacion.getHabiTipo()%></td>
+                    <td><%=habitacion.getImgId()%></td>
+                    <td><%=habitacion.getHabidescri()%></td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
         <br>
-        <%
-
-            try {
-
-                String url = "jdbc:mysql://localhost:3306/hotel_clv?autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull";
-                String user = "root";
-                String pass1 = "12345";
-
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection(url, user, pass1);
-
-                String sql = "SELECT * FROM imagenes WHERE img_estado='A'";
-                PreparedStatement pst = con.prepareStatement(sql);
-                ResultSet rs = pst.executeQuery();
-
-                while (rs.next()) {
-                    String path = rs.getString("img_direccion");
-                    String descripcion = rs.getString("img_descripcion");
-                    out.print("<div class='img-container'>"
-                            + path
-                            + "<div class='container px-4 text-center'>"
-                            + "<p class='text-center text-success' style='font-family: monospace'>"
-                            + descripcion
-                            + "</div>"
-                            + "</p>" 
-                            + "</div>");
-                }
-
-            } catch (Exception e) {
-
-            } finally {
-            }
-        %>
         <!--<div class="img-container">
             <img class="img-fluid" src="./assets/img/habitación_1.jpg" alt="">
             <img class="img-fluid" src="./assets/img/Habitación_2.jpg" alt="">
