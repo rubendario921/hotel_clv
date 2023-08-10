@@ -11,14 +11,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
+<%@include file="../template/admin/header_admin.jsp" %>
+    
         <!--Tabla para mostrar el listado de los perfiles-->
-        <table id="tabMostrar"> 
+        <table id="tabMostrar" class="form-group"> 
             <thead>
                 <tr>
                     <th>Codigo</th>
@@ -44,5 +40,5 @@
                 <%}%>
             </tbody>
         </table>
-    </body>
-</html>
+    
+<%@include file="../template/admin/footer_admin.jsp" %>
