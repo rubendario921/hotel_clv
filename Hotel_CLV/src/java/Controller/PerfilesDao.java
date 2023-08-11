@@ -6,7 +6,7 @@
 package Controller;
 
 import Model.conexion;
-import Controller.perfiles;
+import Controller.Perfiles;
 import java.sql.*;
 import java.util.*;
 
@@ -18,8 +18,8 @@ public class PerfilesDao {
 
     conexion con = new conexion();
 
-    public List<perfiles> mostrarLista() {
-        List<perfiles> perfiles = new ArrayList<>();        
+    public List<Perfiles> mostrarLista() {
+        List<Perfiles> perfiles = new ArrayList<>();
         try {
             String sql = "SELECT * FROM hotel_clv.perfiles;";
             Statement pst = con.getConexion().prepareCall(sql);
@@ -29,21 +29,21 @@ public class PerfilesDao {
                 String perfilLetra = rs.getString("perfil_letra");
                 String perfilNombre = rs.getString("perfil_nombre");
 
-                perfiles perfil = new perfiles(perfilId, perfilLetra, perfilNombre);
+                Perfiles perfil = new Perfiles(perfilId, perfilLetra, perfilNombre);
                 perfiles.add(perfil);
             }
             rs.close();
             pst.close();
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return perfiles;
-
     }
 
     public String crearPerfil(String letra, String nombre) {
         String nuevo = null;
         try {
-            String sql = "INSERT INTO perfiles (perfil_letra,perfil_nombre) VALUES (?,?);";
+            String sql = "INSERT INTO hotel_clv.perfiles (perfil_letra,perfil_nombre) VALUES (?,?);";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setString(1, letra);
             pst.setString(2, nombre);
@@ -60,9 +60,8 @@ public class PerfilesDao {
         }
         return nuevo;
     }
-    
-    
-       public String modificarPerfil(String letra, String nombre) {
+
+    public String modificarPerfil(String letra, String nombre) {
         String nuevo = null;
         try {
             String sql = "INSERT INTO perfiles (perfil_letra,perfil_nombre) VALUES (?,?,?);";
@@ -82,5 +81,4 @@ public class PerfilesDao {
         }
         return nuevo;
     }
-
 }

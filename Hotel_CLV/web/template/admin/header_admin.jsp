@@ -219,13 +219,12 @@
                             </li>
                         </ul>
                     <!--/.nav-second-level-->
-                    </li>
-                    -->
+                    </li>                    
                     <li>
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+                        <i class="fa fa-files-o fa-fw"></i>Opciones Adicionales<span class="fa arrow"></span>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="blank.html">Blank Page</a>
+                                <a href="../pages_admin/listado_perfiles.jsp">Listado Perfil</a>
                             </li>
                             <li>
                                 <a href="login.html">Login Page</a>

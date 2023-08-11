@@ -7,21 +7,21 @@ package Controller;
 
 /**
  *
- * @author Ruben Dario
+ * @author Ruben Dario 921
  */
-public class perfiles {
+public class Perfiles {
 
     private Integer perfilId;
     private String perfilLetra;
     private String perfilNombre;
 
-    public perfiles() {
+    public Perfiles() {
     }
 
-    public perfiles(Integer perfilId, String letra, String nombre) {
+    public Perfiles(Integer perfilId, String perfilLetra, String perfilNombre) {
         this.perfilId = perfilId;
-        this.perfilLetra = letra;
-        this.perfilNombre = nombre;
+        this.perfilLetra = perfilLetra;
+        this.perfilNombre = perfilNombre;
     }
 
     public Integer getPerfilId() {
@@ -46,5 +46,6 @@ public class perfiles {
 
     public void setPerfilNombre(String perfilNombre) {
         this.perfilNombre = perfilNombre;
-    } 
+    }
+
 }

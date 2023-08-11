@@ -4,9 +4,8 @@
     Author     : Ruben Dario 921
 --%>
 
-<%@page import="Controller.Habitaciones"%>
+<%@page import="Controller.*"%>
 <%@page import="java.util.List"%>
-<%@page import="Controller.HabitacionesDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@page import="java.sql.*"%>
 <!DOCTYPE html>
@@ -56,21 +55,21 @@
             <thead>
                 <tr>
                     <th>Nombre Habitacion</th>
-                    <th>Tipo de Habitacion</th>
-                    <th>Imagen</th>
+                    <th>Tipo de Habitacion</th>                    
                     <th>Descripcion</th>
+                    <th>Imagen</th>
                 </tr> 
             </thead>
             <tbody>
                 <%
-                    HabitacionesDao mostrar_habi = new HabitacionesDao();
-                    List<Habitaciones> habitaciones = mostrar_habi.mostrarhabi();
+                    HabitacionesDao hListado = new HabitacionesDao();
+                    List<Habitaciones> habitaciones = hListado.mostrarhabi();
                     for (Habitaciones habitacion : habitaciones) {%>
                 <tr>
                     <td><%=habitacion.getHabiNombre()%></td>
-                    <td><%=habitacion.getHabiTipo()%></td>
-                    <td><%=habitacion.getImgId()%></td>
+                    <td><%=habitacion.getHabiTipo()%></td>                    
                     <td><%=habitacion.getHabidescri()%></td>
+                    <td><%=habitacion.getImagen()%></td>
                 </tr>
                 <%}%>
             </tbody>
