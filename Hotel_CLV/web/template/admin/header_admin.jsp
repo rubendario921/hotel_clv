@@ -221,13 +221,14 @@
                     <!--/.nav-second-level-->
                     </li>                    
                     <li>
+                        <br>
                         <i class="fa fa-files-o fa-fw"></i>Opciones Adicionales<span class="fa arrow"></span>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../pages_admin/listado_perfiles.jsp">Listado Perfil</a>
+                                <a href="../pages_admin/listado_perfiles.jsp">Listado Perfiles</a>
                             </li>
                             <li>
-                                <a href="login.html">Login Page</a>
+                                <a href="../pages_admin/listado_estados.jsp">Listado Estados</a>
                             </li>
                         </ul>
                         <br>

@@ -1,11 +1,11 @@
 <%-- 
-    Document   : listado_perfiles
-    Created on : 10/08/2023, 13:07:32
-    Author     : Ruben Dario
+    Document   : listado_estados
+    Created on : 11-ago-2023, 1:22:29
+    Author     : Ruben Dario 921
 --%>
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Controller.Perfiles"%>
-<%@page import="Controller.PerfilesDao"%>
 <%@page import="java.util.*"%>
 <%@include file="../template/admin/header_admin.jsp" %>
 <!DOCTYPE html>    
@@ -15,26 +15,26 @@
         <div class="row">
             <div class="col-lg-12">
                 <div>
-                    <h1 class="page-header">Listado de Perfiles </h1>
+                    <h1 class="page-header">Listado de Estados </h1>
                 </div>
                 <table> 
                     <thead>
                         <tr>
                             <th>Codigo</th>
                             <th>Letra</th>
-                            <th>Nombre</th>                    
+                            <th>Descripcion</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!--Extraer la informacion de la java class-->
                         <%
-                            PerfilesDao mostrar_perfiles = new PerfilesDao();
-                            List<Perfiles> perfiles = mostrar_perfiles.mostrarLista();
-                            for (Perfiles perfil : perfiles) {%>
+                            EstadosDao mostrar_estados = new EstadosDao();
+                            List<Estados> estados = mostrar_estados.mostrarEstados();
+                            for (Estados estado : estados) {%>
                         <tr>
-                            <td><%= perfil.getPerfilId()%></td>
-                            <td><%= perfil.getPerfilLetra()%></td>
-                            <td><%= perfil.getPerfilNombre()%></td>
+                            <td><%= estado.getEstaId()%></td>
+                            <td><%= estado.getEstaLetra()%></td>
+                            <td><%= estado.getEstaDescripcion()%></td>
                             <td>                        
                                 <!--modificar update=":tabMostrar"-->
                                 <!--eliminar update=":tabMostrar"-->
@@ -49,3 +49,4 @@
 </div>
 
 <%@include file="../template/admin/footer_admin.jsp" %>
+
