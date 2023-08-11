@@ -29,11 +29,11 @@ public class HabitacionesDao {
                 int habiId = rs.getInt("habi_id");
                 String habiNombre = rs.getString("habi_nombre");
                 String habiTipo = rs.getString("habi_tipo");
-                String habiPiso = rs.getNString("habi_piso");
-                String habiDepar = rs.getNString("habi_depar");
-                String habiDescripcion = rs.getNString("habi_descripcion");
+                String habiPiso = rs.getString("habi_piso");
+                String habiDepar = rs.getString("habi_depar");
+                String habiDescripcion = rs.getString("habi_descripcion");
                 BigDecimal habiValorD = rs.getBigDecimal("habi_valor_diario");
-                String habiImg = rs.getNString("habi_dimg");
+                String habiImg = rs.getString("habi_dimg");
                 int insuId = rs.getInt("insumos_insu_id");
                 int estaId = rs.getInt("estados_esta_id");
 
