@@ -4,10 +4,10 @@
     Author     : Ruben Dario 921
 --%>
 
-<%@page import="Controller.*"%>
+<%@page import="Controller.Habitaciones"%>
 <%@page import="java.util.List"%>
+<%@page import="Controller.HabitacionesDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,9 +47,10 @@
             });
         </script>
     </head>
+    <%@include file="template/menu/header_menu.jsp" %>
     <!--Galeria de imagenes-->
     <body>
-        <%@include file="template/menu/header_menu.jsp" %>
+
         <table>
             <h2>Listado de todas las habitaciones</h2>
             <thead>
@@ -62,14 +63,17 @@
             </thead>
             <tbody>
                 <%
-                    HabitacionesDao hListado = new HabitacionesDao();
-                    List<Habitaciones> habitaciones = hListado.mostrarhabi();
-                    for (Habitaciones habitacion : habitaciones) {%>
-                <tr>
+                    HabitacionesDao mostar_habitaciones = new HabitacionesDao();
+                    List<Habitaciones> habitaciones = mostar_habitaciones.mostrarMenuHabi();
+                    for (Habitaciones habitacion : habitaciones){%>
+                <tr>                    
                     <td><%=habitacion.getHabiNombre()%></td>
                     <td><%=habitacion.getHabiTipo()%></td>                    
-                    <td><%=habitacion.getHabidescri()%></td>
-                    <td><%=habitacion.getImagen()%></td>
+                    <td><%=habitacion.getHabiDescripcion()%></td>
+                    <td><%=habitacion.getHabiImg()%></td>
+                    <td>
+                        
+                    </td>
                 </tr>
                 <%}%>
             </tbody>

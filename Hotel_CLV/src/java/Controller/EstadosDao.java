@@ -6,7 +6,6 @@
 package Controller;
 
 import Model.conexion;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import java.sql.*;
 import java.util.*;
 
@@ -28,15 +27,16 @@ public class EstadosDao {
                 int estaId = rs.getInt("esta_id");
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
-                
+
                 Estados estado = new Estados(estaId, estaLetra, estaDescripcion);
-                estados.add(estado);               
+                estados.add(estado);
             }
             rs.close();
             pst.close();
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
         }
         return estados;
     }
