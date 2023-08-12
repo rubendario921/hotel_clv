@@ -21,8 +21,8 @@
             }
 
             .img-fluid {
-                width: 300px; /* Ajusta el tamaño según tus preferencias */
-                height: 200px; /* Ajusta el tamaño según tus preferencias */
+                width: 200px; /* Ajusta el tamaño según tus preferencias */
+                height: 100px; /* Ajusta el tamaño según tus preferencias */
                 cursor: pointer;
                 transition: transform 0.3s ease-in-out;
                 margin-right: 10px; /* Espaciado entre imágenes */
@@ -49,15 +49,16 @@
     </head>
     <%@include file="template/menu/header_menu.jsp" %>
     <!--Galeria de imagenes-->
-    <body>
+    <body style="text-align: center;"></body>
 
         <table>
+            
             <h2>Listado de todas las habitaciones</h2>
             <thead> 
                 <tr>
-                    <th>Nombre Habitacion</th>
-                    <th>Tipo de Habitacion</th>                    
-                    <th>Descripcion</th>
+                    <th>Nombre Habitación</th>
+                    <th>Tipo de Habitación</th>                    
+                    <th>Descripción</th>
                     <th>Imagen</th>
                 </tr> 
             </thead>
