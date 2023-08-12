@@ -39,7 +39,7 @@
                             <tbody>
                                 <%
                                     conexion cn = new conexion();
-                                    String sql = "SELECT * FROM personas INNER JOIN perfiles ON personas.per_perfil = perfiles.perfil_id WHERE personas.per_perfil  NOT IN ('4');";
+                                    String sql = "SELECT * FROM hotel_clv.personas WHERE perfiles_perfil_id != 4;";
                                     Statement st = cn.getConexion().createStatement();
                                     ResultSet rs = st.executeQuery(sql);
 
@@ -52,8 +52,7 @@
                                     <td><%=rs.getString("per_cedula")%></td>
                                     <td><%=rs.getString("per_telefono")%></td>
                                     <td><%=rs.getString("per_usuario")%></td>
-                                    <td><%=rs.getString("perfil_nombre")%></td>
-                                    <td><%=rs.getString("per_estado")%></td>
+                                    
                                     <td>
                                         <a href="editar_admin.jsp?editar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <a href="../Mantenimiento/crudeliminar_admin.jsp?eliminar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
@@ -65,7 +64,7 @@
                         </table>
                     </div>
                 </div>
- <a href="menu_admin.jsp" class="btn btn-primary"><i class="fa fa-arrow-left" title="Regresar" name="regresar"></i> Regresar al menú principal</a>
+                <a href="menu_admin.jsp" class="btn btn-primary"><i class="fa fa-arrow-left" title="Regresar" name="regresar"></i> Regresar al menú principal</a>
             </div>  
             <!-- /.col-lg-12 -->
         </div>

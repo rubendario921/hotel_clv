@@ -32,7 +32,7 @@
                             <tbody>
                                 <%
                                     conexion cn = new conexion();
-                                    String sql = "SELECT * FROM personas WHERE per_perfil= '4'";
+                                    String sql = "SELECT * FROM hotel_clv.personas WHERE perfiles_perfil_id = 4;";
                                     Statement st = cn.getConexion().createStatement();
                                     ResultSet rs = st.executeQuery(sql);
 
