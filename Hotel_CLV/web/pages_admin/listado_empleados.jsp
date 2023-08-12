@@ -52,7 +52,39 @@
                                     <td><%=rs.getString("per_cedula")%></td>
                                     <td><%=rs.getString("per_telefono")%></td>
                                     <td><%=rs.getString("per_usuario")%></td>
-                                    
+                                    <td><%int perfil = rs.getInt("perfiles_perfil_id");
+                                        switch (perfil) {
+
+                                            case 1:
+                                                out.print("Administrador");
+                                                break;
+                                            case 2:
+                                                out.print("Supervisor");
+                                                break;
+                                            case 3:
+                                                out.print("Recepcionista");
+                                                break;
+                                            case 4:
+                                                out.print("Cliente");
+                                                break;
+
+                                        }
+
+
+                                        %></td>
+                                    <td><% int estado = rs.getInt("estados_esta_id");
+                                        switch (estado) {
+
+                                            case 1:
+                                                out.print("Activo");
+                                                break;
+                                            case 2:
+                                                out.print("Inactivo");
+                                                break;
+                                        }
+
+                                        %></td>
+
                                     <td>
                                         <a href="editar_admin.jsp?editar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <a href="../Mantenimiento/crudeliminar_admin.jsp?eliminar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
