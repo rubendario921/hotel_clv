@@ -53,7 +53,7 @@
 
         <table>
             <h2>Listado de todas las habitaciones</h2>
-            <thead>
+            <thead> 
                 <tr>
                     <th>Nombre Habitacion</th>
                     <th>Tipo de Habitacion</th>                    
@@ -65,14 +65,14 @@
                 <%
                     HabitacionesDao mostar_habitaciones = new HabitacionesDao();
                     List<Habitaciones> habitaciones = mostar_habitaciones.mostrarMenuHabi();
-                    for (Habitaciones habitacion : habitaciones){%>
+                    for (Habitaciones habitacion : habitaciones) {%>
                 <tr>                    
                     <td><%=habitacion.getHabiNombre()%></td>
                     <td><%=habitacion.getHabiTipo()%></td>                    
                     <td><%=habitacion.getHabiDescripcion()%></td>
-                    <td><%=habitacion.getHabiImg()%></td>
+                    <td><img class="img-fluid" src="./<%=habitacion.getHabiImg()%>"></td>
                     <td>
-                        
+
                     </td>
                 </tr>
                 <%}%>

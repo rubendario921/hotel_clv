@@ -24,8 +24,7 @@
                         <br>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Apellidos Completos" aria-label="Last name" id="apellido" name="ape">
-                        </div>
-                
+                        </div>                
                     </div>
                     <br>
                     <div class="row">

@@ -16,6 +16,7 @@ import java.util.*;
 public class EstadosDao {
 
     conexion con = new conexion();
+// Metodo para Mostrar informacion
 
     public List<Estados> mostrarEstados() {
         List<Estados> estados = new ArrayList<>();
@@ -39,5 +40,20 @@ public class EstadosDao {
         } finally {
         }
         return estados;
+    }
+
+    //Metodo para agregar informacion
+    public void agregarEstado(Estados estado) {
+        try {
+            String sql = "INSERT INTO hotel_clv.estados (esta_letra, esta_descripcion) VALUES (?, ?);";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql);
+            pst.setString(1, estado.getEstaLetra());
+            pst.setString(2, estado.getEstaDescripcion());
+            pst.executeUpdate();
+            pst.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        }
     }
 }
