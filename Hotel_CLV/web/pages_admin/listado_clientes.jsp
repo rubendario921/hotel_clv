@@ -25,7 +25,9 @@
                                     <th>Apellido</th>
                                     <th>Cédula</th>
                                     <th>Contacto</th>
-                                    <th>Correo</th>                                    
+                                    <th>Correo</th>
+                                    <th>Contraseña</th>
+                                    
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -45,6 +47,8 @@
                                     <td><%=rs.getString("per_cedula")%></td>
                                     <td><%=rs.getString("per_telefono")%></td>
                                     <td><%=rs.getString("per_correo")%></td>
+                                    <td><%=rs.getString("per_clave")%></td>
+                                    
                                     <td>
                                         <a href="editar_cliente.jsp?editar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <a href="../Mantenimiento/crudeliminar_cliente.jsp?eliminar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
