@@ -23,7 +23,7 @@
             String estado = request.getParameter("est");
             //int rol = Integer.parseInt(request.getParameter("rol"));
             String sql = "UPDATE personas "
-                    + "SET per_nombres = ?, per_apellidos = ?, per_cedula = ?, per_telefono = ?, per_correo = ?, per_usuario=?, per_clave = ?, estados_esta_id = ?"
+                    + "SET per_nombres = ?, per_apellidos = ?, per_cedula = ?, per_telefono = ?, per_correo = ?, per_usuario=?, per_clave = ?, per_estado = ?"
                     + "WHERE per_id = ?";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setString(1, nombre);

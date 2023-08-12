@@ -11,8 +11,8 @@
 <!--Ingreso por base de datos--->
 <%
     // Consultas SQL para obtener la cantidad de clientes, empleadores y productos
-    String sql_clientes = "SELECT COUNT(*) as cant_cliente FROM personas WHERE perfiles_perfil_id =4;";
-    String sql_empleadores = "SELECT COUNT(*) AS cant_empleador FROM personas WHERE perfiles_perfil_id NOT IN (4);";
+    String sql_clientes = "SELECT COUNT(*) as cant_cliente FROM personas WHERE per_perfil ='4';";
+    String sql_empleadores = "SELECT COUNT(*) AS cant_empleador FROM personas WHERE per_perfil NOT IN ('4');";
     //String sql_productos = "SELECT COUNT(*) as cant_productos FROM productos;";
 
     // Ejecuta las consultas y guarda los resultados en variables

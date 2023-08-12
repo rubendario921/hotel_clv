@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * @author Ruben Dario 921
  */
 public class Habitaciones {
-    
+
     private Integer habiId;
     private String habiNombre;
     private String habiTipo;
@@ -38,6 +38,14 @@ public class Habitaciones {
         this.habiImg = habiImg;
         this.insuId = insuId;
         this.estaId = estaId;
+    }
+
+    public Habitaciones(Integer habiId, String habiNombre, String habiTipo, String habiDescripcion, String habiImg) {
+        this.habiId = habiId;
+        this.habiNombre = habiNombre;
+        this.habiTipo = habiTipo;
+        this.habiDescripcion = habiDescripcion;
+        this.habiImg = habiImg;
     }
 
     public Integer getHabiId() {
@@ -119,6 +127,5 @@ public class Habitaciones {
     public void setEstaId(Integer estaId) {
         this.estaId = estaId;
     }
-    
-    
+
 }
