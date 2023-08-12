@@ -39,7 +39,7 @@
                         <h2 class="mb-0 inicio-sesion">Inicio de Sesión</h2>
                         </div>
                         <div class="card-body">
-                            <form action="procesos/carga_datos_admin.jsp" method="POST" onsubmit="return validarFormulario();">
+                            <form action="procesos/carga_datos.jsp" method="POST" onsubmit="return validarFormulario();">
                                 <div class="mb-3">
                                     <label for="usuario" class="form-label"><strong>Usuario</strong></label>
                                     <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su usuario empresarial">

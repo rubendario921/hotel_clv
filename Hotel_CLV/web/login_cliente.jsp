@@ -65,7 +65,7 @@
                         <h2 class="mb-0">Inicio de Sesión</h2>
                     </div>
                     <div class="card-body">
-                        <form action="procesos/carga_datos_cliente.jsp" method="POST" onsubmit="return validarFormulario();">
+                        <form action="procesos/carga_datos.jsp" method="POST" onsubmit="return validarFormulario();">
                             <div class="mb-3">
                                 <label for="email" class="form-label label-text">Correo Electrónico</label>
                                 <input type="email" class="form-control" id="correo" name="correo" placeholder="example@hoteldeluxe.com" required>

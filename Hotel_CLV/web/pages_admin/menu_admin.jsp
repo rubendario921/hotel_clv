@@ -27,7 +27,6 @@
     try {
         conexion cn = new conexion();
         Statement st = cn.getConexion().createStatement();
-
         ResultSet rs = st.executeQuery(sql_clientes);
         while (rs.next()) {
             cantClientes = rs.getInt("cant_cliente");
