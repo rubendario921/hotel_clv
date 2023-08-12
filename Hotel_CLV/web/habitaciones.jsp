@@ -70,10 +70,7 @@
                     <td><%=habitacion.getHabiNombre()%></td>
                     <td><%=habitacion.getHabiTipo()%></td>                    
                     <td><%=habitacion.getHabiDescripcion()%></td>
-                    <td><img class="img-fluid" src="./<%=habitacion.getHabiImg()%>"></td>
-                    <td>
-
-                    </td>
+                    <td><img class="img-fluid" src="./<%=habitacion.getHabiImg()%>" alt=" "></td>                    
                 </tr>
                 <%}%>
             </tbody>
