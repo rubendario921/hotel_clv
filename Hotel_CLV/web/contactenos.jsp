@@ -54,11 +54,10 @@
         var telefono = document.getElementById("telefono").value.trim();
         var asunto = document.getElementById("asunto").value.trim();
         var mensaje = document.getElementById("mensaje").value.trim();
-        var cuidad = document.getElementById("cuidad").value.trim();
-        var estado = document.getElementById("estado").value.trim();
+        var ciudad = document.getElementById("ciudad").value.trim();
 
         // Validar campos obligatorios
-        if (nombres === "" || correo === "" || telefono === "" || asunto === "" || mensaje === "" || cuidad === "" || estado === "") {
+        if (nombres === "" || correo === "" || telefono === "" || asunto === "" || mensaje === "" || ciudad === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -99,30 +98,18 @@
                         </div>
 
                         <div class="col-md-6">
-                            <label for="cuidad" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" id="ciudad" placeholder="Quito, Ecuador" name="ciudad">
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="estado" class="form-label">Opciones</label>
-                            <select class="btn" id="estado"  name="estado">
-                                <option>Opciones</option>
-                                <option value="1">Precios</option>
-                                <option value="2">Estadía</option>
-                                <option value="3">Habitaciones</option>
-                            </select>
-                        </div>
-
-                        <div class="col-12">
-                            <!--<fieldset>
+                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad de residencia" >
+                        </div>                      
+                        <!--<div class="col-12">
+                            <fieldset>
                                 <legend class="form-label">Gracias por Preferirnos..!</legend>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="gridCheck" name="check">
                                     <label class="form-check-label" for="gridCheck">Acepto los términos y condiciones</label>
                                 </div>
-                            </fieldset>-->
-                        </div>
-
+                            </fieldset>
+                        </div>-->
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary btn-block" value="nuevo_formulario" name="nuevo_formulario">Enviar</button>
                         </div>
@@ -130,9 +117,6 @@
                 </section>
             </div>
         </div>
-
-
-
         <!--Imagen lado derecho-->
         <div class="col-md-4">
             <div class="img-fluid">
