@@ -48,7 +48,7 @@
                             <br>
                             <label>Contraseña: </label><input type="text" value="<%=rs.getString("per_clave")%>" class="form-control" name="pass"/>
                             <br>
-                            <label>Estado: </label><input type="text" value="<%=rs.getString("per_estado")%>" class="form-control" name="est"/>
+                            <label>Estado: </label><input type="text" value="<%=rs.getString("estados_esta_id")%>" class="form-control" name="est"/>
                             <br>
                             <label>Perfil: </label><select name="perfil" id="perfil" class="form-control">
                                 <option>Seleccionar una Opcion</option>
