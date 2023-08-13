@@ -17,23 +17,22 @@
     <title>CLV Deluxe - Administrativo</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../template/admin/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="template/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../template/admin/css/metisMenu.min.css" rel="stylesheet">
+    <link href="template/css/metisMenu.min.css" rel="stylesheet">
 
     <!-- Timeline CSS -->
-    <link href="../template/admin/css/timeline.css" rel="stylesheet">
+    <link href="template/css/timeline.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../template/admin/css/startmin.css" rel="stylesheet">
+    <link href="template/css/startmin.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href="../template/admin/css/morris.css" rel="stylesheet">
+    <link href="template/css/morris.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../template/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="template/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,16 +42,16 @@
     <![endif]-->
 
     <%
- 
+
         // Agrega los encabezados para evitar el almacenamiento en caché
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         response.setHeader("Pragma", "no-cache");
         response.setHeader("Expires", "0");
 
-    // Verifica si la sesión existe y si no, redirecciona al usuario al inicio de sesión
-    if (session.getAttribute("nombre") == null) {
-    response.sendRedirect("../login_admin.jsp");
-    }
+        // Verifica si la sesión existe y si no, redirecciona al usuario al inicio de sesión
+        if (session.getAttribute("nombre") == null) {
+            response.sendRedirect("../login_admin.jsp");
+        }
     %>
 </head>
 
@@ -63,12 +62,18 @@
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
-                <a class="navbar-brand" href="../pages_admin/menu_admin.jsp">Panel Administrativo</a>                
+                <a class="navbar-brand" href="menu_admin.jsp">Panel Administrativo</a>                
             </div>
 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <!--<ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
-            </ul>-->
+             <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
+             </ul>-->
 
             <ul class="nav navbar-right navbar-top-links">
                 <li class="dropdown navbar-inverse">
@@ -119,7 +124,6 @@
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-
                         <%out.println("<i class='fa fa-user fa-fw'></i>" + session.getAttribute("nombre") + "<b class='caret'></b>");%>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
@@ -145,46 +149,46 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="menu_admin.jsp" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="menu_admin.jsp"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Reporte de Ventas<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="flot.html">Flot Charts</a>
+                                <a href="flot.html">Reservaciones</a>
                             </li>
                             <li>
-                                <a href="morris.html">Morris.js Charts</a>
+                                <a href="morris.html">Facturacion</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        <a href="tables.html"><i class="fa fa-table fa-fw"></i>Habitaciones</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Buzon de Sugerencias</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Configuraciones<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="panels-wells.html">Panels and Wells</a>
+                                <a href="panels-wells.html">Listado Clientes</a>
                             </li>
                             <li>
-                                <a href="buttons.html">Buttons</a>
+                                <a href="buttons.html">Listado Empleados</a>
                             </li>
                             <li>
-                                <a href="notifications.html">Notifications</a>
+                                <a href="notifications.html">Inventario de Consumos</a>
                             </li>
                             <li>
-                                <a href="typography.html">Typography</a>
+                                <a href="typography.html">Inventario de Insumos</a>
                             </li>
                             <li>
-                                <a href="icons.html"> Icons</a>
+                                <a href="icons.html"> Metodo de Pago</a>
                             </li>
                             <li>
-                                <a href="grid.html">Grid</a>
+                                <a href="grid.html">WhatApps</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -225,10 +229,10 @@
                         <i class="fa fa-files-o fa-fw"></i>Opciones Adicionales<span class="fa arrow"></span>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../pages_admin/listado_perfiles.jsp">Listado Perfiles</a>
+                                <a href="listado_perfiles.jsp">Listado Perfiles</a>
                             </li>
                             <li>
-                                <a href="../pages_admin/listado_estados.jsp">Listado Estados</a>
+                                <a href="listado_estados.jsp">Listado Estados</a>
                             </li>
                         </ul>
                         <br>

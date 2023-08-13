@@ -7,22 +7,22 @@
 <%@page import="Model.conexion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@include file="../template/admin/header_admin.jsp" %>
+<%@include file="template/header_admin.jsp" %>
 <!--Ingreso por base de datos--->
 <%
     // Consultas SQL para obtener la cantidad de clientes, empleadores y productos
     String sql_clientes = "SELECT COUNT(*) as cant_cliente FROM hotel_clv.personas WHERE perfiles_perfil_id =4;";
     String sql_empleadores = "SELECT COUNT(*) AS cant_empleador FROM personas WHERE perfiles_perfil_id NOT IN ('4');";
     String sql_habitaciones = "SELECT COUNT(*) AS cant_habitaciones FROM habitaciones WHERE estados_esta_id = 3;";
-    String sql_reservaciones = "SELECT count(*) as cant_reservas FROM hotel_clv.reservas WHERE estados_esta_id = 5;";
     String sql_reservaciones_pendientes = "SELECT count(*) as cant_reservas_pendiente FROM hotel_clv.reservas WHERE estados_esta_id = 7;";
+    String sql_formu = "SELECT count(*) as cant_formu FROM hotel_clv.formularios WHERE estados_esta_id= 7;";
 
     // Ejecuta las consultas y guarda los resultados en variables
     int cantClientes = 0;
     int cantEmpleadores = 0;
     int cantHabitaciones = 0;
-    int cantReservas = 0;
     int cantReservasPendientes = 0;
+    int cantFormu = 0;
 
     try {
         conexion cn = new conexion();
@@ -41,15 +41,15 @@
         while (rs.next()) {
             cantHabitaciones = rs.getInt("cant_habitaciones");
         }
-        
-        rs = st.executeQuery(sql_reservaciones);
-        while (rs.next()) {
-            cantReservas = rs.getInt("cant_reservas");
-        }
-        
+
         rs = st.executeQuery(sql_reservaciones_pendientes);
         while (rs.next()) {
             cantReservasPendientes = rs.getInt("cant_reservas_pendiente");
+        }
+
+        rs = st.executeQuery(sql_formu);
+        while (rs.next()) {
+            cantFormu = rs.getInt("cant_formu");
         }
 
     } catch (SQLException e) {
@@ -171,7 +171,7 @@
                     </div>
                     <div class="col-xs-9 text-right">
                         <div>Buzon de Sugerencia</div>
-                        <div class="huge">5</div>                        
+                        <div class="huge"><%=cantFormu%></div>                        
                     </div>
                 </div>
             </div>
@@ -185,8 +185,6 @@
         </div>
     </div>
 </div>
-</div>
-
 <!-- /.row -->
 
-<%@include file="../template/admin/footer_admin.jsp" %>
+<%@include file="template/footer_admin.jsp" %>

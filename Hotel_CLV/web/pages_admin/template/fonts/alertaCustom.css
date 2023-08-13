@@ -1,0 +1,13 @@
+.custom-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -550%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
