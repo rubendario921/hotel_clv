@@ -20,8 +20,7 @@
                         <table style="width: 100%">
                             <tr>
                                 <td><h3>Lista de Perrfiles</h3></td>
-                                <!--<td aling="rigth"><a href="usuario.jsp" class="btn btn-success"><i class="fa fa-edit" title="Agregar"></i></a></td>-->
-                                <!--<a href="perfiles/crear_perfil.jsp">Crear Perifl</a>-->
+                                <td aling="rigth"><a href="perfiles/crear_perfil.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Perfil"></i></a></td>
                             </tr>
                         </table>
                     </div>
