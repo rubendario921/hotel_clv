@@ -16,6 +16,9 @@
             <div class="col-lg-12">
                 <div>
                     <h1 class="page-header">Listado de Perfiles </h1>
+                    <button>
+                    <a href="perfiles/crear_perfil.jsp">Crear Perifl</a>
+                    </button>
                 </div>
                 <table> 
                     <thead>
