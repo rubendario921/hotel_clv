@@ -38,6 +38,7 @@
                             <label>Letra: </label><input type="text" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <label>Nombre: </label><input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
                             <br>
+                            <a href="perfil_lista.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" value="Registrar" name="nuevo_perfil" class=" btn btn-primary"/>
                         </form>                           
                     </div>

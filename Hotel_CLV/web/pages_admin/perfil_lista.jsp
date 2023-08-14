@@ -56,6 +56,7 @@
                         </table>
                     </div>
                 </div>
+                <a href="menu_admin.jsp" class="btn btn-block btn-primary" >Menu Principal</a>
             </div>            
         </div>        
     </div>    

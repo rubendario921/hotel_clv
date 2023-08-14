@@ -34,8 +34,7 @@
                 <h1 class="page-header">Modificar Perfil</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Editar Perfil</h3>
-                        <a href="perfil_lista.jsp" class="btn btn-success">Regresar</a>                        
+                        <h3>Editar Perfil</h3>                        
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudperfil_editar.jsp" method="POST" onsubmit="return validarFormulario();">
@@ -54,9 +53,10 @@
                             <br>
                             <%}
                                 }%>
+                            <a href="perfil_lista.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" value="Modificar" name="editar" class=" btn btn-primary"/>                            
                         </form>                           
-                    </div>
+                    </div>                    
                 </div>
             </div>            
         </div>        
