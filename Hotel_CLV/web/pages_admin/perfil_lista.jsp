@@ -19,7 +19,7 @@
                     <div class="panel-heading">
                         <table style="width: 100%">
                             <tr>
-                                <td><h3>Lista de Perrfiles</h3></td>
+                                <td><h3>Lista de Perfiles</h3></td>
                                 <td aling="rigth"><a href="perfil_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Perfil"></i></a></td>
                             </tr>
                         </table>
@@ -46,8 +46,9 @@
                                     <td><%= perfil.getPerfilNombre()%></td>
                                     <td>                        
                                         <!--modificar update=":tabMostrar"-->
-
+                                        <a href="perfil_editar.jsp?editar=true&id=<%=perfil.getPerfilId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--eliminar update=":tabMostrar"-->
+                                        <a href="Mantenimiento_admin/crudperfil_eliminar.jsp?eliminar=true&id=<%=perfil.getPerfilId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                     </td>
                                 </tr>
                                 <%}%>

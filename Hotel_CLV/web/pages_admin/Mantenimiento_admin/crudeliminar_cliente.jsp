@@ -16,7 +16,7 @@
 
         if (request.getParameter("eliminar") != null && request.getParameter("eliminar").equals("true")) {
             int id = Integer.parseInt(request.getParameter("id"));
-            String sql = "DELETE FROM personas WHERE per_id = ?";
+            String sql = "DELETE FROM personas WHERE per_id = ?;";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setInt(1, id);
 
