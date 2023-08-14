@@ -5,8 +5,8 @@
 --%>
 
 <%@page import="Controller.FormulariosDao"%>
-<%@page import="java.sql.*"%>
-<%@page import="Model.conexion" %>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
     <head>
         <script type="text/javascript">
@@ -36,7 +36,7 @@
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script> 
         <%} else {%>
         <script>alert("Registro Incorrecto, Intentalo nuevamente.");
-            window.history.back(); // Regresa a la p·gina anterior despuÈs del inicio de sesiÛn incorrecto</script>
+            window.history.back(); // Regresa a la p√°gina anterior despu√©s del inicio de sesi√≥n incorrecto</script>
             <%}
                }%>        
     </body>

@@ -40,45 +40,52 @@ public class PerfilesDao {
         return perfiles;
     }
 
-    public String crearPerfil(String letra, String nombre) {
-        String nuevo = null;
+    public int crearPerfil(String letra, String nombre) {
+        int resultado = 0;
         try {
             String sql = "INSERT INTO hotel_clv.perfiles (perfil_letra,perfil_nombre) VALUES (?,?);";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setString(1, letra);
             pst.setString(2, nombre);
-
             int n = pst.executeUpdate();
             if (n > 0) {
-                nuevo = "Registro Exitoso.";
+                resultado = 1;
             } else {
-                nuevo = "Registro no Exitoso.";
+                resultado = 0;
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            pst.close();
+        } catch (SQLException e) {
+            int SQLError = e.getErrorCode();
+            switch (SQLError) {
+                case 1062:
+                    resultado = 1062;
+                    break;
+                case 1048:
+                    resultado = 1048;
+                    break;
+            }
+        } finally {
         }
-        return nuevo;
+        return resultado;
     }
 
-    public String modificarPerfil(String letra, String nombre) {
-        String nuevo = null;
+    public int modificarPerfil(String letra, String nombre) {
+        int resultado = 0;
         try {
-            String sql = "INSERT INTO perfiles (perfil_letra,perfil_nombre) VALUES (?,?,?);";
+            String sql = "UPDATE hotel_clv.perfiles (perfil_letra,perfil_nombre) VALUES (?,?);";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
-            pst.setString(2, letra);
-            pst.setString(3, nombre);
-
+            pst.setString(1, letra);
+            pst.setString(2, nombre);
             int n = pst.executeUpdate();
             if (n > 0) {
-                nuevo = "Registro Modificado Exitosamente.";
+                resultado = 1;
             } else {
-                nuevo = "Registro NO Modificado.";
+                resultado = 0;
             }
-
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error al ingresar al formulario: " + e.getMessage());
+        } finally {
         }
-        return nuevo;
+        return resultado;
     }
 }

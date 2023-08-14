@@ -229,7 +229,7 @@
                         <i class="fa fa-files-o fa-fw"></i>Opciones Adicionales<span class="fa arrow"></span>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="listado_perfiles.jsp">Listado Perfiles</a>
+                                <a href="perfil_lista.jsp">Listado Perfiles</a>
                             </li>
                             <li>
                                 <a href="listado_estados.jsp">Listado Estados</a>
