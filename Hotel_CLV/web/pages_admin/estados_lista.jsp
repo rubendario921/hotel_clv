@@ -1,11 +1,11 @@
 <%-- 
-    Document   : listado_perfiles
-    Created on : 10/08/2023, 13:07:32
-    Author     : Ruben Dario
+    Document   : listado_estados
+    Created on : 11-ago-2023, 1:22:29
+    Author     : Ruben Dario 921
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Controller.Perfiles"%>
-<%@page import="Controller.PerfilesDao"%>
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@page import="java.util.*"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>    
@@ -14,41 +14,41 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Perfiles del Sistema</h1>
+                <h1 class="page-header">Estados del Sistema</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <table style="width: 100%">
                             <tr>
-                                <td><h3>Lista de Perfiles</h3></td>
-                                <td aling="rigth"><a href="perfil_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
+                                <td><h3>Listado de Estados</h3></td>
+                                <td aling="rigth"><a href="estados_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
                             </tr>
                         </table>
                     </div>
                     <div class="panel-body">
-                        <table class="table table">
+                        <table class="table table"> 
                             <thead>
                                 <tr>
                                     <th>Codigo</th>
                                     <th>Letra</th>
-                                    <th>Nombre</th>
-                                    <th>Acciones</th>
+                                    <th>Descripcion</th>
+                                    <th>Accion</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!--Extraer la informacion de la java class-->
                                 <%
-                                    PerfilesDao mostrar_perfiles = new PerfilesDao();
-                                    List<Perfiles> perfiles = mostrar_perfiles.mostrarLista();
-                                    for (Perfiles perfil : perfiles) {%>
+                                    EstadosDao mostrar_estados = new EstadosDao();
+                                    List<Estados> estados = mostrar_estados.mostrarEstados();
+                                    for (Estados estado : estados) {%>
                                 <tr>
-                                    <td><%= perfil.getPerfilId()%></td>
-                                    <td><%= perfil.getPerfilLetra()%></td>
-                                    <td><%= perfil.getPerfilNombre()%></td>
+                                    <td><%= estado.getEstaId()%></td>
+                                    <td><%= estado.getEstaLetra()%></td>
+                                    <td><%= estado.getEstaDescripcion()%></td>
                                     <td>                        
                                         <!--modificar update=":tabMostrar"-->
-                                        <a href="perfil_editar.jsp?editar=true&id=<%=perfil.getPerfilId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="estados_editar.jsp?editar=true&id=<%=estado.getEstaId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--eliminar update=":tabMostrar"-->
-                                        <a href="Mantenimiento_admin/crudperfil_eliminar.jsp?eliminar=true&id=<%=perfil.getPerfilId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                        <a href="Mantenimiento_admin/crudestado_eliminar.jsp?eliminar=true&id=<%=estado.getEstaId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                     </td>
                                 </tr>
                                 <%}%>
@@ -57,8 +57,9 @@
                     </div>
                 </div>
                 <a href="menu_admin.jsp" class="btn btn-block btn-primary" >Menu Principal</a>
-            </div>            
-        </div>        
-    </div>    
+            </div>
+        </div>
+    </div>
 </div>
 <%@include file="template/footer_admin.jsp" %>
+

@@ -21,9 +21,9 @@ public class EstadosDao {
     public List<Estados> mostrarEstados() {
         List<Estados> estados = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM hotel_clv.estados;";
-            Statement pst = con.getConexion().prepareCall(sql);
-            ResultSet rs = pst.executeQuery(sql);
+            String sql_lista = "SELECT * FROM hotel_clv.estados;";
+            Statement pst = con.getConexion().prepareCall(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
             while (rs.next()) {
                 int estaId = rs.getInt("esta_id");
                 String estaLetra = rs.getString("esta_letra");
@@ -36,24 +36,122 @@ public class EstadosDao {
             pst.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error en EstadoDao Lista mostrarEstado: " + e.getMessage());
         } finally {
         }
         return estados;
     }
 
-    //Metodo para agregar informacion
-    public void agregarEstado(Estados estado) {
+    public Estados mostrarEstado(Integer id) {
+        Estados estado = null;
         try {
-            String sql = "INSERT INTO hotel_clv.estados (esta_letra, esta_descripcion) VALUES (?, ?);";
-            PreparedStatement pst = con.getConexion().prepareStatement(sql);
-            pst.setString(1, estado.getEstaLetra());
-            pst.setString(2, estado.getEstaDescripcion());
-            pst.executeUpdate();
+            String sql_mostrarE = "SELECT * FROM hotel_clv.estados WHERE esta_id=?;";
+            PreparedStatement pst = con.getConexion().prepareCall(sql_mostrarE);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Integer estaId = rs.getInt("esta_id");
+                String estaLetra = rs.getString("esta_letra");
+                String estaDescri = rs.getString("esta_descripcion");
+                estado = new Estados(estaId, estaLetra, estaDescri);
+            }
+            rs.close();
             pst.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao mostrarEstado: " + e.getMessage());
         } finally {
         }
+        return estado;
     }
+
+    //Metodo para agregar informacion
+    public int crearEstado(String letra, String descripcion) {
+        int resultado = 0;
+        try {
+            String sql_crear = "INSERT INTO hotel_clv.estados (esta_letra, esta_descripcion) VALUES (?, ?);";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_crear);
+            pst.setString(1, letra);
+            pst.setString(2, descripcion);
+            pst.executeUpdate();
+            int n = pst.executeUpdate();
+            if (n > 0) {
+                resultado = 1;
+            } else {
+                resultado = 0;
+            }
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao crearEstado: " + e.getMessage());
+            int SQLError = e.getErrorCode();
+            switch (SQLError) {
+                case 1062:
+                    resultado = 1062;
+                    break;
+                case 1048:
+                    resultado = 1048;
+                    break;
+                default:
+                    resultado = SQLError;
+                    break;
+            }
+        } finally {
+        }
+        return resultado;
+    }
+
+    public int modificarEstado(Integer id, String letra, String descripcion) {
+        int resultado = 0;
+        try {
+            String sql_modi = "UPDATE hotel.clv.estados SET esta_letra=?, esta_descripcion=? WHERE esta_id=?;";
+            PreparedStatement pst = con.getConexion().prepareCall(sql_modi);
+            pst.setString(1, letra);
+            pst.setString(2, descripcion);
+            pst.setInt(3, id);
+            int n = pst.executeUpdate();
+            if (n > 0) {
+                resultado = 1;
+            } else {
+                resultado = 0;
+            }
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao modificarEstado: " + e.getMessage());
+            int SQLError = e.getErrorCode();
+            switch (SQLError) {
+                case 1062:
+                    resultado = 1062;
+                    break;
+                case 1048:
+                    resultado = 1048;
+                    break;
+                default:
+                    resultado = SQLError;
+                    break;
+            }
+        } finally {
+        }
+        return resultado;
+    }
+
+    public int eliminarEstado(Integer id) {
+        int resultado = 0;
+        try {
+            String sql_elim = "DELETE FROM hotel_clv.estados WHERE esta_id = ?;";
+            PreparedStatement pst = con.getConexion().prepareCall(sql_elim);
+            pst.setInt(1, id);
+            int n = pst.executeUpdate();
+            if (n > 0) {
+                resultado = 1;
+            } else {
+                resultado = 2;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error en EstadaDao eliminarEstado: " + e.getMessage());
+        } finally {
+        }
+        return resultado;
+    }
+
 }

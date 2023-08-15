@@ -74,7 +74,7 @@ public class PerfilesDao {
             if (n > 0) {
                 resultado = 1;
             } else {
-                resultado = 0;
+                resultado = 2;
             }
             pst.close();
         } catch (SQLException e) {
@@ -143,7 +143,7 @@ public class PerfilesDao {
                 resultado = 0;
             }
             pst.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error al eliminar el  formulario: " + e.getMessage());
         } finally {
         }

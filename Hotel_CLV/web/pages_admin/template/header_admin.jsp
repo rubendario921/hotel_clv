@@ -232,7 +232,7 @@
                                 <a href="perfil_lista.jsp">Listado Perfiles</a>
                             </li>
                             <li>
-                                <a href="listado_estados.jsp">Listado Estados</a>
+                                <a href="estados_lista.jsp">Listado Estados</a>
                             </li>
                         </ul>
                         <br>
