@@ -45,7 +45,7 @@
                                     Perfiles perfil = mostrarP.mostrarPerfil(id);
                                     if (perfil != null) {%>
 
-                            <label>Codigo: </label><input type="text" value="<%= perfil.getPerfilId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" required/>
+                            <label>Codigo: </label><input type="text" value="<%= perfil.getPerfilId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
                             <br>
                             <label>Letra: </label><input type="text" value="<%=perfil.getPerfilLetra()%>" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <br>

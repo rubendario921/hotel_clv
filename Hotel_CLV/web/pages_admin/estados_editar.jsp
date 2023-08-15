@@ -16,13 +16,11 @@
         var descripcion = document.getElementById("descripcion").value.trim();
 
         // Validar campos obligatorios
-        if (letra === "" || descripcion === "" || ) {
+        if (letra === "" || descripcion === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
-
         // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
-
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
@@ -36,7 +34,7 @@
                         <h3>Editar Estado</h3>                        
                     </div>
                     <div class="panel-body">
-                        <form action="" method="POST" onsubmit="return validarFormulario();">
+                        <form action="Mantenimiento_admin/crudestado_editar.jsp" method="POST" onsubmit="return validarFormulario();">
                             <%
                                 if (request.getParameter("editar") != null) {
                                     int id = Integer.parseInt(request.getParameter("id"));
@@ -44,7 +42,7 @@
                                     Estados estado = mostrarE.mostrarEstado(id);
                                     if (estado != null) {%>
 
-                            <label>Codigo: </label><input type="text" value="<%= estado.getEstaId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" required/>
+                            <label>Codigo: </label><input type="text" value="<%= estado.getEstaId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
                             <br>
                             <label>Letra: </label><input type="text" value="<%=estado.getEstaLetra()%>" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <br>

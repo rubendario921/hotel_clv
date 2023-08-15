@@ -35,7 +35,7 @@ public class PerfilesDao {
             rs.close();
             pst.close();
         } catch (Exception e) {
-            System.out.println("Error al eliminar el  formulario: " + e.getMessage());
+            System.out.println("Error en PerfilesDao mostrarLista: " + e.getMessage());
         }
         return perfiles;
     }
@@ -57,7 +57,7 @@ public class PerfilesDao {
             pst.close();
 
         } catch (SQLException e) {
-            System.out.println("Error al eliminar el  formulario: " + e.getMessage());
+            System.out.println("Error en PerfilesDao mostrarPerfil: " + e.getMessage());
         } finally {
         }
         return perfil;
@@ -66,7 +66,7 @@ public class PerfilesDao {
     public int crearPerfil(String letra, String nombre) {
         int resultado = 0;
         try {
-            String sql = "INSERT INTO hotel_clv.perfiles (perfil_letra,perfil_nombre) VALUES (?,?);";
+            String sql = "INSERT INTO hotel_clv.perfiles (perfil_letra, perfil_nombre) VALUES (?,?);";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setString(1, letra);
             pst.setString(2, nombre);
@@ -74,11 +74,11 @@ public class PerfilesDao {
             if (n > 0) {
                 resultado = 1;
             } else {
-                resultado = 2;
+                resultado = 0;
             }
             pst.close();
         } catch (SQLException e) {
-            System.out.println("Error al eliminar el  formulario: " + e.getMessage());
+            System.out.println("Error en PerfilesDao crearPerfil: " + e.getMessage());
             int SQLError = e.getErrorCode();
             switch (SQLError) {
                 case 1062:

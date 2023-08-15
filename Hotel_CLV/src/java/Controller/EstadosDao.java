@@ -6,6 +6,7 @@
 package Controller;
 
 import Model.conexion;
+import Controller.Estados;
 import java.sql.*;
 import java.util.*;
 
@@ -70,10 +71,9 @@ public class EstadosDao {
         int resultado = 0;
         try {
             String sql_crear = "INSERT INTO hotel_clv.estados (esta_letra, esta_descripcion) VALUES (?, ?);";
-            PreparedStatement pst = con.getConexion().prepareStatement(sql_crear);
+            PreparedStatement pst = con.getConexion().prepareCall(sql_crear);
             pst.setString(1, letra);
-            pst.setString(2, descripcion);
-            pst.executeUpdate();
+            pst.setString(2, descripcion);            
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
@@ -103,7 +103,7 @@ public class EstadosDao {
     public int modificarEstado(Integer id, String letra, String descripcion) {
         int resultado = 0;
         try {
-            String sql_modi = "UPDATE hotel.clv.estados SET esta_letra=?, esta_descripcion=? WHERE esta_id=?;";
+            String sql_modi = "UPDATE hotel_clv.estados SET esta_letra=?, esta_descripcion=? WHERE esta_id=?;";
             PreparedStatement pst = con.getConexion().prepareCall(sql_modi);
             pst.setString(1, letra);
             pst.setString(2, descripcion);

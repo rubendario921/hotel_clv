@@ -10,11 +10,11 @@
 <script>
     function validarFormulario() {
         // Obtener los valores de los campos
-        var letrav = document.getElementById("letra").value.trim();
-        var descripcionv = document.getElementById("descripcion").value.trim();
+        var letra = document.getElementById("letra").value.trim();
+        var descripcion = document.getElementById("descripcion").value.trim();
 
         // Validar campos obligatorios
-        if (letrav === "" || descripcionv === "" ) {
+        if (letra === "" || descripcion === "" ) {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }

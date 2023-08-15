@@ -9,17 +9,14 @@
 <script>
     function validarFormulario() {
         // Obtener los valores de los campos
-        var nombre = document.getElementById("letra").value.trim();
-        var letra = document.getElementById("nombre").value.trim();
+        var letra = document.getElementById("letra").value.trim();
+        var nombre = document.getElementById("nombre").value.trim();
 
         // Validar campos obligatorios
-        if (nombre === "" || letra === "" ) {
+        if (letra === "" || nombre === "" ) {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
-        }
-
-        // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
-
+        }      
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
@@ -35,7 +32,7 @@
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudperfil_registrar.jsp" method="POST" onsubmit="return validarFormulario();">
-                            <label>Letra: </label><input type="text" class="form-control" name="letraE"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
+                            <label>Letra: </label><input type="text" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <label>Nombre: </label><input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
                             <br>
                             <a href="perfil_lista.jsp" class="btn btn-danger" >Regresar</a>
