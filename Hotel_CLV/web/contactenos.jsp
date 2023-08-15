@@ -71,10 +71,10 @@
             <h2>Formulario de Contacto</h2>
             <div class="card">
                 <section>
-                    <form class="row g-3" action="Mantenimiento/crudregistrar_formulario.jsp" method="POST" onsubmit="return validarFormulario();">
+                    <form class="row g-3" action="Mantenimiento/crudcontacto_registrar.jsp" method="POST" onsubmit="return validarFormulario();">
                         <div class="col-md-6">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" >
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" maxlength="50">
                         </div>
 
                         <div class="col-md-6">
@@ -84,7 +84,7 @@
 
                         <div class="col-md-6">
                             <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de contacto" >
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de contacto" maxlength="10">
                         </div>
 
                         <div class="col-md-12">
@@ -99,7 +99,7 @@
 
                         <div class="col-md-6">
                             <label for="ciudad" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad de residencia" >
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad de residencia" maxlength="45">
                         </div>                      
                         <!--<div class="col-12">
                             <fieldset>
@@ -125,5 +125,4 @@
         </div>
     </div>
 </div>
-
 <%@include file="template/menu/footer_menu.jsp" %>

@@ -3,10 +3,8 @@
     Created on: 17-jul-2023, 19:27:08
     Author: Ruben Dario 921
 --%>
-
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ include file="template/menu/header_menu.jsp" %>
-
 <style>
     .container {
         margin-top: 50px;
@@ -152,35 +150,35 @@
                     <img class="img-fluid oval-image" src="assets/img/banner_img_logo_opcional.jpg" alt="">
                     <h3>Usuario Nuevo</h3>
                 </div>
-                <form action="Mantenimiento/crudregistrar_cliente.jsp" method="POST" onsubmit="return validarFormulario();">
+                <form action="Mantenimiento/crudcliente_registrar.jsp" method="POST" onsubmit="return validarFormulario();">
                     <div class="form-group">
                         <label for="nombre" class="label-text">Nombres Completos</label>
-                        <input type="text" class="form-control" id="nombre" name="nom" required>
+                        <input type="text" class="form-control" id="nombre" name="nom" required maxlength="200">
                     </div>
                     <div class="form-group">
                         <label for="apellido" class="label-text">Apellidos Completos</label>
-                        <input type="text" class="form-control" id="apellido" name="ape" required>
+                        <input type="text" class="form-control" id="apellido" name="ape" required maxlength="200">
                     </div>
                     <div class="form-group">
                         <label for="cedula" class="label-text">Cédula de Identidad</label>
-                        <input type="text" class="form-control" id="cedula" name="cedu" required>
+                        <input type="text" class="form-control" id="cedula" name="cedu" required maxlength="13">
                     </div>
                     <div class="form-group">
                         <label for="usuario" class="label-text">Ingrese un Usuario</label>
-                        <input type="text" class="form-control" id="usuario" name="usu" required>
+                        <input type="text" class="form-control" id="usuario" name="usu" required maxlength="45">
                     </div>
                     <div class="form-group">
                         <label for="contacto" class="label-text">Teléfono</label>
-                        <input type="text" class="form-control" id="contacto" name="cont" required>
+                        <input type="text" class="form-control" id="contacto" name="cont" required maxlength="10">
                     </div>
                     <div class="form-group">
                         <label for="correo" class="label-text">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="correo" name="corr" required>
+                        <input type="email" class="form-control" id="correo" name="corr" required maxlength="200">
                         <small class="form-text">*Su inicio de sesión será con el correo electrónico</small>
                     </div>
                     <div class="form-group">
                         <label for="clave" class="label-text">Contraseña</label>
-                        <input type="password" class="form-control" id="clave" name="pass" required>
+                        <input type="password" class="form-control" id="clave" name="pass" required maxlength="16">
                         <small class="form-text">*Entre 8 y 16 dígitos con caracteres especiales</small>
                     </div>
                     <button class="btn btn-registrar" value="Registrar" name="nuevo">Registrar</button>

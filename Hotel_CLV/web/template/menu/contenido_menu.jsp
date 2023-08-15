@@ -28,10 +28,6 @@
     </div>
 </div>
 
-
-
-
-
 <!-- Start Banner Hero -->
 <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
     <ol class="carousel-indicators">
@@ -92,8 +88,7 @@
         <div class="carousel-item">
             <div class="container">
                 <div class="row p-5">
-                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                        <!--<img class="img-fluid" src="./assets/img/banner_img_03" alt="">-->
+                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">                        
                         <img class="img-fluid" src="assets/img/banner_img_24horas.jpg" alt="">
 
                     </div>
@@ -167,7 +162,7 @@
         <div class="row">
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
-                    <a href="shop-single.html">
+                    <a href="habitaciones.jsp">
                         <img src="./assets/img/banner_img_04.jpeg" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
@@ -181,7 +176,7 @@
                             </li>
                             <li class="text-muted text-right">$80.00</li>
                         </ul>
-                        <a href=" " class="h2 text-decoration-none text-dark">Habitaciones</a>
+                        <a href="habitaciones.jsp" class="h2 text-decoration-none text-dark">Habitaciones</a>
                         <p class="card-text">
                             Las habitaciones, luminosas y sencillas, cuentan con Wi-Fi gratis y TV, además de baño en habitación. Se ofrece servicio a la habitación.
                         </p>
@@ -191,7 +186,7 @@
             </div>
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
-                    <a href="shop-single.html">
+                    <a href="servicios.jsp">
                         <img src="./assets/img/banner_img_restaurante.jpg" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
@@ -205,7 +200,7 @@
                             </li>
                             <li class="text-muted text-right">$480.00</li>
                         </ul>
-                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">Restaurantes</a>
+                        <a href="servicios.jsp" class="h2 text-decoration-none text-dark">Restaurantes</a>
                         <p class="card-text">
                             Hablando de los Restaurantes un lugasr muy importange para el usuario. El desayuno se sirve en un restaurante informal. También hay una cocina compartida y un salón.
                         </p>
@@ -215,7 +210,7 @@
             </div>
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
-                    <a href="shop-single.html">
+                    <a href="servicios.jsp">
                         <img src="./assets/img/banner_img_piscina.jpg" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body">
@@ -229,7 +224,7 @@
                             </li>
                             <li class="text-muted text-right">$360.00</li>
                         </ul>
-                        <a href="shop-single.html" class="h2 text-decoration-none text-dark">Recreación</a>
+                        <a href="servicios.jsp" class="h2 text-decoration-none text-dark">Recreación</a>
                         <p class="card-text">
                             El área de recreación es algo indispensable y para eso disponemos de una piscina super comoda para el uso de todos los usuarios. 
                         </p>
