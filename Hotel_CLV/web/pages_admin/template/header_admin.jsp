@@ -173,7 +173,7 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Configuraciones<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Listado Clientes</a>
+                                <a href="clientes_lista.jsp">Listado Clientes</a>
                             </li>
                             <li>
                                 <a href="buttons.html">Listado Empleados</a>

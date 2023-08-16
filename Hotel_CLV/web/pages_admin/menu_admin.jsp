@@ -80,7 +80,7 @@
                         </div>                            
                     </div>
                 </div>            
-                <a href="listado_clientes.jsp">
+                        <a href="clientes_lista.jsp">
                     <div class="panel-footer">
                         <span class="pull-left">Listado de Clientes</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

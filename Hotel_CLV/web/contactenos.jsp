@@ -71,7 +71,7 @@
             <h2>Formulario de Contacto</h2>
             <div class="card">
                 <section>
-                    <form class="row g-3" action="Mantenimiento/crudcontacto_registrar.jsp" method="POST" onsubmit="return validarFormulario();">
+                    <form class="row g-3" action="Mantenimiento/crudcontacto_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                         <div class="col-md-6">
                             <label for="nombre" class="form-label">Nombre</label>
                             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" maxlength="50">
