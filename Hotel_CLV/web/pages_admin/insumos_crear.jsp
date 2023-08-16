@@ -48,7 +48,7 @@
                             <a href="insumos_lista.jsp" class="btn btn-danger">Regresar</a>
                             <input type="submit" value="Registrar" name="nuevo_insumo" class="btn bg-primary"/>
                         </form>
-                         </div>
+                    </div>
                 </div>
             </div>            
         </div>        
@@ -56,8 +56,4 @@
 </div>
 <!--Fin del Cuerpo -->
 <%@include file="template/footer_admin.jsp" %>
-                        
-                        
-                        
-                        
-                    </div>
+</div>

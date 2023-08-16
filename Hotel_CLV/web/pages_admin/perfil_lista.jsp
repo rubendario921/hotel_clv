@@ -20,7 +20,7 @@
                         <table style="width: 100%">
                             <tr>
                                 <td><h3>Lista de Perfiles</h3></td>
-                                <td aling="rigth"><a href="perfil_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
+                                <td align="rigth"><a href="perfil_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
                             </tr>
                         </table>
                     </div>
