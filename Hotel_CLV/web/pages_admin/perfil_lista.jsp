@@ -38,7 +38,7 @@
                                 <!--Extraer la informacion de la java class-->
                                 <%
                                     PerfilesDao mostrar_perfiles = new PerfilesDao();
-                                    List<Perfiles> perfiles = mostrar_perfiles.mostrarLista();
+                                    List<Perfiles> perfiles = mostrar_perfiles.mostrarListaPerfil();
                                     for (Perfiles perfil : perfiles) {%>
                                 <tr>
                                     <td><%= perfil.getPerfilId()%></td>

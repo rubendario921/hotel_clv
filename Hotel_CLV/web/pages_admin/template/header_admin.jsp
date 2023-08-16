@@ -173,7 +173,7 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Configuraciones<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="panels-wells.html">Listado Clientes</a>
+                                <a href="#">Listado Clientes</a>
                             </li>
                             <li>
                                 <a href="buttons.html">Listado Empleados</a>
@@ -182,7 +182,7 @@
                                 <a href="notifications.html">Inventario de Consumos</a>
                             </li>
                             <li>
-                                <a href="typography.html">Inventario de Insumos</a>
+                                <a href="insumos_lista.jsp">Inventario de Insumos</a>
                             </li>
                             <li>
                                 <a href="icons.html"> Metodo de Pago</a>

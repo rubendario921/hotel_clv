@@ -18,12 +18,12 @@ public class InsumosDao {
 
     conexion con = new conexion();
 
-    public List<Insumos> mostrarInsumos() {
+    public List<Insumos> mostrarListaInsumos() {
         List<Insumos> insumos = new ArrayList<>();
         try {
-            String sql_lista = "SELECT * FROM insumos INNER JOIN estados WHERE insumos.estados_esta_id = estados.esta_id ;";
-            Statement pst = con.getConexion().prepareCall(sql_lista);
-            ResultSet rs = pst.executeQuery(sql_lista);
+            String sql_listaI = "SELECT * FROM hotel_clv.insumos ;";
+            Statement pst = con.getConexion().prepareCall(sql_listaI);
+            ResultSet rs = pst.executeQuery(sql_listaI);
             while (rs.next()) {
                 Integer insuId = rs.getInt("insu_id");
                 String insuNombre = rs.getString("insu_nombre");
@@ -31,10 +31,7 @@ public class InsumosDao {
                 Integer insuCantidad = rs.getInt("insu_cantidad");
                 BigDecimal insuValor = rs.getBigDecimal("insu_valor");
                 String insuImagen = rs.getString("insu_dimg");
-                Integer estados_esta_id = rs.getInt("estados_esta_id");//Pendiente asignacion
-                Integer estaId = rs.getInt("esta_id");
-                String estaLetra = rs.getString("esta_letra");//Pendiente asignacion
-                String estaDescripcion = rs.getString("esta_descripcion");//Pendiente asignacion
+                Integer estaId = rs.getInt("estados_esta_id");
 
                 Insumos insumo = new Insumos(insuId, insuNombre, insuDetalle, insuCantidad, insuValor, insuImagen, estaId);
                 insumos.add(insumo);
@@ -49,6 +46,34 @@ public class InsumosDao {
         }
 
         return insumos;
+    }
+
+    public Insumos mostrarInsumo(Integer id) {
+        Insumos insumo = null;
+        try {
+            String sql_mostrarI = "SELECT * FROM hotel_clv.insumos WHERE insu_id =?;";
+            PreparedStatement pst = con.getConexion().prepareCall(sql_mostrarI);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Integer insuId = rs.getInt("insu_id");
+                String insuNombre = rs.getString("insu_nombre");
+                String insuDetalle = rs.getString("insu_nombre");
+                Integer insuCantidad = rs.getInt("insu_nombre");
+                BigDecimal insuValor = rs.getBigDecimal("insu_valor");
+                String insuImagen = rs.getString("insu_dimg");
+                Integer estaId = rs.getInt("estados_esta_id");
+                insumo = new Insumos(insuId, insuNombre, insuDetalle, insuCantidad, insuValor, insuImagen, estaId);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en InsumosDao mostrarInsumo: " + e.getMessage());
+        } finally {
+        }
+
+        return insumo;
     }
 
 }

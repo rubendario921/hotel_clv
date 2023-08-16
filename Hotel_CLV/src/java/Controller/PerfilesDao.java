@@ -15,10 +15,8 @@ import java.util.*;
  * @author Ruben Dario
  */
 public class PerfilesDao {
-
     conexion con = new conexion();
-
-    public List<Perfiles> mostrarLista() {
+    public List<Perfiles> mostrarListaPerfil() {
         List<Perfiles> perfiles = new ArrayList<>();
         try {
             String sql = "SELECT * FROM hotel_clv.perfiles;";
