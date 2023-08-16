@@ -142,7 +142,7 @@ public class PerfilesDao {
             }
             pst.close();
         } catch (SQLException e) {
-            System.out.println("Error al eliminar el  formulario: " + e.getMessage());
+            System.out.println("Error en PerfilesDao eliminarPerfil: " + e.getMessage());
         } finally {
         }
         return resultado;
