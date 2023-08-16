@@ -176,7 +176,7 @@
                                 <a href="clientes_lista.jsp">Listado Clientes</a>
                             </li>
                             <li>
-                                <a href="buttons.html">Listado Empleados</a>
+                                <a href="empleado_lista.jsp">Listado Empleados</a>
                             </li>
                             <li>
                                 <a href="notifications.html">Inventario de Consumos</a>

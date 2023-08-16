@@ -82,7 +82,7 @@ public class PersonasDao {
     public List<Personas> mostrarListaPersonasE() {
         List<Personas> personas = new ArrayList<>();
         try {
-            String sql_lista = "SELECT * FROM hotel_clv.personas;";
+            String sql_lista = "SELECT * FROM hotel_clv.personas WHERE perfiles_perfil_id !=4;";
             Statement pst = con.getConexion().prepareCall(sql_lista);
             ResultSet rs = pst.executeQuery(sql_lista);
             while (rs.next()) {

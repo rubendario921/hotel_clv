@@ -103,7 +103,7 @@
                         </div>                            
                     </div>
                 </div>
-                <a href="listado_empleados.jsp">
+                        <a href="empleado_lista.jsp">
                     <div class="panel-footer">
 
                         <span class="pull-left">Listado de Colaboradores</span>

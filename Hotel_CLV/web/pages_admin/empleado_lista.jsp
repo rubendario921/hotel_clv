@@ -4,23 +4,28 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="Controller.Perfiles"%>
+<%@page import="Controller.PerfilesDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
-<%@page import="Model.conexion"%>
-<%@include file="../template/admin/header_admin.jsp" %>
+<%@page import="Controller.Personas"%>
+<%@page import="java.util.*"%>
+<%@page import="Controller.PersonasDao"%>
+<%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
-
-
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <div>
-                    <h1 class="page-header">Listado de Empleados 
-                        <a href="registro_admin.jsp" class="btn btn-success" style="align-items: baseline">Nuevo Registro</a>
-                    </h1>
-                </div>
-                <div class="panel panel-primary">
+                <h1 class="page-header">Empleados Registrados</h1>
+                <div class="panel panel-primary">                    
+                    <div class="panel-heading">
+                        <table style="width: 100%">
+                            <tr>
+                                <td><h3>Lista de Empleados</h3></td>
+                                <td aling="rigth"><a href="#" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
+                            </tr>
+                        </table>
+                    </div>
                     <div class="panel-body">
                         <table class="table table">
                             <thead>
@@ -29,8 +34,8 @@
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>Cédula</th>
-                                    <th>Contacto</th>
                                     <th>Usuario</th> 
+                                    <th>Telefono</th>                                    
                                     <th>Perfil</th>
                                     <th>Estado</th>
                                     <th>Acciones</th>
@@ -38,21 +43,17 @@
                             </thead>
                             <tbody>
                                 <%
-                                    conexion cn = new conexion();
-                                    String sql = "SELECT * FROM hotel_clv.personas WHERE perfiles_perfil_id != 4;";
-                                    Statement st = cn.getConexion().createStatement();
-                                    ResultSet rs = st.executeQuery(sql);
-
-                                    while (rs.next()) {%>
-
+                                    PersonasDao mostrarLista = new PersonasDao();
+                                    List<Personas> personas = mostrarLista.mostrarListaPersonasE();
+                                    for (Personas persona : personas) {%>
                                 <tr>
-                                    <td><%=rs.getInt("per_id")%></td>
-                                    <td><%=rs.getString("per_nombres")%></td>
-                                    <td><%=rs.getString("per_apellidos")%></td>
-                                    <td><%=rs.getString("per_cedula")%></td>
-                                    <td><%=rs.getString("per_telefono")%></td>
-                                    <td><%=rs.getString("per_usuario")%></td>
-                                    <td><%int perfil = rs.getInt("perfiles_perfil_id");
+                                    <td><%=persona.getPerId()%></td>
+                                    <td><%=persona.getPerNombres()%></td>
+                                    <td><%=persona.getPerApellidos()%></td>
+                                    <td><%=persona.getPerCedula()%></td>                                    
+                                    <td><%=persona.getUsuario()%></td>                                    
+                                    <td><%=persona.getPerTelefono()%></td>                                    
+                                    <td><%int perfil = persona.getPerfilId();
                                         switch (perfil) {
 
                                             case 1:
@@ -67,44 +68,29 @@
                                             case 4:
                                                 out.print("Cliente");
                                                 break;
-
-                                        }
-
-
-                                        %></td>
-                                    <td><% int estado = rs.getInt("estados_esta_id");
+                                        } %></td>
+                                    <td><% int estado = persona.getEstaId();
                                         switch (estado) {
-
                                             case 1:
                                                 out.print("Activo");
                                                 break;
                                             case 2:
                                                 out.print("Inactivo");
                                                 break;
-                                        }
-
-                                        %></td>
-
+                                        } %></td>
                                     <td>
-                                        <a href="editar_admin.jsp?editar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
-                                        <a href="../Mantenimiento/crudeliminar_admin.jsp?eliminar=true&id=<%=rs.getInt("per_id")%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                        <a href="editar_admin.jsp?editar=true&id=<%=persona.getPerId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="../Mantenimiento/crudeliminar_admin.jsp?eliminar=true&id=<%=persona.getPerId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                     </td>
                                 </tr>
                                 <%}%>
                             </tbody>
-
                         </table>
                     </div>
                 </div>
-                <a href="menu_admin.jsp" class="btn btn-primary"><i class="fa fa-arrow-left" title="Regresar" name="regresar"></i> Regresar al menú principal</a>
+                <a href="menu_admin.jsp" class="btn btn-block btn-primary" >Menu Principal</a>
             </div>  
-            <!-- /.col-lg-12 -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 </div>
-<!-- /#page-wrapper -->
-
-<%@include file="../template/admin/footer_admin.jsp" %>
-
+<%@include file="template/footer_admin.jsp" %>
