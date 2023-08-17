@@ -32,7 +32,7 @@ public class PerfilesDao {
             }
             rs.close();
             pst.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error en PerfilesDao mostrarLista: " + e.getMessage());
         }
         return perfiles;
@@ -110,7 +110,7 @@ public class PerfilesDao {
             }
             pst.close();
         } catch (SQLException e) {
-            System.out.println("Error al eliminar el  formulario: " + e.getMessage());
+            System.out.println("Error en PerfilesDao modificarPerfil: " + e.getMessage());
             int SQLError = e.getErrorCode();
             switch (SQLError) {
                 case 1062:
