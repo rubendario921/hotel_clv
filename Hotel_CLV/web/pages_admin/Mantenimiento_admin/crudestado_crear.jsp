@@ -43,9 +43,9 @@
                     default:
                         informacion = "Registro Incorrecto, intente nuevamente.";
                         redireccion = "../estados_crear.jsp";
-                        break;%>
+                        break;
+                }%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <% }
-            }%>
+        <%}%>
     </body>
 </html>

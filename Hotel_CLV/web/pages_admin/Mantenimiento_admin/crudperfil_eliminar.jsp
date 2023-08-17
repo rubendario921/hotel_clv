@@ -30,7 +30,7 @@
         <script>alert("Registro No Eliminado, Intentalo nuevamente.");
             window.history.back();</script>
             <%}
-                }
-            %>
+
+                }%>
     </body>
 </html>
