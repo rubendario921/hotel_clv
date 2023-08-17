@@ -19,7 +19,7 @@
                         <table style="width: 100%">
                             <tr>
                                 <td><h3>Lista de Habitaciones</h3></td>
-                                <td align="rigth"><a href="#" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
+                                <td align="rigth"><a href="habitaciones_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
                             </tr>
                         </table>
                     </div>                    
@@ -42,7 +42,7 @@
                             <tbody>
                                 <%
                                     HabitacionesDao mostrar_habi = new HabitacionesDao();
-                                    List<Habitaciones> habitaciones = mostrar_habi.mostrarAdminHabi();
+                                    List<Habitaciones> habitaciones = mostrar_habi.mostrarListaHabi();
                                     for (Habitaciones habitacion : habitaciones) {%>
                                 <tr>
                                     <td><%=habitacion.getHabiId()%></td>
@@ -73,6 +73,12 @@
                                         }%>
                                     </td>
                                     <td><img class="img-fluid" src="../<%=habitacion.getHabiImg()%>" height="200" width="200"></td>
+                                    <td>
+                                        <!--modificar update=":tabMostrar"-->
+                                        <a href="habitaciones_editar.jsp?editar=true&id=<%=habitacion.getHabiId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <!--eliminar update=":tabMostrar"-->
+                                        <a href="Mantenimiento_admin/crudperfil_eliminar.jsp?eliminar=true&id=<%=habitacion.getHabiId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                    </td>
                                 </tr>
                                 <%}%>
                             </tbody>

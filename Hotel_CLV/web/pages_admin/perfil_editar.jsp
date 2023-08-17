@@ -45,16 +45,16 @@
                                     Perfiles perfil = mostrarP.mostrarPerfil(id);
                                     if (perfil != null) {%>
 
-                            <label>Codigo: </label><input type="text" value="<%= perfil.getPerfilId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
+                            <label>Codigo: </label><input type="text" value="<%= perfil.getPerfilId()%>" class="form-control" name="codigo" maxlength="2" readonly="false"/>
                             <br>
                             <label>Letra: </label><input type="text" value="<%=perfil.getPerfilLetra()%>" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <br>
                             <label>Nombre: </label><input type="text" value="<%=perfil.getPerfilNombre()%>" class="form-control" name="nombre" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
                             <br>
-                            <%}
-                                }%>
+                            <%}%>
+                            <%}%>
                             <a href="perfil_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Modificar" name="editar" class=" btn btn-primary"/>                            
+                            <input type="submit" value="Editar" name="editar" class=" btn btn-primary"/>                            
                         </form>                           
                     </div>                    
                 </div>

@@ -9,11 +9,17 @@
 <script>
     function validarFormulario() {
         // Obtener los valores de los campos
-        var letra = document.getElementById("letra").value.trim();
-        var nombre = document.getElementById("nombre").value.trim();
+        var nombres = document.getElementById("nombres").value.trim();
+        var apellidos = document.getElementById("apellidos").value.trim();
+        var cedula = document.getElementById("cedula").value.trim();
+        var telefono = document.getElementById("telefono").value.trim();
+        var correo = document.getElementById("correo").value.trim();
+        var usuario = document.getElementById("usuario").value.trim();
+        var clave = document.getElementById("clave").value.trim();
+        var perfil = document.getElementById("perfil").value.trim();
 
         // Validar campos obligatorios
-        if (letra === "" || nombre === "") {
+        if (nombres === "" || apellidos === ""|| cedula === ""|| telefono === ""|| correo === ""|| usuario === ""|| clave === ""|| perfil === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -44,7 +50,7 @@
                             <label>Contraseña: </label><input type="password" class="form-control" name="clave" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16" required />
                             <label>Perfil: </label>
                             <select name="perfil" id="perfil" class="form-control" required>
-                                <option>Seleccionar una Opción</option>                                
+                                <option> </option>                                
                                 <option value="1">Administrador</option>
                                 <option value="2">Supervisor</option>
                                 <option value="3">Recepcionista</option>

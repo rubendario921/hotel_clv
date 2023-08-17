@@ -31,7 +31,7 @@
                         <h3>Perfil Nuevo</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="Mantenimiento_admin/crudperfil_registrar.jsp" method="POST" onsubmit="return validarFormulario();">
+                        <form action="Mantenimiento_admin/crudperfil_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                             <label>Letra: </label><input type="text" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <label>Nombre: </label><input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
                             <br>
