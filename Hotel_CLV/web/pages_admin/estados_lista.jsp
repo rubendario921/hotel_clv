@@ -38,7 +38,7 @@
                                 <!--Extraer la informacion de la java class-->
                                 <%
                                     EstadosDao mostrar_estados = new EstadosDao();
-                                    List<Estados> estados = mostrar_estados.mostrarEstados();
+                                    List<Estados> estados = mostrar_estados.mostrarListaEstados();
                                     for (Estados estado : estados) {%>
                                 <tr>
                                     <td><%= estado.getEstaId()%></td>

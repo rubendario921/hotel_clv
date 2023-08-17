@@ -19,24 +19,25 @@ public class EstadosDao {
     conexion con = new conexion();
 // Metodo para Mostrar informacion
 
-    public List<Estados> mostrarEstados() {
+    public List<Estados> mostrarListaEstados() {
         List<Estados> estados = new ArrayList<>();
         try {
             String sql_lista = "SELECT * FROM hotel_clv.estados;";
-            Statement pst = con.getConexion().prepareCall(sql_lista);
+            Statement pst = con.getConexion().prepareStatement(sql_lista);
             ResultSet rs = pst.executeQuery(sql_lista);
             while (rs.next()) {
                 int estaId = rs.getInt("esta_id");
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
+                int catId = rs.getInt("categorias_cat_id");
 
-                Estados estado = new Estados(estaId, estaLetra, estaDescripcion);
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
                 estados.add(estado);
             }
             rs.close();
             pst.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error en EstadoDao Lista mostrarEstado: " + e.getMessage());
         } finally {
         }
@@ -47,14 +48,15 @@ public class EstadosDao {
         Estados estado = null;
         try {
             String sql_mostrarE = "SELECT * FROM hotel_clv.estados WHERE esta_id=?;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql_mostrarE);
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_mostrarE);
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Integer estaId = rs.getInt("esta_id");
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescri = rs.getString("esta_descripcion");
-                estado = new Estados(estaId, estaLetra, estaDescri);
+                Integer catId = rs.getInt("categorias_cat_id");
+                estado = new Estados(estaId, estaLetra, estaDescri, catId);
             }
             rs.close();
             pst.close();
@@ -67,13 +69,14 @@ public class EstadosDao {
     }
 
     //Metodo para agregar informacion
-    public int crearEstado(String letra, String descripcion) {
+    public int crearEstado(String letra, String descripcion, Integer categoria) {
         int resultado = 0;
         try {
-            String sql_crear = "INSERT INTO hotel_clv.estados (esta_letra, esta_descripcion) VALUES (?, ?);";
-            PreparedStatement pst = con.getConexion().prepareCall(sql_crear);
+            String sql_crear = "INSERT INTO hotel_clv.estados (esta_letra, esta_descripcion,categorias_cat_id ) VALUES (?, ?,?);";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_crear);
             pst.setString(1, letra);
-            pst.setString(2, descripcion);            
+            pst.setString(2, descripcion);
+            pst.setInt(3, categoria);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
@@ -100,14 +103,15 @@ public class EstadosDao {
         return resultado;
     }
 
-    public int modificarEstado(Integer id, String letra, String descripcion) {
+    public int modificarEstado(Integer id, String letra, String descripcion, Integer categoria) {
         int resultado = 0;
         try {
-            String sql_modi = "UPDATE hotel_clv.estados SET esta_letra=?, esta_descripcion=? WHERE esta_id=?;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql_modi);
+            String sql_modi = "UPDATE hotel_clv.estados SET esta_letra=?, esta_descripcion=?, categorias_cat_id=? WHERE esta_id=?;";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_modi);
             pst.setString(1, letra);
             pst.setString(2, descripcion);
-            pst.setInt(3, id);
+            pst.setInt(3, categoria);
+            pst.setInt(4, id);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
@@ -138,13 +142,13 @@ public class EstadosDao {
         int resultado = 0;
         try {
             String sql_elim = "DELETE FROM hotel_clv.estados WHERE esta_id = ?;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql_elim);
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_elim);
             pst.setInt(1, id);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
             } else {
-                resultado = 2;
+                resultado = 0;
             }
 
         } catch (Exception e) {

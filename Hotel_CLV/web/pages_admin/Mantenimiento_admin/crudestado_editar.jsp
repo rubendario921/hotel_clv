@@ -26,9 +26,10 @@
                 Integer id = Integer.parseInt(request.getParameter("codigo"));
                 String letra = request.getParameter("letra");
                 String descripcion = request.getParameter("descripcion");
+                Integer categoria = Integer.parseInt(request.getParameter("categoria"));
 
                 EstadosDao editarE = new EstadosDao();
-                int resultado = editarE.modificarEstado(id, letra, descripcion);
+                int resultado = editarE.modificarEstado(id, letra, descripcion, categoria);
 
                 switch (resultado) {
                     case 1:

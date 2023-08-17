@@ -14,9 +14,10 @@
         // Obtener los valores de los campos
         var letra = document.getElementById("letra").value.trim();
         var descripcion = document.getElementById("descripcion").value.trim();
+        var categoria = document.getElementById("categoria").value.trim();
 
         // Validar campos obligatorios
-        if (letra === "" || descripcion === "") {
+        if (letra === "" || descripcion === ""|| categoria==="") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -47,6 +48,15 @@
                             <label>Letra: </label><input type="text" value="<%=estado.getEstaLetra()%>" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <br>
                             <label>Nombre: </label><input type="text" value="<%=estado.getEstaDescripcion()%>" class="form-control" name="descripcion" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
+                            <br>
+                            <label>Categoria: </label>
+                            <select name="categoria" id="categoria" class="form form-control" required>
+                                <option> </option>
+                                <option value="1">Personas</option>
+                                <option value="2">Habitaciones</option>
+                                <option value="3">Productos</option>
+                                <option value="4">Facturacion</option>
+                            </select> 
                             <br>
                             <%}
                                 }%>

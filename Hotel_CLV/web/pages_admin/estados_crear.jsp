@@ -12,9 +12,10 @@
         // Obtener los valores de los campos
         var letra = document.getElementById("letra").value.trim();
         var descripcion = document.getElementById("descripcion").value.trim();
+        var categoria = document.getElementById("categoria").value.trim();
 
         // Validar campos obligatorios
-        if (letra === "" || descripcion === "" ) {
+        if (letra === "" || descripcion === ""|| categoria==="") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -33,7 +34,17 @@
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudestado_crear.jsp" method="POST" onsubmit="return validarFormulario()">
                             <label>Letra: </label><input type="text" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
+                            <br>
                             <label>Descripción: </label><input type="text" class="form-control" name="descripcion" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
+                            <br>
+                            <label>Categoria: </label>
+                            <select name="categoria" id="categoria" class="form form-control" required>
+                                <option> </option>
+                                <option value="1">Personas</option>
+                                <option value="2">Habitaciones</option>
+                                <option value="3">Productos</option>
+                                <option value="4">Facturacion</option>
+                            </select>                            
                             <br>
                             <a href="estados_lista.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" value="Registrar" name="nuevo_estado" class=" btn btn-primary"/>
@@ -45,4 +56,4 @@
     </div>
 </div>
 <!--Fin del Cuerpo -->
-<%@include file="template/footer_admin.jsp" %>
+<%@include file="template/footer_admin.jsp" %>   

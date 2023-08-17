@@ -23,9 +23,10 @@
             if (request.getParameter("nuevo_estado") != null) {
                 String letra = request.getParameter("letra");
                 String descripcion = request.getParameter("descripcion");
+                Integer categoria = Integer.parseInt(request.getParameter("categoria"));
 
                 EstadosDao crearE = new EstadosDao();
-                int resultado = crearE.crearEstado(letra, descripcion);
+                int resultado = crearE.crearEstado(letra, descripcion, categoria);
 
                 switch (resultado) {
                     case 1:

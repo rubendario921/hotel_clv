@@ -14,14 +14,16 @@ public class Estados {
     private Integer estaId;
     private String estaLetra;
     private String estaDescripcion;
+    private Integer catId;
 
     public Estados() {
     }
 
-    public Estados(Integer estaId, String estaLetra, String estaDescripcion) {
+    public Estados(Integer estaId, String estaLetra, String estaDescripcion, Integer catId) {
         this.estaId = estaId;
         this.estaLetra = estaLetra;
         this.estaDescripcion = estaDescripcion;
+        this.catId = catId;
     }
 
     public Integer getEstaId() {
@@ -46,6 +48,14 @@ public class Estados {
 
     public void setEstaDescripcion(String estaDescripcion) {
         this.estaDescripcion = estaDescripcion;
+    }
+
+    public Integer getCatId() {
+        return catId;
+    }
+
+    public void setCatId(Integer catId) {
+        this.catId = catId;
     }
 
 }
