@@ -127,7 +127,7 @@
                         </div>
                     </div>
                 </div>                
-                <a href="listado_habitaciones.jsp">
+                        <a href="habitaciones_lista.jsp">
                     <div class="panel-footer">
                         <span class="pull-left">Listado de Habitaciones</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

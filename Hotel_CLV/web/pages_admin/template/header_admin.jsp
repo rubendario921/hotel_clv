@@ -164,7 +164,7 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-table fa-fw"></i>Habitaciones</a>
+                        <a href="habitaciones_lista.jsp"><i class="fa fa-table fa-fw"></i>Habitaciones</a>
                     </li>
                     <li>
                         <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Buzon de Sugerencias</a>
