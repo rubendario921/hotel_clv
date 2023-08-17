@@ -30,23 +30,20 @@
                 switch (resultado) {
                     case 1:
                         informacion = "Registro de Estado Exitoso.";
-                        redireccion = "../estados_lista.jsp";%>
-        <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <%break;
-            case 1062:
-                informacion = "El registro  ya existe en la base de datos, intente nuevamente.";
-                redireccion = "../estados_crear.jsp";%>
-        %>
-        <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <%break;
-            case 1048:
-                informacion = "Los campos no puede estar vacios, intente nuevamente.";
-                redireccion = "../estados_crear.jsp";%>
-        <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>        
-        <%break;
-            default:
-                informacion = "Registro Incorrecto, intente nuevamente.";
-                redireccion = "../estados_crear.jsp";%>
+                        redireccion = "../estados_lista.jsp";
+                        break;
+                    case 1062:
+                        informacion = "El registro  ya existe en la base de datos, intente nuevamente.";
+                        redireccion = "../estados_crear.jsp";
+                        break;
+                    case 1048:
+                        informacion = "Los campos no puede estar vacios, intente nuevamente.";
+                        redireccion = "../estados_crear.jsp";
+                        break;
+                    default:
+                        informacion = "Registro Incorrecto, intente nuevamente.";
+                        redireccion = "../estados_crear.jsp";
+                        break;%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
         <% }
             }%>
