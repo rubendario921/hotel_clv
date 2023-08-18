@@ -15,7 +15,9 @@ import java.util.*;
  * @author Ruben Dario
  */
 public class PerfilesDao {
+
     conexion con = new conexion();
+
     public List<Perfiles> mostrarListaPerfil() {
         List<Perfiles> perfiles = new ArrayList<>();
         try {
@@ -34,6 +36,7 @@ public class PerfilesDao {
             pst.close();
         } catch (SQLException e) {
             System.out.println("Error en PerfilesDao mostrarLista: " + e.getMessage());
+        } finally {
         }
         return perfiles;
     }
