@@ -136,6 +136,12 @@
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
+        // Validar que la contraseña contenga al menos una mayúscula, una minúscula y un número
+        var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+        if (!passwordPattern.test(clave)) {
+            alert("La contraseña debe contener al menos una mayúscula, una minúscula y un número.");
+            return false; // Detener el envío del formulario
+        }
 
         // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
 

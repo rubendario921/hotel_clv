@@ -72,7 +72,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label label-text">Contraseña</label>
-                                <input type="password" class="form-control" id="clave" name="password" placeholder="Ingrese su contraseña" required>
+                                <input type="password" class="form-control" id="clave" name="password" placeholder="Ingrese su contraseña" required maxlength="18">
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary btn-block" name="ingreso_cliente" value="ingreso_cliente">Iniciar Sesión</button>
