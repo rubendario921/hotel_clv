@@ -25,8 +25,8 @@
                 String detalle = request.getParameter("detalle");
                 String cantidad = request.getParameter("cantidad");
                 String valor = request.getParameter("valor");
-                String imagen = request.getParameter("imagen");
-                String estado = request.getParameter("estado");
+                String imagen = request.getParameter("insu_dimg");
+                String estado = request.getParameter("estados_esta_id");
 
                 InsumosDao crearI = new InsumosDao();
                 int resultado = crearI.crearInsumo(nombre, detalle, cantidad, valor, imagen, estado);

@@ -10,7 +10,7 @@
 
     //Optener valores de los campos
     function validar formulario() {
-        var nombre = document.getElementById("nombre").value.trim();
+        var valornombre = document.getElementById("nombre").value.trim();
         var detalle = document.getElementById("detalle").value.trim();
         var cantidad = document.getElementById("cantidad").value.trim();
         var valor = document.getElementById("valor").value.trim();
@@ -19,7 +19,7 @@
 
         //Validar campos obligatorios
 
-        if (letra === " " || nombre === "") {
+        if (nombre === " " || detalle === ""|| cantidad === ""|| valor === ""|| insu_dimg === ""|| estados_esta_id === "") {
             alert("Por favor, completar todos los campos.");
             return false;
         }
@@ -37,7 +37,7 @@
                         <h3>Nuevo Insumo</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="Mantenimiento_admin/crudunsumos_registrar.jsp" method="POST"onsubmit="return validarFormulario()">
+                        <form action="Mantenimiento_admin/crudinsumos_crear.jsp" method="POST"onsubmit="return validarFormulario()">
                             <label> Nombre: </label><input type="text" class="form-control" name="nombre"  placeholder="Ingrese el nombre del insumo. " maxlength="15" required/>
                             <label> Detalle: </label><input type="text" class="form-control" name="detalle"  placeholder="Ingrese el detalle insumo. " maxlength="100" required/>
                             <label> Cantidad: </label><input type="text" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad del insumo. " maxlength="20" required/>
