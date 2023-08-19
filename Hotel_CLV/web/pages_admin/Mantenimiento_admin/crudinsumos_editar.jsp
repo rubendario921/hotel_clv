@@ -1,6 +1,6 @@
 <%-- 
-    Document   : crudinsumos_crear
-    Created on : 16/08/2023, 18:48:50
+    Document   : crudinsumos_editar
+    Created on : 19/08/2023, 17:24:03
     Author     : Wladimir Campaña
 --%>
 
@@ -20,7 +20,8 @@
         <%
             String informacion = "";
             String redireccion = "";
-            if (request.getParameter("nuevo_insumo") != null) {
+            if (request.getParameter("editar") != null) {
+                Integer id = Integer.parseInt(request.getParameter("id"));
                 String nombre = request.getParameter("nombre");
                 String detalle = request.getParameter("detalle");
                 String cantidad = request.getParameter("cantidad");
@@ -28,27 +29,29 @@
                 String imagen = request.getParameter("insu_dimg");
                 String estado = request.getParameter("estados_esta_id");
 
-                InsumosDao crearI = new InsumosDao();
-                int resultado = crearI.crearInsumo(nombre, detalle, cantidad, valor, imagen, estado);
+                InsumosDao editarI = new InsumosDao();
+                int resultado = editarI.modificarInsumo(id, nombre, detalle, cantidad, valor, imagen, estado);
+
                 switch (resultado) {
                     case 1:
-                        informacion = "Registro de insumo exitoso";
+                        informacion = "Modificación de Insumo Exitoso";
                         redireccion = "../insumos_lista.jsp";
                         break;
-                    case 2:
-                        informacion = "El insumo  ya existe en la base de datos, intente nuevamente.";
-                        redireccion = "../insumos_crear.jsp";
+                    case 1062:
+                        informacion = "El registro  ya existe en la base de datos, intente nuevamente.";
+                        redireccion = "../insumos_editar.jsp";
                         break;
-                    case 3:
+                    case 1048:
                         informacion = "Los campos no puede estar vacios, intente nuevamente.";
-                        redireccion = "../insumos_crear.jsp";
+                        redireccion = "../insumos_editar.jsp";
                         break;
-                    case 4:
+                    default:
                         informacion = "Registro Incorrecto, intente nuevamente.";
-                        redireccion = "../insumos_crear.jsp";
+                        redireccion = "../insumos_editar.jsp";
                         break;
                 }%>
-        <script>mostrarMensaje('<%=informacion%>', '<%=redireccion%>');</script>      
-            <%}%>         
+        <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
+        <%
+            }%>
     </body>
 </html>

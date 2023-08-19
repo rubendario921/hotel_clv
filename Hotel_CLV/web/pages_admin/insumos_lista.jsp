@@ -1,7 +1,7 @@
 <%-- 
     Document   : insumos_lista
     Created on : 16/08/2023, 9:44:21
-    Author     : Ruben Dario
+    Author     : Wladimir Campaña
 --%>
 
 <%@page import="Controller.Insumos"%>

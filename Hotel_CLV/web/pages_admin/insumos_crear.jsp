@@ -1,7 +1,7 @@
 <%-- 
     Document   : insumos_crear
     Created on : 16/08/2023, 13:04:18
-    Author     : Usuario
+    Author     : Wladimir Campaña
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,7 +10,7 @@
 
     //Optener valores de los campos
     function validar formulario() {
-        var valornombre = document.getElementById("nombre").value.trim();
+        var nombre = document.getElementById("nombre").value.trim();
         var detalle = document.getElementById("detalle").value.trim();
         var cantidad = document.getElementById("cantidad").value.trim();
         var valor = document.getElementById("valor").value.trim();
@@ -37,7 +37,7 @@
                         <h3>Nuevo Insumo</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="Mantenimiento_admin/crudinsumos_crear.jsp" method="POST"onsubmit="return validarFormulario()">
+                        <form action="Mantenimiento_admin/crudinsumos_crear.jsp" method="POST"onsubmit="return validarFormulario();">
                             <label> Nombre: </label><input type="text" class="form-control" name="nombre"  placeholder="Ingrese el nombre del insumo. " maxlength="15" required/>
                             <label> Detalle: </label><input type="text" class="form-control" name="detalle"  placeholder="Ingrese el detalle insumo. " maxlength="100" required/>
                             <label> Cantidad: </label><input type="text" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad del insumo. " maxlength="20" required/>
