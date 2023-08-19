@@ -51,40 +51,40 @@
     <!--Galeria de imagenes-->
     <body style="text-align: center;"></body>
 
-        <table>
-            
-            <h2>Listado de todas las habitaciones</h2>
-            <thead> 
-                <tr>
-                    <th>Nombre Habitación</th>
-                    <th>Tipo de Habitación</th>                    
-                    <th>Descripción</th>
-                    <th>Imagen</th>
-                </tr> 
-            </thead>
-            <tbody>
-                <%
-                    HabitacionesDao mostar_habitaciones = new HabitacionesDao();
-                    List<Habitaciones> habitaciones = mostar_habitaciones.mostrarMenuHabi();
-                    for (Habitaciones habitacion : habitaciones) {%>
-                <tr>                    
-                    <td><%=habitacion.getHabiNombre()%></td>
-                    <td><%=habitacion.getHabiTipo()%></td>                    
-                    <td><%=habitacion.getHabiDescripcion()%></td>
-                    <td><img class="img-fluid" src="./<%=habitacion.getHabiImg()%>" alt=" "></td>                    
-                </tr>
-                <%}%>
-            </tbody>
-        </table>
-        <br>
-        <!--<div class="img-container">
-            <img class="img-fluid" src="./assets/img/habitación_1.jpg" alt="">
-            <img class="img-fluid" src="./assets/img/Habitación_2.jpg" alt="">
-            <img class="img-fluid" src="./assets/img/habitación_3.jpg" alt="">
-            <img class="img-fluid" src="./assets/img/Habitación_4.jpg" alt="">
-            <img class="img-fluid" src="./assets/img/habitación_5.jpg" alt="">
-            <img class="img-fluid" src="./assets/img/habitación_6.jpg" alt="">
-        </div>-->
-        <%@include file="template/menu/footer_menu.jsp" %>
-    </body>
+    <table>
+
+        <h2>Listado de todas las habitaciones</h2>
+        <thead> 
+            <tr>
+                <th>Nombre Habitación</th>
+                <th>Tipo de Habitación</th>                    
+                <th>Descripción</th>
+                <th>Imagen</th>
+            </tr> 
+        </thead>
+        <tbody>
+            <%
+                HabitacionesDao mostar_habitaciones = new HabitacionesDao();
+                List<Habitaciones> habitaciones = mostar_habitaciones.mostrarMenuHabi();
+                for (Habitaciones habitacion : habitaciones) {%>
+            <tr>                    
+                <td><%=habitacion.getHabiNombre()%></td>
+                <td><%=habitacion.getHabiTipo()%></td>                    
+                <td><%=habitacion.getHabiDescripcion()%></td>
+                <td><img class="img-fluid" src="./<%=habitacion.getHabiImg()%>" alt=" "></td>                    
+            </tr>
+            <%}%>
+        </tbody>
+    </table>
+    <br>
+    <!--<div class="img-container">
+        <img class="img-fluid" src="./assets/img/habitación_1.jpg" alt="">
+        <img class="img-fluid" src="./assets/img/Habitación_2.jpg" alt="">
+        <img class="img-fluid" src="./assets/img/habitación_3.jpg" alt="">
+        <img class="img-fluid" src="./assets/img/Habitación_4.jpg" alt="">
+        <img class="img-fluid" src="./assets/img/habitación_5.jpg" alt="">
+        <img class="img-fluid" src="./assets/img/habitación_6.jpg" alt="">
+    </div>-->
+    <%@include file="template/menu/footer_menu.jsp" %>
+</body>
 </html>

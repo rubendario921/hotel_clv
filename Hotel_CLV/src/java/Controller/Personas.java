@@ -5,6 +5,8 @@
  */
 package Controller;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Ruben Dario
@@ -20,13 +22,14 @@ public class Personas {
     private String perUsuario;
     private String perClave;
     private String perImagen;
+    private LocalDateTime perFRegistro;
     private Integer perfilId;
     private Integer estaId;
 
     public Personas() {
     }
 
-    public Personas(Integer perId, String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, Integer perfilId, Integer estaId) {
+    public Personas(Integer perId, String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId, Integer estaId) {
         this.perId = perId;
         this.perNombres = perNombres;
         this.perApellidos = perApellidos;
@@ -36,6 +39,7 @@ public class Personas {
         this.perUsuario = perUsuario;
         this.perClave = perClave;
         this.perImagen = perImagen;
+        this.perFRegistro = perFRegistro;
         this.perfilId = perfilId;
         this.estaId = estaId;
     }
@@ -88,11 +92,11 @@ public class Personas {
         this.perCorreo = perCorreo;
     }
 
-    public String getUsuario() {
+    public String getPerUsuario() {
         return perUsuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setPerUsuario(String perUsuario) {
         this.perUsuario = perUsuario;
     }
 
@@ -112,6 +116,14 @@ public class Personas {
         this.perImagen = perImagen;
     }
 
+    public LocalDateTime getPerFRegistro() {
+        return perFRegistro;
+    }
+
+    public void setPerFRegistro(LocalDateTime perFRegistro) {
+        this.perFRegistro = perFRegistro;
+    }
+
     public Integer getPerfilId() {
         return perfilId;
     }
@@ -127,4 +139,5 @@ public class Personas {
     public void setEstaId(Integer estaId) {
         this.estaId = estaId;
     }
+
 }

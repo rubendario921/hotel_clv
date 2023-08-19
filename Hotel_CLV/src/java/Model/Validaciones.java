@@ -18,9 +18,8 @@ public class Validaciones {
     public int validarPersona(String correo, String usuario, String password) {
         int resultado = 0;
         try {
-
             String sql = "SELECT * FROM hotel_clv.personas WHERE (per_correo= ? or per_usuario=?) and per_clave =?;";
-            PreparedStatement pst = con.getConexion().prepareStatement(sql);
+            PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setString(1, correo);
             pst.setString(2, usuario);
             pst.setString(3, password);
@@ -50,7 +49,7 @@ public class Validaciones {
             pst.close();
 
         } catch (SQLException e) {
-            System.out.println("Error al obtener la conexión: " + e.getMessage());
+            System.out.println("Error al Validar al conexión: " + e.getMessage());
         } finally {
         }
         return resultado;
@@ -60,7 +59,7 @@ public class Validaciones {
         String user = "";
         try {
             String sql = "SELECT * FROM hotel_clv.personas WHERE (per_correo= ? or per_usuario=?) and per_clave = ?;";
-            PreparedStatement pst = con.getConexion().prepareStatement(sql);
+            PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setString(1, correo);
             pst.setString(2, usuario);
             pst.setString(3, password);
@@ -71,8 +70,8 @@ public class Validaciones {
             rs.close();
             pst.close();
 
-        } catch (Exception e) {
-            System.out.println("Error al obtener la conexión: " + e.getMessage());
+        } catch (SQLException e) {
+            System.out.println("Error al obtener el nombre: " + e.getMessage());
         } finally {
         }
         return user;

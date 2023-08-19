@@ -7,6 +7,7 @@ package Controller;
 
 import Model.conexion;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -33,10 +34,11 @@ public class PersonasDao {
                 String usuario = rs.getString("per_usuario");
                 String perClave = rs.getString("per_clave");
                 String perImagen = rs.getString("per_dimg");
+                LocalDateTime perFRegistro = rs.getTimestamp("per_fregistro").toLocalDateTime();
                 Integer perfilId = rs.getInt("perfiles_perfil_id");
                 Integer estaId = rs.getInt("estados_esta_id");
 
-                Personas persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perfilId, estaId);
+                Personas persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perFRegistro, perfilId, estaId);
                 personas.add(persona);
             }
             rs.close();
@@ -64,10 +66,11 @@ public class PersonasDao {
                 String usuario = rs.getString("per_usuario");
                 String perClave = rs.getString("per_clave");
                 String perImagen = rs.getString("per_dimg");
+                LocalDateTime perFRegistro = rs.getTimestamp("per_fregistro").toLocalDateTime();
                 Integer perfilId = rs.getInt("perfiles_perfil_id");
                 Integer estaId = rs.getInt("estados_esta_id");
 
-                Personas persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perfilId, estaId);
+                Personas persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perFRegistro, perfilId, estaId);
                 personas.add(persona);
             }
             rs.close();
@@ -95,10 +98,11 @@ public class PersonasDao {
                 String usuario = rs.getString("per_usuario");
                 String perClave = rs.getString("per_clave");
                 String perImagen = rs.getString("per_dimg");
+                LocalDateTime perFRegistro = rs.getTimestamp("per_fregistro").toLocalDateTime();
                 Integer perfilId = rs.getInt("perfiles_perfil_id");
                 Integer estaId = rs.getInt("estados_esta_id");
 
-                Personas persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perfilId, estaId);
+                Personas persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perFRegistro, perfilId, estaId);
                 personas.add(persona);
             }
             rs.close();
@@ -127,10 +131,11 @@ public class PersonasDao {
                 String usuario = rs.getString("per_usuario");
                 String perClave = rs.getString("per_clave");
                 String perImagen = rs.getString("per_dimg");
+                LocalDateTime perFRegistro = rs.getTimestamp("per_fregistro").toLocalDateTime();
                 Integer perfilId = rs.getInt("perfiles_perfil_id");
                 Integer estaId = rs.getInt("estados_esta_id");
 
-                persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perfilId, estaId);
+                persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perFRegistro, perfilId, estaId);
             }
             rs.close();
             pst.close();
@@ -141,10 +146,10 @@ public class PersonasDao {
         return persona;
     }
 
-    public int crearPersona(String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, Integer perfilId, Integer estaId) {
+    public int crearPersona(String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId, Integer estaId) {
         int resultado = 0;
         try {
-            String sql_crearP = "INSERT INTO hotel_clv.personas (per_nombres, per_apellidos,per_cedula,per_telefono,per_correo,per_usuario,per_clave,per_dimg,perfiles_perfil_id,estados_esta_id) VALUES (?,?,?,?,?,?,?,?,?,?);";
+            String sql_crearP = "INSERT INTO hotel_clv.personas (per_nombres, per_apellidos,per_cedula,per_telefono,per_correo,per_usuario,per_clave,per_dimg,per_fregistro,perfiles_perfil_id,estados_esta_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
             PreparedStatement pst = con.getConexion().prepareCall(sql_crearP);
             pst.setString(1, perNombres);
             pst.setString(2, perApellidos);
@@ -154,8 +159,9 @@ public class PersonasDao {
             pst.setString(6, perUsuario);
             pst.setString(7, perClave);
             pst.setString(8, perImagen);
-            pst.setInt(9, perfilId);
-            pst.setInt(10, estaId);
+            pst.setTimestamp(9, Timestamp.valueOf(perFRegistro));
+            pst.setInt(10, perfilId);
+            pst.setInt(11, estaId);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
@@ -244,5 +250,4 @@ public class PersonasDao {
         }
         return resultado;
     }
-
 }

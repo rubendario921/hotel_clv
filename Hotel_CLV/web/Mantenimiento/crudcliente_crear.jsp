@@ -4,6 +4,7 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="java.time.LocalDateTime"%>
 <%@page import="Controller.PersonasDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,12 +29,15 @@
                 String perCorreo = request.getParameter("correo");
                 String perUsuario = request.getParameter("usuario");
                 String perClave = request.getParameter("clave");
-                String perImagen = "assets\\img\\user_default.png";
+                String perImagen = "assets\\img\\user_default.png";                
+                String fregistroString  = request.getParameter("fregistro");
+                LocalDateTime perFRegistro = LocalDateTime.parse(fregistroString.replace(" ", " "));
+                
                 Integer perfilId = 4;
                 Integer estaId = 1;
 
                 PersonasDao crearP = new PersonasDao();
-                int resultado = crearP.crearPersona(perNombres, perApellidos, perCedula, perTelefono, perCorreo, perUsuario, perClave, perImagen, perfilId, estaId);
+                int resultado = crearP.crearPersona(perNombres, perApellidos, perCedula, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId, estaId);
                 switch (resultado) {
                     case 1:
                         informacion = "Registro de Perfil Exitoso.";
