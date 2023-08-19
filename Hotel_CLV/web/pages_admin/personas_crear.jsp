@@ -4,6 +4,9 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="java.util.*"%>
+<%@page import="Controller.PerfilesDao"%>
+<%@page import="Controller.Perfiles"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <script>
@@ -17,17 +20,16 @@
         var usuario = document.getElementById("usuario").value.trim();
         var clave = document.getElementById("clave").value.trim();
         var perfil = document.getElementById("perfil").value.trim();
+        var fregistro = document.getElementById("fregistro").value.trim();
 
         // Validar campos obligatorios
-        if (nombres === "" || apellidos === ""|| cedula === ""|| telefono === ""|| correo === ""|| usuario === ""|| clave === ""|| perfil === "") {
+        if (nombres === "" || apellidos === "" || cedula === "" || telefono === "" || correo === "" || usuario === "" || clave === "" || perfil === ""|| fregistro === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
-
-
 <!DocumentHTML>
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -50,12 +52,15 @@
                             <label>Contraseña: </label><input type="password" class="form-control" name="clave" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16" required />
                             <label>Perfil: </label>
                             <select name="perfil" id="perfil" class="form-control" required>
-                                <option> </option>                                
-                                <option value="1">Administrador</option>
-                                <option value="2">Supervisor</option>
-                                <option value="3">Recepcionista</option>
-                                <option value="4">Cliente</option>
-                            </select>
+                                <%
+                                    PerfilesDao mostrarPerfiles = new PerfilesDao();
+                                    List<Perfiles> perfiles = mostrarPerfiles.mostrarListaPerfil();
+                                    for (Perfiles perfil : perfiles) {
+                                %>                                                               
+                                <option value="<%=perfil.getPerfilId()%>"><%=perfil.getPerfilNombre()%></option>                                
+                                <% }%>
+                            </select>  
+                            <label>Fecha de Registro: </label><input type="datetime-local" name="fregistro" id="clave" class="form-control" required />
                             <br>
                             <a href="menu_admin.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" class=" btn btn-primary" value="Registrar" name="nuevo_persona" />

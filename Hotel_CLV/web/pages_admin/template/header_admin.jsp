@@ -173,22 +173,22 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Configuraciones<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="clientes_lista.jsp">Listado Clientes</a>
+                                <a href="personasC_lista.jsp">Listado Clientes</a>
                             </li>
                             <li>
-                                <a href="empleado_lista.jsp">Listado Empleados</a>
+                                <a href="personasE_lista.jsp">Listado Empleados</a>
                             </li>
                             <li>
-                                <a href="notifications.html">Inventario de Consumos</a>
+                                <a href="#">Inventario de Consumos</a>
                             </li>
                             <li>
                                 <a href="insumos_lista.jsp">Inventario de Insumos</a>
                             </li>
                             <li>
-                                <a href="icons.html"> Metodo de Pago</a>
+                                <a href="#"> Metodo de Pago</a>
                             </li>
                             <li>
-                                <a href="grid.html">WhatApps</a>
+                                <a href="#">WhatApps</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

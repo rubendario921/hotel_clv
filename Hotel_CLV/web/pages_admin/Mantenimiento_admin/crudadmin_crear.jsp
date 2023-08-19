@@ -4,41 +4,63 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="Controller.PersonasDao"%>
+<%@page import="java.time.LocalDateTime"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
-<%@page import="Model.conexion"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function mostrarMensaje(informacion, redireccion) {
+                alert(informacion);
+                window.location.href = redireccion;
+            }
+        </script>
+    </head>
+    <body>
+        <%
+            String informacion = "";
+            String redireccion = "";
 
-<%
-    conexion con = new conexion();
+            if (request.getParameter("nuevo_persona") != null) {
+                String perNombres = request.getParameter("nombres");
+                String perApellidos = request.getParameter("apellidos");
+                String perCedula = request.getParameter("cedula");
+                String perTelefono = request.getParameter("telefono");
+                String perCorreo = request.getParameter("correo");
+                String perUsuario = request.getParameter("usuario");
+                String perClave = request.getParameter("clave");
+                String perImagen = "assets\\img\\user_default.png";
+                String fregistroString = request.getParameter("fregistro");
+                LocalDateTime perFRegistro = LocalDateTime.parse(fregistroString.replace(" ", " "));
+                Integer perfilId = Integer.parseInt(request.getParameter("perfil"));
+                Integer estaId = 1;
 
-    if (request.getParameter("nuevo") != null) {
-        String nom = request.getParameter("nom");
-        String ape = request.getParameter("ape");
-        String cedu = request.getParameter("cedu");
-        String cont = request.getParameter("cont");
-        String corr = request.getParameter("corr");
-        String usu = request.getParameter("usu");
-        String pass = request.getParameter("pass");
-        int perfil = Integer.parseInt(request.getParameter("perfil"));
+                PersonasDao crearPersona = new PersonasDao();
+                int resultado = crearPersona.crearPersona(perNombres, perApellidos, perCedula, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId, estaId);
 
-        String sql = "INSERT INTO personas (per_nombres, per_apellidos, per_cedula,per_telefono,per_correo, per_usuario, per_clave, per_estado, per_perfil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
-        PreparedStatement pst = con.getConexion().prepareStatement(sql);
-        pst.setString(1, nom);
-        pst.setString(2, ape);
-        pst.setString(3, cedu);
-        pst.setString(4, cont);
-        pst.setString(5, corr);
-        pst.setString(6, usu);
-        pst.setString(7, pass);
-        pst.setString(8, "A");
-        pst.setInt(9, perfil);
-        int n = pst.executeUpdate();
-        if (n > 0) {
-            out.print("<script>alert('Registro Guardado')</script>");
-            out.print("<script>window.location.href='../pages_admin/listado_empleados.jsp'</script>");
-        } else {
-            out.print("<script>alert('Registro NO Guardado')</script>");
-            out.print("<script>window.location.href='../pages_admin/registro_admin.jsp'</script>");
-        }
-    }
-%>
+                switch (resultado) {
+                    case 1:
+                        informacion = "Registro Exitoso.";
+                        redireccion = "../menu_admin.jsp";%>
+        <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
+        <%break;
+            case 1062:%>
+        <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
+            window.history.back();
+        </script>    
+        <%break;
+            case 1048:%>
+        <script>alert("Los campos no puede estar vacios, intente nuevamente.");
+            window.history.back();
+        </script>              
+        <%break;
+            default:%>
+        <script>alert("Registro Incorrecto, intente nuevamente");
+            window.history.back();
+        </script>             
+        <%break;
+            }%>
+        <% }%>
+        < /body>
+</html>

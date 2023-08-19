@@ -44,6 +44,106 @@ public class EstadosDao {
         return estados;
     }
 
+    public List<Estados> mostrarListaEsta1() {
+        List<Estados> estados = new ArrayList<>();
+        try {
+            String sql_lista = "SELECT * FROM hotel_clv.estados WHERE estados.categorias_cat_id=1 ;";
+            Statement pst = con.getConexion().prepareStatement(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
+            while (rs.next()) {
+                int estaId = rs.getInt("esta_id");
+                String estaLetra = rs.getString("esta_letra");
+                String estaDescripcion = rs.getString("esta_descripcion");
+                int catId = rs.getInt("categorias_cat_id");
+
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                estados.add(estado);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+        } finally {
+        }
+        return estados;
+    }
+
+    public List<Estados> mostrarListaEsta2() {
+        List<Estados> estados = new ArrayList<>();
+        try {
+            String sql_lista = "SELECT * FROM hotel_clv.estados WHERE estados.categorias_cat_id=2 ;";
+            Statement pst = con.getConexion().prepareStatement(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
+            while (rs.next()) {
+                int estaId = rs.getInt("esta_id");
+                String estaLetra = rs.getString("esta_letra");
+                String estaDescripcion = rs.getString("esta_descripcion");
+                int catId = rs.getInt("categorias_cat_id");
+
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                estados.add(estado);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+        } finally {
+        }
+        return estados;
+    }
+
+    public List<Estados> mostrarListaEsta3() {
+        List<Estados> estados = new ArrayList<>();
+        try {
+            String sql_lista = "SELECT * FROM hotel_clv.estados WHERE estados.categorias_cat_id=3 ;";
+            Statement pst = con.getConexion().prepareStatement(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
+            while (rs.next()) {
+                int estaId = rs.getInt("esta_id");
+                String estaLetra = rs.getString("esta_letra");
+                String estaDescripcion = rs.getString("esta_descripcion");
+                int catId = rs.getInt("categorias_cat_id");
+
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                estados.add(estado);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+        } finally {
+        }
+        return estados;
+    }
+
+    public List<Estados> mostrarListaEsta4() {
+        List<Estados> estados = new ArrayList<>();
+        try {
+            String sql_lista = "SELECT * FROM hotel_clv.estados WHERE estados.categorias_cat_id=4 ;";
+            Statement pst = con.getConexion().prepareStatement(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
+            while (rs.next()) {
+                int estaId = rs.getInt("esta_id");
+                String estaLetra = rs.getString("esta_letra");
+                String estaDescripcion = rs.getString("esta_descripcion");
+                int catId = rs.getInt("categorias_cat_id");
+
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                estados.add(estado);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+        } finally {
+        }
+        return estados;
+    }
+
     public Estados mostrarEstado(Integer id) {
         Estados estado = null;
         try {
