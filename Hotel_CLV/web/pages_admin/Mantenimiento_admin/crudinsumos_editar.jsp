@@ -20,8 +20,9 @@
         <%
             String informacion = "";
             String redireccion = "";
+            
             if (request.getParameter("editar") != null) {
-                Integer id = Integer.parseInt(request.getParameter("id"));
+                Integer id = Integer.parseInt(request.getParameter("codigo"));
                 String nombre = request.getParameter("nombre");
                 String detalle = request.getParameter("detalle");
                 String cantidad = request.getParameter("cantidad");
@@ -37,11 +38,11 @@
                         informacion = "Modificación de Insumo Exitoso";
                         redireccion = "../insumos_lista.jsp";
                         break;
-                    case 1062:
+                    case 2:
                         informacion = "El registro  ya existe en la base de datos, intente nuevamente.";
                         redireccion = "../insumos_editar.jsp";
                         break;
-                    case 1048:
+                    case 3:
                         informacion = "Los campos no puede estar vacios, intente nuevamente.";
                         redireccion = "../insumos_editar.jsp";
                         break;
@@ -51,7 +52,6 @@
                         break;
                 }%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <%
-            }%>
+        <%}%>
     </body>
 </html>

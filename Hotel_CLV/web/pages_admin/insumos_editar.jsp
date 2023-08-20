@@ -8,6 +8,7 @@
 <%@page import="Controller.InsumosDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
+
 <!DOCTYPE html>
 <script>
     function validarFormulario() {
@@ -36,8 +37,8 @@
                     <div class="panel-heading">
                         <h3>Editar Insumo</h3>
                     </div>
-                    <div class="panel-body">
-                        <form action="Mantenimiento_admin/crudinsumos_editar.jsp" method="POST"onsubmit="return validarFormulario();">
+                    <div class="panel-body"
+                         <form action="Mantenimiento_admin/crudinsumos_editar.jsp" method="POST"onsubmit="return validarFormulario();">
                             <%
                                 if (request.getParameter("editar") != null) {
                                     int id = Integer.parseInt(request.getParameter("id"));
@@ -46,29 +47,35 @@
                                     if (insumo != null) {%> 
 
 
-                            <label> Id: </label><input type="text" value="<%= insumo.getInsuId()%>" class="form-control" name="Id"  placeholder="Ingrese 00 el código"maxlength="2" readonly="false"/>
-                            <label> Nombre: </label><input type="text" value="<%= insumo.getInsuNombre()%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del insumo"maxlength="50" readonly="false"/>
-                            <label> Detalle: </label><input type="text" value="<%= insumo.getInsuDetalle()%>" class="form-control" name="detalle"  placeholder="Ingrese el detalle del insumoo"maxlength="50" readonly="false"/>
-                            <label> Cantidad: </label><input type="text" value="<%= insumo.getInsuCantidad()%>" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad"maxlength="100" readonly="false"/>
-                            <label> Valor: </label><input type="text" value="<%= insumo.getInsuValor()%>" class="form-control" name="valor"  placeholder="Ingrese su valor"maxlength="100" readonly="false"/>
-                            <label> Imagen: </label><input type="text" value="<%= insumo.getInsuImagen()%>" class="form-control" name="imagen"  placeholder="Ingrese imagen"maxlength="20" readonly="false"/>
-
+                            <label> Codigo: </label><input type="text" value="<%= insumo.getInsuId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
                             <br>
-                            <select name="categoria" id="categoria" class="form form-control" required>
+                            <label> Nombre: </label><input type="text" value="<%= insumo.getInsuNombre()%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del insumo"maxlength="50" required/>
+                            <br>
+                            <label> Detalle: </label><input type="text" value="<%= insumo.getInsuDetalle()%>" class="form-control" name="detalle"  placeholder="Ingrese el detalle del insumoo"maxlength="50" required/>
+                            <br>
+                            <label> Cantidad: </label><input type="text" value="<%= insumo.getInsuCantidad()%>" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad"maxlength="100" required/>
+                            <br>
+                            <label> Valor: </label><input type="text" value="<%= insumo.getInsuValor()%>" class="form-control" name="valor"  placeholder="Ingrese su valor"maxlength="100" required/>
+                            <br>
+                            <label> Imagen: </label><input type="text" value="<%= insumo.getInsuImagen()%>" class="form-control" name="imagen"  placeholder="Ingrese imagen"maxlength="20" required/>
+                            <br>
+                            <label>Accion: </label>
+                            <select name="estados_esta_id" id="estado" class="form form-control" required>
                                 <option> </option>
                                 <option value="1">Activo</option>
                                 <option value="2">Inactivo</option>
                                 <option value="3">Disponible</option>
                             </select>
                             <br>
-                             <%}
+                            <%}
                                 }%>
                             <a href="insumos_lista.jsp" class="btn btn-danger">Regresar</a>
                             <input type="submit" value="Modificar" name="editar" class="btn btn-primary"/>
                         </form>
+
                     </div>
-                </div>
-            </div>            
-        </div>        
-    </div>    
-</div>
+                </div>            
+            </div>        
+        </div>    
+    </div>
+
