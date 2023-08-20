@@ -57,10 +57,10 @@
                             <br>
                             <label> Valor: </label><input type="text" value="<%= insumo.getInsuValor()%>" class="form-control" name="valor"  placeholder="Ingrese su valor"maxlength="100" required/>
                             <br>
-                            <label> Imagen: </label><input type="text" value="<%= insumo.getInsuImagen()%>" class="form-control" name="imagen"  placeholder="Ingrese imagen"maxlength="20" required/>
+                            <label> Imagen: </label><input type="text" value="<%= insumo.getInsuImagen()%>" class="form-control" name="insu_dimg"  placeholder="Ingrese imagen"maxlength="20" required/>
                             <br>
                             <label>Accion: </label>
-                            <select name="estados_esta_id" id="estado" class="form form-control" required>
+                            <select name="estados_esta_id" id="estados_esta_id" class="form form-control" required>
                                 <option> </option>
                                 <option value="1">Activo</option>
                                 <option value="2">Inactivo</option>
@@ -70,7 +70,7 @@
                             <%}
                                 }%>
                             <a href="insumos_lista.jsp" class="btn btn-danger">Regresar</a>
-                            <input type="submit" value="Modificar" name="editar" class="btn btn-primary"/>
+                            <input type="submit" value="Editar" name="editar" class="btn btn-primary"/>
                         </form>
 
                     </div>
