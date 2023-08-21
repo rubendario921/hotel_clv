@@ -5,21 +5,19 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
-<%@page import="Model.conexion" %>
-<%@include file="../template/admin/header_admin.jsp" %>
-
+<%@include file="template/header_admin.jsp" %>
+<!DocumentHTML>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Modificación - Datos del Colaborador</h1>
+                <h1 class="page-header">Modificación de Datos</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Editar Empleado</h3>
+                        <h3>Editar</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="../Mantenimiento/crudedtiar_admin.jsp" method="POST">
+                        <form action="" method="POST">
                             <%
                                 String id = request.getParameter("id");
                                 int idUsuario = Integer.parseInt(id);
@@ -58,18 +56,14 @@
                                 <option value="4">Cliente</option>
                             </select>
                             <br>
-
-                            <%}%>
+                            <% }%>
                             <input type="submit" value="Editar" name="editar" class="btn-primary"/>
                         </form>                       
                     </div>
                 </div>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
+            </div>            
+        </div>        
+    </div>    
 </div>
-<!-- /#page-wrapper -->
+
 <%@include file="../template/admin/footer_admin.jsp" %>

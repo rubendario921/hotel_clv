@@ -54,6 +54,6 @@
             }
         %>
         <script>mostrarMensajeBienvenida('<%= mensaje%>', '<%= redireccion%>');</script>            
-        <%}%>
+        <% }%>
     </body>
 </html>

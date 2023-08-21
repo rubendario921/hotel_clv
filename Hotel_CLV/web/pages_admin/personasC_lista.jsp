@@ -10,7 +10,7 @@
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 <script>
-    function validarFormulario( {
+    function validarFormulario() {
         var codigo = document.getElementById("codigo").value.trim();
         var nombre = document.getElementById("nombre").value.trim();
         var apellido = document.getElementById("apellido").value.trim();
@@ -18,16 +18,14 @@
         var telefono = document.getElementById("telefono").value.trim();
         var correo = document.getElementById("correo").value.trim();
         var acciones = document.getElementById("acciones").value.trim();
-        
-        if (codigo === "" ||nombre === "" ||apellido === "" ||cedula === "" ||telefono === "" ||correo === "" ||acciones === "" ||) {
-            
-        alert("Por favor, complete todos los campos.");
+
+        if (codigo === "" || nombre === "" || apellido === "" || cedula === "" || telefono === "" || correo === "" || acciones === "") {
+
+            alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
-    
-    
 </script>
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -53,6 +51,7 @@
                                     <th>Cédula</th>
                                     <th>Telefono</th>
                                     <th>Correo</th>                                    
+                                    <th>Estado</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -68,12 +67,13 @@
                                     <td><%=persona.getPerClave()%></td>
                                     <td><%=persona.getPerTelefono()%></td>
                                     <td><%=persona.getPerCorreo()%></td>
+                                    <td><%=persona.getEstaId()%></td>
                                     <td>
                                         <a href="editar_cliente.jsp?editar=true&id=<%=persona.getPerId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <a href="../Mantenimiento/crudeliminar_cliente.jsp?eliminar=true&id=<%=persona.getPerId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                     </td>
                                 </tr>
-                                <%}%>  
+                                <% }%>  
                             </tbody>
                         </table>
                     </div>
@@ -83,5 +83,4 @@
         </div>
     </div>
 </div>
-<!-- /#page-wrapper -->
 <%@include file="template/footer_admin.jsp" %>

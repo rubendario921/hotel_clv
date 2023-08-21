@@ -23,7 +23,7 @@
         var fregistro = document.getElementById("fregistro").value.trim();
 
         // Validar campos obligatorios
-        if (nombres === "" || apellidos === "" || cedula === "" || telefono === "" || correo === "" || usuario === "" || clave === "" || perfil === ""|| fregistro === "") {
+        if (nombres === "" || apellidos === "" || cedula === "" || telefono === "" || correo === "" || usuario === "" || clave === "" || perfil === "" || fregistro === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -41,8 +41,7 @@
                         <h3>Nuevo</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="Mantenimiento_admin/crudadmin_crear.jsp" method="POST" onsubmit="return validarFormulario();" >
-                            <!--<label>Letra: </label><input type="text" class="form-control" name="letra"  placeholder="Ingrese dos letras de abreviatura"maxlength="2" required/>-->                            
+                        <form action="Mantenimiento_admin/crudpersonas_crear.jsp" method="POST" onsubmit="return validarFormulario();" >
                             <label>Nombres Completos: </label><input type="text" class="form-control" name="nombres" id="nombres" placeholder="Ingrese sus dos nombres" maxlength="100" required />
                             <label>Apellidos Completos: </label><input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese sus dos nombres" maxlength="100" required />
                             <label>Cedula de Identidad: </label><input type="text" class="form-control" name="cedula" id="cedula" placeholder="Ingrese sus cedula de identidad" maxlength="13" required />
@@ -63,7 +62,7 @@
                             <label>Fecha de Registro: </label><input type="datetime-local" name="fregistro" id="clave" class="form-control" required />
                             <br>
                             <a href="menu_admin.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" class=" btn btn-primary" value="Registrar" name="nuevo_persona" />
+                            <input type="submit" class=" btn btn-primary" value="Registrar" name="nueva_persona" />
                         </form>
                     </div>
                 </div>

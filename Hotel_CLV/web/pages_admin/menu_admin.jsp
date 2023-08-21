@@ -80,7 +80,7 @@
                         </div>                            
                     </div>
                 </div>            
-                        <a href="personasC_lista.jsp">
+                <a href="personasC_lista.jsp">
                     <div class="panel-footer">
                         <span class="pull-left">Listado de Clientes</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -103,7 +103,7 @@
                         </div>                            
                     </div>
                 </div>
-                        <a href="personasE_lista.jsp">
+                <a href="personasE_lista.jsp">
                     <div class="panel-footer">
 
                         <span class="pull-left">Listado de Colaboradores</span>
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                 </div>                
-                        <a href="habitaciones_lista.jsp">
+                <a href="habitaciones_lista.jsp">
                     <div class="panel-footer">
                         <span class="pull-left">Listado de Habitaciones</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -185,6 +185,4 @@
         </div>
     </div>
 </div>
-<!-- /.row -->
-
 <%@include file="template/footer_admin.jsp" %>

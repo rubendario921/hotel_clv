@@ -1,5 +1,5 @@
 <%-- 
-    Document   : crudregistrar_admin
+    Document   : crudpersonas_crear
     Created on : 20-jul-2023, 12:08:52
     Author     : Ruben Dario 921
 --%>
@@ -19,9 +19,6 @@
     </head>
     <body>
         <%
-            String informacion = "";
-            String redireccion = "";
-
             if (request.getParameter("nuevo_persona") != null) {
                 String perNombres = request.getParameter("nombres");
                 String perApellidos = request.getParameter("apellidos");
@@ -41,8 +38,8 @@
 
                 switch (resultado) {
                     case 1:
-                        informacion = "Registro Exitoso.";
-                        redireccion = "../menu_admin.jsp";%>
+                        String informacion = "Registro Exitoso.";
+                        String redireccion = "../menu_admin.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
         <%break;
             case 1062:%>
@@ -60,7 +57,7 @@
             window.history.back();
         </script>             
         <%break;
+                }
             }%>
-        <% }%>
-        < /body>
+    </body>
 </html>
