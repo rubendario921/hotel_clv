@@ -21,16 +21,22 @@ public class HabitacionesDao {
     public List<Habitaciones> mostrarMenuHabi() {
         List<Habitaciones> habitaciones = new ArrayList<>();
         try {
-            String sql_menu = "SELECT habi_id, habi_nombre, habi_tipo, habi_descripcion,habi_dimg FROM hotel_clv.habitaciones ;";//Agrupor por habitaciones (Revisar)
+            String sql_menu = "SELECT * FROM hotel_clv.habitaciones ;";//Agrupor por habitaciones (Revisar)
             Statement pst = con.getConexion().prepareCall(sql_menu);
             ResultSet rs = pst.executeQuery(sql_menu);
             while (rs.next()) {
-                int habiId = rs.getInt("habi_id");
+                Integer habiId = rs.getInt("habi_id");
                 String habiNombre = rs.getString("habi_nombre");
                 String habiTipo = rs.getString("habi_tipo");
-                String habiDescripcion = rs.getString("habi_descripcion");
+                String habiPiso = rs.getString("habi_piso");
+                String habiDepar = rs.getString("habi_depar");
+                String habiDescripcion = rs.getString("habi_descripcion");                
+                BigDecimal habiValorD = rs.getBigDecimal("habi_valor_diario");
                 String habiImg = rs.getString("habi_dimg");
-                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiDescripcion, habiImg);
+                Integer insuId = rs.getInt("insumos_insu_id");
+                Integer estaId = rs.getInt("estados_esta_id");
+                
+                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, insuId, estaId);
                 habitaciones.add(habitacion);
             }
             rs.close();

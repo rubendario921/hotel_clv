@@ -59,7 +59,7 @@
                                         <a href="#?eliminar=true&id=<%=insumo.getInsuId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar" disable="true"></i></a>
                                     </td>
                                 </tr>
-                                <%}%>
+                                <% }%>
                             </tbody>
                         </table>
                     </div>                

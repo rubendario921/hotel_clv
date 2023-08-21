@@ -3,13 +3,13 @@
     Created on : 11-ago-2023, 19:01:23
     Author     : Ruben Dario 921
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Controller.Habitaciones"%>
 <%@page import="Controller.HabitacionesDao"%>
 <%@page import="java.util.*"%>
-<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
+<!DOCTYPE html>
+
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -70,17 +70,19 @@
                                             default:
                                                 out.print("<b class='btn btn-default''>Sin Asignar</b>");
                                                 break;
-                                        }%>
+                                        }
+                                        %>
                                     </td>
-                                    <td><img class="img-fluid" src="../<%=habitacion.getHabiImg()%>" height="200" width="200"></td>
+                                    <td><img class="img-fluid" src="../<%= habitacion.getHabiImg()%>" height="200" width="200"></td>
                                     <td>
                                         <!--modificar update=":tabMostrar"-->
-                                        <a href="habitaciones_editar.jsp?editar=true&id=<%=habitacion.getHabiId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="habitaciones_editar.jsp?editar=true&id=<%= habitacion.getHabiId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--eliminar update=":tabMostrar"-->
-                                        <a href="Mantenimiento_admin/crudperfil_eliminar.jsp?eliminar=true&id=<%=habitacion.getHabiId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                        <a href="Mantenimiento_admin/crudperfil_eliminar.jsp?eliminar=true&id=<%= habitacion.getHabiId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                     </td>
                                 </tr>
-                                <%}%>
+                                <% }
+                                %>
                             </tbody>
                         </table>
                     </div>

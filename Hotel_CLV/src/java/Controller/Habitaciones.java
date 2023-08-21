@@ -40,14 +40,6 @@ public class Habitaciones {
         this.estaId = estaId;
     }
 
-    public Habitaciones(Integer habiId, String habiNombre, String habiTipo, String habiDescripcion, String habiImg) {
-        this.habiId = habiId;
-        this.habiNombre = habiNombre;
-        this.habiTipo = habiTipo;
-        this.habiDescripcion = habiDescripcion;
-        this.habiImg = habiImg;
-    }
-
     public Integer getHabiId() {
         return habiId;
     }
