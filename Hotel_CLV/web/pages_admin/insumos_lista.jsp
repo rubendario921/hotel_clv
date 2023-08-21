@@ -53,7 +53,8 @@
                                     <td><%=insumo.getEstaId()%></td>
                                     <td>
                                         <!--Modificar Insumo-->
-                                        <a href="#?editar=true&id=<%=insumo.getInsuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar" disable="true"></i></a>
+                                        <a href="insumos_editar.jsp?editar=true&id=<%=insumo.getInsuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+
                                         <!--Eliminar Insumo-->
                                         <a href="#?eliminar=true&id=<%=insumo.getInsuId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar" disable="true"></i></a>
                                     </td>

@@ -58,8 +58,8 @@ public class InsumosDao {
             while (rs.next()) {
                 Integer insuId = rs.getInt("insu_id");
                 String insuNombre = rs.getString("insu_nombre");
-                String insuDetalle = rs.getString("insu_nombre");
-                Integer insuCantidad = rs.getInt("insu_nombre");
+                String insuDetalle = rs.getString("insu_detalle");
+                Integer insuCantidad = rs.getInt("insu_cantidad");
                 BigDecimal insuValor = rs.getBigDecimal("insu_valor");
                 String insuImagen = rs.getString("insu_dimg");
                 Integer estaId = rs.getInt("estados_esta_id");
@@ -113,7 +113,7 @@ public class InsumosDao {
         return resultado;
     }
 
-    public int modificarInsumo(Integer id, String nombre, String detalle, String cantidad, String valor, String dimg, String esta_id) {
+    public int modificarInsumo(Integer id, String nombre, String detalle, String cantidad, String valor, String dimg, Integer esta_id) {
         int resultado = 0;
         try {
             String sql = "UPDATE hotel_clv.insumos SET insu_nombre=?, insu_detalle=?,insu_cantidad=?,insu_valor,insu_dimg=?,estados_esta_id=? WHERE insu_id=? ;";
@@ -123,7 +123,7 @@ public class InsumosDao {
             pst.setString(3, cantidad);
             pst.setString(4, valor);
             pst.setString(5, dimg);
-            pst.setString(6, esta_id);
+            pst.setInt(6, esta_id);
             pst.setInt(7, id);
             int n = pst.executeUpdate();
             if (n > 0) {
@@ -133,7 +133,7 @@ public class InsumosDao {
             }
             pst.close();
         } catch (SQLException e) {
-            System.out.println("Error al eliminar el  formulario: " + e.getMessage());
+            System.out.println("Error al modificar el  insumo: " + e.getMessage());
             int SQLError = e.getErrorCode();
             switch (SQLError) {
                 case 1062:

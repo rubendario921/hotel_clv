@@ -27,11 +27,11 @@
                 String detalle = request.getParameter("detalle");
                 String cantidad = request.getParameter("cantidad");
                 String valor = request.getParameter("valor");
-                String imagen = request.getParameter("insu_dimg");
-                String estado = request.getParameter("estados_esta_id");
-
-                InsumosDao editarI = new InsumosDao();
-                int resultado = editarI.modificarInsumo(id, nombre, detalle, cantidad, valor, imagen, estado);
+                String dimg = request.getParameter("insu_dimg");
+               Integer esta_id = Integer.parseInt(request.getParameter("estados_esta_id"));
+                       
+                       InsumosDao editarI = new InsumosDao();
+                int resultado = editarI.modificarInsumo(id, nombre, detalle, cantidad, valor, dimg, esta_id);
 
                 switch (resultado) {
                     case 1:
