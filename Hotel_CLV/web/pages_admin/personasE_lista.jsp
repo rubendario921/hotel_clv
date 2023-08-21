@@ -20,19 +20,17 @@
         var telefono = document.getElementById("telefono").value.trim();
         var perfil = document.getElementById("perfil").value.trim();
         var estado = document.getElementById("estado").value.trim();
-        
-        
-        if (codigo === "" ||nombre === "" ||apellido === "" ||cedula === "" ||usuario === "" ||telefono === "" ||perfil === "" || estado === "" || acciones === "" ||) {
-            
-        alert("Por favor, complete todos los campos.");
+
+        if (codigo === "" || nombre === "" || apellido === "" || cedula === "" || usuario === "" || telefono === "" || perfil === "" || estado === "") {
+
+            alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
-    
-    
-</script>
 
+
+</script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -77,7 +75,7 @@
                                     <td><%=persona.getPerfilId()%></td>
                                     <td><%=persona.getEstaId()%></td>                                        
                                     <td>
-                                        <a href="editar_admin.jsp?editar=true&id=<%=persona.getPerId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="personas_editar.jsp?editar=true&id=<%=persona.getPerId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <a href="../Mantenimiento/crudeliminar_admin.jsp?eliminar=true&id=<%=persona.getPerId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                     </td>
                                 </tr>

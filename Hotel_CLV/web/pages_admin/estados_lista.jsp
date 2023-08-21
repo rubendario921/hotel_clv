@@ -31,6 +31,7 @@
                                     <th>Codigo</th>
                                     <th>Letra</th>
                                     <th>Descripcion</th>
+                                    <th>Categoria</th>
                                     <th>Accion</th>
                                 </tr>
                             </thead>
@@ -44,6 +45,7 @@
                                     <td><%= estado.getEstaId()%></td>
                                     <td><%= estado.getEstaLetra()%></td>
                                     <td><%= estado.getEstaDescripcion()%></td>
+                                    <td><%= estado.getCatId()%></td>
                                     <td>                        
                                         <!--modificar update=":tabMostrar"-->
                                         <a href="estados_editar.jsp?editar=true&id=<%=estado.getEstaId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>

@@ -17,7 +17,7 @@
         var categoria = document.getElementById("categoria").value.trim();
 
         // Validar campos obligatorios
-        if (letra === "" || descripcion === ""|| categoria==="") {
+        if (letra === "" || descripcion === "" || categoria === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -69,3 +69,5 @@
         </div>
     </div>
 </div>
+
+<%@include file="template/footer_admin.jspS" %>

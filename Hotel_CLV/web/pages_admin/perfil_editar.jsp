@@ -51,7 +51,6 @@
                             <br>
                             <% }
                                 }%>
-
                             <a href="perfil_lista.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" value="Editar" name="editar" class=" btn btn-primary"/>                            
                         </form>                           

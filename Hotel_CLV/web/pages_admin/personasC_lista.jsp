@@ -69,7 +69,7 @@
                                     <td><%=persona.getPerCorreo()%></td>
                                     <td><%=persona.getEstaId()%></td>
                                     <td>
-                                        <a href="editar_cliente.jsp?editar=true&id=<%=persona.getPerId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="personas_editar.jsp?editar=true&id=<%=persona.getPerId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <a href="../Mantenimiento/crudeliminar_cliente.jsp?eliminar=true&id=<%=persona.getPerId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                     </td>
                                 </tr>
