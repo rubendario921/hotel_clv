@@ -9,7 +9,23 @@
 <%@page import="Controller.HabitacionesDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<script>
+    function validarFormulario( {
+        var nombre = document.getElementById("nombre").value.trim();
+        var tipo = document.getElementById("tipo").value.trim();
+        var descripcion = document.getElementById("descripcion").value.trim();
+        var imagen = document.getElementById("imagen").value.trim();
+                
+        if (nombre === "" ||tipo === "" ||descripcion === "" ||imagen === "" ||) {
+            
+        alert("Por favor, complete todos los campos.");
+            return false; // Detener el envío del formulario
+        }
+        return true; // Permitir el envío del formulario si todos los campos están llenos
+    }
+    
+    
+</script>
     <head>
         <title>Listado de todas las habitaciones</title>
         <style>
