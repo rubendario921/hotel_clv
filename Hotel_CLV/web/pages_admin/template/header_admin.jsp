@@ -185,7 +185,7 @@
                                 <a href="insumos_lista.jsp">Inventario de Insumos</a>
                             </li>
                             <li>
-                                <a href="#"> Metodo de Pago</a>
+                                <a href="metodoPagos_lista.jsp"> Metodo de Pago</a>
                             </li>
                             <li>
                                 <a href="#">WhatApps</a>
