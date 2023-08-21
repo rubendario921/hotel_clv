@@ -116,7 +116,7 @@ public class InsumosDao {
     public int modificarInsumo(Integer insu_id, String insu_nombre, String insu_detalle, String insu_cantidad, String insu_valor, String insu_dimg, Integer estados_esta_id) {
         int resultado = 0;
         try {
-            String sql = "UPDATE hotel_clv.insumos SET insu_nombre=?, insu_detalle=?,insu_cantidad=?,insu_valor,insu_dimg=?,estados_esta_id=? WHERE insu_id=? ;";
+            String sql = "UPDATE hotel_clv.insumos SET insu_nombre=?, insu_detalle=?,insu_cantidad=?,insu_valor=?,insu_dimg=?,estados_esta_id=? WHERE insu_id=? ;";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setString(1, insu_nombre);
             pst.setString(2, insu_detalle);

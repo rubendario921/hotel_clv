@@ -37,16 +37,14 @@
                     <div class="panel-heading">
                         <h3>Editar Insumo</h3>
                     </div>
-                    <div class="panel-body"
-                         <form action="Mantenimiento_admin/crudinsumos_editar.jsp" method="POST"onsubmit="return validarFormulario();">
+                    <div class="panel-body">
+                        <form action="Mantenimiento_admin/crudinsumos_editar.jsp" method="POST"onsubmit="return validarFormulario();">
                             <%
                                 if (request.getParameter("editar") != null) {
                                     int id = Integer.parseInt(request.getParameter("id"));
                                     InsumosDao mostrarI = new InsumosDao();
                                     Insumos insumo = mostrarI.mostrarInsumo(id);
                                     if (insumo != null) {%> 
-
-
                             <label> Codigo: </label><input type="text" value="<%=insumo.getInsuId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
                             <br>
                             <label> Nombre: </label><input type="text" value="<%=insumo.getInsuNombre()%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del insumo"maxlength="50" required/>
@@ -59,7 +57,8 @@
                             <br>
                             <label> Imagen: </label><input type="text" value="<%=insumo.getInsuImagen()%>" class="form-control" name="insu_dimg"  placeholder="Ingrese imagen"maxlength="20" required/>
                             <br>
-                            <% } %>  <% }%>
+                            <% }
+                                }%>
                             <label>Accion: </label>
                             <select name="estados_esta_id" id="estados_esta_id" class="form form-control" required>
                                 <option> </option>
@@ -68,11 +67,9 @@
                                 <option value="3">Disponible</option>
                             </select>
                             <br>
-
                             <a href="insumos_lista.jsp" class="btn btn-danger">Regresar</a>
                             <input type="submit" value="Editar" name="editar" class="btn btn-primary"/>
                         </form>
-
                     </div>
                 </div>            
             </div>        

@@ -20,7 +20,7 @@
         <%
             String informacion = "";
             String redireccion = "";
-            
+
             if (request.getParameter("editar") != null) {
                 Integer insu_id = Integer.parseInt(request.getParameter("codigo"));
                 String insu_nombre = request.getParameter("nombre");
@@ -28,9 +28,9 @@
                 String insu_cantidad = request.getParameter("cantidad");
                 String insu_valor = request.getParameter("valor");
                 String insu_dimg = request.getParameter("insu_dimg");
-               Integer estados_esta_id = Integer.parseInt(request.getParameter("estados_esta_id"));
-                       
-                       InsumosDao editarI = new InsumosDao();
+                Integer estados_esta_id = Integer.parseInt(request.getParameter("estados_esta_id"));
+
+                InsumosDao editarI = new InsumosDao();
                 int resultado = editarI.modificarInsumo(insu_id, insu_nombre, insu_detalle, insu_cantidad, insu_valor, insu_dimg, estados_esta_id);
 
                 switch (resultado) {
