@@ -9,6 +9,26 @@
 <%@page import="Controller.PersonasDao"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
+<script>
+    function validarFormulario( {
+        var codigo = document.getElementById("codigo").value.trim();
+        var nombre = document.getElementById("nombre").value.trim();
+        var apellido = document.getElementById("apellido").value.trim();
+        var cedula = document.getElementById("cedula").value.trim();
+        var telefono = document.getElementById("telefono").value.trim();
+        var correo = document.getElementById("correo").value.trim();
+        var acciones = document.getElementById("acciones").value.trim();
+        
+        if (codigo === "" ||nombre === "" ||apellido === "" ||cedula === "" ||telefono === "" ||correo === "" ||acciones === "" ||) {
+            
+        alert("Por favor, complete todos los campos.");
+            return false; // Detener el envío del formulario
+        }
+        return true; // Permitir el envío del formulario si todos los campos están llenos
+    }
+    
+    
+</script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
