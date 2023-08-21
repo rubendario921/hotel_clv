@@ -19,7 +19,7 @@
     </head>
     <body>
         <%
-            if (request.getParameter("nuevo_persona") != null) {
+            if (request.getParameter("nueva_persona") != null) {
                 String perNombres = request.getParameter("nombres");
                 String perApellidos = request.getParameter("apellidos");
                 String perCedula = request.getParameter("cedula");

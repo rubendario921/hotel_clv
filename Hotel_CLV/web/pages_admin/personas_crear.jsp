@@ -19,14 +19,22 @@
         var correo = document.getElementById("correo").value.trim();
         var usuario = document.getElementById("usuario").value.trim();
         var clave = document.getElementById("clave").value.trim();
-        var perfil = document.getElementById("perfil").value.trim();
         var fregistro = document.getElementById("fregistro").value.trim();
+        var perfil = document.getElementById("perfil").value.trim();
+        
 
         // Validar campos obligatorios
         if (nombres === "" || apellidos === "" || cedula === "" || telefono === "" || correo === "" || usuario === "" || clave === "" || perfil === "" || fregistro === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
+        // Validar que la contraseña contenga al menos una mayúscula, una minúscula y un número
+        var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
+        if (!passwordPattern.test(clave)) {
+            alert("La contraseña debe contener al menos una mayúscula, una minúscula y un número.");
+            return false; // Detener el envío del formulario
+        }
+
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
@@ -42,13 +50,13 @@
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudpersonas_crear.jsp" method="POST" onsubmit="return validarFormulario();" >
-                            <label>Nombres Completos: </label><input type="text" class="form-control" name="nombres" id="nombres" placeholder="Ingrese sus dos nombres" maxlength="100" required />
-                            <label>Apellidos Completos: </label><input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese sus dos nombres" maxlength="100" required />
-                            <label>Cedula de Identidad: </label><input type="text" class="form-control" name="cedula" id="cedula" placeholder="Ingrese sus cedula de identidad" maxlength="13" required />
-                            <label>Telefono: </label><input type="text" class="form-control" name="telefono" id="telefono" placeholder="Ingrese sus dos nombres" maxlength="10" required />
-                            <label>Correo Electronico: </label><input type="email" class="form-control" name="correo" id="correo" placeholder="Ingrese sus dos nombres" maxlength="100" required />
-                            <label>Usuario: </label><input type="text" class="form-control" name="usuario" id="usuario" placeholder="Ingrese sus dos nombres" maxlength="40" required />
-                            <label>Contraseña: </label><input type="password" class="form-control" name="clave" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16" required />
+                            <label>Nombres Completos: </label><input type="text" class="form-control" name="nombres" id="nombres" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required />
+                            <label>Apellidos Completos: </label><input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required />
+                            <label>Cedula de Identidad: </label><input type="text" class="form-control" name="cedula" id="cedula" placeholder="Ingrese sus cedula de identidad" maxlength="13"   autocomplete="off" required />
+                            <label>Telefono: </label><input type="text" class="form-control" name="telefono" id="telefono" placeholder="Ingrese sus dos nombres" maxlength="10" autocomplete="off" required />
+                            <label>Correo Electronico: </label><input type="email" class="form-control" name="correo" id="correo" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required />
+                            <label>Usuario: </label><input type="text" class="form-control" name="usuario" id="usuario" placeholder="Ingrese sus dos nombres" maxlength="20"  autocomplete="off" required />
+                            <label>Contraseña: </label><input type="password" class="form-control" name="clave" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16"   autocomplete="off" required />
                             <label>Perfil: </label>
                             <select name="perfil" id="perfil" class="form-control" required>
                                 <%

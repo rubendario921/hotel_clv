@@ -11,16 +11,16 @@
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 <script>
-    function validarFormulario( {
+    function validarFormulario() {
         var codigo = document.getElementById("codigo").value.trim();
         var nombre = document.getElementById("nombre").value.trim();
         var apellido = document.getElementById("apellido").value.trim();
         var cedula = document.getElementById("cedula").value.trim();
-        var telefono = document.getElementById("usuario").value.trim();
-        var correo = document.getElementById("telefono").value.trim();
-        var acciones = document.getElementById("perfil").value.trim();
-        var acciones = document.getElementById("estado").value.trim();
-        var acciones = document.getElementById("acciones").value.trim();
+        var usuario = document.getElementById("usuario").value.trim();
+        var telefono = document.getElementById("telefono").value.trim();
+        var perfil = document.getElementById("perfil").value.trim();
+        var estado = document.getElementById("estado").value.trim();
+        
         
         if (codigo === "" ||nombre === "" ||apellido === "" ||cedula === "" ||usuario === "" ||telefono === "" ||perfil === "" || estado === "" || acciones === "" ||) {
             
