@@ -10,6 +10,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
+<script>
+    function validarFormulario( {
+        var codigo = document.getElementById("codigo").value.trim();
+        var nombre = document.getElementById("nombre").value.trim();
+        var detalla = document.getElementById("detalle").value.trim();
+        var cantidad = document.getElementById("cantidad").value.trim();
+        var valor = document.getElementById("valor").value.trim();
+        var imagen = document.getElementById("imagen").value.trim();
+        var estados = document.getElementById("estados").value.trim();
+        var accion = document.getElementById("accion").value.trim();
+        
+        if (codigo === "" ||nombre === "" ||detalle === "" ||cantidad === "" ||valor === "" ||imagen === "" ||estados === "" || accion === "" ||) {
+            
+        alert("Por favor, complete todos los campos.");
+            return false; // Detener el envío del formulario
+        }
+        return true; // Permitir el envío del formulario si todos los campos están llenos
+    }
+    
+    
+</script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
