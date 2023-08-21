@@ -28,8 +28,7 @@
         }
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
-    
-    
+   
 </script>
 <div id="page-wrapper">
     <div class="container-fluid">

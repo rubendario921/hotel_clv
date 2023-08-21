@@ -49,7 +49,7 @@
                             <br>
                             <label> Nombre: </label><input type="text" value="<%=insumo.getInsuNombre()%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del insumo"maxlength="50" required/>
                             <br>
-                            <label> Detalle: </label><input type="text" value="<%=insumo.getInsuDetalle()%>" class="form-control" name="detalle"  placeholder="Ingrese el detalle del insumoo"maxlength="50" required/>
+                            <label> Detalle: </label><input type="text" value="<%=insumo.getInsuDetalle()%>" class="form-control" name="detalle"  placeholder="Ingrese el detalle del insumoo"maxlength="200" required/>
                             <br>
                             <label> Cantidad: </label><input type="text" value="<%=insumo.getInsuCantidad()%>" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad"maxlength="100" required/>
                             <br>
