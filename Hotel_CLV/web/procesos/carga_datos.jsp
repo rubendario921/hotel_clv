@@ -34,28 +34,25 @@
         </script>
         <%} else {
             String mensaje = "";
-            String redireccion = "";
+            String redireccion ="../pages_admin/menu_admin.jsp";
             switch (resultado) {
                 case 1:
-                    mensaje = "Bienvenido Administrador";
-                    redireccion = "../pages_admin/menu_admin.jsp";
+                    mensaje = "Bienvenido Administrador";                    
                     break;
 
                 case 2:
-                    mensaje = "Bienvenido Supervisor";
-                    redireccion = "../pages_admin/menu_admin.jsp";
+                    mensaje = "Bienvenido Supervisor";                    
                     break;
 
                 case 3:
-                    mensaje = "Bienvenido Recepcionista";
-                    redireccion = "../pages_admin/menu_admin.jsp";
+                    mensaje = "Bienvenido Recepcionista";                    
                     break;
 
                 case 4:
-                    mensaje = "Bienvenido Cliente";
-                    redireccion = "../pages_cliente/menu_cliente.jsp";
+                    mensaje = "Bienvenido Cliente";                    
                     break;
-            }%>
+            }
+        %>
         <script>mostrarMensajeBienvenida('<%= mensaje%>', '<%= redireccion%>');</script>            
         <%}%>
     </body>

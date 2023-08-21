@@ -12,17 +12,15 @@
 <script>
     function validarFormulario() {
         // Obtener los valores de los campos
-        var nombre = document.getElementById("letra").value.trim();
-        var letra = document.getElementById("nombre").value.trim();
-
+        var codigo = document.getElementById("codigo").value.trim();
+        var letra = document.getElementById("letra").value.trim();
+        var nombre = document.getElementById("nombre").value.trim();
         // Validar campos obligatorios
-        if (nombre === "" || letra === "" || ) {
+        if (codigo === "" || letra === "" || nombre === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
-
         // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
-
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
@@ -51,8 +49,9 @@
                             <br>
                             <label>Nombre: </label><input type="text" value="<%=perfil.getPerfilNombre()%>" class="form-control" name="nombre" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
                             <br>
-                            <%}%>
-                            <%}%>
+                            <% }
+                                }%>
+
                             <a href="perfil_lista.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" value="Editar" name="editar" class=" btn btn-primary"/>                            
                         </form>                           

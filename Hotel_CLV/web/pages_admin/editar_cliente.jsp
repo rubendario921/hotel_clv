@@ -53,18 +53,9 @@
                             <input type="submit" value="Editar" name="editar" class="btn-primary"/>
                         </form>                       
                     </div>
-
                 </div>
-
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
+            </div>            
+        </div>        
+    </div>    
 </div>
-<!-- /#page-wrapper -->
-
-
-
-<%@include file="../template/admin/footer_admin.jsp" %>
+<%@include file="template/footer_admin.jsp" %>

@@ -82,8 +82,5 @@
             </div>
         </div>
         <%@include file="template/menu/footer_menu.jsp" %>
-
-        <!-- JavaScript -->
-
     </body>
 </html>
