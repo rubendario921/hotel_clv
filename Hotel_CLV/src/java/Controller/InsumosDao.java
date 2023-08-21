@@ -154,8 +154,8 @@ public class InsumosDao {
     public int eliminarInsumo(Integer id) {
         int resultado = 0;
         try {
-            String sql = "DELETE FROM hotel_clv.insumos WHERE insu_id=?;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql);
+            String sql_eliminar = "DELETE FROM hotel_clv.insumos WHERE insu_id = ?;";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_eliminar);
             pst.setInt(1, id);
             int n = pst.executeUpdate();
             if (n > 0) {

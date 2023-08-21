@@ -4,8 +4,8 @@
     Author     : Wladimir Campaña
 --%>
 
+<%@page import="Controller.InsumosDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="Controller.InsumosDao" %>
 <!DOCTYPE html>
 
 <html>
@@ -25,8 +25,12 @@
          int resultado = eliminarI.eliminarInsumo(id);
          if (resultado ==1){
              String informacion = "Insumo Eliminado";
-             String redireccion = "../insumos_lista";%>     
-       
-        }
+             String redireccion = "../insumos_lista.jsp";%>     
+             <script> mostrarMensaje ('<%= informacion%>', '<%= redireccion%>');</script>
+        <%} else {%>
+        <script>alert("Insumo NO Eliminado, Intentalo nuevamente.");
+            window.history.back();</script>
+        <%}%>
+        <%}%>
     </body>
 </html>
