@@ -56,15 +56,12 @@
 </head>
 
 <body>
-
     <div id="wrapper">
-
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
                 <a class="navbar-brand" href="menu_admin.jsp">Panel Administrativo</a>                
             </div>
-
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -74,7 +71,6 @@
             <!--<ul class="nav navbar-nav navbar-left navbar-top-links">
              <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
              </ul>-->
-
             <ul class="nav navbar-right navbar-top-links">
                 <li class="dropdown navbar-inverse">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -155,10 +151,10 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Reporte de Ventas<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="flot.html">Reservaciones</a>
+                                <a href="#">Reservaciones</a>
                             </li>
                             <li>
-                                <a href="morris.html">Facturacion</a>
+                                <a href="#">Facturacion</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -167,7 +163,7 @@
                         <a href="habitaciones_lista.jsp"><i class="fa fa-table fa-fw"></i>Habitaciones</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Buzon de Sugerencias</a>
+                        <a href="#"><i class="fa fa-edit fa-fw"></i> Buzon de Sugerencias</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Configuraciones<span class="fa arrow"></span></a>
@@ -175,9 +171,11 @@
                             <li>
                                 <a href="personasC_lista.jsp">Listado Clientes</a>
                             </li>
+                            <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
                             <li>
                                 <a href="personasE_lista.jsp">Listado Empleados</a>
                             </li>
+                            <% }%>
                             <li>
                                 <a href="#">Inventario de Consumos</a>
                             </li>
@@ -186,55 +184,23 @@
                             </li>
                             <li>
                                 <a href="metodoPagos_lista.jsp"> Metodo de Pago</a>
-                            </li>
-                            <li>
-                                <a href="#">WhatApps</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <!--
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                                
-                            </li>
-                        </ul>
-                    <!--/.nav-second-level-->
+                            </li>                            
+                        </ul>                        
+                    </li>              
                     </li>                    
                     <li>
                         <br>
-                        <i class="fa fa-files-o fa-fw"></i>Opciones Adicionales<span class="fa arrow"></span>
-                        <ul class="nav nav-second-level">
+                        <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
+                        <a href="#"><i class="fa fa-files-o fa-fw"></i>Opciones Adicionales<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">                            
                             <li>
                                 <a href="perfil_lista.jsp">Listado Perfiles</a>
                             </li>
                             <li>
                                 <a href="estados_lista.jsp">Listado Estados</a>
-                            </li>
+                            </li>                            
                         </ul>
+                        <% }%>
                         <br>
                         <!-- /.nav-second-level -->
                     </li>

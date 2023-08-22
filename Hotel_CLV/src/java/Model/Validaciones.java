@@ -6,6 +6,7 @@
 package Model;
 
 import java.sql.*;
+import java.util.*;
 
 /**
  *
@@ -76,4 +77,32 @@ public class Validaciones {
         }
         return user;
     }
+
+    public Map<String, String> obtenerNombrePerfil(String correo, String usuario, String password) {
+        Map<String, String> userData = new HashMap<>();
+        try {
+            String sql_consulta = "SELECT * FROM hotel_clv.personas INNER JOIN hotel_clv.perfiles ON personas.perfiles_perfil_id = perfiles.perfil_id WHERE  (per_correo= ? or per_usuario=?) and per_clave = ?;";
+            PreparedStatement pst = con.getConexion().prepareCall(sql_consulta);
+            pst.setString(1, correo);
+            pst.setString(2, usuario);
+            pst.setString(3, password);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                String nombre = rs.getString("personas.per_nombres");
+                String perfil = rs.getString("perfiles.perfil_nombre");
+
+                userData.put("nombre", nombre);
+                userData.put("perfil", perfil);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error al obtener el nombre y perfil: " + e.getMessage());
+        } finally {
+        }
+
+        return userData;
+    }
+
 }

@@ -68,7 +68,9 @@
                                     <td><%= nombreEstado%></td>
                                     <td>
                                         <a href="personas_editar.jsp?editar=true&id=<%=persona.getPerId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                            <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
                                         <a href="Mantenimiento_admin/crudpersonas_eliminar.jsp?eliminar=true&id=<%=persona.getPerId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                            <% }%>
                                     </td>
                                 </tr>
                                 <% }%>  

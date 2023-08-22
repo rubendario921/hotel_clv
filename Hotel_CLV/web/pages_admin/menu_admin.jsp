@@ -90,6 +90,7 @@
             </div>
         </div>
         <!--Segundo  Cuadro-->
+        <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -112,7 +113,8 @@
                     </div>
                 </a>
             </div>
-        </div>        
+        </div>  
+        <% }%>
         <!--Tercer  Cuadro-->
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-green">
@@ -122,7 +124,7 @@
                             <i class="fa fa-tasks fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div>Disponibles</div>
+                            <div> Habitaciones Disponibles</div>
                             <div class="huge"><%=cantHabitaciones%></div>                            
                         </div>
                     </div>

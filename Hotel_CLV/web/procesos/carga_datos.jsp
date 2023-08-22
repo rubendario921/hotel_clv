@@ -3,6 +3,7 @@
     Created on : 17-jul-2023, 20:10:45
     Author     : Ruben Dario 921
 --%>
+<%@page import="java.util.Map"%>
 <%@page import="java.sql.*"%>
 <%@page import="Model.Validaciones"%>
 <%@page import="Model.conexion"%>
@@ -22,34 +23,42 @@
             String usuario = request.getParameter("usuario");
             String password = request.getParameter("password");
 
-            Validaciones Nombre = new Validaciones();
-            String nombre = Nombre.obtenerNombre(correo, usuario, password);
-            session.setAttribute("nombre", nombre);
+            // Extraer session de nombre y nombre del perfil
+            Validaciones validaciones = new Validaciones();
+            Map<String, String> userData = validaciones.obtenerNombrePerfil(correo, usuario, password);
 
-            Validaciones vPersona = new Validaciones();
-            int resultado = vPersona.validarPersona(correo, usuario, password);
+            String nombre = userData.get("nombre");
+            String perfil = userData.get("perfil");
+
+            session.setAttribute("nombre", nombre);
+            session.setAttribute("perfil", perfil);
+            
+            //Validar Usuario
+
+            Validaciones Persona = new Validaciones();
+            int resultado = Persona.validarPersona(correo, usuario, password);
             if (resultado == 0) {%>
         <script>alert("Inicio de sesión incorrecto. Verifica tus datos e intenta nuevamente.");
             window.history.back();
         </script>
         <%} else {
             String mensaje = "";
-            String redireccion ="../pages_admin/menu_admin.jsp";
+            String redireccion = "../pages_admin/menu_admin.jsp";
             switch (resultado) {
                 case 1:
-                    mensaje = "Bienvenido Administrador";                    
+                    mensaje = "Bienvenido Administrador";
                     break;
 
                 case 2:
-                    mensaje = "Bienvenido Supervisor";                    
+                    mensaje = "Bienvenido Supervisor";
                     break;
 
                 case 3:
-                    mensaje = "Bienvenido Recepcionista";                    
+                    mensaje = "Bienvenido Recepcionista";
                     break;
 
                 case 4:
-                    mensaje = "Bienvenido Cliente";                    
+                    mensaje = "Bienvenido Cliente";
                     break;
             }
         %>
