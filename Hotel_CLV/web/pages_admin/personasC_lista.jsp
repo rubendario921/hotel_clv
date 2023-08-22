@@ -65,7 +65,7 @@
                                     <td><%=persona.getPerId()%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(persona.getPerNombres())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(persona.getPerApellidos())%></td>
-                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerClave())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerCedula())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(persona.getPerTelefono())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(persona.getPerCorreo())%></td>
                                     <td><%=persona.getEstaId()%></td>
