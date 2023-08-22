@@ -3,6 +3,7 @@
     Created on : 17/08/2023, 14:21:17
     Author     : Ruben Dario
 --%>
+<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@page import="Controller.Habitaciones"%>
 <%@page import="Controller.HabitacionesDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -51,7 +52,7 @@
                                     if (habitacion != null) {%>
                             <label>Codigo: </label><input type="text" value="<%= habitacion.getHabiId()%>" class="form-control" name="codigo"  maxlength="2" readonly="false"/>
                             <br>
-                            <label>Nombre:  </label><input type="text" value="<%= habitacion.getHabiNombre()%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre de la habitacion" maxlength="40" required/>
+                            <label>Nombre:  </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre())%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre de la habitacion" maxlength="40" required/>
                             <br>
                             <label>Tipo:  </label><input type="text" value="<%= habitacion.getHabiTipo()%>" class="form-control" name="tipo"  placeholder="Ingrese el tipo de habitacion" maxlength="40" required/>
                             <br>
