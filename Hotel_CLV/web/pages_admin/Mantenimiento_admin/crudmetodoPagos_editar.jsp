@@ -3,7 +3,6 @@
     Created on : 21/08/2023, 16:24:01
     Author     : Usuario
 --%>
-
 <%@page import="Controller.MetodoPagosDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,22 +31,25 @@
                 switch (resultado) {
                     case 1:
                         informacion = "Registro de Matodo Exitoso.";
-                        redireccion = "../metodoPagos_lista.jsp";
-                        break;
-                    case 1062:
-                        informacion = "El registro  ya existe en la base de datos, intente nuevamente.";
-                        redireccion = "../metodoPagos_editar.jsp";
-                        break;
-                    case 1048:
-                        informacion = "Los campos no puede estar vacios, intente nuevamente.";
-                        redireccion = "../metodoPagos_editar.jsp";
-                        break;
-                    default:
-                        informacion = "Registro Incorrecto, intente nuevamente.";
-                        redireccion = "../metodoPagos_editar.jsp";
-                        break;
-                }%>
+                        redireccion = "../metodoPagos_lista.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <%}%>
+        <%break;
+    case 1062:%>
+        <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
+            window.history.back();
+        </script>    
+        <%break;
+            case 1048:%>
+        <script>alert("Los campos no puede estar vacios, intente nuevamente.");
+            window.history.back();
+        </script>              
+        <%break;
+            default:%>
+        <script>alert("Registro Incorrecto, intente nuevamente");
+            window.history.back();
+        </script>             
+        <%break;
+                }
+            }%>
     </body>
 </html>

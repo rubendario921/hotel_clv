@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 <script>
     function validarFormulario() {
@@ -13,10 +14,10 @@
         var nombre = document.getElementById("nombre").value.trim();
 
         // Validar campos obligatorios
-        if (letra === "" || nombre === "" ) {
+        if (letra === "" || nombre === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
-        }      
+        }
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
@@ -31,7 +32,7 @@
                         <h3>Metodo de Pago Nuevo</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="Mantenimiento_admin/crudmetodoPagos_crear" method="POST" onsubmit="return validarFormulario();">
+                        <form action="Mantenimiento_admin/crudmetodoPagos_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                             <label>Letra: </label><input type="text" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <label>Nombre: </label><input type="text" class="form-control" name="nombre" placeholder="Ingrese el metodo de pago" maxlength="20" required/>
                             <br>

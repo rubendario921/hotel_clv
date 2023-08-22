@@ -189,7 +189,7 @@ public class PersonasDao {
         return resultado;
     }
 
-    public int modificarPersona(Integer id, String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, Integer perfilId, Integer estaId) {
+    public int modificarPersona(Integer id, String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId, Integer estaId) {
         int resultado = 0;
         try {
             String sql_modifcarP = "UPDATE hotel_clv.personas SET per_nombres=?, per_apellidos=?,per_cedula=?,per_telefono=?,per_correo=?,per_usuario=?,per_clave=?, per_dimg=?,perfiles_perfil_id=?,estados_esta_id=? WHERE per_id=?;";
@@ -202,9 +202,10 @@ public class PersonasDao {
             pst.setString(6, perUsuario);
             pst.setString(7, perClave);
             pst.setString(8, perImagen);
-            pst.setInt(9, perfilId);
-            pst.setInt(10, estaId);
-            pst.setInt(11, id);
+            pst.setTimestamp(9, Timestamp.valueOf(perFRegistro));
+            pst.setInt(10, perfilId);
+            pst.setInt(11, estaId);
+            pst.setInt(12, id);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
