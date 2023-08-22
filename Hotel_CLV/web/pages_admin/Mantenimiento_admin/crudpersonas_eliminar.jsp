@@ -1,10 +1,10 @@
 <%-- 
-    Document   : crudperfil_eliminar
-    Created on : 14/08/2023, 11:47:29
+    Document   : crudpersonas_eliminar
+    Created on : 22/08/2023, 9:25:32
     Author     : Ruben Dario
 --%>
 
-<%@page import="Controller.PerfilesDao"%>
+<%@page import="Controller.PersonasDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,18 +18,20 @@
     </head>
     <body>
         <%
-            if (request.getParameter("eliminar") != null && request.getParameter("eliminar").equals("true")) {
+            if (request.getParameter("eliminar") != null) {
                 int id = Integer.parseInt(request.getParameter("id"));
-                PerfilesDao eliminarP = new PerfilesDao();
-                int resultado = eliminarP.eliminarPefil(id);
+                PersonasDao eliminarPer = new PersonasDao();
+                int resultado = eliminarPer.eliminarPersona(id);
+
                 if (resultado == 1) {
                     String informacion = "Registro Eliminado.";
-                    String redireccion = "../perfil_lista.jsp";%>
+                    String redireccion = "../menu_admin.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <%} else {%>
+        <% } else {%> 
         <script>alert("Registro No Eliminado, Intentalo nuevamente.");
-            window.history.back();</script>
-            <% }
-                }%>
+            window.history.back();
+        </script>
+        <% }
+            }%>
     </body>
 </html>
