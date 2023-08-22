@@ -29,7 +29,8 @@
                 BigDecimal valor = new BigDecimal(valorStr);
                 String imagen = "assets\\img\\user_default.png";
                 Integer insumo = Integer.parseInt(request.getParameter("insumo"));
-                Integer estado = 3;
+                Integer estado = Integer.parseInt(request.getParameter("estado"));
+                
 
                 HabitacionesDao crearHabi = new HabitacionesDao();
                 int resultado = crearHabi.crearHabi(nombre, tipo, piso, depar, descripcion, valor, imagen, insumo, estado);

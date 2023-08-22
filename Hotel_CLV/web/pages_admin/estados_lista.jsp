@@ -47,6 +47,7 @@
                                     <td><%= estado.getEstaId()%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(estado.getEstaLetra())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></td>
+                                    <!--Union con otra tabla y muestra el resultado -->
                                     <td><%= estado.getCatId()%></td>
                                     <td>                        
                                         <!--modificar update=":tabMostrar"-->

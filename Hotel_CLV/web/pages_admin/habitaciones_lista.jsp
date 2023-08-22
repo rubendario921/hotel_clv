@@ -3,6 +3,8 @@
     Created on : 11-ago-2023, 19:01:23
     Author     : Ruben Dario 921
 --%>
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@page import="Controller.Habitaciones"%>
 <%@page import="Controller.HabitacionesDao"%>
@@ -42,9 +44,20 @@
                             </thead>                    
                             <tbody>
                                 <%
+                                    EstadosDao mostrarEstaId = new EstadosDao();
+                                    List<Estados> estados = mostrarEstaId.mostrarListaEsta2();
+
                                     HabitacionesDao mostrar_habi = new HabitacionesDao();
                                     List<Habitaciones> habitaciones = mostrar_habi.mostrarListaHabi();
-                                    for (Habitaciones habitacion : habitaciones) {%>
+                                    for (Habitaciones habitacion : habitaciones) {
+                                        int estadoId = habitacion.getEstaId();
+                                        String nombreCategoria = "";
+                                        for (Estados estado : estados) {
+                                            if (estado.getEstaId() == estadoId) {
+                                                nombreCategoria = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
+                                                break;
+                                            }
+                                        }%>
                                 <tr>
                                     <td><%= habitacion.getHabiId()%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre())%></td>
@@ -52,28 +65,8 @@
                                     <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiPiso())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%></td>
-                                    <td><%=habitacion.getHabiValorD()%></td>
-                                    <td><%
-                                        int estado = habitacion.getEstaId();
-                                        switch (estado) {
-                                            case 3:
-                                                out.print("<b class='btn btn-success''>Disponible</b>");
-                                                break;
-                                            case 4:
-                                                out.print("<b class='btn btn-danger''>Ocupado</b>");
-                                                break;
-                                            case 5:
-                                                out.print("<b class='btn btn-warning''>Reservado</b>");
-                                                break;
-                                            case 6:
-                                                out.print("<b class='btn btn-info''>Reservado</b>");
-                                                break;
-                                            default:
-                                                out.print("<b class='btn btn-default''>Sin Asignar</b>");
-                                                break;
-                                        }
-                                        %>
-                                    </td>
+                                    <td><%= habitacion.getHabiValorD()%></td>
+                                    <td class="btn btn-primary"><%= nombreCategoria%></td>
                                     <td><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" height="200" width="200"></td>
                                     <td>
                                         <!--modificar update=":tabMostrar"-->

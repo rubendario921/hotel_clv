@@ -3,6 +3,8 @@
     Created on : 17/08/2023, 13:47:01
     Author     : Ruben Dario
 --%>
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 
 <%@page import="Controller.Insumos"%>
@@ -21,9 +23,10 @@
         var descripcion = document.getElementById("descripcion").value.trim();
         var valor = document.getElementById("valor").value.trim();
         var insumo = document.getElementById("insumo").value.trim();
+        var estado = document.getElementById("insumo").value.trim();
 
         // Validar campos obligatorios
-        if (nombre === "" || tipo === "" || piso === "" || departamento === "" || descripcion === "" || valor === "" || insumo === "") {
+        if (nombre === "" || tipo === "" || piso === "" || departamento === "" || descripcion === "" || valor === "" || insumo === "" || estado === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -43,10 +46,10 @@
                         <form action="Mantenimiento_admin/crudhabitacion_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                             <label>Nombre: </label><input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre de la habitacion" maxlength="20" required/>
                             <label>Tipo: </label><input type="text" class="form-control" name="tipo" placeholder="Ingrese el tipo de habitacion" maxlength="20" required/>
-                            <label>Piso </label><input type="number" class="form-control" name="piso" placeholder="Ingrese el psio donde se encuentra la habitacion" maxlength="2" required/>
-                            <label>Departamento: </label><input type="number" class="form-control" name="departamento" placeholder="Ingrese el numero de la habitacion" maxlength="3" required/>
-                            <label>Descripcion: </label><input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripcion de la habitacion" maxlength="40" required/>
-                            <label>Valor: </label><input type="number" class="form-control" name="valor" placeholder="Ingrese el valor" step="000.01" required/>                            
+                            <label>Piso </label><input type="number" class="form-control" name="piso" placeholder="Ingrese el psio donde se encuentra la habitacion" maxlength="2" min="1" required/>
+                            <label>Departamento: </label><input type="number" class="form-control" name="departamento" placeholder="Ingrese el numero de la habitacion" maxlength="3" min="1" required/>
+                            <label>Descripcion: </label><input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripcion de la habitacion" maxlength="200" required/>
+                            <label>Valor: </label><input type="number" class="form-control" name="valor" placeholder="Ingrese el valor" step="000.01" min="000.00" required/>                            
                             <label>Insumo: </label>
                             <select name="insumo" id="insumo" class="form form-control" required>
                                 <%
@@ -54,9 +57,19 @@
                                     List<Insumos> insumos = mostrarInsu.mostrarListaInsumos();
                                     for (Insumos insumo : insumos) {
                                 %>
-                                <option value="<%= insumo.getInsuId()%>"><%=  StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%> </option>
+                                <option value="<%= insumo.getInsuId()%>"><%= StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%> </option>
                                 <% }%>
-                            </select>                            
+                            </select>
+                            <br>
+                            <label>Insumo: </label>
+                            <select name="estado" id="estado" class="form form-control" required>                                <%
+                                    EstadosDao mostrarEsta = new EstadosDao();
+                                    List<Estados> estados = mostrarEsta.mostrarListaEsta2();
+                                    for (Estados estado : estados) {
+                                %>
+                                <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%> </option>
+                                <% }%>
+                            </select>                           
                             <br>
                             <a href="habitaciones_lista.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" value="Registrar" name="nueva_habitacion" class=" btn btn-primary"/>
