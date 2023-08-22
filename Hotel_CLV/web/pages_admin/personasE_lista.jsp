@@ -4,34 +4,17 @@
     Author     : Ruben Dario 921
 --%>
 
-<%@page import="org.apache.commons.text.StringEscapeUtils"%>
+<%@page import="Controller.Perfiles"%>
+<%@page import="Controller.PerfilesDao"%>
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Personas"%>
 <%@page import="java.util.*"%>
 <%@page import="Controller.PersonasDao"%>
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
-<script>
-    function validarFormulario() {
-        var codigo = document.getElementById("codigo").value.trim();
-        var nombre = document.getElementById("nombre").value.trim();
-        var apellido = document.getElementById("apellido").value.trim();
-        var cedula = document.getElementById("cedula").value.trim();
-        var usuario = document.getElementById("usuario").value.trim();
-        var telefono = document.getElementById("telefono").value.trim();
-        var perfil = document.getElementById("perfil").value.trim();
-        var estado = document.getElementById("estado").value.trim();
-
-        if (codigo === "" || nombre === "" || apellido === "" || cedula === "" || usuario === "" || telefono === "" || perfil === "" || estado === "") {
-
-            alert("Por favor, complete todos los campos.");
-            return false; // Detener el envío del formulario
-        }
-        return true; // Permitir el envío del formulario si todos los campos están llenos
-    }
-
-
-</script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -63,18 +46,44 @@
                             </thead>
                             <tbody>
                                 <%
+                                    //Lista de Estados para la consulta y comparacion
+                                    EstadosDao mostrarEsta = new EstadosDao();
+                                    List<Estados> estados = mostrarEsta.mostrarListaEsta1();                                    
+
+                                    //Lista de Perfiles para la consulta y comparacion
+                                    PerfilesDao mostrarPerfil = new PerfilesDao();
+                                    List<Perfiles> perfiles = mostrarPerfil.mostrarListaPerfil();
+
                                     PersonasDao mostrarLista = new PersonasDao();
                                     List<Personas> personas = mostrarLista.mostrarListaPersonasE();
-                                    for (Personas persona : personas) {%>
+                                    for (Personas persona : personas) {
+                                        //Comparacion de Perfil
+                                        int perfilId = persona.getPerfilId();
+                                        String nombrePerfil = "";
+                                        for (Perfiles perfil : perfiles) {
+                                            if (perfil.getPerfilId() == perfilId) {
+                                                nombrePerfil = StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre());
+                                                break;
+                                            }
+                                        }
+                                        //Comparacion de Estado
+                                        int estadoId = persona.getEstaId();
+                                        String nombreEstado = "";
+                                        for (Estados estado : estados) {
+                                            if (estado.getEstaId() == estadoId) {
+                                                nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
+                                                break;
+                                            }
+                                        }%>
                                 <tr>
-                                    <td><%=persona.getPerId()%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(persona.getPerNombres())%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(persona.getPerApellidos())%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(persona.getPerCedula())%></td>                                    
-                                    <td><%=StringEscapeUtils.escapeHtml4(persona.getPerUsuario())%></td>                                    
-                                    <td><%=StringEscapeUtils.escapeHtml4(persona.getPerTelefono())%></td>
-                                    <td><%=persona.getPerfilId()%></td>
-                                    <td><%=persona.getEstaId()%></td>                                        
+                                    <td><%= persona.getPerId()%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerNombres())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerApellidos())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerCedula())%></td>                                    
+                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerUsuario())%></td>                                    
+                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerTelefono())%></td>
+                                    <td><%= nombrePerfil%></td>
+                                    <td><%= nombreEstado%></td>                                        
                                     <td>
                                         <a href="personas_editar.jsp?editar=true&id=<%=persona.getPerId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <a href="Mantenimiento_admin/crudpersonas_eliminar.jsp?eliminar=true&id=<%=persona.getPerId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
