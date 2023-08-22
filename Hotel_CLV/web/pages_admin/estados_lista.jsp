@@ -53,7 +53,9 @@
                                         <!--modificar update=":tabMostrar"-->
                                         <a href="estados_editar.jsp?editar=true&id=<%=estado.getEstaId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--eliminar update=":tabMostrar"-->
+                                        <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
                                         <a href="Mantenimiento_admin/crudestado_eliminar.jsp?eliminar=true&id=<%=estado.getEstaId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                        <% }%>
                                     </td>
                                 </tr>
                                 <%}%>

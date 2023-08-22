@@ -49,7 +49,9 @@
                                         <!--modificar update=":tabMostrar"-->
                                         <a href="perfil_editar.jsp?editar=true&id=<%=perfil.getPerfilId()%>" class="btn btn-warning"> <i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--eliminar update=":tabMostrar"-->
+                                        <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
                                         <a href="Mantenimiento_admin/crudperfil_eliminar.jsp?eliminar=true&id=<%=perfil.getPerfilId()%>"class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                            <% }%>
                                     </td>
                                 </tr>
                                 <% }
