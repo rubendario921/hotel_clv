@@ -192,8 +192,8 @@ public class PersonasDao {
     public int modificarPersona(Integer id, String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId, Integer estaId) {
         int resultado = 0;
         try {
-            String sql_modifcarP = "UPDATE hotel_clv.personas SET per_nombres=?, per_apellidos=?,per_cedula=?,per_telefono=?,per_correo=?,per_usuario=?,per_clave=?, per_dimg=?,perfiles_perfil_id=?,estados_esta_id=? WHERE per_id=?;";
-            PreparedStatement pst = con.getConexion().prepareStatement(sql_modifcarP);
+            String sql_modifcarP = "UPDATE hotel_clv.personas SET per_nombres=?, per_apellidos=?,per_cedula=?,per_telefono=?,per_correo=?,per_usuario=?,per_clave=?, per_dimg=?,per_fregistro = ?,perfiles_perfil_id=?,estados_esta_id=? WHERE per_id=?;";
+            PreparedStatement pst = con.getConexion().prepareCall(sql_modifcarP);
             pst.setString(1, perNombres);
             pst.setString(2, perApellidos);
             pst.setString(3, perCedula);
