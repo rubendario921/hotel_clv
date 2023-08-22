@@ -7,7 +7,9 @@
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
 <%@page import="java.util.*"%>
+<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@include file="template/header_admin.jsp" %>
+
 <!DOCTYPE html>    
 <!--Tabla para mostrar el listado de los perfiles-->
 <div id="page-wrapper">
@@ -43,8 +45,8 @@
                                     for (Estados estado : estados) {%>
                                 <tr>
                                     <td><%= estado.getEstaId()%></td>
-                                    <td><%= estado.getEstaLetra()%></td>
-                                    <td><%= estado.getEstaDescripcion()%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(estado.getEstaLetra())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></td>
                                     <td><%= estado.getCatId()%></td>
                                     <td>                        
                                         <!--modificar update=":tabMostrar"-->

@@ -4,6 +4,7 @@
     Author     : Wladimir Campaña
 --%>
 
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page import="Controller.Insumos"%>
 <%@page import="java.util.*"%>
 <%@page import="Controller.InsumosDao"%>
@@ -65,11 +66,11 @@
                                     for (Insumos insumo : insumos) {%>
                                 <tr>
                                     <td><%=insumo.getInsuId()%></td>
-                                    <td><%=insumo.getInsuNombre()%></td>
-                                    <td><%=insumo.getInsuDetalle()%></td>
+                                    <td><%=StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%></td>
+                                    <td><%=StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%></td>
                                     <td><%=insumo.getInsuCantidad()%></td>
                                     <td><%=insumo.getInsuValor()%></td>
-                                    <td><%=insumo.getInsuImagen()%></td>
+                                    <td><%=StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%></td>
                                     <td><%=insumo.getEstaId()%></td>
                                     <td>
                                         <!--Modificar Insumo-->

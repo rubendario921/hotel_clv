@@ -3,6 +3,7 @@
     Created on : 10/08/2023, 13:07:32
     Author     : Ruben Dario
 --%>
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Controller.Perfiles"%>
 <%@page import="Controller.PerfilesDao"%>
@@ -42,11 +43,11 @@
                                     for (Perfiles perfil : perfiles) {%>
                                 <tr>
                                     <td><%=perfil.getPerfilId()%></td>
-                                    <td><%=perfil.getPerfilLetra()%></td>
-                                    <td><%=perfil.getPerfilNombre()%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(perfil.getPerfilLetra())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre())%></td>
                                     <td>                        
                                         <!--modificar update=":tabMostrar"-->
-                                        <a href="perfil_editar.jsp?editar=true&id=<%=perfil.getPerfilId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="perfil_editar.jsp?editar=true&id=<%=perfil.getPerfilId()%>" class="btn btn-warning"> <i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--eliminar update=":tabMostrar"-->
                                         <a href="Mantenimiento_admin/crudperfil_eliminar.jsp?eliminar=true&id=<%=perfil.getPerfilId()%>"class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                     </td>

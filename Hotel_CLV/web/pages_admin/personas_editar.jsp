@@ -4,6 +4,7 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Perfiles"%>
@@ -64,14 +65,14 @@
                                     Personas persona = mostrarP.mostrarPersona(id);
                                     if (persona != null) {%>
                             <label>Codigo: </label><input type="text" value="<%=persona.getPerId()%>" class=" form form-control" name="id" id="id" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" readonly="false" required/><br>
-                            <label>Nombres Completos: </label><input type="text" value="<%=persona.getPerNombres()%>" class="form form-control" name="nombres" id="nombres" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required /><br>
-                            <label>Apellidos Completos: </label><input type="text" value="<%=persona.getPerApellidos()%>"class="form form-control" name="apellidos" id="apellidos" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required /><br>
-                            <label>Cedula de Identidad: </label><input type="text" value="<%=persona.getPerCedula()%>" class="form-control" name="cedula" id="cedula" placeholder="Ingrese sus cedula de identidad" maxlength="13"   autocomplete="off" required /><br>
-                            <label>Telefono: </label><input type="text" value="<%=persona.getPerTelefono()%>"class="form-control"  name="telefono" id="telefono" placeholder="Ingrese sus dos nombres" maxlength="10" autocomplete="off" required /><br>
-                            <label>Correo Electronico: </label><input type="email" value="<%=persona.getPerCorreo()%>"class="form-control" name="correo" id="correo" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required /><br>
-                            <label>Usuario: </label><input type="text" value="<%=persona.getPerUsuario()%>"class="form-control" name="usuario" id="usuario" placeholder="Ingrese sus dos nombres" maxlength="20"  autocomplete="off" required /><br>
-                            <label>Contraseña: </label><input type="text" value="<%=persona.getPerClave()%>"class="form-control" name="clave" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16"   autocomplete="off" required /><br>
-                            <label>Imagen::</label><input type="text" value="<%=persona.getPerImagen()%>"class="form-control" name="imagen" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16"   autocomplete="off" required /><br>
+                            <label>Nombres Completos: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(persona.getPerNombres())%>" class="form form-control" name="nombres" id="nombres" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required /><br>
+                            <label>Apellidos Completos: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(persona.getPerApellidos())%>"class="form form-control" name="apellidos" id="apellidos" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required /><br>
+                            <label>Cedula de Identidad: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(persona.getPerCedula())%>" class="form-control" name="cedula" id="cedula" placeholder="Ingrese sus cedula de identidad" maxlength="13"   autocomplete="off" required /><br>
+                            <label>Telefono: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(persona.getPerTelefono())%>"class="form-control"  name="telefono" id="telefono" placeholder="Ingrese sus dos nombres" maxlength="10" autocomplete="off" required /><br>
+                            <label>Correo Electronico: </label><input type="email" value="<%=StringEscapeUtils.escapeHtml4(persona.getPerCorreo())%>"class="form-control" name="correo" id="correo" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required /><br>
+                            <label>Usuario: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(persona.getPerUsuario())%>"class="form-control" name="usuario" id="usuario" placeholder="Ingrese sus dos nombres" maxlength="20"  autocomplete="off" required /><br>
+                            <label>Contraseña: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(persona.getPerClave())%>"class="form-control" name="clave" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16"   autocomplete="off" required /><br>
+                            <label>Imagen::</label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(persona.getPerImagen())%>"class="form-control" name="imagen" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16"   autocomplete="off" required /><br>
                             <label>Fecha Regsitro: </label><input type="datetime-local" value="<%=persona.getPerFRegistro()%>"class="form-control" name="fregistro" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16"   autocomplete="off" required /><br>
                             <label>Perfil: </label>
                             <select name="perfil" id="perfil" class="form-control" required>
@@ -79,7 +80,7 @@
                                     PerfilesDao mostrarPerfil = new PerfilesDao();
                                     List<Perfiles> perfiles = mostrarPerfil.mostrarListaPerfil();
                                     for (Perfiles perfil : perfiles) {%>
-                                <option value="<%=perfil.getPerfilId()%>"><%=perfil.getPerfilNombre()%></option>
+                                <option value="<%=perfil.getPerfilId()%>"><%=StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre())%></option>
                                 <% }%>
                             </select>  
                             <br>
@@ -89,7 +90,7 @@
                                     EstadosDao mostrarEstado = new EstadosDao();
                                     List<Estados> estados = mostrarEstado.mostrarListaEsta1();
                                     for (Estados estado : estados) {%>
-                                <option value="<%=estado.getEstaId()%>"><%=estado.getEstaDescripcion()%></option>
+                                <option value="<%=estado.getEstaId()%>"><%=StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></option>
                                 <% }%>
                             </select>                            
                             <% }

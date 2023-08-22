@@ -3,6 +3,7 @@
     Created on : 20-jul-2023, 0:06:06
     Author     : Ruben Dario 921
 --%>
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Controller.Personas"%>
 <%@page import="java.util.*"%>
@@ -62,11 +63,11 @@
                                     for (Personas persona : personas) {%>
                                 <tr>
                                     <td><%=persona.getPerId()%></td>
-                                    <td><%=persona.getPerNombres()%></td>
-                                    <td><%=persona.getPerApellidos()%></td>
-                                    <td><%=persona.getPerClave()%></td>
-                                    <td><%=persona.getPerTelefono()%></td>
-                                    <td><%=persona.getPerCorreo()%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerNombres())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerApellidos())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerClave())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerTelefono())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerCorreo())%></td>
                                     <td><%=persona.getEstaId()%></td>
                                     <td>
                                         <a href="personas_editar.jsp?editar=true&id=<%=persona.getPerId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>

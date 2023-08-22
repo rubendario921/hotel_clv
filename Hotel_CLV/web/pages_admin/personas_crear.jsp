@@ -4,6 +4,7 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page import="java.util.*"%>
 <%@page import="Controller.PerfilesDao"%>
 <%@page import="Controller.Perfiles"%>
@@ -64,7 +65,7 @@
                                     List<Perfiles> perfiles = mostrarPerfiles.mostrarListaPerfil();
                                     for (Perfiles perfil : perfiles) {
                                 %>                                                               
-                                <option value="<%=perfil.getPerfilId()%>"><%=perfil.getPerfilNombre()%></option>                                
+                                <option value="<%=perfil.getPerfilId()%>"><%=StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre())%></option>                                
                                 <% }%>
                             </select>  
                             <label>Fecha de Registro: </label><input type="datetime-local" name="fregistro" id="clave" class="form-control" required />
