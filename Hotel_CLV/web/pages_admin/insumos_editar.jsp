@@ -4,6 +4,7 @@
     Author     : Wladimir Campaña
 --%>
 
+<%@page import="org.apache.commons.lang3.StringEscapeUtils"%>
 <%@page import="Controller.Insumos"%>
 <%@page import="Controller.InsumosDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -47,15 +48,15 @@
                                     if (insumo != null) {%> 
                             <label> Codigo: </label><input type="text" value="<%=insumo.getInsuId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
                             <br>
-                            <label> Nombre: </label><input type="text" value="<%=insumo.getInsuNombre()%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del insumo"maxlength="50" required/>
+                            <label> Nombre: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del insumo"maxlength="50" required/>
                             <br>
-                            <label> Detalle: </label><input type="text" value="<%=insumo.getInsuDetalle()%>" class="form-control" name="detalle"  placeholder="Ingrese el detalle del insumoo"maxlength="200" required/>
+                            <label> Detalle: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%>" class="form-control" name="detalle"  placeholder="Ingrese el detalle del insumoo"maxlength="200" required/>
                             <br>
                             <label> Cantidad: </label><input type="text" value="<%=insumo.getInsuCantidad()%>" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad"maxlength="100" required/>
                             <br>
                             <label> Valor: </label><input type="text" value="<%=insumo.getInsuValor()%>" class="form-control" name="valor"  placeholder="Ingrese su valor"maxlength="100" required/>
                             <br>
-                            <label> Imagen: </label><input type="text" value="<%=insumo.getInsuImagen()%>" class="form-control" name="insu_dimg"  placeholder="Ingrese imagen"maxlength="20" required/>
+                            <label> Imagen: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%>" class="form-control" name="insu_dimg"  placeholder="Ingrese imagen"maxlength="20" required/>
                             <br>
                             <% }
                                 }%>

@@ -4,6 +4,7 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page import="Controller.Personas"%>
 <%@page import="java.util.*"%>
 <%@page import="Controller.PersonasDao"%>
@@ -67,11 +68,11 @@
                                     for (Personas persona : personas) {%>
                                 <tr>
                                     <td><%=persona.getPerId()%></td>
-                                    <td><%=persona.getPerNombres()%></td>
-                                    <td><%=persona.getPerApellidos()%></td>
-                                    <td><%=persona.getPerCedula()%></td>                                    
-                                    <td><%=persona.getPerUsuario()%></td>                                    
-                                    <td><%=persona.getPerTelefono()%></td>
+                                    <td><%=StringEscapeUtils.escapeHtml4(persona.getPerNombres())%></td>
+                                    <td><%=StringEscapeUtils.escapeHtml4(persona.getPerApellidos())%></td>
+                                    <td><%=StringEscapeUtils.escapeHtml4(persona.getPerCedula())%></td>                                    
+                                    <td><%=StringEscapeUtils.escapeHtml4(persona.getPerUsuario())%></td>                                    
+                                    <td><%=StringEscapeUtils.escapeHtml4(persona.getPerTelefono())%></td>
                                     <td><%=persona.getPerfilId()%></td>
                                     <td><%=persona.getEstaId()%></td>                                        
                                     <td>
