@@ -45,9 +45,9 @@
 
                             <label>Codigo: </label><input type="text" value="<%= estado.getEstaId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
                             <br>
-                            <label>Letra: </label><input type="text" value="<%=estado.getEstaLetra()%>" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
+                            <label>Letra: </label><input type="text" value="<%=escapeHtml(estado.getEstaLetra())%>" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <br>
-                            <label>Nombre: </label><input type="text" value="<%=estado.getEstaDescripcion()%>" class="form-control" name="descripcion" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
+                            <label>Nombre: </label><input type="text" value="<%=escapeHtml(estado.getEstaDescripcion())%>" class="form-control" name="descripcion" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
                             <br>
                             <label>Categoria: </label>
                             <select name="categoria" id="categoria" class="form form-control" required>
