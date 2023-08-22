@@ -62,12 +62,12 @@
                             <form action="procesos/carga_datos.jsp" method="POST" onsubmit="return validarFormulario();">
                                 <div class="mb-3">
                                     <label for="usuario" class="form-label"><strong>Usuario</strong></label>
-                                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su usuario empresarial" required>
+                                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingrese su usuario empresarial" autocomplete="true" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="password" class="form-label"><strong>Contraseña</strong></label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Debe tener entre 8 y 20 caracteres."  maxlength="16" required>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Debe tener entre 8 y 20 caracteres."  autocomplete="true" maxlength="16" required>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary" name="ingreso_admin" value="ingreso_admin">Iniciar Sesión</button>

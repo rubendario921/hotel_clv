@@ -51,13 +51,13 @@
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudpersonas_crear.jsp" method="POST" onsubmit="return validarFormulario();" >
-                            <label>Nombres Completos: </label><input type="text" class="form-control" name="nombres" id="nombres" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required />
-                            <label>Apellidos Completos: </label><input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required />
-                            <label>Cedula de Identidad: </label><input type="text" class="form-control" name="cedula" id="cedula" placeholder="Ingrese sus cedula de identidad" maxlength="13"   autocomplete="off" required />
-                            <label>Telefono: </label><input type="text" class="form-control" name="telefono" id="telefono" placeholder="Ingrese sus dos nombres" maxlength="10" autocomplete="off" required />
-                            <label>Correo Electronico: </label><input type="email" class="form-control" name="correo" id="correo" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" required />
-                            <label>Usuario: </label><input type="text" class="form-control" name="usuario" id="usuario" placeholder="Ingrese sus dos nombres" maxlength="20"  autocomplete="off" required />
-                            <label>Contraseña: </label><input type="password" class="form-control" name="clave" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16"   autocomplete="off" required />
+                            <label>Nombres Completos: </label><input type="text" class="form-control" name="nombres" id="nombres" placeholder="Ingrese sus dos nombres" maxlength="100" autocomplete="true" required />
+                            <label>Apellidos Completos: </label><input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese sus dos nombres" maxlength="100" autocomplete="true" required />
+                            <label>Cedula de Identidad: </label><input type="text" class="form-control" name="cedula" id="cedula" placeholder="Ingrese sus cedula de identidad" maxlength="13"  autocomplete="true" required />
+                            <label>Telefono: </label><input type="text" class="form-control" name="telefono" id="telefono" placeholder="Ingrese sus dos nombres" maxlength="10" autocomplete="true" required />
+                            <label>Correo Electronico: </label><input type="email" class="form-control" name="correo" id="correo" placeholder="Ingrese sus dos nombres" maxlength="100" autocomplete="true" required />
+                            <label>Usuario: </label><input type="text" class="form-control" name="usuario" id="usuario" placeholder="Ingrese sus dos nombres" maxlength="20" autocomplete="true" required />
+                            <label>Contraseña: </label><input type="password" class="form-control" name="clave" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16" autocomplete="true" required />
                             <label>Perfil: </label>
                             <select name="perfil" id="perfil" class="form-control" required>
                                 <%

@@ -161,23 +161,23 @@
                 <form action="Mantenimiento/crudcliente_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                     <div class="form-group">
                         <label for="fregistro" class="label-text">Fecha de Registro</label>
-                        <input type="datetime-local" id="fregistro" name="fregistro" class="form-control" required>
+                        <input type="datetime-local" id="fregistro" name="fregistro" class="form-control" required autocomplete="true">
                     </div>
                     <div class="form-group">
                         <label for="nombre" class="label-text">Nombres Completos</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ingrese sus dos nombres" class="form-control"   maxlength="200" required>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ingrese sus dos nombres" class="form-control"   maxlength="200" autocomplete="true" required>
                     </div>
                     <div class="form-group">
                         <label for="apellido" class="label-text">Apellidos Completos</label>
-                        <input type="text"  id="apellido" name="apellido" placeholder="Ingrese sus dos apellidos" class="form-control"   maxlength="200" required>
+                        <input type="text"  id="apellido" name="apellido" placeholder="Ingrese sus dos apellidos" class="form-control"   maxlength="200" autocomplete="true" required>
                     </div>
                     <div class="form-group">
                         <label for="cedula" class="label-text">Cédula de Identidad</label>
-                        <input type="text" id="cedula" name="cedula" placeholder="Ingrese su numero de cedula o RUC" class="form-control"   maxlength="13" required>
+                        <input type="text" id="cedula" name="cedula" placeholder="Ingrese su numero de cedula o RUC" class="form-control"   maxlength="13" autocomplete="true" required>
                     </div>
                     <div class="form-group">
                         <label for="telefono" class="label-text">Teléfono</label>
-                        <input type="text" id="telefono" name="telefono" placeholder="Ingrese su numero telefonico" class="form-control" maxlength="10"  required >
+                        <input type="text" id="telefono" name="telefono" placeholder="Ingrese su numero telefonico" class="form-control" maxlength="10" autocomplete="true" required >
                     </div>
                     <div class="form-group">
                         <label for="usuario" class="label-text">Ingrese un Usuario</label>
@@ -185,12 +185,12 @@
                     </div>
                     <div class="form-group">
                         <label for="correo" class="label-text">Correo Electrónico</label>
-                        <input type="email" id="correo" name="correo" placeholder="Ingrese su correo electronico" class="form-control"  required maxlength="200">
+                        <input type="email" id="correo" name="correo" placeholder="Ingrese su correo electronico" class="form-control" maxlength="200" autocomplete="true" required>
                         <small class="form-text">*Su inicio de sesión será con el correo electrónico</small>
                     </div>
                     <div class="form-group">
                         <label for="clave" class="label-text">Contraseña</label>
-                        <input type="password" id="clave" name="clave"  placeholder="Ingrese su contraseña personal" class="form-control" required maxlength="16">
+                        <input type="password" id="clave" name="clave"  placeholder="Ingrese su contraseña personal" class="form-control" required maxlength="16" autocomplete="true">
                         <small class="form-text">*Entre 8 y 16 dígitos con caracteres especiales</small>
                     </div>
                     <button class="btn btn-registrar" value="Registrar" name="nuevo_cliente">Registrar</button>

@@ -74,22 +74,22 @@
                     <form class="row g-3" action="Mantenimiento/crudcontacto_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                         <div class="col-md-6">
                             <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" maxlength="50" required>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" maxlength="50" autocomplete="true" required>
                         </div>
 
                         <div class="col-md-6">
                             <label for="correo" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo electrónico"  required>
+                            <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo electrónico" autocomplete="true" required>
                         </div>
 
                         <div class="col-md-6">
                             <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de contacto" maxlength="10" required>
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de contacto" autocomplete="true" maxlength="10" required>
                         </div>
 
                         <div class="col-md-12">
                             <label for="asunto" class="form-label">Asunto</label>
-                            <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Ingrese el asunto del mensaje" required>
+                            <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Ingrese el asunto del mensaje" autocomplete="true" required>
                         </div>
 
                         <div class="col-md-12">
@@ -99,7 +99,7 @@
 
                         <div class="col-md-6">
                             <label for="ciudad" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad de residencia" maxlength="45" required>
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad de residencia" maxlength="45" autocomplete="true" required>
                         </div>                                              
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary btn-block" value="nuevo_formulario" name="nuevo_formulario">Enviar</button>
