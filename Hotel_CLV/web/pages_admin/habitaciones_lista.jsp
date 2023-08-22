@@ -3,17 +3,18 @@
     Created on : 11-ago-2023, 19:01:23
     Author     : Ruben Dario 921
 --%>
+<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@page import="Controller.Habitaciones"%>
 <%@page import="Controller.HabitacionesDao"%>
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
-
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">  <h1 class="page-header">Habitaciones</h1>
+            <div class="col-lg-12">
+                <h1 class="page-header">Habitaciones</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <table style="width: 100%">
@@ -45,12 +46,12 @@
                                     List<Habitaciones> habitaciones = mostrar_habi.mostrarListaHabi();
                                     for (Habitaciones habitacion : habitaciones) {%>
                                 <tr>
-                                    <td><%=habitacion.getHabiId()%></td>
-                                    <td><%=habitacion.getHabiNombre()%></td>
-                                    <td><%=habitacion.getHabiTipo()%></td>
-                                    <td><%=habitacion.getHabiPiso()%></td>
-                                    <td><%=habitacion.getHabiDepar()%></td>
-                                    <td><%=habitacion.getHabiDescripcion()%></td>
+                                    <td><%= habitacion.getHabiId()%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiTipo())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiPiso())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%></td>
                                     <td><%=habitacion.getHabiValorD()%></td>
                                     <td><%
                                         int estado = habitacion.getEstaId();
@@ -73,7 +74,7 @@
                                         }
                                         %>
                                     </td>
-                                    <td><img class="img-fluid" src="../<%= habitacion.getHabiImg()%>" height="200" width="200"></td>
+                                    <td><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" height="200" width="200"></td>
                                     <td>
                                         <!--modificar update=":tabMostrar"-->
                                         <a href="habitaciones_editar.jsp?editar=true&id=<%= habitacion.getHabiId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>

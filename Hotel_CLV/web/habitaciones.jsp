@@ -3,7 +3,7 @@
     Created on : 23-jul-2023, 21:05:46
     Author     : Ruben Dario 921
 --%>
-
+<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@page import="Controller.Habitaciones"%>
 <%@page import="java.util.List"%>
 <%@page import="Controller.HabitacionesDao"%>
@@ -76,10 +76,10 @@
             List<Habitaciones> habitaciones = mostar_habitaciones.mostrarMenuHabi();
             for (Habitaciones habitacion : habitaciones) {%>
         <tr>                    
-            <td id="nombre"><%= habitacion.getHabiNombre()%></td>
-            <td id="tipo"><%= habitacion.getHabiTipo()%></td>                    
-            <td id="descripcion"><%= habitacion.getHabiDescripcion()%></td>
-            <td id="imagen"><img class="img-fluid" src="./<%= habitacion.getHabiImg()%>" alt=" "></td>                    
+            <td id="nombre"><%=  StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre()) %></td>
+            <td id="tipo"><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiTipo())%></td>                    
+            <td id="descripcion"><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%></td>
+            <td id="imagen"><img class="img-fluid" src="./<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" alt=" "></td>                    
         </tr>
         <%}%>
     </tbody>

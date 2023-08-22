@@ -4,14 +4,58 @@
     Author     : Ruben Dario
 --%>
 
+<%@page import="Controller.HabitacionesDao"%>
+<%@page import="java.math.BigDecimal"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <script type="text/javascript">
+            function mostrarMensaje(informacion, redireccion) {
+                alert(informacion);
+                window.location.href = redireccion;
+            }
+        </script>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%
+            if (request.getParameter("nueva_habitacion") != null) {
+                String nombre = request.getParameter("nombre");
+                String tipo = request.getParameter("tipo");
+                String piso = request.getParameter("piso");
+                String depar = request.getParameter("departamento");
+                String descripcion = request.getParameter("descripcion");
+                String valorStr = request.getParameter("valor");
+                BigDecimal valor = new BigDecimal(valorStr);
+                String imagen = "assets\\img\\user_default.png";
+                Integer insumo = Integer.parseInt(request.getParameter("insumo"));
+                Integer estado = 3;
+
+                HabitacionesDao crearHabi = new HabitacionesDao();
+                int resultado = crearHabi.crearHabi(nombre, tipo, piso, depar, descripcion, valor, imagen, insumo, estado);
+
+                switch (resultado) {
+                    case 1:
+                        String informacion = "Registro Exitoso";
+                        String redireccion = "../habitaciones_lista.jsp";%>
+        <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
+        <%break;
+            case 1062:%>
+        <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
+            window.history.back();
+        </script>    
+        <%break;
+            case 1048:%>
+        <script>alert("Los campos no puede estar vacios, intente nuevamente.");
+            window.history.back();
+        </script>              
+        <%break;
+            default:%>
+        <script>alert("Registro Incorrecto, intente nuevamente");
+            window.history.back();
+        </script>             
+        <%break;
+                }
+            }%>
     </body>
 </html>

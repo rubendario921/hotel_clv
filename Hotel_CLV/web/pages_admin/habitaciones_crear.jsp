@@ -3,7 +3,11 @@
     Created on : 17/08/2023, 13:47:01
     Author     : Ruben Dario
 --%>
+<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 
+<%@page import="Controller.Insumos"%>
+<%@page import="java.util.*"%>
+<%@page import="Controller.InsumosDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
@@ -16,10 +20,10 @@
         var departamento = document.getElementById("departamento").value.trim();
         var descripcion = document.getElementById("descripcion").value.trim();
         var valor = document.getElementById("valor").value.trim();
-        var imagen = document.getElementById("imagen").value.trim();
+        var insumo = document.getElementById("insumo").value.trim();
 
         // Validar campos obligatorios
-        if (nombre === "" || tipo === ""|| piso === ""|| departamento === "" ||descripcion === ""|| valor === ""|| imagen === "" ) {
+        if (nombre === "" || tipo === "" || piso === "" || departamento === "" || descripcion === "" || valor === "" || insumo === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -36,20 +40,22 @@
                         <h3>Nueva Habitacion</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="#" method="POST" onsubmit="return validarFormulario();">
+                        <form action="Mantenimiento_admin/crudhabitacion_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                             <label>Nombre: </label><input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre de la habitacion" maxlength="20" required/>
                             <label>Tipo: </label><input type="text" class="form-control" name="tipo" placeholder="Ingrese el tipo de habitacion" maxlength="20" required/>
                             <label>Piso </label><input type="number" class="form-control" name="piso" placeholder="Ingrese el psio donde se encuentra la habitacion" maxlength="2" required/>
                             <label>Departamento: </label><input type="number" class="form-control" name="departamento" placeholder="Ingrese el numero de la habitacion" maxlength="3" required/>
                             <label>Descripcion: </label><input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripcion de la habitacion" maxlength="40" required/>
-                            <label>Valor: </label><input type="number" class="form-control" name="valor" placeholder="Ingrese el valor" step="000.01" required/>
-                            <label>Imagen: </label><input type="text" class="form-control" name="imagen" placeholder="Ingrese la direccion de la imagen" required/>
+                            <label>Valor: </label><input type="number" class="form-control" name="valor" placeholder="Ingrese el valor" step="000.01" required/>                            
                             <label>Insumo: </label>
                             <select name="insumo" id="insumo" class="form form-control" required>
-                                <option> </option>
-                                <option value="1">Pack Basico</option>
-                                <option value="2">Pack Matrimonial</option>
-                                <option value="3">Pack VIP</option>
+                                <%
+                                    InsumosDao mostrarInsu = new InsumosDao();
+                                    List<Insumos> insumos = mostrarInsu.mostrarListaInsumos();
+                                    for (Insumos insumo : insumos) {
+                                %>
+                                <option value="<%= insumo.getInsuId()%>"><%=  StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%> </option>
+                                <% }%>
                             </select>                            
                             <br>
                             <a href="habitaciones_lista.jsp" class="btn btn-danger" >Regresar</a>

@@ -150,7 +150,7 @@ public class HabitacionesDao {
     public int modiHabi(Integer id, String nombre, String tipo, String piso, String depar, String descripcion, BigDecimal valor, String imagen, Integer insumo, Integer estado) {
         int resultado = 0;
         try {
-            String sql_modi = "";
+            String sql_modi = "UPDATE hotel_clv.habitaciones SET habi_nombre = ?, habi_tipo =?, habi_piso = ?, habi_depar =?, habi_descripcion = ?, habi_valor_diario = ?, habi_dimg=?,insumos_insu_id=?,estados_esta_id=? WHERE habi_id = ?;";
             PreparedStatement pst = con.getConexion().prepareCall(sql_modi);
             pst.setString(1, nombre);
             pst.setString(2, tipo);

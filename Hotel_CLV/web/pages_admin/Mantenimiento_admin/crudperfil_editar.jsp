@@ -18,9 +18,6 @@
     </head>
     <body>
         <%
-            String informacion = "";
-            String redireccion = "";
-
             if (request.getParameter("editar") != null) {
                 Integer id = Integer.parseInt(request.getParameter("codigo"));
                 String letra = request.getParameter("letra");
@@ -31,23 +28,26 @@
 
                 switch (resultado) {
                     case 1:
-                        informacion = "Registro de Perfil Exitoso.";
-                        redireccion = "../perfil_lista.jsp";
-                        break;
-                    case 1062:
-                        informacion = "El registro  ya existe en la base de datos, intente nuevamente.";
-                        redireccion = "../perfil_lista.jsp";
-                        break;
-                    case 1048:
-                        informacion = "Los campos no puede estar vacios, intente nuevamente.";
-                        redireccion = "../perfil_lista.jsp";
-                        break;
-                    default:
-                        informacion = "Registro Incorrecto, intente nuevamente.";
-                        redireccion = "../perfil_lista.jsp";
-                        break;
-                }%>
+                        String informacion = "Registro de Perfil Exitoso.";
+                        String redireccion = "../perfil_lista.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <%}%>
+        <%break;
+    case 1062:%>
+        <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
+            window.history.back();
+        </script>    
+        <%break;
+            case 1048:%>
+        <script>alert("Los campos no puede estar vacios, intente nuevamente.");
+            window.history.back();
+        </script>              
+        <%break;
+            default:%>
+        <script>alert("Registro Incorrecto, intente nuevamente");
+            window.history.back();
+        </script>             
+        <%break;
+                }
+            }%>
     </body>
 </html>
