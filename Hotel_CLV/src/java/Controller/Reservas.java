@@ -121,6 +121,4 @@ public class Reservas {
         this.consuId = consuId;
     }
     
-    
-    
 }

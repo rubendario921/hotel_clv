@@ -5,11 +5,11 @@
 --%>
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
-<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 
 <%@page import="Controller.Insumos"%>
-<%@page import="java.util.*"%>
 <%@page import="Controller.InsumosDao"%>
+<%@page import="java.util.*"%>
+<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
@@ -62,10 +62,11 @@
                             </select>
                             <br>
                             <label>Insumo: </label>
-                            <select name="estado" id="estado" class="form form-control" required>                                <%
-                                    EstadosDao mostrarEsta = new EstadosDao();
-                                    List<Estados> estados = mostrarEsta.mostrarListaEsta2();
-                                    for (Estados estado : estados) {
+                            <select name="estado" id="estado" class="form form-control" required>
+                                <%
+                                EstadosDao mostrarEsta = new EstadosDao();
+                                List<Estados> estados = mostrarEsta.mostrarListaEsta2();
+                                for (Estados estado : estados) {
                                 %>
                                 <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%> </option>
                                 <% }%>

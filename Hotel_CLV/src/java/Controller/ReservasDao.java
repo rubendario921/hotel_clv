@@ -34,10 +34,10 @@ public class ReservasDao {
                 BigDecimal reseVTotal = rs.getBigDecimal("rese_vtotal");
                 Integer habiId = rs.getInt("habitaciones_habi_id");
                 Integer estaId = rs.getInt("estados_esta_id");
-                Integer periId = rs.getInt("personas_per_id");
-                Integer consuiId = rs.getInt("consumos_consu_id");
+                Integer perId = rs.getInt("personas_per_id");
+                Integer consuId = rs.getInt("consumos_consu_id");
 
-                Reservas reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, periId, consuiId);
+                Reservas reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);
                 reservas.add(reserva);
             }
             rs.close();
@@ -66,10 +66,10 @@ public class ReservasDao {
                 BigDecimal reseVTotal = rs.getBigDecimal("rese_vtotal");
                 Integer habiId = rs.getInt("habitaciones_habi_id");
                 Integer estaId = rs.getInt("estados_esta_id");
-                Integer periId = rs.getInt("personas_per_id");
-                Integer consuiId = rs.getInt("consumos_consu_id");
+                Integer perId = rs.getInt("personas_per_id");
+                Integer consuId = rs.getInt("consumos_consu_id");
 
-                reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, periId, consuiId);
+                reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);
             }
             rs.close();
             pst.close();
@@ -80,7 +80,7 @@ public class ReservasDao {
         return reserva;
     }
 
-    public int crearReserva(Integer reseId, Integer numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer estaId, Integer periId, Integer consuiId) {
+    public int crearReserva(Integer numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer estaId, Integer perId, Integer consuId) {
         int resultado = 0;
         try {
             String sql_crear = "INSERT INTO hotel_clv.reservas(rese_num_dias,rese_f_reserva,rese_f_inicio,rese_f_salida,rese_vtotal,habitaciones_habi_id,estados_esta_id,personas_per_id,consumos_consu_id) VALUES (?,?,?,?,?,?,?,?,?);";
@@ -92,8 +92,8 @@ public class ReservasDao {
             pst.setBigDecimal(5, reseVTotal);
             pst.setInt(6, habiId);
             pst.setInt(7, estaId);
-            pst.setInt(8, periId);
-            pst.setInt(9, consuiId);
+            pst.setInt(8, perId);
+            pst.setInt(9, consuId);
 
             int n = pst.executeUpdate();
             if (n > 0) {
@@ -121,7 +121,7 @@ public class ReservasDao {
         return resultado;
     }
 
-    public int modificarReserva(Integer reseId, Integer numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer estaId, Integer periId, Integer consuiId) {
+    public int modificarReserva(Integer reseId, Integer numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer estaId, Integer perId, Integer consuId) {
         int resultado = 0;
         try {
             String sql_modificar = "UPDATE hotel_clv.reservas SET rese_num_dias=?,rese_f_reserva=?,rese_f_inicio=?,rese_f_salida=?,rese_vtotal=?,habitaciones_habi_id=?,estados_esta_id=?,personas_per_id=?,consumos_consu_id=? WHERE rese_id=?";
@@ -133,8 +133,8 @@ public class ReservasDao {
             pst.setBigDecimal(5, reseVTotal);
             pst.setInt(6, habiId);
             pst.setInt(7, estaId);
-            pst.setInt(8, periId);
-            pst.setInt(9, consuiId);
+            pst.setInt(8, perId);
+            pst.setInt(9, consuId);
             pst.setInt(10, reseId);
 
             int n = pst.executeUpdate();

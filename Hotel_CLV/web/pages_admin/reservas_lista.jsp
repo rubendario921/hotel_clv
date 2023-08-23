@@ -27,7 +27,7 @@
                         <table style="width: 100%">
                             <tr>
                                 <td><h3>Lista de Cliente</h3></td>
-                                <td aling="rigth"><a href="#" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
+                                <td aling="rigth"><a href="reservas_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
                             </tr>
                         </table>
                     </div>
@@ -104,7 +104,7 @@
                                     <td>
                                         <a href="?editar=true&id=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                             <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
-                                        <a href="?eliminar=true&id=<%= reserva.getReseId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                        <a href="Mantenimiento_admin/crudreservas_eliminar.jsp?eliminar=true&id=<%= reserva.getReseId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                             <% }%>
                                     </td>
                                 </tr>
