@@ -50,10 +50,10 @@
                                     List<Personas> personas = mostrarLista.mostrarListaPersonasC();
                                     for (Personas persona : personas) {
                                         //Comparacion de Estado
-                                        int estadoId = persona.getEstaId();
+                                        int estadoPerId = persona.getEstaId();
                                         String nombreEstado = "";
                                         for (Estados estado : estados) {
-                                            if (estado.getEstaId() == estadoId) {
+                                            if (estado.getEstaId() == estadoPerId) {
                                                 nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
                                                 break;
                                             }

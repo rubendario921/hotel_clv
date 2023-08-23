@@ -21,7 +21,7 @@ public class HabitacionesDao {
     public List<Habitaciones> mostrarMenuHabi() {
         List<Habitaciones> habitaciones = new ArrayList<>();
         try {
-            String sql_menu = "SELECT * FROM hotel_clv.habitaciones ;";//Agrupor por habitaciones (Revisar)
+            String sql_menu = "SELECT * FROM hotel_clv.habitaciones GROUP BY habi_nombre ;";//Agrupor por habitaciones (Revisar)
             Statement pst = con.getConexion().prepareCall(sql_menu);
             ResultSet rs = pst.executeQuery(sql_menu);
             while (rs.next()) {

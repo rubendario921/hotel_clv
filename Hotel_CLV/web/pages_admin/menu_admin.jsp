@@ -154,7 +154,7 @@
                     </div>
                 </div>
             </div>
-            <a href="#">
+                    <a href="reservas_lista.jsp">
                 <div class="panel-footer">
                     <span class="pull-left">Reservaciones</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

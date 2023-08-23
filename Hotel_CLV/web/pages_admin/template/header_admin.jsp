@@ -151,7 +151,7 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Reporte de Ventas<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Reservaciones</a>
+                                <a href="reservas_lista.jsp">Reservaciones</a>
                             </li>
                             <li>
                                 <a href="#">Facturacion</a>

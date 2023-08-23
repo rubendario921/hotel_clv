@@ -244,7 +244,7 @@ public class PersonasDao {
             } else {
                 resultado = 0;
             }
-
+            pst.close();
         } catch (SQLException e) {
             System.out.println("Error en PersonasDao eliminarPersona: " + e.getMessage());
         } finally {
