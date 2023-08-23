@@ -105,6 +105,7 @@ public class PerfilesDao {
             pst.setString(1, letra);
             pst.setString(2, nombre);
             pst.setInt(3, id);
+            
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
