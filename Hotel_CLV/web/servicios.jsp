@@ -64,6 +64,26 @@
         <img class="img-fluid" src="./assets/img/servicio_4.jpg" alt="">
         <div class="img-name">Gimnasio</div>
     </div>
+    
+    <div class="img-container">
+        <img class="img-fluid" src="./assets/img/servicio_5.jpg" alt="">
+        <div class="img-name">Limpieza</div>
+    </div>
+    
+    <div class="img-container">
+        <img class="img-fluid" src="./assets/img/servicio_6.jpg" alt="">
+        <div class="img-name">Parqueaderos</div>
+    </div>
+    
+    <div class="img-container">
+        <img class="img-fluid" src="./assets/img/servicio_8.jpg" alt="">
+        <div class="img-name">Zona de juegos infantiles</div>
+    </div>
+    
+    <div class="img-container">
+        <img class="img-fluid" src="./assets/img/servicio_7.jpg" alt="">
+        <div class="img-name">Seguridad</div>
+    </div>
 
     <br>
 
