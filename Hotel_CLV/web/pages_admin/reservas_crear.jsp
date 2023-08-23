@@ -3,6 +3,10 @@
     Created on : 23-ago-2023, 0:59:40
     Author     : Ruben Dario 921
 --%>
+<%@page import="Controller.Personas"%>
+<%@page import="Controller.PersonasDao"%>
+<%@page import="Controller.Consumos"%>
+<%@page import="Controller.ConsumosDao"%>
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Habitaciones"%>
@@ -48,7 +52,6 @@
                             <label>Fecha de Reserva: </label><input type="datetime-local" name="fReserva" id="fReserva" class="form-control" required /><br>
                             <label>Fecha de Ingreso: </label><input type="datetime-local" name="fInicio" id="fInicio" class="form-control" required /><br>
                             <label>Fecha de Salida: </label><input type="datetime-local" name="fSalida" id="fSalida" class="form-control" required /><br>
-                            <label>Valor Total: </label><input type="number" name="valor" class="form-control"  placeholder="Ingrese el valor de la reserva" step="000.01" min="000.00" autocomplete="true" required/><br>
                             <label>Habitacion: </label>
                             <select name="habitacion" class="form form-control" required>
                                 <%
@@ -56,14 +59,35 @@
                                     List<Habitaciones> habitaciones = mostrarHabi.mostrarListaHabiDisponible();
                                     for (Habitaciones habitacion : habitaciones) {
                                 %>
-                                <option value="<%= habitacion.getHabiId()%>"><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar())%></option>
+                                <option value="<%= habitacion.getHabiId()%>"><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar())%> - <%= StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre())%></option>
                                 <% }%>
                             </select>
                             <br>
+                            <label>Consumos : </label>
+                            <select name="consumos" class="form form-control" required>
+                                <%
+                                    ConsumosDao mostrarConsu = new ConsumosDao();
+                                    List<Consumos> consumos = mostrarConsu.mostrarListaConsumos();
+                                    for (Consumos consumo : consumos) {%>
+                                <option value="<%= consumo.getConsuId()%>"><%= StringEscapeUtils.escapeHtml4(consumo.getConsuNombre())%> - <%= consumo.getConsuValor()%> </option>
+                                <% }%>
+                            </select>
+                            <br>
+                            <label>Persona : </label>
+                            <select name="persona" class="form form-control" required>
+                                <%
+                                    PersonasDao mostrarC = new PersonasDao();
+                                    List<Personas> personas = mostrarC.mostrarListaPersonasC();
+                                    for (Personas persona : personas) {%>
+                                <option value="<%= persona.getPerId()%>"><%= StringEscapeUtils.escapeHtml4(persona.getPerCedula())%> - <%= StringEscapeUtils.escapeHtml4(persona.getPerApellidos())%> <%= StringEscapeUtils.escapeHtml4(persona.getPerNombres())%> </option>    
+                                <% }%>
+
+                            </select>
+                            <br>
+                            <label>Valor Total: </label><input type="number" name="valor" class="form-control"  placeholder="Ingrese el valor de la reserva" step="000.01" min="000.00" autocomplete="true" required/><br>
                             <label>Estados : </label>
                             <select name="estado" class="form form-control" required>
-                                <%
-                                    EstadosDao mostrarEsta = new EstadosDao();
+                                <%                                    EstadosDao mostrarEsta = new EstadosDao();
                                     List<Estados> estados = mostrarEsta.mostrarListaEstados();
                                     for (Estados estado : estados) {
                                 %>

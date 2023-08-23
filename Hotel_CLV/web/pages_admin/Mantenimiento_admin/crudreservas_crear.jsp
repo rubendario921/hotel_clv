@@ -33,8 +33,8 @@
                 BigDecimal reseVTotal = new BigDecimal(valorStr);
                 Integer habiId = Integer.parseInt(request.getParameter("habitacion"));
                 Integer estaId = Integer.parseInt(request.getParameter("estado"));
-                Integer perId = Integer.parseInt(request.getParameter(""));
-                Integer consuId = Integer.parseInt(request.getParameter(""));
+                Integer perId = Integer.parseInt(request.getParameter("persona"));
+                Integer consuId = Integer.parseInt(request.getParameter("consumos"));
 
                 ReservasDao crearReserva = new ReservasDao();
                 int resultado = crearReserva.crearReserva(numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);

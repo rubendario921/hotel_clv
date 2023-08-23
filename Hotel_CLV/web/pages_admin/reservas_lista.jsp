@@ -1,3 +1,5 @@
+  <%@page import="Controller.Consumos"%>
+<%@page import="Controller.ConsumosDao"%>
 <%-- 
     Document   : reservas_lista
     Created on : 22-ago-2023, 23:41:38
@@ -21,12 +23,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Clientes Registrados</h1>
+                <h1 class="page-header">Reservaciones</h1>
                 <div class="panel panel-primary">                    
                     <div class="panel-heading">
                         <table style="width: 100%">
                             <tr>
-                                <td><h3>Lista de Cliente</h3></td>
+                                <td><h3>Lista de Reservaciones</h3></td>
                                 <td aling="rigth"><a href="reservas_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
                             </tr>
                         </table>
@@ -58,6 +60,9 @@
 
                                     PersonasDao mostrarPerso = new PersonasDao();
                                     List<Personas> personas = mostrarPerso.mostrarListaPersonas();
+                                    
+                                    ConsumosDao mostarConsu = new ConsumosDao();
+                                    List<Consumos> consumos = mostarConsu.mostrarListaConsumos();
 
                                     ReservasDao mostrarReser = new ReservasDao();
                                     List<Reservas> reservas = mostrarReser.mostrarListaReserva();
@@ -73,10 +78,10 @@
 
                                         }
                                         //Comparacion Reserva Y Estados
-                                        int reservaEstaid = reserva.getEstaId();
+                                        int reservaEstaId = reserva.getEstaId();
                                         String nombreEstado = "";
                                         for (Estados estado : estados) {
-                                            if (estado.getEstaId() == reservaEstaid) {
+                                            if (estado.getEstaId() == reservaEstaId) {
                                                 nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
                                                 break;
                                             }
@@ -87,6 +92,16 @@
                                         for (Personas persona : personas) {
                                             if (persona.getPerId() == reservaPerId) {
                                                 cedulaPersona = StringEscapeUtils.escapeHtml4(persona.getPerCedula());
+                                                break;
+                                            }
+                                        }
+                                
+                                 //Comparacion Reserva y Consumo
+                                        int reservaConsuId = reserva.getConsuId();
+                                        String nombreConsumo = "";
+                                        for (Consumos consumo : consumos) {
+                                            if (consumo.getConsuId() == reservaConsuId) {
+                                                nombreConsumo = StringEscapeUtils.escapeHtml4(consumo.getConsuNombre());
                                                 break;
                                             }
                                         }%>
@@ -100,7 +115,7 @@
                                     <td><%= nombreHabitacion%></td>
                                     <td><%= nombreEstado%></td>
                                     <td><%= cedulaPersona%></td>
-                                    <td><%= reserva.getConsuId()%></td>
+                                    <td><%= nombreConsumo%></td>
                                     <td>
                                         <a href="?editar=true&id=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                             <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
