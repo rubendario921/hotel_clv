@@ -18,36 +18,6 @@ public class HabitacionesDao {
 
     conexion con = new conexion();
 
-    public List<Habitaciones> mostrarMenuHabi() {
-        List<Habitaciones> habitaciones = new ArrayList<>();
-        try {
-            
-            String sql_menu = "SELECT habi_id, habi_nombre, habi_tipo, habi_piso, habi_depar, habi_descripcion, habi_valor_diario, habi_dimg, insumos_insu_id, estados_esta_id FROM hotel_clv.habitaciones;";//Agrupor por habitaciones (Revisar)
-            Statement pst = con.getConexion().prepareCall(sql_menu);
-            ResultSet rs = pst.executeQuery(sql_menu);
-            while (rs.next()) {
-                Integer habiId = rs.getInt("habi_id");
-                String habiNombre = rs.getString("habi_nombre");
-                String habiTipo = rs.getString("habi_tipo");
-                String habiPiso = rs.getString("habi_piso");
-                String habiDepar = rs.getString("habi_depar");
-                String habiDescripcion = rs.getString("habi_descripcion");
-                BigDecimal habiValorD = rs.getBigDecimal("habi_valor_diario");
-                String habiImg = rs.getString("habi_dimg");
-                Integer insuId = rs.getInt("insumos_insu_id");
-                Integer estaId = rs.getInt("estados_esta_id");
-
-                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, insuId, estaId);
-                habitaciones.add(habitacion);
-            }
-            rs.close();
-            pst.close();
-        } catch (SQLException e) {
-            System.out.println("Error en HabitacionesDao mostrarMenuHabi: " + e.getMessage());
-        }
-        return habitaciones;
-    }
-
     public List<Habitaciones> mostrarListaHabi() {
         List<Habitaciones> habitaciones = new ArrayList<>();
         try {
@@ -78,36 +48,6 @@ public class HabitacionesDao {
         return habitaciones;
     }
 
-    public List<Habitaciones> mostrarListaHabiDisponible() {
-        List<Habitaciones> habitaciones = new ArrayList<>();
-        try {
-            String sql_lista = "SELECT * FROM hotel_clv.habitaciones INNER JOIN hotel_clv.estados ON habitaciones.estados_esta_id = estados.esta_id WHERE esta_descripcion = 'DISPONIBLE';";
-            Statement pst = con.getConexion().prepareCall(sql_lista);
-            ResultSet rs = pst.executeQuery(sql_lista);
-            while (rs.next()) {
-                int habiId = rs.getInt("habi_id");
-                String habiNombre = rs.getString("habi_nombre");
-                String habiTipo = rs.getString("habi_tipo");
-                String habiPiso = rs.getString("habi_piso");
-                String habiDepar = rs.getString("habi_depar");
-                String habiDescripcion = rs.getString("habi_descripcion");
-                BigDecimal habiValorD = rs.getBigDecimal("habi_valor_diario");
-                String habiImg = rs.getString("habi_dimg");
-                int insuId = rs.getInt("insumos_insu_id");
-                int estaId = rs.getInt("estados_esta_id");
-
-                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, insuId, estaId);
-                habitaciones.add(habitacion);
-            }
-            rs.close();
-            pst.close();
-
-        } catch (SQLException e) {
-            System.out.println("Error en HabitacionesDao mostrarListaHabi: " + e.getMessage());
-        }
-        return habitaciones;
-    }
-    
     public Habitaciones mostrarHabi(Integer id) {
         Habitaciones habitacion = null;
         try {
@@ -237,5 +177,66 @@ public class HabitacionesDao {
         } finally {
         }
         return resultado;
+    }
+
+    //////////////////////////////////////////////CONSULTA ADICIONALES///////////////////////////////////////////////////////////////////////////////////////
+    public List<Habitaciones> mostrarMenuHabi() {
+        List<Habitaciones> habitaciones = new ArrayList<>();
+        try {
+
+            String sql_menu = "SELECT * FROM hotel_clv.habitaciones;";//Agrupor por habitaciones (Revisar)
+            Statement pst = con.getConexion().prepareCall(sql_menu);
+            ResultSet rs = pst.executeQuery(sql_menu);
+            while (rs.next()) {
+                Integer habiId = rs.getInt("habi_id");
+                String habiNombre = rs.getString("habi_nombre");
+                String habiTipo = rs.getString("habi_tipo");
+                String habiPiso = rs.getString("habi_piso");
+                String habiDepar = rs.getString("habi_depar");
+                String habiDescripcion = rs.getString("habi_descripcion");
+                BigDecimal habiValorD = rs.getBigDecimal("habi_valor_diario");
+                String habiImg = rs.getString("habi_dimg");
+                Integer insuId = rs.getInt("insumos_insu_id");
+                Integer estaId = rs.getInt("estados_esta_id");
+
+                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, insuId, estaId);
+                habitaciones.add(habitacion);
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Error en HabitacionesDao mostrarMenuHabi: " + e.getMessage());
+        }
+        return habitaciones;
+    }
+
+    public List<Habitaciones> mostrarListaHabiDisponible() {
+        List<Habitaciones> habitaciones = new ArrayList<>();
+        try {
+            String sql_lista = "SELECT * FROM hotel_clv.habitaciones INNER JOIN hotel_clv.estados ON habitaciones.estados_esta_id = estados.esta_id WHERE esta_descripcion = 'DISPONIBLE';";
+            Statement pst = con.getConexion().prepareCall(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
+            while (rs.next()) {
+                int habiId = rs.getInt("habi_id");
+                String habiNombre = rs.getString("habi_nombre");
+                String habiTipo = rs.getString("habi_tipo");
+                String habiPiso = rs.getString("habi_piso");
+                String habiDepar = rs.getString("habi_depar");
+                String habiDescripcion = rs.getString("habi_descripcion");
+                BigDecimal habiValorD = rs.getBigDecimal("habi_valor_diario");
+                String habiImg = rs.getString("habi_dimg");
+                int insuId = rs.getInt("insumos_insu_id");
+                int estaId = rs.getInt("estados_esta_id");
+
+                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, insuId, estaId);
+                habitaciones.add(habitacion);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en HabitacionesDao mostrarListaHabi: " + e.getMessage());
+        }
+        return habitaciones;
     }
 }

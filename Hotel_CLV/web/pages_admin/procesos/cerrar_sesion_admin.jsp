@@ -17,5 +17,5 @@
     session.invalidate();
 
     // Redirecciona al usuario a la página de inicio de sesión (login)
-    response.sendRedirect("../login_admin.jsp");
+    response.sendRedirect("../../login_admin.jsp");
 %>

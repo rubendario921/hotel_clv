@@ -56,28 +56,6 @@ public class Validaciones {
         return resultado;
     }
 
-    public String obtenerNombre(String correo, String usuario, String password) {
-        String user = "";
-        try {
-            String sql = "SELECT * FROM hotel_clv.personas WHERE (per_correo= ? or per_usuario=?) and per_clave = ?;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql);
-            pst.setString(1, correo);
-            pst.setString(2, usuario);
-            pst.setString(3, password);
-            ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                user = rs.getString("per_nombres");
-            }
-            rs.close();
-            pst.close();
-
-        } catch (SQLException e) {
-            System.out.println("Error al obtener el nombre: " + e.getMessage());
-        } finally {
-        }
-        return user;
-    }
-
     public Map<String, String> obtenerNombrePerfil(String correo, String usuario, String password) {
         Map<String, String> userData = new HashMap<>();
         try {
@@ -101,7 +79,6 @@ public class Validaciones {
             System.out.println("Error al obtener el nombre y perfil: " + e.getMessage());
         } finally {
         }
-
         return userData;
     }
 

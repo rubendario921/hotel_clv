@@ -132,7 +132,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="../procesos/cerrar_sesion_admin.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión                           
+                            <a href="procesos/cerrar_sesion_admin.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión                           
                             </a>
                         </li>
                     </ul>

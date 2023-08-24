@@ -32,9 +32,8 @@
 
             session.setAttribute("nombre", nombre);
             session.setAttribute("perfil", perfil);
-            
-            //Validar Usuario
 
+            //Validar Usuario
             Validaciones Persona = new Validaciones();
             int resultado = Persona.validarPersona(correo, usuario, password);
             if (resultado == 0) {%>
@@ -59,6 +58,7 @@
 
                 case 4:
                     mensaje = "Bienvenido Cliente";
+                    redireccion = "../pages_cliente/menu_dashboard.jsp";
                     break;
             }
         %>

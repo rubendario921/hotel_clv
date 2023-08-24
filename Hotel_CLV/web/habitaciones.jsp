@@ -3,10 +3,11 @@
     Created on : 23-jul-2023, 21:05:46
     Author     : Ruben Dario 921
 --%>
-<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
+
 <%@page import="Controller.Habitaciones"%>
 <%@page import="java.util.List"%>
 <%@page import="Controller.HabitacionesDao"%>
+<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 
@@ -35,7 +36,7 @@
         height: 400px; /* Tamaño expandido de la imagen activa */
     }
 </style>
-<script src="ruta/jquery.min.js"></script> <!-- Reemplaza "ruta/jquery.min.js" con la ruta correcta de jQuery -->
+
 <script>
     $(document).ready(function () {
         $(".img-fluid").on("click", function () {
