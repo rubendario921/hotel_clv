@@ -4,11 +4,11 @@
     Author     : Ruben Dario 921
 --%>
 
-<%@page import="org.apache.commons.text.StringEscapeUtils"%>
-<%@page import="java.util.*"%>
 <%@page import="Controller.PerfilesDao"%>
 <%@page import="Controller.Perfiles"%>
+<%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@include file="template/header_admin.jsp" %>
 <script>
     function validarFormulario() {
@@ -22,7 +22,7 @@
         var clave = document.getElementById("clave").value.trim();
         var fregistro = document.getElementById("fregistro").value.trim();
         var perfil = document.getElementById("perfil").value.trim();
-        
+
 
         // Validar campos obligatorios
         if (nombres === "" || apellidos === "" || cedula === "" || telefono === "" || correo === "" || usuario === "" || clave === "" || perfil === "" || fregistro === "") {
@@ -51,24 +51,26 @@
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudpersonas_crear.jsp" method="POST" onsubmit="return validarFormulario();" >
-                            <label>Nombres Completos: </label><input type="text" class="form-control" name="nombres" id="nombres" placeholder="Ingrese sus dos nombres" maxlength="100" autocomplete="true" required />
-                            <label>Apellidos Completos: </label><input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Ingrese sus dos nombres" maxlength="100" autocomplete="true" required />
-                            <label>Cedula de Identidad: </label><input type="text" class="form-control" name="cedula" id="cedula" placeholder="Ingrese sus cedula de identidad" maxlength="13"  autocomplete="true" required />
-                            <label>Telefono: </label><input type="text" class="form-control" name="telefono" id="telefono" placeholder="Ingrese sus dos nombres" maxlength="10" autocomplete="true" required />
-                            <label>Correo Electronico: </label><input type="email" class="form-control" name="correo" id="correo" placeholder="Ingrese sus dos nombres" maxlength="100" autocomplete="true" required />
-                            <label>Usuario: </label><input type="text" class="form-control" name="usuario" id="usuario" placeholder="Ingrese sus dos nombres" maxlength="20" autocomplete="true" required />
-                            <label>Contraseña: </label><input type="password" class="form-control" name="clave" id="clave" placeholder="Ingrese sus dos nombres" maxlength="16" autocomplete="true" required />
+                            <label>Nombres Completos: </label><input type="text" name="nombres" id="nombres" class="form-control" placeholder="Ingrese sus dos nombres" maxlength="100" autocomplete="true" required /><br>
+                            <label>Apellidos Completos: </label><input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="Ingrese sus dos apellidos" maxlength="100" autocomplete="true" required /><br>
+                            <label>Cedula de Identidad: </label><input type="text" name="cedula" id="cedula" class="form-control" placeholder="Ingrese sus cedula de identidad" maxlength="13"  autocomplete="true" required /><br>
+                            <label>Telefono: </label><input type="text" name="telefono" id="telefono" class="form-control" placeholder="Ingrese su numero de telefono" maxlength="10" autocomplete="true" required /><br>
+                            <label>Correo Electronico: </label><input type="email" name="correo" id="correo" class="form-control"  placeholder="Ingrese su correo electronico" maxlength="100" autocomplete="true" required /><br>
+                            <label>Usuario: </label><input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingrese un usuario para el sistema" maxlength="20" autocomplete="true" required /><br>
+                            <label>Contraseña: </label><input type="password" name="clave" id="clave" class="form-control"  placeholder="De 8 a 16 digitos, Mayusculas, Minusculas y Numeros" maxlength="16" autocomplete="true" required /><br>
                             <label>Perfil: </label>
                             <select name="perfil" id="perfil" class="form-control" required>
+                                <option> </option>
                                 <%
                                     PerfilesDao mostrarPerfiles = new PerfilesDao();
                                     List<Perfiles> perfiles = mostrarPerfiles.mostrarListaPerfil();
                                     for (Perfiles perfil : perfiles) {
                                 %>                                                               
-                                <option value="<%=perfil.getPerfilId()%>"><%=StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre())%></option>                                
+                                <option value="<%= perfil.getPerfilId()%>"><%= StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre())%></option>                                
                                 <% }%>
                             </select>  
-                            <label>Fecha de Registro: </label><input type="datetime-local" name="fregistro" id="clave" class="form-control" required />
+                            <br>
+                            <label>Fecha de Registro: </label><input type="datetime-local" name="fregistro" id="fregistro" class="form-control" required />
                             <br>
                             <a href="menu_admin.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" class=" btn btn-primary" value="Registrar" name="nueva_persona" />

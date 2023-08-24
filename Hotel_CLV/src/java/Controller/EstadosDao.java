@@ -44,7 +44,7 @@ public class EstadosDao {
         return estados;
     }
 
-    public List<Estados> mostrarListaEsta1() {
+    public List<Estados> mostrarListaEstaPersonas() {
         List<Estados> estados = new ArrayList<>();
         try {
             String sql_lista = "SELECT * FROM hotel_clv.estados WHERE estados.categorias_cat_id=1 ;";

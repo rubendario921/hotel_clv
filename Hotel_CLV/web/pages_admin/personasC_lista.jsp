@@ -44,7 +44,7 @@
                                 <%
                                     //Lista de Estados para la consulta y comparacion
                                     EstadosDao mostrarEsta = new EstadosDao();
-                                    List<Estados> estados = mostrarEsta.mostrarListaEsta1();
+                                    List<Estados> estados = mostrarEsta.mostrarListaEstaPersonas();
 
                                     PersonasDao mostrarLista = new PersonasDao();
                                     List<Personas> personas = mostrarLista.mostrarListaPersonasC();
@@ -67,9 +67,9 @@
                                     <td><%= StringEscapeUtils.escapeHtml4(persona.getPerCorreo())%></td>
                                     <td><%= nombreEstado%></td>
                                     <td>
-                                        <a href="personas_editar.jsp?editar=true&id=<%=persona.getPerId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="personas_editar.jsp?editar=true&id=<%= persona.getPerId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                             <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
-                                        <a href="Mantenimiento_admin/crudpersonas_eliminar.jsp?eliminar=true&id=<%=persona.getPerId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                        <a href="Mantenimiento_admin/crudpersonas_eliminar.jsp?eliminar=true&id=<%= persona.getPerId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                             <% }%>
                                     </td>
                                 </tr>
