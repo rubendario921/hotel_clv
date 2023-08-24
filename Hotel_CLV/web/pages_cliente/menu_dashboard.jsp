@@ -5,14 +5,58 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="template/cliente/header_cliente.jsp" %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-        <a href="procesos/cerrar_sesion_cliente.jsp">Cerrar Sesion Prueba</a>
-    </body>
-</html>
+<h3>DASHBOARD</h3>
+<br>
+<br>
+
+
+<div class="row">
+    <!-- Primer Cuadro-->
+    <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment </h5>                
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Ingresar</a>
+            </div>
+        </div>
+    </div>
+    <!-- Segundo Cuadro-->
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Ingresar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <!-- Primer Cuadro-->
+    <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Ingresar</a>
+            </div>
+        </div>
+    </div>
+    <!-- Segundo Cuadro-->
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Ingresar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<%@include file="template/cliente/footer_cliente.jsp" %>
