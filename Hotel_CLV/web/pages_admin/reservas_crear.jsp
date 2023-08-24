@@ -49,7 +49,7 @@
                         <form action="Mantenimiento_admin/crudreservas_crear.jsp" method="POST" onsubmit="return validarFormulario();">
 
                             <label>Número de Días: </label><input type="number" name="numDias" class="form-control" placeholder="Ingrese los días de reservación" maxlength="2" min="1" autocomplete="true" required/><br>
-                            <label>Fecha de Reserva: </label><input type="datetime-local" name="fReserva" id="fReserva" class="form-control" required /><br>
+                            <!-- <label>Fecha de Reserva: </label><input type="datetime-local" name="fReserva" id="fReserva" class="form-control" required /><br>-->
                             <label>Fecha de Ingreso: </label><input type="datetime-local" name="fInicio" id="fInicio" class="form-control" required /><br>
                             <label>Fecha de Salida: </label><input type="datetime-local" name="fSalida" id="fSalida" class="form-control" required /><br>
                             <label>Habitacion: </label>
