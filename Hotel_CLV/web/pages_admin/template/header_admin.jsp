@@ -195,10 +195,13 @@
                         <a href="#"><i class="fa fa-files-o fa-fw"></i>Opciones Adicionales<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">                            
                             <li>
-                                <a href="perfil_lista.jsp">Listado Perfiles</a>
+                                <a href="perfil_lista.jsp">Lista de Perfiles</a>
                             </li>
                             <li>
-                                <a href="estados_lista.jsp">Listado Estados</a>
+                                <a href="estados_lista.jsp">Lista de Estados</a>
+                            </li>                            
+                            <li>
+                                <a href="categorias_lista.jsp">Lista de Categorias</a>
                             </li>                            
                         </ul>
                         <% }%>

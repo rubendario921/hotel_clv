@@ -3,10 +3,11 @@
     Created on : 14/08/2023, 11:42:38
     Author     : Ruben Dario
 --%>
-<%@page import="org.apache.commons.text.StringEscapeUtils"%>
+
 <%@page import="Controller.Perfiles"%>
 <%@page import="Controller.PerfilesDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 <script>
@@ -39,15 +40,15 @@
                             <%
                                 if (request.getParameter("editar") != null) {
                                     int id = Integer.parseInt(request.getParameter("id"));
+                                    
                                     PerfilesDao mostrarP = new PerfilesDao();
                                     Perfiles perfil = mostrarP.mostrarPerfil(id);
                                     if (perfil != null) {%>
-
-                            <label>Codigo: </label><input type="text" value="<%=perfil.getPerfilId()%>" class="form-control" name="codigo" maxlength="2" readonly="false"/>
+                            <label>Codigo: </label><input type="text" name="codigo" id="codigo" value="<%= perfil.getPerfilId()%>" class="form form-control"  maxlength="2" readonly="false"/>
                             <br>
-                            <label>Letra: </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(perfil.getPerfilLetra())%>" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
+                            <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(perfil.getPerfilLetra())%>" class="form form-control"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <br>
-                            <label>Nombre: </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre())%>" class="form-control" name="nombre" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
+                            <label>Nombre: </label><input type="text"  name="nombre" id="nombre" value="<%= StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre())%>" class=" form form-control" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
                             <br>
                             <% }
                                 }%>

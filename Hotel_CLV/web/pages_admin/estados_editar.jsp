@@ -4,8 +4,13 @@
     Author     : Ruben Dario
 --%>
 
+
+<%@page import="Controller.Categorias"%>
+<%@page import="Controller.CategoriasDao"%>
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
+<%@page import="java.util.*"%>s
+<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
@@ -39,26 +44,28 @@
                             <%
                                 if (request.getParameter("editar") != null) {
                                     int id = Integer.parseInt(request.getParameter("id"));
-                                    EstadosDao mostrarE = new EstadosDao();
-                                    Estados estado = mostrarE.mostrarEstado(id);
-                                    if (estado != null) {%>
 
-                            <label>Codigo: </label><input type="text" value="<%= estado.getEstaId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
+                                    EstadosDao mostrarEstado = new EstadosDao();
+                                    Estados estado = mostrarEstado.mostrarEstado(id);
+                                    if (estado != null) {%>
+                            <label>Codigo:</label><input type="text" name="codigo" id="codigo" value="<%= estado.getEstaId()%>" class="form-control"   placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
                             <br>
-                            <label>Letra: </label><input type="text" value="<%=escapeHtml(estado.getEstaLetra())%>" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
+                            <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaLetra())%>" class="form-control"   placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <br>
-                            <label>Nombre: </label><input type="text" value="<%=escapeHtml(estado.getEstaDescripcion())%>" class="form-control" name="descripcion" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
+                            <label>Nombre: </label><input type="text" name="descripcion" id="descripcion" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%>" class="form-control"  placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
                             <br>
                             <label>Categoria: </label>
                             <select name="categoria" id="categoria" class="form form-control" required>
                                 <option> </option>
-                                <option value="1">Personas</option>
-                                <option value="2">Habitaciones</option>
-                                <option value="3">Productos</option>
-                                <option value="4">Facturacion</option>
+                                <%
+                                    CategoriasDao mostrarCategoria = new CategoriasDao();
+                                    List<Categorias> categorias = mostrarCategoria.mostrarListaCategorias();
+                                    for (Categorias categoria : categorias) {%>
+                                <option value="<%= categoria.getCatId()%>"><%= StringEscapeUtils.escapeHtml4(categoria.getCatNombre())%></option>
+                                <% }%>
                             </select> 
                             <br>
-                            <%}
+                            <% }
                                 }%>
                             <a href="estados_lista.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" value="Modificar" name="editar" class=" btn btn-primary"/>  
@@ -69,5 +76,4 @@
         </div>
     </div>
 </div>
-
-<%@include file="template/footer_admin.jspS" %>
+<%@include file="template/footer_admin.jsp" %>

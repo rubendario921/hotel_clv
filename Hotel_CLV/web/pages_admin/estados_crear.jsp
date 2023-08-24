@@ -4,6 +4,11 @@
     Author     : Ruben Dario
 --%>
 
+
+<%@page import="Controller.Categorias"%>
+<%@page import="Controller.CategoriasDao"%>
+<%@page import="java.util.*"%>
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
@@ -15,7 +20,7 @@
         var categoria = document.getElementById("categoria").value.trim();
 
         // Validar campos obligatorios
-        if (letra === "" || descripcion === ""|| categoria==="") {
+        if (letra === "" || descripcion === "" || categoria === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -33,20 +38,22 @@
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudestado_crear.jsp" method="POST" onsubmit="return validarFormulario()">
-                            <label>Letra: </label><input type="text" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
+                            <label>Letra:</label><input type="text" name="letra" id="letra" class="form-control" placeholder="Ingrese 2 letras de abreviatura" maxlength="2" autocomplete="true" required/>
                             <br>
-                            <label>Descripción: </label><input type="text" class="form-control" name="descripcion" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
+                            <label>Descripción: </label><input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Ingrese el nombre del perfil" maxlength="20" autocomplete="true" required/>
                             <br>
                             <label>Categoria: </label>
                             <select name="categoria" id="categoria" class="form form-control" required>
                                 <option> </option>
-                                <option value="1">Personas</option>
-                                <option value="2">Habitaciones</option>
-                                <option value="3">Productos</option>
-                                <option value="4">Facturacion</option>
+                                <%
+                                    CategoriasDao mostrarCategoria = new CategoriasDao();
+                                    List<Categorias> categorias = mostrarCategoria.mostrarListaCategorias();
+                                    for (Categorias categoria : categorias) {%>
+                                <option value="<%= categoria.getCatId()%>"><%= StringEscapeUtils.escapeHtml4(categoria.getCatNombre())%></option>
+                                <% }%>
                             </select>                            
                             <br>
-                            <a href="estados_lista.jsp" class="btn btn-danger" >Regresar</a>
+                            <a href="estados_lista.jsp" class="btn btn-danger">Regresar</a>
                             <input type="submit" value="Registrar" name="nuevo_estado" class=" btn btn-primary"/>
                         </form>
                     </div>

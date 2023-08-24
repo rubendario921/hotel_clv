@@ -3,10 +3,13 @@
     Created on : 11-ago-2023, 1:22:29
     Author     : Ruben Dario 921
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@page import="Controller.Categorias"%>
+<%@page import="Controller.CategoriasDao"%>
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
 <%@page import="java.util.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@include file="template/header_admin.jsp" %>
 
@@ -40,22 +43,36 @@
                             <tbody>
                                 <!--Extraer la informacion de la java class-->
                                 <%
+                                    //Lista de Categorias para la consulta
+                                    CategoriasDao mostrarCategoria = new CategoriasDao();
+                                    List<Categorias> categorias = mostrarCategoria.mostrarListaCategorias();
+
+                                    //Lista de Estados para la consulta
                                     EstadosDao mostrar_estados = new EstadosDao();
                                     List<Estados> estados = mostrar_estados.mostrarListaEstados();
-                                    for (Estados estado : estados) {%>
+                                    for (Estados estado : estados) {
+                                        int estadoCatId = estado.getCatId();
+                                        String nombreCategoria = "";
+
+                                        for (Categorias categoria : categorias) {
+                                            if (categoria.getCatId() == estadoCatId) {
+                                                nombreCategoria = StringEscapeUtils.escapeHtml4(categoria.getCatNombre());
+                                                break;
+                                            }
+                                        } %>
                                 <tr>
                                     <td><%= estado.getEstaId()%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(estado.getEstaLetra())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></td>
                                     <!--Union con otra tabla y muestra el resultado -->
-                                    <td><%= estado.getCatId()%></td>
+                                    <td><%= nombreCategoria%></td>
                                     <td>                        
                                         <!--modificar update=":tabMostrar"-->
-                                        <a href="estados_editar.jsp?editar=true&id=<%=estado.getEstaId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="estados_editar.jsp?editar=true&id=<%= estado.getEstaId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--eliminar update=":tabMostrar"-->
                                         <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
-                                        <a href="Mantenimiento_admin/crudestado_eliminar.jsp?eliminar=true&id=<%=estado.getEstaId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
-                                        <% }%>
+                                        <a href="Mantenimiento_admin/crudestado_eliminar.jsp?eliminar=true&id=<%= estado.getEstaId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                            <% }%>
                                     </td>
                                 </tr>
                                 <%}%>
@@ -69,4 +86,3 @@
     </div>
 </div>
 <%@include file="template/footer_admin.jsp" %>
-
