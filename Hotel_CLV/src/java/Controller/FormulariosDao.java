@@ -6,8 +6,9 @@
 package Controller;
 
 import Model.conexion;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import Controller.Formularios;
+import java.sql.*;
+import java.util.*;
 
 /**
  *
@@ -16,6 +17,62 @@ import java.sql.ResultSet;
 public class FormulariosDao {
 
     conexion con = new conexion();
+
+    public List<Formularios> mostrarListaFormu() {
+        List<Formularios> formularios = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM hotel_clv.formularios;";
+            Statement pst = con.getConexion().prepareCall(sql);
+            ResultSet rs = pst.executeQuery(sql);
+            while (rs.next()) {
+                Integer formuId = rs.getInt("formu_id");
+                String formuNombre = rs.getString("formu_nombre");
+                String formuCorreo = rs.getString("formu_correo");
+                String formuTelefono = rs.getString("formu_telefono");
+                String formuAsunto = rs.getString("formu_asunto");
+                String formuMensaje = rs.getString("formu_mensaje");
+                String formuCiudad = rs.getString("formu_ciudad");
+                Integer estadosestaId = rs.getInt("estados_esta_id");
+
+                Formularios formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad, formuId);
+                formularios.add(formulario);
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Error en PerfilesDao mostrarLista: " + e.getMessage());
+        } finally {
+        }
+        return formularios;
+    }
+
+    public Formularios mostrarFormu(Integer id) {
+        Formularios formulario = null;
+        try {
+            String sql = "SELECT * FROM hotel_clv.formulario WHERE formu_id = ?;";
+            PreparedStatement pst = con.getConexion().prepareCall(sql);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Integer formuId = rs.getInt("formu_id");
+                String formuNombre = rs.getString("formu_nombre");
+                String formuCorreo = rs.getString("formu_correo");
+                String formuTelefono = rs.getString("formu_telefono");
+                String formuAsunto = rs.getString("formu_asunto");
+                String formuMensaje = rs.getString("formu_mensaje");
+                String formuCiudad = rs.getString("formu_ciudad");
+                Integer estadosestaId = rs.getInt("estados_esta_id");
+                formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad, id);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en MetodoPagosDao mostrarMetodoPago: " + e.getMessage());
+        } finally {
+        }
+        return formulario;
+    }
 
     public int registrarFormu(String nombre, String correo, String telefono, String asunto, String mensaje, String ciudad) {
         int resultado = 0;

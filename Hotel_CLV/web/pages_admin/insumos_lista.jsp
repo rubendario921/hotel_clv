@@ -12,7 +12,7 @@
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 <script>
-    function validarFormulario({
+    function validarFormulario(){
     var codigo = document.getElementById("codigo").value.trim();
     var nombre = document.getElementById("nombre").value.trim();
     var detalla = document.getElementById("detalle").value.trim();
