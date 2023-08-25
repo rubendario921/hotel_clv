@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>Hotel CLV - El placer de dormir</title>
-
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -69,7 +69,7 @@
                     <div class="flex-fill">
                         <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Habitaciones Disponibles</a>
+                                <a class="nav-link" href="habitaciones_disponibles.jsp">Habitaciones Disponibles</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Mis Reservaciones</a>
