@@ -68,7 +68,7 @@ public class FormulariosDao {
             pst.close();
 
         } catch (SQLException e) {
-            System.out.println("Error en MetodoPagosDao mostrarMetodoPago: " + e.getMessage());
+            System.out.println("Error en FormulariosDao mostrarFormu: " + e.getMessage());
         } finally {
         }
         return formulario;
@@ -94,6 +94,25 @@ public class FormulariosDao {
             pst.close();
         } catch (Exception e) {
             System.out.println("Error al ingresar al formulario: " + e.getMessage());
+        } finally {
+        }
+        return resultado;
+    }
+     public int eliminarFormularioBS(Integer id) {
+        int resultado = 0;
+        try {
+            String sql_eliminar = "DELETE FROM hotel_clv.formularios WHERE formu_id = ?;";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_eliminar);
+            pst.setInt(1, id);
+            int n = pst.executeUpdate();
+            if (n > 0) {
+                resultado = 1;
+            } else {
+                resultado = 0;
+            }
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Error en formulariosDao eliminarFormulariosBS: " + e.getMessage());
         } finally {
         }
         return resultado;
