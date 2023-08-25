@@ -20,7 +20,7 @@
         var mensaje = document.getElementById("mensaje").value.trim();
         var ciudad = document.getElementById("ciudad").value.trim();
         var accion = document.getElementById("accion").value.trim();
-        if (codigo === "" || nombre === "" || correo === "" || telefono === "" || asunto === "" || mensaje === "" || ciudad === "" || accion === "" || ){
+        if (codigo === "" || nombre === "" || correo === "" || telefono === "" || asunto === "" || mensaje === "" || ciudad === "" || accion === ""){
        
         alert("Por favor, complete todos los campos.");
         return false;
@@ -58,8 +58,8 @@
                             </thead>
                             <tbody>
                                 <%
-                                    FormulariosDao registrar_formularios = new FormulariosDao();
-                                   List<Formularios> formularios = registrar_formularios.mostrarListaFormu();
+                                    FormulariosDao mostrar_formularios = new FormulariosDao();
+                                   List<Formularios> formularios = mostrar_formularios.mostrarListaFormu();
                                     for (Formularios formulario : formularios) {%>
                                 <tr>
                                     <td><%=formulario.getFormuId()%></td>

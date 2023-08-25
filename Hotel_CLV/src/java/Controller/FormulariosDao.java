@@ -21,9 +21,9 @@ public class FormulariosDao {
     public List<Formularios> mostrarListaFormu() {
         List<Formularios> formularios = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM hotel_clv.formularios;";
-            Statement pst = con.getConexion().prepareCall(sql);
-            ResultSet rs = pst.executeQuery(sql);
+            String sql_listaF = "SELECT * FROM hotel_clv.formularios ;";
+            Statement pst = con.getConexion().prepareCall(sql_listaF);
+            ResultSet rs = pst.executeQuery(sql_listaF);
             while (rs.next()) {
                 Integer formuId = rs.getInt("formu_id");
                 String formuNombre = rs.getString("formu_nombre");
@@ -34,13 +34,13 @@ public class FormulariosDao {
                 String formuCiudad = rs.getString("formu_ciudad");
                 Integer estadosestaId = rs.getInt("estados_esta_id");
 
-                Formularios formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad, formuId);
+                Formularios formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad, estadosestaId);
                 formularios.add(formulario);
             }
             rs.close();
             pst.close();
         } catch (SQLException e) {
-            System.out.println("Error en PerfilesDao mostrarLista: " + e.getMessage());
+            System.out.println("Error en FormulariosDao mostrarFormularios: " + e.getMessage());
         } finally {
         }
         return formularios;
@@ -49,7 +49,7 @@ public class FormulariosDao {
     public Formularios mostrarFormu(Integer id) {
         Formularios formulario = null;
         try {
-            String sql = "SELECT * FROM hotel_clv.formulario WHERE formu_id = ?;";
+            String sql = "SELECT * FROM hotel_clv.formularios WHERE formu_id = ?;";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
@@ -98,6 +98,47 @@ public class FormulariosDao {
         }
         return resultado;
     }
+     public int modificarFormu(Integer formu_id, String formu_nombre, String formu_correo, String formu_telefono, String formu_asunto, String formu_mensaje, String formu_ciudad, Integer estados_esta_id) {
+        int resultado = 0;
+        try {
+            String sql = "UPDATE hotel_clv.formularios SET formu_nombre=?, formu_correo=?,formu_telefono=?,formu_asunto=?,formu_mensaje=?,formu_ciudad=?, estados_esta_id=? WHERE formu_id=? ;";
+            PreparedStatement pst = con.getConexion().prepareCall(sql);
+            pst.setString(1, formu_nombre);
+            pst.setString(2, formu_correo);
+            pst.setString(3, formu_telefono);
+            pst.setString(4, formu_asunto);
+            pst.setString(5, formu_mensaje);
+            pst.setString(6, formu_ciudad);
+            pst.setInt(7, estados_esta_id);
+            pst.setInt(8, formu_id);
+            int n = pst.executeUpdate();
+            if (n > 0) {
+                resultado = 1;
+            } else {
+                resultado = 0;
+            }
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Error al modificar Buzón de Sugerencias: " + e.getMessage());
+            int SQLError = e.getErrorCode();
+            switch (SQLError) {
+                case 1062:
+                    resultado = 1062;
+                    break;
+                case 1048:
+                    resultado = 1048;
+                    break;
+                default:
+                    resultado = SQLError;
+                    break;
+            }
+        } finally {
+        }
+        return resultado;
+    }
+    
+    
+    
      public int eliminarFormularioBS(Integer id) {
         int resultado = 0;
         try {
