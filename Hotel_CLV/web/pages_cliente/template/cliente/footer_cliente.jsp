@@ -90,10 +90,8 @@
                 <div class="col-12">
                     <p class="text-left text-light">
                         Copyright &copy; 2023 Hotel CLV Deluxe
-                        | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">Derechos
-                            Reservados</a>
+                        | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">Derechos Reservados</a>
                     </p>
-
                 </div>
             </div>
         </div>
