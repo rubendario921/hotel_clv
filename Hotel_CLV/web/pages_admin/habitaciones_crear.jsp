@@ -49,7 +49,7 @@
                             <label>Piso </label><input type="number" class="form-control" name="piso" placeholder="Ingrese el psio donde se encuentra la habitacion" maxlength="2" min="1" required/>
                             <label>Departamento: </label><input type="number" class="form-control" name="departamento" placeholder="Ingrese el numero de la habitacion" maxlength="3" min="1" required/>
                             <label>Descripcion: </label><input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripcion de la habitacion" maxlength="500" required/>
-                            <label>Valor: </label><input type="number" class="form-control" name="valor" placeholder="Ingrese el valor" step="000.01" min="000.00" required/>                            
+                            <label>Valor: </label><input type="number" class="form-control" name="valor" placeholder="Ingrese el valor" step="000.01" min="000.00" required/>
                             <label>Insumo: </label>
                             <select name="insumo" id="insumo" class="form form-control" required>
                                 <%
@@ -65,7 +65,7 @@
                             <select name="estado" id="estado" class="form form-control" required>
                                 <%
                                 EstadosDao mostrarEsta = new EstadosDao();
-                                List<Estados> estados = mostrarEsta.mostrarListaEsta2();
+                                List<Estados> estados = mostrarEsta.mostrarListaEstaHabitaciones();
                                 for (Estados estado : estados) {
                                 %>
                                 <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%> </option>

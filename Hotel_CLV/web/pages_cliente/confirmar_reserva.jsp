@@ -19,28 +19,15 @@
 <script>
     function validarFormulario() {
         // Obtener los valores de los campos
-        var id = document.getElementById("id").value.trim();
-        var nombres = document.getElementById("nombres").value.trim();
-        var apellidos = document.getElementById("apellidos").value.trim();
-        var cedula = document.getElementById("cedula").value.trim();
-        var telefono = document.getElementById("telefono").value.trim();
-        var correo = document.getElementById("correo").value.trim();
-        var usuario = document.getElementById("usuario").value.trim();
-        var clave = document.getElementById("clave").value.trim();
-        var imagen = document.getElementById("imagen").value.trim();
-        var fregistro = document.getElementById("fregistro").value.trim();
-        var perfil = document.getElementById("perfil").value.trim();
-        var estado = document.getElementById("estado").value.trim();
+        var numDias = document.getElementById("numDias").value.trim();
+        var fInicio = document.getElementById("fInicio").value.trim();
+        var fSalida = document.getElementById("fSalida").value.trim();
+        var consumo = document.getElementById("consumo").value.trim();
+        var perId = document.getElementById("perId").value.trim();
 
         // Validar campos obligatorios
-        if (id === "" || nombres === "" || apellidos === "" || cedula === "" || telefono === "" || correo === "" || usuario === "" || clave === "" || imagen === "" || fregistro === "" || perfil === "" || estado === "") {
+        if (numDias === "" || fInicio === "" || fSalida === "" || consumo === "" || perId === "") {
             alert("Por favor, complete todos los campos.");
-            return false; // Detener el envío del formulario
-        }
-        // Validar que la contraseña contenga al menos una mayúscula, una minúscula y un número
-        var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
-        if (!passwordPattern.test(clave)) {
-            alert("La contraseña debe contener al menos una mayúscula, una minúscula y un número.");
             return false; // Detener el envío del formulario
         }
 
@@ -87,7 +74,7 @@
                                                         }%>
                                             <tr>
                                                 <th scope="row">Codigo: </th>
-                                                <td id="id" name="id"><%= habitacion.getHabiId()%></td>
+                                                <td id="habiId" name="habiId"><%= habitacion.getHabiId()%></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Nombre de la Habitación: </th>
@@ -111,7 +98,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">Valor de la Habitación: </th>
-                                                <td name="valorT" id="valorT"><%= habitacion.getHabiValorD()%></td>
+                                                <td><%= habitacion.getHabiValorD()%></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Insumos de la Habitación: </th>
@@ -158,6 +145,10 @@
                                                     <% }
                                                     %>
                                                 </select>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Valor a Cancelar: </span>
+                                                <input type="number" class="form-control" name="valorT" placeholder="Ingrese el valor" step="000.01" min="0.00" required/>
                                             </div>
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text"><i class="fa fa-user-circle"></i>  Codigo Cliente: </span>
