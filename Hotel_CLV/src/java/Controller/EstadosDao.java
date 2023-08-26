@@ -47,7 +47,7 @@ public class EstadosDao {
     public List<Estados> mostrarListaEstaPersonas() {
         List<Estados> estados = new ArrayList<>();
         try {
-            String sql_lista = "SELECT * FROM hotel_clv.estados WHERE estados.categorias_cat_id=1 ;";
+            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'PERSONA%';";
             Statement pst = con.getConexion().prepareStatement(sql_lista);
             ResultSet rs = pst.executeQuery(sql_lista);
             while (rs.next()) {
@@ -63,16 +63,16 @@ public class EstadosDao {
             pst.close();
 
         } catch (SQLException e) {
-            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+            System.out.println("Error en EstadoDao Lista mostrarListaEstaPersonas: " + e.getMessage());
         } finally {
         }
         return estados;
     }
 
-    public List<Estados> mostrarListaEsta2() {
+    public List<Estados> mostrarListaEstaHabitaciones() {
         List<Estados> estados = new ArrayList<>();
         try {
-            String sql_lista = "SELECT * FROM hotel_clv.estados WHERE estados.categorias_cat_id=2 ;";
+            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'RESERV%';";
             Statement pst = con.getConexion().prepareStatement(sql_lista);
             ResultSet rs = pst.executeQuery(sql_lista);
             while (rs.next()) {
@@ -88,7 +88,7 @@ public class EstadosDao {
             pst.close();
 
         } catch (SQLException e) {
-            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+            System.out.println("Error en EstadoDao Lista mostrarListaEstaHabitaciones: " + e.getMessage());
         } finally {
         }
         return estados;

@@ -213,7 +213,7 @@ public class HabitacionesDao {
     public List<Habitaciones> mostrarListaHabiDisponible() {
         List<Habitaciones> habitaciones = new ArrayList<>();
         try {
-            String sql_lista = "SELECT * FROM hotel_clv.habitaciones INNER JOIN hotel_clv.estados ON habitaciones.estados_esta_id = estados.esta_id WHERE esta_descripcion = 'DISPONIBLE';";
+            String sql_lista = "SELECT * FROM hotel_clv.habitaciones INNER JOIN hotel_clv.estados ON habitaciones.estados_esta_id = estados.esta_id WHERE esta_descripcion LIKE 'DISPO%';";
             Statement pst = con.getConexion().prepareCall(sql_lista);
             ResultSet rs = pst.executeQuery(sql_lista);
             while (rs.next()) {
@@ -235,7 +235,7 @@ public class HabitacionesDao {
             pst.close();
 
         } catch (SQLException e) {
-            System.out.println("Error en HabitacionesDao mostrarListaHabi: " + e.getMessage());
+            System.out.println("Error en HabitacionesDao mostrarListaHabiDisponible: " + e.getMessage());
         }
         return habitaciones;
     }

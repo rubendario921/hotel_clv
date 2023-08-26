@@ -75,6 +75,7 @@
                             <br>
                             <label>Persona : </label>
                             <select name="persona" class="form form-control" required>
+                                <option> </option>
                                 <%
                                     PersonasDao mostrarC = new PersonasDao();
                                     List<Personas> personas = mostrarC.mostrarListaPersonasC();

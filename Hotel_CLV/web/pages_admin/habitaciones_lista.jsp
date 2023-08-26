@@ -27,7 +27,7 @@
                         </table>
                     </div>                    
                     <div class="panel-body">
-                        <table class="table table">
+                        <table class='table table-responsive'>
                             <thead>
                                 <tr>
                                     <th>Codigo</th>
@@ -45,7 +45,7 @@
                             <tbody>
                                 <%
                                     EstadosDao mostrarEstaId = new EstadosDao();
-                                    List<Estados> estados = mostrarEstaId.mostrarListaEsta2();
+                                    List<Estados> estados = mostrarEstaId.mostrarListaEstaHabitaciones();
 
                                     HabitacionesDao mostrar_habi = new HabitacionesDao();
                                     List<Habitaciones> habitaciones = mostrar_habi.mostrarListaHabi();

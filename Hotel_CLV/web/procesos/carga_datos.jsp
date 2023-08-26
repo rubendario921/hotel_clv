@@ -25,11 +25,13 @@
 
             // Extraer session de nombre y nombre del perfil
             Validaciones validaciones = new Validaciones();
-            Map<String, String> userData = validaciones.obtenerNombrePerfil(correo, usuario, password);
+            Map<String, Object> userData = validaciones.obtenerNombrePerfil(correo, usuario, password);
 
-            String nombre = userData.get("nombre");
-            String perfil = userData.get("perfil");
+            Integer perId = (Integer) userData.get("perId");
+            String nombre = (String) userData.get("nombre");
+            String perfil = (String) userData.get("perfil");
 
+            session.setAttribute("perId", perId);
             session.setAttribute("nombre", nombre);
             session.setAttribute("perfil", perfil);
 
