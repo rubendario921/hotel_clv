@@ -239,4 +239,45 @@ public class HabitacionesDao {
         }
         return habitaciones;
     }
+
+    public int cambioPendienteHabi(Integer habiId) {
+        int resultado = 0;
+        try {
+            String estadoPendiente = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'RESER%';";
+            PreparedStatement pst = con.getConexion().prepareStatement(estadoPendiente);
+            ResultSet rsEstado = pst.executeQuery(estadoPendiente);
+            while (rsEstado.next()) {
+                Integer estadoNuevo = rsEstado.getInt("esta_id");
+                String sql_modi_pendiente = "UPDATE hotel_clv.habitaciones SET estados_esta_id=? WHERE habi_id = ?;";
+                PreparedStatement pstUpdate = con.getConexion().prepareStatement(sql_modi_pendiente);
+                pstUpdate.setInt(1, estadoNuevo);
+                pstUpdate.setInt(2,habiId);
+                int n = pstUpdate.executeUpdate();
+                if (n > 0) {
+                    resultado = 1;
+                } else {
+                    resultado = 0;
+                }
+                pstUpdate.close();
+            }
+            rsEstado.close();
+        } catch (SQLException e) {
+            System.out.println("Error en HabitacionesDao modiHabi: " + e.getMessage());
+            int SQLError = e.getErrorCode();
+            switch (SQLError) {
+                case 1062:
+                    resultado = 1062;
+                    break;
+                case 1048:
+                    resultado = 1048;
+                    break;
+                default:
+                    resultado = SQLError;
+                    break;
+            }
+        } finally {
+        }
+        return resultado;
+    }
+
 }

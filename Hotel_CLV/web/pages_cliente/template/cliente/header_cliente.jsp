@@ -72,10 +72,10 @@
                                 <a class="nav-link" href="habitaciones_disponibles.jsp">Habitaciones Disponibles</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Mis Reservaciones</a>
+                                <a class="nav-link" href="reserva_lista.jsp">Mis Reservaciones</a>
                             </li>                            
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Mis Facturas</a>
+                                <a class="nav-link" href="facturacion_lista.jsp">Mis Facturas</a>
                             </li>                                                        
                         </ul>
                     </div>

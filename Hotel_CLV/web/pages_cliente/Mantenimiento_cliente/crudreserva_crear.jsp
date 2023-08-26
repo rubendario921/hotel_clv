@@ -4,6 +4,7 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="Controller.HabitacionesDao"%>
 <%@page import="Controller.ReservasDao"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="java.time.LocalDateTime"%>
@@ -29,15 +30,14 @@
                 String finicioString = request.getParameter("fInicio");
                 String fSalidaString = request.getParameter("fSalida");
                 LocalDateTime reseFReserva = LocalDateTime.now();
-                
-                
+
                 LocalDateTime reseFInicio = LocalDateTime.parse(finicioString);
                 LocalDateTime reseFSalida = LocalDateTime.parse(fSalidaString);
 
                 String valorStr = request.getParameter("valorT");
                 BigDecimal reseVTotal = new BigDecimal(valorStr);
-                Integer habiId = Integer.parseInt(request.getParameter("habiId"));
-                Integer estaId = 7;
+                Integer habiId = Integer.parseInt(request.getParameter("habiId"));//Cambio de Estado de la Habitacion
+                Integer estaId = 7; //Pendiente la Reserva
                 Integer perId = Integer.parseInt(request.getParameter("perId"));
                 Integer consuId = Integer.parseInt(request.getParameter("consumo"));
 
@@ -46,6 +46,12 @@
 
                 switch (resultado) {
                     case 1:
+                        HabitacionesDao cambioEstado = new HabitacionesDao();
+                        int cambioP = cambioEstado.cambioPendienteHabi(habiId);
+
+                        if (cambioP == 1) {
+                            String Observacion = "Cambio de manera exitosa";
+                        }
                         String informacion = "Registro Exitoso";
                         String redireccion = "../reserva_lista.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>

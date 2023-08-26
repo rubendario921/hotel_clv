@@ -4,7 +4,6 @@
     Author     : Ruben Dario
 --%>
 
-
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Habitaciones"%>

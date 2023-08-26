@@ -1,9 +1,8 @@
 <%-- 
-    Document   : reserva_lista
-    Created on : 26-ago-2023, 4:39:58
+    Document   : facturacion_lista
+    Created on : 26-ago-2023, 12:21:02
     Author     : Ruben Dario 921
 --%>
-
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="org.apache.commons.text.StringEscapeUtils" %>
@@ -12,7 +11,7 @@
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col col-auto">
                 <h1 class="page-header"> </h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -26,16 +25,13 @@
                         <table class="table table-responsive">
                             <thead>
                                 <tr>
-                                    <th>Codigo</th>
-                                    <th>Dias</th>
-                                    <th>Fecha Registro</th>
-                                    <th>Fecha Ingreso</th>
-                                    <th>Fecha Salida</th>
-                                    <th>Valor a Cancelar</th>
-                                    <th>Habitacion</th>                                    
+                                    <th>Número de Factura</th>
+                                    <th>Fecha Emisión</th>
+                                    <th>Codigo de Reserva</th>
+                                    <th>Habitacion</th>
                                     <th>Consumo Adicionales</th>
-                                    <th>Estado</th>
-                                    <th>Accion</th>
+                                    <th>Metodo de Pago</th>
+                                    <th>Valor Cancelado</th>                                    
                                 </tr>
                             </thead>
                             <tbody>
