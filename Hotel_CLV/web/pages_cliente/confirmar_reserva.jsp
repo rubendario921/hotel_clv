@@ -71,11 +71,7 @@
                                                             if (insumo.getInsuId() == habiInsumo) {
                                                                 nombreInsumo = StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle());
                                                             }
-                                                        }%>
-                                            <tr>
-                                                <th scope="row">Codigo: </th>
-                                                <td id="habiId" name="habiId"><%= habitacion.getHabiId()%></td>
-                                            </tr>
+                                                        }%>                                           
                                             <tr>
                                                 <th scope="row">Nombre de la Habitación: </th>
                                                 <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre())%></td>
@@ -106,8 +102,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="2"><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" height="200" width="200"></td>
-                                                    <% }
-                                                        }%>
+
                                             </tr>
                                         </tbody>
                                     </table>
@@ -121,6 +116,11 @@
                                     </div>
                                     <div class="panel panel-body">
                                         <form action="Mantenimiento_cliente/crudreserva_crear.jsp" method="POST" onsubmit="return validarFormulario();">
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Codigo Habitación</span>
+                                                <input type="number" name="habiId" id="habiId" value="<%= habitacion.getHabiId()%>" class="form-control" min="1" autocomplete="off" readonly="off" required>
+                                            </div>
+
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text">Días a reservar</span>
                                                 <input type="number" name="numDias" id="numDias" class="form-control" min="1" autocomplete="off" placeholder="Ingrese los días a reservar" required>
@@ -152,13 +152,15 @@
                                             </div>
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text"><i class="fa fa-user-circle"></i>  Codigo Cliente: </span>
-                                                <input type="text" name="perId" id="perId" class="form-control" required value="<%= session.getAttribute("perId")%>" title="<%= session.getAttribute("nombre")%>" readonly="false" />                                                
+                                                <input type="text" name="perId" id="perId" class="form-control" required value="<%= session.getAttribute("perId")%>" title="<%= session.getAttribute("nombre")%>" readonly="off"/>                                                
                                             </div>
 
                                             <div class="container text-center">
                                                 <a href="habitaciones_disponibles.jsp" class="btn btn-danger">Regresar</a>
                                                 <input type="submit" value="Reservar" name="reservar" class="btn btn-warning"/>
                                             </div>
+                                            <% }
+                                                }%>
                                         </form>
                                     </div>
                                     <!-- Fin de la tabla derecha -->
