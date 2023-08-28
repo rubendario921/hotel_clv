@@ -48,7 +48,7 @@
                                     EstadosDao mostrarEstado = new EstadosDao();
                                     Estados estado = mostrarEstado.mostrarEstado(id);
                                     if (estado != null) {%>
-                            <label>Codigo:</label><input type="text" name="codigo" id="codigo" value="<%= estado.getEstaId()%>" class="form-control"   placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
+                            <label>Codigo:</label><input type="text" name="codigo" id="codigo" value="<%= estado.getEstaId()%>" class="form-control"  readonly="false"/>
                             <br>
                             <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaLetra())%>" class="form-control"   placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <br>

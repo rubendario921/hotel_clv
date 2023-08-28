@@ -53,8 +53,7 @@
                                 <% }%>
                             </select>                            
                             <br>
-                            <a href="estados_lista.jsp" class="btn btn-danger">Regresar</a>
-                            <input type="submit" value="Registrar" name="nuevo_estado" class=" btn btn-primary"/>
+                            
                         </form>
                     </div>
                 </div>

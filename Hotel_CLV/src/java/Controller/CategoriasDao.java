@@ -131,12 +131,19 @@ public class CategoriasDao {
         return resultado;
     }
 
-    public int eliminarCategoria(Integer catId) {
+    public int eliminarCategoria(Integer id_cate) {
         int resultado = 0;
         try {
             String sql_eliminar = "DELETE FROM hotel_clv.categorias WHERE cat_nombre=?;";
             PreparedStatement pst = con.getConexion().prepareCall(sql_eliminar);
-            pst.setInt(1, catId);
+            pst.setInt(1, id_cate);
+            int n = pst.executeUpdate();
+            if (n > 0) {
+                resultado = 1;
+            } else {
+                resultado = 0;
+            }
+pst.close();
         } catch (SQLException e) {
             System.out.println("Error en CategoriasDao eliminarCategoria: " + e.getMessage());
         } finally {

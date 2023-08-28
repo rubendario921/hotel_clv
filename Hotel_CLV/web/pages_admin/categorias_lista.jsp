@@ -21,7 +21,7 @@
                         <table style="width: 100%">
                             <tr>
                                 <td><h3>Lista de Categoras</h3></td>
-                                <td align="rigth"><a href="perfil_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
+                                <td align="rigth"><a href="categorias_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
                             </tr>
                         </table>
                     </div>
@@ -46,10 +46,10 @@
                                     <td><%= StringEscapeUtils.escapeHtml4(categoria.getCatDescripcion())%></td>                            
                                     <td>
                                         <!--modificar update=":tabMostrar"-->
-                                        <a href="#?editar=true&id=<%= categoria.getCatId()%>" class="btn btn-warning"> <i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="categorias_editar.jsp?editar=true&id=<%= categoria.getCatId()%>" class="btn btn-warning"> <i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--eliminar update=":tabMostrar"-->
                                         <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
-                                        <a href="#?eliminar=true&id=<%= categoria.getCatId()%>"class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                        <a href="Mantenimiento_admin/crudcategorias_eliminar.jsp?eliminar=true&id_cate=<%= categoria.getCatId()%>"class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>                                        
                                             <% }%>
                                     </td>
                                 </tr>
