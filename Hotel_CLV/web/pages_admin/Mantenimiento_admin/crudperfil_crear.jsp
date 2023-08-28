@@ -31,7 +31,7 @@
                         String redireccion = "../perfil_lista.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
         <%break;
-                            case 1062:%>
+            case 1062:%>
         <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
             window.history.back();
         </script>    
