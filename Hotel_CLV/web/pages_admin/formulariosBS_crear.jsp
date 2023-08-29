@@ -10,7 +10,7 @@
 <script>
 
     //Optener valores de los campos
-    function validar formulario() {
+    function validarFormulario() {
         var nombre = document.getElementById("nombre").value.trim();
         var correo = document.getElementById("correo").value.trim();
         var telefono = document.getElementById("telefono").value.trim();
