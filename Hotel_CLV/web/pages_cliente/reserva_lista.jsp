@@ -59,6 +59,7 @@
                                     <td><%= reserva.getConsuId()%></td>
                                     <td><%= reserva.getEstaId()%></td>
                                     <td>
+                                    <td><a href="aceptar_pago.jsp?aceptar=true&id=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-bookmark" title="Aceptar" name="aceptar"></i></a></td>
                                         <a href="">Realizar el Pago</a>
                                         <a href="">Anular</a>                                       
                                     </td>
