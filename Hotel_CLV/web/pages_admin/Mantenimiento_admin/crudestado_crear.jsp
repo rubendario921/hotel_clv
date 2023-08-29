@@ -18,8 +18,6 @@
     </head>
     <body>
         <%
-            String informacion = "";
-            String redireccion = "";
             if (request.getParameter("nuevo_estado") != null) {
                 String letra = request.getParameter("letra");
                 String descripcion = request.getParameter("descripcion");
@@ -30,23 +28,26 @@
 
                 switch (resultado) {
                     case 1:
-                        informacion = "Registro de Estado Exitoso.";
-                        redireccion = "../estados_lista.jsp";
-                        break;
-                    case 1062:
-                        informacion = "El registro  ya existe en la base de datos, intente nuevamente.";
-                        redireccion = "../estados_crear.jsp";
-                        break;
-                    case 1048:
-                        informacion = "Los campos no puede estar vacios, intente nuevamente.";
-                        redireccion = "../estados_crear.jsp";
-                        break;
-                    default:
-                        informacion = "Registro Incorrecto, intente nuevamente.";
-                        redireccion = "../estados_crear.jsp";
-                        break;
-                }%>
+                        String informacion = "Registro de Estado Exitoso.";
+                        String redireccion = "../categorias_lista.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <%}%>
+        <%break;
+            case 1062:%>
+        <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
+            window.history.back();
+        </script>    
+        <%break;
+            case 1048:%>
+        <script>alert("Los campos no puede estar vacios, intente nuevamente.");
+            window.history.back();
+        </script>              
+        <%break;
+            default:%>
+        <script>alert("Registro Incorrecto, intente nuevamente");
+            window.history.back();
+        </script>             
+        <%break;
+                }
+            }%>
     </body>
 </html>

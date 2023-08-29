@@ -44,106 +44,6 @@ public class EstadosDao {
         return estados;
     }
 
-    public List<Estados> mostrarListaEstaPersonas() {
-        List<Estados> estados = new ArrayList<>();
-        try {
-            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'PERSONA%';";
-            Statement pst = con.getConexion().prepareStatement(sql_lista);
-            ResultSet rs = pst.executeQuery(sql_lista);
-            while (rs.next()) {
-                int estaId = rs.getInt("esta_id");
-                String estaLetra = rs.getString("esta_letra");
-                String estaDescripcion = rs.getString("esta_descripcion");
-                int catId = rs.getInt("categorias_cat_id");
-
-                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
-                estados.add(estado);
-            }
-            rs.close();
-            pst.close();
-
-        } catch (SQLException e) {
-            System.out.println("Error en EstadoDao Lista mostrarListaEstaPersonas: " + e.getMessage());
-        } finally {
-        }
-        return estados;
-    }
-
-    public List<Estados> mostrarListaEstaHabitaciones() {
-        List<Estados> estados = new ArrayList<>();
-        try {
-            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'RESERV%';";
-            Statement pst = con.getConexion().prepareStatement(sql_lista);
-            ResultSet rs = pst.executeQuery(sql_lista);
-            while (rs.next()) {
-                int estaId = rs.getInt("esta_id");
-                String estaLetra = rs.getString("esta_letra");
-                String estaDescripcion = rs.getString("esta_descripcion");
-                int catId = rs.getInt("categorias_cat_id");
-
-                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
-                estados.add(estado);
-            }
-            rs.close();
-            pst.close();
-
-        } catch (SQLException e) {
-            System.out.println("Error en EstadoDao Lista mostrarListaEstaHabitaciones: " + e.getMessage());
-        } finally {
-        }
-        return estados;
-    }
-
-    public List<Estados> mostrarListaEsta3() {
-        List<Estados> estados = new ArrayList<>();
-        try {
-            String sql_lista = "SELECT * FROM hotel_clv.estados WHERE estados.categorias_cat_id=3 ;";
-            Statement pst = con.getConexion().prepareStatement(sql_lista);
-            ResultSet rs = pst.executeQuery(sql_lista);
-            while (rs.next()) {
-                int estaId = rs.getInt("esta_id");
-                String estaLetra = rs.getString("esta_letra");
-                String estaDescripcion = rs.getString("esta_descripcion");
-                int catId = rs.getInt("categorias_cat_id");
-
-                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
-                estados.add(estado);
-            }
-            rs.close();
-            pst.close();
-
-        } catch (SQLException e) {
-            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
-        } finally {
-        }
-        return estados;
-    }
-
-    public List<Estados> mostrarListaEsta4() {
-        List<Estados> estados = new ArrayList<>();
-        try {
-            String sql_lista = "SELECT * FROM hotel_clv.estados WHERE estados.categorias_cat_id=4 ;";
-            Statement pst = con.getConexion().prepareStatement(sql_lista);
-            ResultSet rs = pst.executeQuery(sql_lista);
-            while (rs.next()) {
-                int estaId = rs.getInt("esta_id");
-                String estaLetra = rs.getString("esta_letra");
-                String estaDescripcion = rs.getString("esta_descripcion");
-                int catId = rs.getInt("categorias_cat_id");
-
-                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
-                estados.add(estado);
-            }
-            rs.close();
-            pst.close();
-
-        } catch (SQLException e) {
-            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
-        } finally {
-        }
-        return estados;
-    }
-
     public Estados mostrarEstado(Integer id) {
         Estados estado = null;
         try {
@@ -168,7 +68,6 @@ public class EstadosDao {
         return estado;
     }
 
-    //Metodo para agregar informacion
     public int crearEstado(String letra, String descripcion, Integer categoria) {
         int resultado = 0;
         try {
@@ -257,5 +156,104 @@ public class EstadosDao {
         }
         return resultado;
     }
+////////////////////////////////////////////////////////Procesos Adicionales
+    public List<Estados> mostrarListaEstaPersonas() {
+        List<Estados> estados = new ArrayList<>();
+        try {
+            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'PERSONA%';";
+            Statement pst = con.getConexion().prepareStatement(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
+            while (rs.next()) {
+                int estaId = rs.getInt("esta_id");
+                String estaLetra = rs.getString("esta_letra");
+                String estaDescripcion = rs.getString("esta_descripcion");
+                int catId = rs.getInt("categorias_cat_id");
 
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                estados.add(estado);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao Lista mostrarListaEstaPersonas: " + e.getMessage());
+        } finally {
+        }
+        return estados;
+    }
+
+    public List<Estados> mostrarListaEstaHabitaciones() {
+        List<Estados> estados = new ArrayList<>();
+        try {
+            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'HABI%';";
+            Statement pst = con.getConexion().prepareStatement(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
+            while (rs.next()) {
+                int estaId = rs.getInt("esta_id");
+                String estaLetra = rs.getString("esta_letra");
+                String estaDescripcion = rs.getString("esta_descripcion");
+                int catId = rs.getInt("categorias_cat_id");
+
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                estados.add(estado);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao Lista mostrarListaEstaHabitaciones: " + e.getMessage());
+        } finally {
+        }
+        return estados;
+    }
+
+    public List<Estados> mostrarListaEstaProductos() {
+        List<Estados> estados = new ArrayList<>();
+        try {
+            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'PROD%';";
+            Statement pst = con.getConexion().prepareStatement(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
+            while (rs.next()) {
+                int estaId = rs.getInt("esta_id");
+                String estaLetra = rs.getString("esta_letra");
+                String estaDescripcion = rs.getString("esta_descripcion");
+                int catId = rs.getInt("categorias_cat_id");
+
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                estados.add(estado);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+        } finally {
+        }
+        return estados;
+    }
+
+    public List<Estados> mostrarListaEstaFinanciero() {
+        List<Estados> estados = new ArrayList<>();
+        try {
+            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'FINA%';";
+            Statement pst = con.getConexion().prepareStatement(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
+            while (rs.next()) {
+                int estaId = rs.getInt("esta_id");
+                String estaLetra = rs.getString("esta_letra");
+                String estaDescripcion = rs.getString("esta_descripcion");
+                int catId = rs.getInt("categorias_cat_id");
+
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                estados.add(estado);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+        } finally {
+        }
+        return estados;
+    }
 }

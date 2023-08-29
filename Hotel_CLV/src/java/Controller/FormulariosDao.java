@@ -50,7 +50,7 @@ public class FormulariosDao {
         Formularios formulario = null;
         try {
             String sql = "SELECT * FROM hotel_clv.formularios WHERE formu_id = ?;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql);
+            PreparedStatement pst = con.getConexion().prepareStatement(sql);
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
@@ -61,8 +61,8 @@ public class FormulariosDao {
                 String formuAsunto = rs.getString("formu_asunto");
                 String formuMensaje = rs.getString("formu_mensaje");
                 String formuCiudad = rs.getString("formu_ciudad");
-                Integer estadosestaId = rs.getInt("estados_esta_id");
-                formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad, id);
+                Integer estado = rs.getInt("estados_esta_id");
+                formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad,estado);
             }
             rs.close();
             pst.close();
@@ -74,10 +74,10 @@ public class FormulariosDao {
         return formulario;
     }
 
-    public int registrarFormu(String nombre, String correo, String telefono, String asunto, String mensaje, String ciudad) {
+    public int registrarFormu(String nombre, String correo, String telefono, String asunto, String mensaje, String ciudad, Integer esta_id) {
         int resultado = 0;
         try {
-            String sql = "insert into hotel_clv.formularios (formularios.formu_nombre,formularios.formu_correo,formularios.formu_telefono,formularios.formu_asunto,formularios.formu_mensaje,formularios.formu_ciudad, formularios.estados_esta_id) values (?,?,?,?,?,?,?);";
+            String sql = "INSERT INTO hotel_clv.formularios (formu_nombre,formu_correo,formu_telefono,formu_asunto,formu_mensaje,formu_ciudad,estados_esta_id) values (?,?,?,?,?,?,?);";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setString(1, nombre);
             pst.setString(2, correo);
@@ -85,20 +85,21 @@ public class FormulariosDao {
             pst.setString(4, asunto);
             pst.setString(5, mensaje);
             pst.setString(6, ciudad);
-            pst.setString(7, "7");
-
-            resultado = pst.executeUpdate();
-            if (resultado > 0) {
+            pst.setInt(7, esta_id);
+            int n = pst.executeUpdate();
+            if (n > 0) {
                 resultado = 1;
+            } else {
+                resultado = 0;
             }
-            pst.close();
         } catch (Exception e) {
             System.out.println("Error al ingresar al formulario: " + e.getMessage());
         } finally {
         }
         return resultado;
     }
-     public int modificarFormu(Integer formu_id, String formu_nombre, String formu_correo, String formu_telefono, String formu_asunto, String formu_mensaje, String formu_ciudad, Integer estados_esta_id) {
+
+    public int modificarFormu(Integer formu_id, String formu_nombre, String formu_correo, String formu_telefono, String formu_asunto, String formu_mensaje, String formu_ciudad, Integer estados_esta_id) {
         int resultado = 0;
         try {
             String sql = "UPDATE hotel_clv.formularios SET formu_nombre=?, formu_correo=?,formu_telefono=?,formu_asunto=?,formu_mensaje=?,formu_ciudad=?, estados_esta_id=? WHERE formu_id=? ;";
@@ -136,10 +137,8 @@ public class FormulariosDao {
         }
         return resultado;
     }
-    
-    
-    
-     public int eliminarFormularioBS(Integer id) {
+
+    public int eliminarFormularioBS(Integer id) {
         int resultado = 0;
         try {
             String sql_eliminar = "DELETE FROM hotel_clv.formularios WHERE formu_id = ?;";
