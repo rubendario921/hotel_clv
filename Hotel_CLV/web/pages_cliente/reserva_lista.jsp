@@ -4,6 +4,12 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.Consumos"%>
+<%@page import="Controller.EstadosDao"%>
+<%@page import="Controller.ConsumosDao"%>
+<%@page import="Controller.Habitaciones"%>
+<%@page import="Controller.HabitacionesDao"%>
 <%@page import="Controller.Reservas"%>
 <%@page import="Controller.ReservasDao"%>
 <%@page import="java.util.*"%>
@@ -44,10 +50,52 @@
                                 <%                                    String id_perId = String.valueOf(session.getAttribute("perId"));
                                     int id = Integer.parseInt(id_perId);
 
+                                    HabitacionesDao mostrarHabi = new HabitacionesDao();
+                                    List<Habitaciones> habitaciones = mostrarHabi.mostrarListaHabi();
+
+                                    ConsumosDao mostrarConsu = new ConsumosDao();
+                                    List<Consumos> consumos = mostrarConsu.mostrarListaConsumos();
+
+                                    EstadosDao mostrarEsta = new EstadosDao();
+                                    List<Estados> estados = mostrarEsta.mostrarListaEstados();
+
                                     ReservasDao mostrarReservas = new ReservasDao();
                                     List<Reservas> reservas = mostrarReservas.mostrarListaReservaXid(id);
-                                    for (Reservas reserva : reservas) {%>
+                                    for (Reservas reserva : reservas) {
 
+//Habitaciones
+                                        int habiReserva = reserva.getHabiId();
+                                        String nombreHabitacion = "";
+
+                                        for (Habitaciones habitacion : habitaciones) {
+                                            if (habitacion.getHabiId() == habiReserva) {
+                                                String piso = StringEscapeUtils.escapeHtml4(habitacion.getHabiPiso());
+                                                String depar = StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar());
+                                                String nombre = StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre());
+                                                nombreHabitacion = piso + depar + nombre;
+                                                break;
+                                            }
+                                        }
+//Consumos
+                                        int consuReserva = reserva.getConsuId();
+                                        String nombreConsumo = "";
+
+                                        for (Consumos consumo : consumos) {
+                                            if (consumo.getConsuId() == consuReserva) {
+                                                nombreConsumo = StringEscapeUtils.escapeHtml4(consumo.getConsuNombre());
+                                                break;
+                                            }
+                                        }
+//Estados
+                                        int estadoReserva = reserva.getEstaId();
+                                        String nombreEstado = "";
+
+                                        for (Estados estado : estados) {
+                                            if (estado.getEstaId() == estadoReserva) {
+                                                nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
+                                            }
+                                        }
+                                %>
                                 <tr>
                                     <td><%= reserva.getReseId()%></td>
                                     <td><%= reserva.getNumDias()%></td>
@@ -55,13 +103,12 @@
                                     <td><%= reserva.getReseFInicio()%></td>
                                     <td><%= reserva.getReseFSalida()%></td>
                                     <td><%= reserva.getReseVTotal()%></td>
-                                    <td><%= reserva.getHabiId()%></td>
-                                    <td><%= reserva.getConsuId()%></td>
-                                    <td><%= reserva.getEstaId()%></td>
+                                    <td><%= nombreHabitacion%></td>
+                                    <td><%= nombreConsumo%></td>
+                                    <td><%= nombreEstado%></td>                                    
                                     <td>
-                                    <td><a href="aceptar_pago.jsp?aceptar=true&id=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-bookmark" title="Aceptar" name="aceptar"></i></a></td>
-                                        <a href="">Realizar el Pago</a>
-                                        <a href="">Anular</a>                                       
+                                        <a href="aceptar_pago.jsp?aceptar=true&id=<%= reserva.getReseId()%>" class="btn btn-primary"><i class="fa fa-tags" title="Aceptar" name="aceptar"></i></a>
+                                        <a href="?eliminar=true&id_cate=<%= reserva.getReseId()%>"class="btn btn-danger"><i class="fa fa-trash" title="Anular" name="anular"></i></a>
                                     </td>
                                 </tr>
                                 <% }%>
