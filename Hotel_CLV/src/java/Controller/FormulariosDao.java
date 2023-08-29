@@ -50,7 +50,7 @@ public class FormulariosDao {
         Formularios formulario = null;
         try {
             String sql = "SELECT * FROM hotel_clv.formularios WHERE formu_id = ?;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql);
+            PreparedStatement pst = con.getConexion().prepareStatement(sql);
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
@@ -62,7 +62,7 @@ public class FormulariosDao {
                 String formuMensaje = rs.getString("formu_mensaje");
                 String formuCiudad = rs.getString("formu_ciudad");
                 Integer estado = rs.getInt("estados_esta_id");
-                formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad, id);
+                formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad,estado);
             }
             rs.close();
             pst.close();

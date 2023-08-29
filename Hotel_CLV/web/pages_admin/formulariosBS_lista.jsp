@@ -53,6 +53,7 @@
                                     <th>Asunto</th>
                                     <th>Mensaje</th>
                                     <th>Ciudad</th>
+                                    <th>Estado</th>
                                     <th>Accion</th>                                        
                                 </tr>
                             </thead>
@@ -62,13 +63,14 @@
                                    List<Formularios> formularios = mostrar_formularios.mostrarListaFormu();
                                     for (Formularios formulario : formularios) {%>
                                 <tr>
-                                    <td><%=formulario.getFormuId()%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(formulario.getFormuNombre())%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(formulario.getFormuCorreo())%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(formulario.getFormuTelefono())%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(formulario.getFormuAsunto())%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(formulario.getFormuMensaje())%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(formulario.getFormuCiudad())%></td>
+                                    <td><%= formulario.getFormuId()%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(formulario.getFormuNombre())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(formulario.getFormuCorreo())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(formulario.getFormuTelefono())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(formulario.getFormuAsunto())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(formulario.getFormuMensaje())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(formulario.getFormuCiudad())%></td>
+                                    <td><%= formulario.getEstaId()%></td>
                                     <td>
                                         <!--Modificar Insumo-->
                                         <a href="formulariosBS_editar.jsp?editar=true&id=<%=formulario.getFormuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>

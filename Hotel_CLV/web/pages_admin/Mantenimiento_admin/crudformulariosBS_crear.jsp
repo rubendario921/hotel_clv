@@ -20,7 +20,7 @@
         <%
             String informacion = "";
             String redireccion = "";
-            if (request.getParameter("nuevo_mensaje") != null) {
+            if (request.getParameter("nuevo_Sugerencia") != null) {
                 String nombre = request.getParameter("nombre");
                 String correo = request.getParameter("correo");
                 String telefono = request.getParameter("telefono");
