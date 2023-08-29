@@ -50,7 +50,7 @@ public class ReservasDao {
         return reservas;
     }
 
-    public Reservas mostrarReserva(Integer id) {
+    public Reservas mostrarReserva(int id) {
         Reservas reserva = null;
         try {
             String sql_mostrarR = "SELECT * FROM hotel_clv.reservas WHERE rese_id=? ;";
@@ -80,7 +80,7 @@ public class ReservasDao {
         return reserva;
     }
 
-    public int crearReserva(Integer numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer estaId, Integer perId, Integer consuId) {
+    public int crearReserva(int numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer estaId, Integer perId, Integer consuId) {
         int resultado = 0;
         try {
             String sql_crear = "INSERT INTO hotel_clv.reservas(rese_num_dias,rese_f_reserva,rese_f_inicio,rese_f_salida,rese_vtotal,habitaciones_habi_id,estados_esta_id,personas_per_id,consumos_consu_id) VALUES (?,?,?,?,?,?,?,?,?);";
@@ -182,4 +182,38 @@ public class ReservasDao {
         }
         return resultado;
     }
+
+    //////////////////////////////////// Procesos Adicionales
+    public List<Reservas> mostrarListaReservaXid(int id) {
+        List<Reservas> reservas = new ArrayList<>();
+        try {
+            String sql_listaXid = "SELECT * FROM hotel_clv.reservas WHERE personas_per_id=?;";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_listaXid);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Integer reseId = rs.getInt("rese_id");
+                Integer numDias = rs.getInt("rese_num_dias");
+                LocalDateTime reseFReserva = rs.getTimestamp("rese_f_reserva").toLocalDateTime();
+                LocalDateTime reseFInicio = rs.getTimestamp("rese_f_inicio").toLocalDateTime();
+                LocalDateTime reseFSalida = rs.getTimestamp("rese_f_salida").toLocalDateTime();
+                BigDecimal reseVTotal = rs.getBigDecimal("rese_vtotal");
+                Integer habiId = rs.getInt("habitaciones_habi_id");
+                Integer estaId = rs.getInt("estados_esta_id");
+                Integer perId = rs.getInt("personas_per_id");
+                Integer consuId = rs.getInt("consumos_consu_id");
+
+                Reservas reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);
+                reservas.add(reserva);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en ReservasDao mostrarListaReserva: " + e.getMessage());
+        } finally {
+        }
+        return reservas;
+    }
+
 }

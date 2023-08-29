@@ -4,6 +4,8 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="Controller.Reservas"%>
+<%@page import="Controller.ReservasDao"%>
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="org.apache.commons.text.StringEscapeUtils" %>
@@ -39,9 +41,29 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <%                                    String id_perId = String.valueOf(session.getAttribute("perId"));
+                                    int id = Integer.parseInt(id_perId);
+
+                                    ReservasDao mostrarReservas = new ReservasDao();
+                                    List<Reservas> reservas = mostrarReservas.mostrarListaReservaXid(id);
+                                    for (Reservas reserva : reservas) {%>
+
                                 <tr>
-                                    <td></td>
+                                    <td><%= reserva.getReseId()%></td>
+                                    <td><%= reserva.getNumDias()%></td>
+                                    <td><%= reserva.getReseFReserva()%></td>
+                                    <td><%= reserva.getReseFInicio()%></td>
+                                    <td><%= reserva.getReseFSalida()%></td>
+                                    <td><%= reserva.getReseVTotal()%></td>
+                                    <td><%= reserva.getHabiId()%></td>
+                                    <td><%= reserva.getConsuId()%></td>
+                                    <td><%= reserva.getEstaId()%></td>
+                                    <td>
+                                        <a href="">Realizar el Pago</a>
+                                        <a href="">Anular</a>                                       
+                                    </td>
                                 </tr>
+                                <% }%>
                             </tbody>
                         </table>
                     </div>
