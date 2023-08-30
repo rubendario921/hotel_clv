@@ -21,11 +21,11 @@
         var cantidad = document.getElementById("cantidad").value.trim();
         var valor = document.getElementById("valor").value.trim();
         var insu_dimg = document.getElementById("insu_dimg").value.trim();
-        var estados_esta_id = document.getElementById("estados_esta_id").value.trim();
+        var estados = document.getElementById("estados").value.trim();
 
         //Validar campos obligatorios
 
-        if (nombre === " " || detalle === "" || cantidad === "" || valor === "" || insu_dimg === "" || estados_esta_id === "") {
+        if (nombre === " " || detalle === "" || cantidad === "" || valor === "" || insu_dimg === "" || estados === "") {
             alert("Por favor, completar todos los campos.");
             return false;
         }
@@ -49,22 +49,22 @@
                                     InsumosDao mostrarI = new InsumosDao();
                                     Insumos insumo = mostrarI.mostrarInsumo(id);
                                     if (insumo != null) {%> 
-                            <label> Codigo: </label><input type="text" value="<%=insumo.getInsuId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo" maxlength="2" readonly="false"/>
+                            <label> Codigo: </label><input type="text"  name="codigo" id="codigo" value="<%=insumo.getInsuId()%>" class="form-control" placeholder="Ingrese 00 el codigo" maxlength="2" readonly="false"/>
                             <br>
-                            <label> Nombre: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del insumo" autocomplete="off" maxlength="50" required/>
+                            <label> Nombre: </label><input type="text" name="nombre" id="nombre" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%>" class="form-control"  placeholder="Ingrese el nombre del insumo" autocomplete="off" maxlength="50" required/>
                             <br>
-                            <label> Detalle: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%>" class="form-control" name="detalle"  placeholder="Ingrese el detalle del insumoo"maxlength="200" required/>
+                            <label> Detalle: </label><input type="text"name="detalle" id="detalle"  value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%>" class="form-control" placeholder="Ingrese el detalle del insumoo"maxlength="200" required/>
                             <br>
-                            <label> Cantidad: </label><input type="number" value="<%=insumo.getInsuCantidad()%>" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad" min="1" maxlength="100" required/>
+                            <label> Cantidad: </label><input type="number" name="cantidad" id="cantidad" value="<%=insumo.getInsuCantidad()%>" class="form-control" placeholder="Ingrese la cantidad" min="1" maxlength="100" required/>
                             <br>
-                            <label> Valor: </label><input type="text" value="<%=insumo.getInsuValor()%>" class="form-control" name="valor"  placeholder="Ingrese su valor"maxlength="100" required/>
+                            <label> Valor: </label><input type="text" name="valor" id="valor"  value="<%=insumo.getInsuValor()%>" class="form-control" step="0.01" min="1" placeholder="Ingrese su valor"maxlength="100" required/>
                             <br>
-                            <label> Imagen: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%>" class="form-control" name="insu_dimg"  placeholder="Ingrese imagen"maxlength="20" required/>
+                            <label> Imagen: </label><input type="text" name="insu_dimg" id="insu_dimg"  value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%>" class="form-control" placeholder="Ingrese imagen"maxlength="20" required/>
                             <br>
                             <% }
                                 }%>
                             <label>Estado: </label>
-                            <select name="estados_esta_id" id="estados_esta_id" class="form form-control" required>
+                            <select name="estados" id="estados" class="form form-control" required>
                                 <option> </option>
                                 <%
                                     EstadosDao mostrarEstados = new EstadosDao();
