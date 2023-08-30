@@ -24,7 +24,7 @@
          ConsumosDao eliminarC = new ConsumosDao();
          int resultado = eliminarC.eliminarConsu(id);
          if (resultado ==1){
-             String informacion = "Sugerencia Eliminada";
+             String informacion = "Consumo Eliminado";
              String redireccion = "../consumos_lista.jsp";%>     
              <script> mostrarMensaje ('<%= informacion%>', '<%= redireccion%>');</script>
         <%} else {%>

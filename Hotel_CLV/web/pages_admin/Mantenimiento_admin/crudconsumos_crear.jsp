@@ -40,7 +40,7 @@
                     break;
                     
                 case 2:
-                        informacion = "El insumo  ya existe en la base de datos, intente nuevamente.";
+                        informacion = "El consumo  ya existe en la base de datos, intente nuevamente.";
                         redireccion = "../consumos_crear.jsp";
                         break;
                     case 3:

@@ -38,7 +38,7 @@
                 switch (resultado) {
                     case 1:
                         informacion = "Modificación de Mensaje Exitoso";
-                        redireccion = "../cosumos_editar.jsp";
+                        redireccion = "../cosumos_lista.jsp";
                         break;
                     case 2:
                         informacion = "El registro  ya existe en la base de datos, intente nuevamente.";

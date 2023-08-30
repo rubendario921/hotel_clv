@@ -9,37 +9,39 @@
 <%@page import="Controller.ConsumosDao"%>
 <%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page import="java.util.*"%>
-<%@include file="template/header_admin.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 
-<script> 
-    function validarFormulario() {
-        var codigo = document.getElementById("codigo").value.trim();
-        var nombre = document.getElementById("nombre").value.trim();
-        var detalle = document.getElementById("detalle").value.trim();
-        var cantidad = document.getElementById("cantidad").value.trim();
-        var valor = document.getElementById("valor").value.trim();
-        var dimg = document.getElementById("dimg").value.trim();
-        var accion = document.getElementById("accion").value.trim();
-        if (codigo === "" ||nombre === "" ||detalle === "" ||cantidad === "" ||valor === "" ||dimg === "" ||accion === "") {
-            
-            alert("Por Favor, complete todos los campos");
-            return false;
-        }
-        return true;
+<script>
+    function validarFormulario(){
+    var codigo = document.getElementById("codigo").value.trim();
+    var nombre = document.getElementById("nombre").value.trim();
+    var detalle = document.getElementById("detalle").value.trim();
+    var cantidad = document.getElementById("cantidad").value.trim();
+    var valor = document.getElementById("valor").value.trim();
+    var imagen = document.getElementById("imagen").value.trim();
+    var estados = document.getElementById("estados").value.trim();
+    var accion = document.getElementById("accion").value.trim();
+    if (codigo === "" || nombre === "" || detalle === "" || cantidad === "" || valor === "" || imagen === "" || estados === "" || accion === "" || ) {
+
+    alert("Por favor, complete todos los campos.");
+    return false; // Detener el envío del formulario
     }
- </script>
+    return true; // Permitir el envío del formulario si todos los campos están llenos
+    }
+
+</script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Consumos</h1>
+                <h1 class="page-header">Consumos del Hotel</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <table style="width: 100%">
                             <tr>
-                                <td><h3>Consumos</h3></td>
+                                <td><h3>Lista de Consumos</h3></td>
                                 <td aling="rigth"><a href="consumos_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
                             </tr>
                         </table>
@@ -48,34 +50,34 @@
                         <table class="table table">
                             <thead>
                                 <tr>
-                                    <th>Código</th>
+                                    <th>Codigo</th>
                                     <th>Nombre</th>
                                     <th>Detalle</th>
                                     <th>Cantidad</th>
                                     <th>Valor</th>
                                     <th>Imagen</th>
-                                    <th>Acción</th>                                        
+                                    <th>Accion</th>                                        
                                 </tr>
                             </thead>
                             <tbody>
                                 <%
-                                    ConsumosDao mostrar_consumos = new ConsumosDao();
-                                   List<Consumos> consumos = mostrar_consumos.mostrarListaConsumos();
+                                    ConsumosDao lista_consumos = new ConsumosDao();
+                                    List<Consumos> consumos = lista_consumos.mostrarListaConsumos();
                                     for (Consumos consumo : consumos) {%>
                                 <tr>
                                     <td><%= consumo.getConsuId()%></td>
-                                    <td><%= StringEscapeUtils.escapeHtml4(consumo.getConsuNombre()) %></td>
-                                    <td><%= StringEscapeUtils.escapeHtml4(consumo.getConsuDetalle())%></td>
+                                    <td><%=StringEscapeUtils.escapeHtml4(consumo.getConsuNombre())%></td>
+                                    <td><%=StringEscapeUtils.escapeHtml4(consumo.getConsuDetalle())%></td>
                                     <td><%= consumo.getConsuCantidad()%></td>
-                                    <td><%= consumo.getConsuValor() %></td>
-                                    <td><%= StringEscapeUtils.escapeHtml4(consumo.getConsuImagen()) %></td>
-                                    <td><%= consumo.getEstaId()%></td>
+                                    <td><%= consumo.getConsuValor()%></td>
+                                    <td><%=StringEscapeUtils.escapeHtml4(consumo.getConsuImagen())%></td>
+                                    <td><%= consumo.getConsuId()%></td>
                                     <td>
-                                       <!--Modificar Insumo-->
-                                       <a href="consumos_editar.jsp?editar=true&id=<%=consumo.getConsuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <!--Modificar Insumo-->
+                                        <a href="consumos_editar.jsp?editar=true&id=<%=consumo.getConsuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--Eliminar Insumo-->
                                         <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
-                                        <a href="Mantenimiento_admin/crudconsumos_eliminar.jsp?eliminar=true&id=<%=consumo.getConsuId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar" disable="true"></i></a>
+                                        <a href="Mantenimiento_admin/crudconsumos_eliminar.jsp?eliminar=true&id=<%= consumo.getConsuId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar" disable="true"></i></a>
                                             <% }%>
                                     </td>
                                 </tr>
