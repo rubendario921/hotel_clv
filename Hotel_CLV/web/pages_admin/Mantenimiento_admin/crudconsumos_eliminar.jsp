@@ -4,14 +4,33 @@
     Author     : USUARIO
 --%>
 
+<%@page import="java.math.BigDecimal"%>
+<%@page import="Controller.ConsumosDao" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <script tytype="text/javascript">
+            function mostrarMensaje(informacion, redireccion){
+                alert(informacion);
+                windown.location.href = redireccion;
+            }
+        </script>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        
+     <% if (request.getParameter("eliminar") != null && request.getParameter("eliminar").equals("true")){
+         int id = Integer.parseInt(request.getParameter("id"));
+         ConsumosDao eliminarC = new ConsumosDao();
+         int resultado = eliminarC.eliminarConsu(id);
+         if (resultado ==1){
+             String informacion = "Sugerencia Eliminada";
+             String redireccion = "../consumos_lista.jsp";%>     
+             <script> mostrarMensaje ('<%= informacion%>', '<%= redireccion%>');</script>
+        <%} else {%>
+        <script>alert("Mensaje NO Eliminado, Intentalo nuevamente.");
+            window.history.back();</script>
+        <%}%>
+        <%}%>
     </body>
 </html>
