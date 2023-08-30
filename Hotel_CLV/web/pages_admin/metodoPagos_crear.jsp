@@ -33,11 +33,11 @@
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudmetodoPagos_crear.jsp" method="POST" onsubmit="return validarFormulario();">
-                            <label>Letra: </label><input type="text" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
-                            <label>Nombre: </label><input type="text" class="form-control" name="nombre" placeholder="Ingrese el metodo de pago" maxlength="20" required/>
+                            <label>Letra: </label><input type="text" name="letra" id="letra" class="form-control" placeholder="Ingrese 2 letras de abreviatura" maxlength="2" autocomplete="off" required />
+                            <label>Nombre: </label><input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el metodo de pago" maxlength="20" autocomplete="off" required/>
                             <br>
                             <a href="metodoPagos_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Registrar" name="nuevo_metodo" class=" btn btn-primary"/>
+                            <input type="submit" value="Registrar" name="nuevo_metodo" class=" btn btn-success"/>
                         </form>                           
                     </div>
                 </div>

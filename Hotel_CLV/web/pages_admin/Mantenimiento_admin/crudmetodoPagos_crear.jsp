@@ -3,7 +3,6 @@
     Created on : 21/08/2023, 16:10:24
     Author     : Wladimir Campaña
 --%>
-
 <%@page import="Controller.MetodoPagosDao"%>
 <%@page import="Controller.MetodoPagos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -33,7 +32,7 @@
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
         <%break;
             case 1062:%>
-        <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
+        <script>alert("El registro ya existe en la base de datos, intente nuevamente.");
             window.history.back();
         </script>    
         <%break;

@@ -17,9 +17,6 @@
     </head>
     <body>
         <%
-            String informacion = "";
-            String redireccion = "";
-
             if (request.getParameter("editar") != null) {
                 Integer id = Integer.parseInt(request.getParameter("codigo"));
                 String letra = request.getParameter("letra");
@@ -30,11 +27,11 @@
 
                 switch (resultado) {
                     case 1:
-                        informacion = "Registro de Matodo Exitoso.";
-                        redireccion = "../metodoPagos_lista.jsp";%>
+                        String informacion = "Metodo de Pago Modificado Correctamente.";
+                        String redireccion = "../metodoPagos_lista.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
         <%break;
-    case 1062:%>
+            case 1062:%>
         <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
             window.history.back();
         </script>    
