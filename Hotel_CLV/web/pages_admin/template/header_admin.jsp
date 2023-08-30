@@ -178,7 +178,7 @@
                             </li>
                             <% }%>
                             <li>
-                                <a href="#">Inventario de Consumos</a>
+                                <a href="consumos_lista.jsp">Inventario de Consumos</a>
                             </li>
                             <li>
                                 <a href="insumos_lista.jsp">Inventario de Insumos</a>
