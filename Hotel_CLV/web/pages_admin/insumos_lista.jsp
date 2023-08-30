@@ -15,7 +15,7 @@
     function validarFormulario(){
     var codigo = document.getElementById("codigo").value.trim();
     var nombre = document.getElementById("nombre").value.trim();
-    var detalla = document.getElementById("detalle").value.trim();
+    var detalle = document.getElementById("detalle").value.trim();
     var cantidad = document.getElementById("cantidad").value.trim();
     var valor = document.getElementById("valor").value.trim();
     var imagen = document.getElementById("imagen").value.trim();
