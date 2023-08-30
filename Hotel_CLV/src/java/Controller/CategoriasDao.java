@@ -96,11 +96,11 @@ public class CategoriasDao {
         return resultado;
     }
 
-    int modificarCategoria(Integer catId, String catNombre, String catDescripcion) {
+    public int modificarCategoria(Integer catId, String catNombre, String catDescripcion) {
         int resultado = 0;
         try {
-            String sql_modificar = "UPDATE hotel_clv.categorias SET cat_nombre=?,cat_descripcion=? WHERE cat_nombre=?;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql_modificar);
+            String sql_modificar = "UPDATE hotel_clv.categorias SET cat_nombre = ?, cat_descripcion = ? WHERE cat_id =?;";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_modificar);
             pst.setString(1, catNombre);
             pst.setString(2, catDescripcion);
             pst.setInt(3, catId);
@@ -134,8 +134,8 @@ public class CategoriasDao {
     public int eliminarCategoria(Integer id_cate) {
         int resultado = 0;
         try {
-            String sql_eliminar = "DELETE FROM hotel_clv.categorias WHERE cat_nombre=?;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql_eliminar);
+            String sql_eliminar = "DELETE FROM hotel_clv.categorias WHERE cat_id =?;";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_eliminar);
             pst.setInt(1, id_cate);
             int n = pst.executeUpdate();
             if (n > 0) {

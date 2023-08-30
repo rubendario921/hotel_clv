@@ -40,7 +40,7 @@
                             <label>Descripción: </label><input type="text" name="catDescripcion" id="descripcion" class="form-control" placeholder="Ingrese la descripción de la categoria" maxlength="200" autocomplete="true" required/>
                             <br>
                             <a href="categorias_lista.jsp" class="btn btn-danger">Regresar</a>
-                            <input type="submit" value="Registrar" name="nueva_categoria" class=" btn btn-primary"/>
+                            <input type="submit" value="Registrar" name="nueva_categoria" class=" btn btn-success"/>
                         </form>
                     </div>
                 </div>

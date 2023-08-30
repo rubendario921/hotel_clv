@@ -37,7 +37,7 @@
                             <label>Nombre: </label><input type="text" name="nombre" id="nombre" class="form form-control" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
                             <br>
                             <a href="perfil_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Registrar" name="nuevo_perfil" class=" btn btn-primary"/>
+                            <input type="submit" value="Registrar" name="nuevo_perfil" class=" btn btn-success"/>
                         </form>
                     </div>
                 </div>

@@ -37,25 +37,26 @@
 
                 switch (resultado) {
                     case 1:
-                        informacion = "Modificación de Mensaje Exitoso";
-                        redireccion = "../cosumos_editar.jsp";
-                        break;
-                    case 2:
-                        informacion = "El registro  ya existe en la base de datos, intente nuevamente.";
-                        redireccion = "../cosumos_editar.jsp";
-                        break;
-                    case 3:
-                        informacion = "Los campos no puede estar vacios, intente nuevamente.";
-                        redireccion = "../cosumos_editar.jsp";
-                        break;
-                    default:
-                        informacion = "Registro Incorrecto, intente nuevamente.";
-                        redireccion = "../cosumos_editar.jsp";
-                  break;
-          }%>
+                        informacion = "Registro Modificado";
+                        redireccion = "../cosumos_editar.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <%}%>
+        <%break;
+            case 1062:%>
+        <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
+            window.history.back();
+        </script>    
+        <%break;
+            case 1048:%>
+        <script>alert("Los campos no puede estar vacios, intente nuevamente.");
+            window.history.back();
+        </script>              
+        <%break;
+            default:%>
+        <script>alert("Registro Incorrecto, intente nuevamente");
+            window.history.back();
+        </script>             
+        <%break;
+                }
+            }%>
     </body>
-    
-    
 </html>
