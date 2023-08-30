@@ -84,38 +84,36 @@
                                                 <td><%= reserva.getReseFSalida()%></td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Valor a Cancelar: </th>
-                                                <td><%= reserva.getReseVTotal()%></td>
-                                            </tr>
-                                            <tr>
                                                 <th scope="row">Consumos Adicionales: </th>
                                                 <td><%= reserva.getConsuId()%></td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Estade la de la Reserva: </th>
+                                                <th scope="row">Estado la de la Reserva: </th>
                                                 <td><%= reserva.getEstaId()%></td>
                                             </tr>
-                                            <tr>
-                                                <th scope="row">Codigo de Reservacion: </th>
-                                                <td><%= reserva.getReseId()%></td>
-                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
-
-
-                                <% }
-                                    }%>
-
                                 <form action="" method="POST" onsubmit="return validarFormulario()">
                                     <div class="input-group mb-3">
-                                        <span class="input-group-text" id="codigo">Codigo: </span>
-                                        <input type="text"  name="codigo" id="codigo" class="form-control" placeholder="Codigo de la Reserva" aria-label="Codigo de la Reserva" aria-describedby="codigo" readonly="off" required>
+                                        <span class="input-group-text" id="codigo">Codigo Reserva: </span>
+                                        <input type="text"  name="codigo" id="codigo" value="<%= reserva.getReseId()%>" class="form-control" placeholder="Codigo de la Reserva" aria-label="Codigo de la Reserva" aria-describedby="codigo" readonly="off" required>
                                     </div>
-                                    <br>
-                                    <a href="reserva_lista.jsp" class="btn btn-danger">Anular</a>
-                                    <input type="submit" value="Pagar" name="nuevo_pago" class="btn btn-success"/> 
+
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="valorT">Valor a Cancelar: </span>
+                                        <input type="number"  name="valorT" id="valorT" value="<%= reserva.getReseVTotal()%>" class="form-control" placeholder="Codigo de la Reserva" aria-label="Codigo de la Reserva" aria-describedby="codigo" readonly="off" required>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="metodoP">Metodo de Pago: </span>
+
+                                    </div>
+                                    <a href="reserva_lista.jsp" class="btn btn-danger">Regresar</a>
+                                    <input type="submit" value="Pagar" name="nuevo_pago" class="btn btn-warning"/> 
                                 </form>
+                                <% }
+                                    }%>
                             </div>
                         </div>
                     </div>

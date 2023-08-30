@@ -216,4 +216,44 @@ public class ReservasDao {
         return reservas;
     }
 
+    public int anularReserva(Integer reseId) {
+        int resultado = 0;
+        try {
+            String estadoAnular = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'ANUL%'";
+            PreparedStatement pst = con.getConexion().prepareStatement(estadoAnular);
+            ResultSet rsEstado = pst.executeQuery(estadoAnular);
+            while (rsEstado.next()) {
+                Integer estadoNuevo = rsEstado.getInt("esta_id");
+                String sql_anular = "UPDATE hotel_clv.reservas SET estados_esta_id=? WHERE rese_id=?";
+                PreparedStatement pstUpdate = con.getConexion().prepareStatement(sql_anular);
+                pstUpdate.setInt(1, estadoNuevo);
+                pstUpdate.setInt(2, reseId);
+                int n = pstUpdate.executeUpdate();
+                if (n > 0) {
+                    resultado = 1;
+                } else {
+                    resultado = 0;
+                }
+                pstUpdate.close();
+            }
+            rsEstado.close();
+        } catch (SQLException e) {
+            System.out.println("Error en ReservasDao anularReserva: " + e.getMessage());
+            int SQLError = e.getErrorCode();
+            switch (SQLError) {
+                case 1062:
+                    resultado = 1062;
+                    break;
+                case 1048:
+                    resultado = 1048;
+                    break;
+                default:
+                    resultado = SQLError;
+                    break;
+            }
+        } finally {
+        }
+        return resultado;
+    }
+
 }

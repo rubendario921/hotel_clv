@@ -25,19 +25,20 @@
                 String asunto = request.getParameter("asunto");
                 String mensaje = request.getParameter("mensaje");
                 String ciudad = request.getParameter("ciudad");
+                int esta_id = 4;
 
                 FormulariosDao registrarF = new FormulariosDao();
-                int resultado = registrarF.registrarFormu(nombre, correo, telefono, asunto, mensaje, ciudad);
+                int resultado = registrarF.registrarFormu(nombre, correo, telefono, asunto, mensaje, ciudad, esta_id);
 
                 if (resultado == 1) {
                     String informacion = "Registro Exitoso, Nos comunicaremos con Ud. en menos de 24 horas";
                     String redireccion = "../index.jsp";
         %>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script> 
-        <%} else {%>
+        <% } else {%>
         <script>alert("Registro Incorrecto, Intentalo nuevamente.");
             window.history.back(); // Regresa a la página anterior después del inicio de sesión incorrecto</script>
-            <%}
+            <% }
                }%>        
     </body>
 </html>

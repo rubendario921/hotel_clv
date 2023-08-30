@@ -251,7 +251,47 @@ public class HabitacionesDao {
                 String sql_modi_pendiente = "UPDATE hotel_clv.habitaciones SET estados_esta_id=? WHERE habi_id = ?;";
                 PreparedStatement pstUpdate = con.getConexion().prepareStatement(sql_modi_pendiente);
                 pstUpdate.setInt(1, estadoNuevo);
-                pstUpdate.setInt(2,habiId);
+                pstUpdate.setInt(2, habiId);
+                int n = pstUpdate.executeUpdate();
+                if (n > 0) {
+                    resultado = 1;
+                } else {
+                    resultado = 0;
+                }
+                pstUpdate.close();
+            }
+            rsEstado.close();
+        } catch (SQLException e) {
+            System.out.println("Error en HabitacionesDao modiHabi: " + e.getMessage());
+            int SQLError = e.getErrorCode();
+            switch (SQLError) {
+                case 1062:
+                    resultado = 1062;
+                    break;
+                case 1048:
+                    resultado = 1048;
+                    break;
+                default:
+                    resultado = SQLError;
+                    break;
+            }
+        } finally {
+        }
+        return resultado;
+    }
+
+    public int cambioDispoHabi(Integer habiId) {
+        int resultado = 0;
+        try {
+            String estadoDispo = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'DISPO%';";
+            PreparedStatement pst = con.getConexion().prepareStatement(estadoDispo);
+            ResultSet rsEstado = pst.executeQuery(estadoDispo);
+            while (rsEstado.next()) {
+                Integer estadoNuevo = rsEstado.getInt("esta_id");
+                String sql_cambio_disponible = "UPDATE hotel_clv.habitaciones SET estados_esta_id=? WHERE habi_id = ?;";
+                PreparedStatement pstUpdate = con.getConexion().prepareStatement(sql_cambio_disponible);
+                pstUpdate.setInt(1, estadoNuevo);
+                pstUpdate.setInt(2, habiId);
                 int n = pstUpdate.executeUpdate();
                 if (n > 0) {
                     resultado = 1;
