@@ -4,6 +4,8 @@
     Author     : Wladimir Campaña
 --%>
 
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page import="Controller.Insumos"%>
 <%@page import="java.util.*"%>
@@ -11,25 +13,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
-<script>
-    function validarFormulario(){
-    var codigo = document.getElementById("codigo").value.trim();
-    var nombre = document.getElementById("nombre").value.trim();
-    var detalle = document.getElementById("detalle").value.trim();
-    var cantidad = document.getElementById("cantidad").value.trim();
-    var valor = document.getElementById("valor").value.trim();
-    var imagen = document.getElementById("imagen").value.trim();
-    var estados = document.getElementById("estados").value.trim();
-    var accion = document.getElementById("accion").value.trim();
-    if (codigo === "" || nombre === "" || detalle === "" || cantidad === "" || valor === "" || imagen === "" || estados === "" || accion === "" || ) {
-
-    alert("Por favor, complete todos los campos.");
-    return false; // Detener el envío del formulario
-    }
-    return true; // Permitir el envío del formulario si todos los campos están llenos
-    }
-
-</script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -60,23 +43,34 @@
                             </thead>
                             <tbody>
                                 <%
+                                    EstadosDao mostrarEstado = new EstadosDao();
+                                    List<Estados> estados = mostrarEstado.mostrarListaEstaProductos();
+
                                     InsumosDao lista_insumos = new InsumosDao();
                                     List<Insumos> insumos = lista_insumos.mostrarListaInsumos();
-                                    for (Insumos insumo : insumos) {%>
+                                    for (Insumos insumo : insumos) {
+                                        int estadoInsu = insumo.getEstaId();
+                                        String nombreEstado = "";
+                                        for (Estados estado : estados) {
+                                            if (estado.getEstaId()==estadoInsu) {
+                                                nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
+                                                break;
+                                            }
+                                        }%>
                                 <tr>
-                                    <td><%=insumo.getInsuId()%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%></td>
-                                    <td><%=insumo.getInsuCantidad()%></td>
-                                    <td><%=insumo.getInsuValor()%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%></td>
-                                    <td><%=insumo.getEstaId()%></td>
+                                    <td><%= insumo.getInsuId()%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%></td>
+                                    <td><%= insumo.getInsuCantidad()%></td>
+                                    <td><%= insumo.getInsuValor()%></td>                                    
+                                    <td><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%>" height="100" width="100"></td>
+                                    <td><%= nombreEstado%></td>
                                     <td>
                                         <!--Modificar Insumo-->
-                                        <a href="insumos_editar.jsp?editar=true&id=<%=insumo.getInsuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="insumos_editar.jsp?editar=true&id=<%= insumo.getInsuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--Eliminar Insumo-->
                                         <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
-                                        <a href="Mantenimiento_admin/crudinsumos_eliminar.jsp?eliminar=true&id=<%=insumo.getInsuId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar" disable="true"></i></a>
+                                        <a href="Mantenimiento_admin/crudinsumos_eliminar.jsp?eliminar=true&id=<%= insumo.getInsuId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar" disable="true"></i></a>
                                             <% }%>
                                     </td>
                                 </tr>

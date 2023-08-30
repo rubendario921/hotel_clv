@@ -76,17 +76,17 @@ public class InsumosDao {
         return insumo;
     }
 
-    public int crearInsumo(String nombre, String detalle, String cantidad, String valor, String dimg, String esta_id) {
+    public int crearInsumo(String nombre, String detalle, Integer cantidad, BigDecimal valor, String dimg, Integer esta_id) {
         int resultado = 0;
         try {
             String sql = "INSERT INTO hotel_clv.insumos (insu_nombre, insu_detalle,insu_cantidad,insu_valor,insu_dimg,estados_esta_id) VALUES (?,?,?,?,?,?);";
-            PreparedStatement pst = con.getConexion().prepareCall(sql);
+            PreparedStatement pst = con.getConexion().prepareStatement(sql);
             pst.setString(1, nombre);
             pst.setString(2, detalle);
-            pst.setString(3, cantidad);
-            pst.setString(4, valor);
+            pst.setInt(3, cantidad);
+            pst.setBigDecimal(4, valor);
             pst.setString(5, dimg);
-            pst.setString(6, esta_id);
+            pst.setInt(6, esta_id);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;

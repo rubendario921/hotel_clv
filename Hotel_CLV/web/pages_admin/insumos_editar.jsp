@@ -4,9 +4,12 @@
     Author     : Wladimir Campaña
 --%>
 
-<%@page import="org.apache.commons.lang3.StringEscapeUtils"%>
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Insumos"%>
 <%@page import="Controller.InsumosDao"%>
+<%@page import="java.util.*"%>
+<%@page import="org.apache.commons.lang3.StringEscapeUtils"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 
@@ -46,13 +49,13 @@
                                     InsumosDao mostrarI = new InsumosDao();
                                     Insumos insumo = mostrarI.mostrarInsumo(id);
                                     if (insumo != null) {%> 
-                            <label> Codigo: </label><input type="text" value="<%=insumo.getInsuId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
+                            <label> Codigo: </label><input type="text" value="<%=insumo.getInsuId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo" maxlength="2" readonly="false"/>
                             <br>
-                            <label> Nombre: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del insumo"maxlength="50" required/>
+                            <label> Nombre: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del insumo" autocomplete="off" maxlength="50" required/>
                             <br>
                             <label> Detalle: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%>" class="form-control" name="detalle"  placeholder="Ingrese el detalle del insumoo"maxlength="200" required/>
                             <br>
-                            <label> Cantidad: </label><input type="text" value="<%=insumo.getInsuCantidad()%>" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad"maxlength="100" required/>
+                            <label> Cantidad: </label><input type="number" value="<%=insumo.getInsuCantidad()%>" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad" min="1" maxlength="100" required/>
                             <br>
                             <label> Valor: </label><input type="text" value="<%=insumo.getInsuValor()%>" class="form-control" name="valor"  placeholder="Ingrese su valor"maxlength="100" required/>
                             <br>
@@ -60,16 +63,19 @@
                             <br>
                             <% }
                                 }%>
-                            <label>Accion: </label>
+                            <label>Estado: </label>
                             <select name="estados_esta_id" id="estados_esta_id" class="form form-control" required>
                                 <option> </option>
-                                <option value="1">Activo</option>
-                                <option value="2">Inactivo</option>
-                                <option value="3">Disponible</option>
+                                <%
+                                    EstadosDao mostrarEstados = new EstadosDao();
+                                    List<Estados> estados = mostrarEstados.mostrarListaEstaProductos();
+                                    for (Estados estado : estados) {%>
+                                <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></option>                                        
+                                <% }%>
                             </select>
                             <br>
                             <a href="insumos_lista.jsp" class="btn btn-danger">Regresar</a>
-                            <input type="submit" value="Editar" name="editar" class="btn btn-primary"/>
+                            <input type="submit" value="Editar" name="editar" class="btn btn-success"/>
                         </form>
                     </div>
                 </div>            

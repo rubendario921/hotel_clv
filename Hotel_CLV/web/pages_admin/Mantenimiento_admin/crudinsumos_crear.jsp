@@ -4,6 +4,7 @@
     Author     : Wladimir Campaña
 --%>
 
+<%@page import="java.math.BigDecimal"%>
 <%@page import="Controller.InsumosDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,37 +19,39 @@
     </head>
     <body>
         <%
-            String informacion = "";
-            String redireccion = "";
             if (request.getParameter("nuevo_insumo") != null) {
                 String nombre = request.getParameter("nombre");
                 String detalle = request.getParameter("detalle");
-                String cantidad = request.getParameter("cantidad");
-                String valor = request.getParameter("valor");
-                String imagen = request.getParameter("insu_dimg");
-                String estado = request.getParameter("estados_esta_id");
+                Integer cantidad = Integer.parseInt(request.getParameter("cantidad"));
+                String valorStr = request.getParameter("valor");
+                BigDecimal valor = new BigDecimal(valorStr);
+                String imagen = "assets\\img\\user_default.png";
+                Integer estado = Integer.parseInt(request.getParameter("estado"));
 
                 InsumosDao crearI = new InsumosDao();
                 int resultado = crearI.crearInsumo(nombre, detalle, cantidad, valor, imagen, estado);
                 switch (resultado) {
                     case 1:
-                        informacion = "Registro de insumo exitoso";
-                        redireccion = "../insumos_lista.jsp";
-                        break;
-                    case 2:
-                        informacion = "El insumo  ya existe en la base de datos, intente nuevamente.";
-                        redireccion = "../insumos_crear.jsp";
-                        break;
-                    case 3:
-                        informacion = "Los campos no puede estar vacios, intente nuevamente.";
-                        redireccion = "../insumos_crear.jsp";
-                        break;
-                    case 4:
-                        informacion = "Registro Incorrecto, intente nuevamente.";
-                        redireccion = "../insumos_crear.jsp";
-                        break;
-                }%>
-        <script>mostrarMensaje('<%=informacion%>', '<%=redireccion%>');</script>      
-            <%}%>         
+                        String informacion = "Registro Exitoso";
+                        String redireccion = "../insumos_lista.jsp";%>
+        <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
+        <%break;
+            case 1062:%>
+        <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
+            window.history.back();
+        </script>    
+        <%break;
+            case 1048:%>
+        <script>alert("Los campos no puede estar vacios, intente nuevamente.");
+            window.history.back();
+        </script>              
+        <%break;
+            default:%>
+        <script>alert("Registro Incorrecto, intente nuevamente");
+            window.history.back();
+        </script>             
+        <%break;
+                }
+            }%>
     </body>
 </html>
