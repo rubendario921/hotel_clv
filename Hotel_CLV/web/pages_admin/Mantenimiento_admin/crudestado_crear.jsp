@@ -29,7 +29,7 @@
                 switch (resultado) {
                     case 1:
                         String informacion = "Registro de Estado Exitoso.";
-                        String redireccion = "../categorias_lista.jsp";%>
+                        String redireccion = "../estados_lista.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
         <%break;
             case 1062:%>
