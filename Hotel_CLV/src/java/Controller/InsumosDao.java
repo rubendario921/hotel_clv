@@ -76,17 +76,17 @@ public class InsumosDao {
         return insumo;
     }
 
-    public int crearInsumo(String nombre, String detalle, String cantidad, String valor, String dimg, String esta_id) {
+    public int crearInsumo(String nombre, String detalle, Integer cantidad, BigDecimal valor, String dimg, Integer esta_id) {
         int resultado = 0;
         try {
             String sql = "INSERT INTO hotel_clv.insumos (insu_nombre, insu_detalle,insu_cantidad,insu_valor,insu_dimg,estados_esta_id) VALUES (?,?,?,?,?,?);";
-            PreparedStatement pst = con.getConexion().prepareCall(sql);
+            PreparedStatement pst = con.getConexion().prepareStatement(sql);
             pst.setString(1, nombre);
             pst.setString(2, detalle);
-            pst.setString(3, cantidad);
-            pst.setString(4, valor);
+            pst.setInt(3, cantidad);
+            pst.setBigDecimal(4, valor);
             pst.setString(5, dimg);
-            pst.setString(6, esta_id);
+            pst.setInt(6, esta_id);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
@@ -113,15 +113,15 @@ public class InsumosDao {
         return resultado;
     }
 
-    public int modificarInsumo(Integer insu_id, String insu_nombre, String insu_detalle, String insu_cantidad, String insu_valor, String insu_dimg, Integer estados_esta_id) {
+    public int modificarInsumo(Integer insu_id, String insu_nombre, String insu_detalle, Integer insu_cantidad, BigDecimal insu_valor, String insu_dimg, Integer estados_esta_id) {
         int resultado = 0;
         try {
             String sql = "UPDATE hotel_clv.insumos SET insu_nombre=?, insu_detalle=?,insu_cantidad=?,insu_valor=?,insu_dimg=?,estados_esta_id=? WHERE insu_id=? ;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql);
+            PreparedStatement pst = con.getConexion().prepareStatement(sql);
             pst.setString(1, insu_nombre);
             pst.setString(2, insu_detalle);
-            pst.setString(3, insu_cantidad);
-            pst.setString(4, insu_valor);
+            pst.setInt(3, insu_cantidad);
+            pst.setBigDecimal(4, insu_valor);
             pst.setString(5, insu_dimg);
             pst.setInt(6, estados_esta_id);
             pst.setInt(7, insu_id);

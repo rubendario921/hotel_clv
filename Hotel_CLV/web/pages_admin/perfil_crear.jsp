@@ -32,12 +32,12 @@
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudperfil_crear.jsp" method="POST" onsubmit="return validarFormulario();">
-                            <label>Letra: </label><input type="text" name="letra" id="letra" class="form form-control" placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
+                            <label>Letra: </label><input type="text" name="letra" id="letra" class="form form-control" placeholder="Ingrese 2 letras de abreviatura"maxlength="2" autocomplete="off" required/>
                             <br>
-                            <label>Nombre: </label><input type="text" name="nombre" id="nombre" class="form form-control" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
+                            <label>Nombre: </label><input type="text" name="nombre" id="nombre" class="form form-control" placeholder="Ingrese el nombre del perfil" maxlength="20" autocomplete="off" required/>
                             <br>
                             <a href="perfil_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Registrar" name="nuevo_perfil" class=" btn btn-primary"/>
+                            <input type="submit" value="Registrar" name="nuevo_perfil" class=" btn btn-success"/>
                         </form>
                     </div>
                 </div>

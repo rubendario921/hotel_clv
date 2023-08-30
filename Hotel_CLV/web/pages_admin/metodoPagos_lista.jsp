@@ -10,26 +10,12 @@
 <%@page import="java.util.*"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
-<script>
-    function validarFormulario() {
-        // Obtener los valores de los campos
-        var letra = document.getElementById("letra").value.trim();
-        var nombre = document.getElementById("nombre").value.trim();
-
-        // Validar campos obligatorios
-        if (letra === "" || nombre === "") {
-            alert("Por favor, complete todos los campos.");
-            return false; // Detener el envío del formulario
-        }
-        return true; // Permitir el envío del formulario si todos los campos están llenos
-    }
-</script>
 <!--Tabla para mostrar el listado de los perfiles-->
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Método de Pago</h1>
+                <h1 class="page-header">Metodos de Pago</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">                        
                         <table style="width: 100%">

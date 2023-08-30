@@ -4,6 +4,7 @@
     Author     : Wladimir Campaña
 --%>
 
+<%@page import="java.math.BigDecimal"%>
 <%@page import="Controller.InsumosDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,40 +19,41 @@
     </head>
     <body>
         <%
-            String informacion = "";
-            String redireccion = "";
-
             if (request.getParameter("editar") != null) {
                 Integer insu_id = Integer.parseInt(request.getParameter("codigo"));
                 String insu_nombre = request.getParameter("nombre");
                 String insu_detalle = request.getParameter("detalle");
-                String insu_cantidad = request.getParameter("cantidad");
-                String insu_valor = request.getParameter("valor");
+                Integer insu_cantidad = Integer.parseInt(request.getParameter("cantidad"));
+                String valorStr = request.getParameter("valor");
+                BigDecimal insu_valor = new BigDecimal(valorStr);
                 String insu_dimg = request.getParameter("insu_dimg");
-                Integer estados_esta_id = Integer.parseInt(request.getParameter("estados_esta_id"));
+                Integer estados_esta_id = Integer.parseInt(request.getParameter("estados"));
 
-                InsumosDao editarI = new InsumosDao();
-                int resultado = editarI.modificarInsumo(insu_id, insu_nombre, insu_detalle, insu_cantidad, insu_valor, insu_dimg, estados_esta_id);
+                InsumosDao editarIsumo = new InsumosDao();
+                int resultado = editarIsumo.modificarInsumo(insu_id, insu_nombre, insu_detalle, insu_cantidad, insu_valor, insu_dimg, estados_esta_id);
 
                 switch (resultado) {
                     case 1:
-                        informacion = "Modificación de Insumo Exitoso";
-                        redireccion = "../insumos_lista.jsp";
-                        break;
-                    case 2:
-                        informacion = "El registro  ya existe en la base de datos, intente nuevamente.";
-                        redireccion = "../insumos_editar.jsp";
-                        break;
-                    case 3:
-                        informacion = "Los campos no puede estar vacios, intente nuevamente.";
-                        redireccion = "../insumos_editar.jsp";
-                        break;
-                    default:
-                        informacion = "Registro Incorrecto, intente nuevamente.";
-                        redireccion = "../insumos_editar.jsp";
-                        break;
-                }%>
+                        String informacion = "Modificacion Exitosa.";
+                        String redireccion = "../insumos_lista.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <%}%>
+        <%break;
+            case 1062:%>
+        <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
+            window.history.back();
+        </script>    
+        <%break;
+            case 1048:%>
+        <script>alert("Los campos no puede estar vacios, intente nuevamente.");
+            window.history.back();
+        </script>              
+        <%break;
+            default:%>
+        <script>alert("Registro Incorrecto, intente nuevamente");
+            window.history.back();
+        </script>             
+        <%break;
+                }
+            }%>
     </body>
 </html>

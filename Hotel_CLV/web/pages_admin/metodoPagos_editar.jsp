@@ -3,20 +3,22 @@
     Created on : 21/08/2023, 15:55:54
     Author     : Wladimir Campaña
 --%>
-<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
+
 <%@page import="Controller.MetodoPagos"%>
 <%@page import="Controller.MetodoPagosDao"%>
+<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 <script>
     function validarFormulario() {
         // Obtener los valores de los campos
+        var codigo = document.getElementById("codigo").value.trim();
         var letra = document.getElementById("letra").value.trim();
         var nombre = document.getElementById("nombre").value.trim();
 
         // Validar campos obligatorios
-        if (letra === "" || nombre === "") {
+        if (codigo === "" || letra === "" || nombre === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -42,16 +44,16 @@
                                     MetodoPagos metodoPagos = mostrarM.mostrarMetodopagos(id);
                                     if (metodoPagos != null) {%>
 
-                            <label>Codigo: </label><input type="text" value="<%= metodoPagos.getPagoId()%>" class="form-control" name="codigo" maxlength="2" readonly="false"/>
+                            <label>Codigo: </label><input type="text" name="codigo" id="codigo" value="<%= metodoPagos.getPagoId()%>" class="form-control" maxlength="2" readonly="false"/>
                             <br>
-                            <label>Letra: </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(metodoPagos.getPagoLetra())%>" class="form-control" name="letra"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
+                            <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(metodoPagos.getPagoLetra())%>" class="form-control" placeholder="Ingrese 2 letras de abreviatura"maxlength="2" autocomplete="off" required/>
                             <br>
-                            <label>Nombre: </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(metodoPagos.getPagoNombre())%>" class="form-control" name="nombre" placeholder="Ingrese el metodo de pago" maxlength="20" required/>
+                            <label>Nombre: </label><input type="text" name="nombre" id="nombre" value="<%= StringEscapeUtils.escapeHtml4(metodoPagos.getPagoNombre())%>" class="form-control" placeholder="Ingrese el metodo de pago" maxlength="20" autocomplete="off" required/>
                             <br>
                             <% }
                                 }%>
                             <a href="metodoPagos_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Editar" name="editar" class=" btn btn-primary"/>                            
+                            <input type="submit" value="Editar" name="editar" class=" btn btn-success"/>                            
                         </form>                           
                     </div>                    
                 </div>

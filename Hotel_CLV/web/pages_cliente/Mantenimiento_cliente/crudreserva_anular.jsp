@@ -1,10 +1,11 @@
 <%-- 
-    Document   : crudcategorias_editar
-    Created on : 28/08/2023, 15:06:54
-    Author     : Ruben Dario
+    Document   : crudreserva_anular
+    Created on : 29-ago-2023, 17:58:05
+    Author     : Ruben Dario 921
 --%>
 
-<%@page import="Controller.CategoriasDao"%>
+<%@page import="Controller.HabitacionesDao"%>
+<%@page import="Controller.ReservasDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,21 +20,27 @@
     </head>
     <body>
         <%
-            if (request.getParameter("editar") != null) {
-                Integer catId = Integer.parseInt(request.getParameter("codigo"));
-                String catNombre = request.getParameter("nombre");
-                String catDescripcion = request.getParameter("descripcion");
+            if (request.getParameter("anular") != null) {
+                Integer reseId = Integer.parseInt(request.getParameter("id"));
+                Integer habiId = Integer.parseInt(request.getParameter("habiId"));
 
-                CategoriasDao editarCategorias = new CategoriasDao();
-                int resultado = editarCategorias.modificarCategoria(catId, catNombre, catDescripcion);
+                ReservasDao anularRese = new ReservasDao();
+                int resultado = anularRese.anularReserva(reseId);
 
                 switch (resultado) {
                     case 1:
-                        String informacion = "Registro Modificado";
-                        String redireccion = "../categorias_lista.jsp";
+                         HabitacionesDao cambioEstado = new HabitacionesDao();
+                        int cambioDisponible = cambioEstado.cambioDispoHabi(habiId);
+
+                        if (cambioDisponible == 1) {
+                            String observacion = "Cambio de manera exitosa";
+                        }
+                        String informacion = "Reserva Anulada";
+                        String redireccion = "../reserva_lista.jsp";
         %>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <%break;
+        <%
+                break;
             case 1062:%>
         <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
             window.history.back();
@@ -52,4 +59,4 @@
                 }
             }%>
     </body>
-</html>
+</html

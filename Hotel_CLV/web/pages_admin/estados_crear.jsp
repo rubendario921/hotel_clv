@@ -31,10 +31,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Registro Nuevo</h1>
+                <h1 class="page-header">Nuevo Registro</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Estado Nuevo</h3>
+                        <h3>Estado</h3>
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudestado_crear.jsp" method="POST" onsubmit="return validarFormulario()">
@@ -53,7 +53,8 @@
                                 <% }%>
                             </select>                            
                             <br>
-                            
+                            <a href="estados_lista.jsp" class="btn btn-danger">Regresar</a>
+                            <input type="submit" value="Registrar" name="nuevo_estado" class="btn btn-success"/>
                         </form>
                     </div>
                 </div>

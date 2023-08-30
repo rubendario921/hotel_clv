@@ -40,7 +40,8 @@
                                     <th>Fecha Ingreso</th>
                                     <th>Fecha Salida</th>
                                     <th>Valor a Cancelar</th>
-                                    <th>Habitacion</th>                                    
+                                    <th>Habitacion</th>
+                                    <th>Descripcion </th>
                                     <th>Consumo Adicionales</th>
                                     <th>Estado</th>
                                     <th>Accion</th>
@@ -103,12 +104,20 @@
                                     <td><%= reserva.getReseFInicio()%></td>
                                     <td><%= reserva.getReseFSalida()%></td>
                                     <td><%= reserva.getReseVTotal()%></td>
+                                    <td><%= reserva.getHabiId()%></label></td>
                                     <td><%= nombreHabitacion%></td>
                                     <td><%= nombreConsumo%></td>
                                     <td><%= nombreEstado%></td>                                    
                                     <td>
+                                        <%
+                                            if (nombreEstado.equals("PENDIENTE")) {%>                                            
                                         <a href="aceptar_pago.jsp?aceptar=true&id=<%= reserva.getReseId()%>" class="btn btn-primary"><i class="fa fa-tags" title="Aceptar" name="aceptar"></i></a>
-                                        <a href="?eliminar=true&id_cate=<%= reserva.getReseId()%>"class="btn btn-danger"><i class="fa fa-trash" title="Anular" name="anular"></i></a>
+                                            <% }%>
+                                            <%
+                                                if (!nombreEstado.equals("ANULADO")) {%>
+                                        <a href="Mantenimiento_cliente/crudreserva_anular.jsp?anular=true&id=<%= reserva.getReseId()%>&habiId=<%= reserva.getHabiId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Anular" name="anular"></i></a>                                        
+                                            <% }
+                                            %>
                                     </td>
                                 </tr>
                                 <% }%>
