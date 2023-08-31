@@ -62,7 +62,7 @@ public class FormulariosDao {
                 String formuMensaje = rs.getString("formu_mensaje");
                 String formuCiudad = rs.getString("formu_ciudad");
                 Integer estado = rs.getInt("estados_esta_id");
-                formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad,estado);
+                formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad, estado);
             }
             rs.close();
             pst.close();
@@ -74,24 +74,32 @@ public class FormulariosDao {
         return formulario;
     }
 
-    public int registrarFormu(String nombre, String correo, String telefono, String asunto, String mensaje, String ciudad, Integer esta_id) {
+    public int registrarFormu(String nombre, String correo, String telefono, String asunto, String mensaje, String ciudad) {
         int resultado = 0;
         try {
-            String sql = "INSERT INTO hotel_clv.formularios (formu_nombre,formu_correo,formu_telefono,formu_asunto,formu_mensaje,formu_ciudad,estados_esta_id) values (?,?,?,?,?,?,?);";
-            PreparedStatement pst = con.getConexion().prepareCall(sql);
-            pst.setString(1, nombre);
-            pst.setString(2, correo);
-            pst.setString(3, telefono);
-            pst.setString(4, asunto);
-            pst.setString(5, mensaje);
-            pst.setString(6, ciudad);
-            pst.setInt(7, esta_id);
-            int n = pst.executeUpdate();
-            if (n > 0) {
-                resultado = 1;
-            } else {
-                resultado = 0;
+            String sqlEstado = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'PENDI%';";
+            PreparedStatement pst = con.getConexion().prepareStatement(sqlEstado);
+            ResultSet rsEstado = pst.executeQuery(sqlEstado);
+            while (rsEstado.next()) {
+                Integer esta_id = rsEstado.getInt("esta_id");
+                String sql = "INSERT INTO hotel_clv.formularios (formu_nombre,formu_correo,formu_telefono,formu_asunto,formu_mensaje,formu_ciudad,estados_esta_id) values (?,?,?,?,?,?,?);";
+                PreparedStatement pstUpdate = con.getConexion().prepareCall(sql);
+                pstUpdate.setString(1, nombre);
+                pstUpdate.setString(2, correo);
+                pstUpdate.setString(3, telefono);
+                pstUpdate.setString(4, asunto);
+                pstUpdate.setString(5, mensaje);
+                pstUpdate.setString(6, ciudad);
+                pstUpdate.setInt(7, esta_id);
+                int n = pstUpdate.executeUpdate();
+                if (n > 0) {
+                    resultado = 1;
+                } else {
+                    resultado = 0;
+                }
+                pstUpdate.close();
             }
+            rsEstado.close();
         } catch (Exception e) {
             System.out.println("Error al ingresar al formulario: " + e.getMessage());
         } finally {
