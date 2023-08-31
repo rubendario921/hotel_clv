@@ -27,10 +27,10 @@
              String informacion = "Insumo Eliminado";
              String redireccion = "../insumos_lista.jsp";%>     
              <script> mostrarMensaje ('<%= informacion%>', '<%= redireccion%>');</script>
-        <%} else {%>
+        <% } else {%>
         <script>alert("Insumo NO Eliminado, Intentalo nuevamente.");
             window.history.back();</script>
-        <%}%>
+        <% }%>
         <%}%>
     </body>
 </html>

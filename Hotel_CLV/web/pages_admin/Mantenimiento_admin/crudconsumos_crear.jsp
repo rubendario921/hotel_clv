@@ -5,8 +5,9 @@
 --%>
 
 <%@page import="java.math.BigDecimal"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>>
 <%@page import="Controller.ConsumosDao" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,38 +20,39 @@
     </head>
     <body>
         <%
-            String informacion = "";
-            String redireccion = "";
             if (request.getParameter("nuevo_consumo") != null) {
                 String consuNombre = request.getParameter("nombre");
                 String consuDetalle = request.getParameter("detalle");
                 Integer consuCantidad = Integer.parseInt(request.getParameter("cantidad"));
-                BigDecimal consuValor = new BigDecimal(request.getParameter("valor"));
-                String consuImagen = request.getParameter("consu_dimg");
-                Integer estaId = Integer.parseInt(request.getParameter("estados_esta_id"));
+                String valorStr = request.getParameter("valor");
+                BigDecimal consuValor = new BigDecimal(valorStr);
+                String consuImagen = "assets\\img\\user_default.png";
+                Integer estaId = Integer.parseInt(request.getParameter("estado"));
 
                 ConsumosDao crearC = new ConsumosDao();
                 int resultado = crearC.crearConsumo(consuNombre, consuDetalle, consuCantidad, consuValor, consuImagen, estaId);
                 switch (resultado) {
                     case 1:
-                        informacion = "Registro existoso";
-                        redireccion = "../consumos_lista.jsp";
-                        break;
-
-                    case 2:
-                        informacion = "El consumo  ya existe en la base de datos, intente nuevamente.";
-                        redireccion = "../consumos_crear.jsp";
-                        break;
-                    case 3:
-                        informacion = "Los campos no puede estar vacios, intente nuevamente.";
-                        redireccion = "../consumos_crear.jsp";
-                        break;
-                    case 4:
-                        informacion = "Registro Incorrecto, intente nuevamente.";
-                        redireccion = "../consumos_crear.jsp";
-                        break;
-                }%>
-        <script>mostrarMensaje('<%=informacion%>', '<%=redireccion%>');</script>      
-        <% }%>
+                        String informacion = "Registro Exitoso";
+                        String redireccion = "../consumos_lista.jsp";%>
+        <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
+        <%break;
+            case 1062:%>
+        <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
+            window.history.back();
+        </script>    
+        <%break;
+            case 1048:%>
+        <script>alert("Los campos no puede estar vacios, intente nuevamente.");
+            window.history.back();
+        </script>              
+        <%break;
+            default:%>
+        <script>alert("Registro Incorrecto, intente nuevamente");
+            window.history.back();
+        </script>             
+        <%break;
+                }
+            }%>
     </body>
 </html>

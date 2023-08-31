@@ -4,6 +4,8 @@
     Author     : Johns 
 --%>
 
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Consumos"%>
 <%@page import="Controller.FormulariosDao"%>
 <%@page import="Controller.ConsumosDao"%>
@@ -12,26 +14,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
-
-<script>
-    function validarFormulario(){
-    var codigo = document.getElementById("codigo").value.trim();
-    var nombre = document.getElementById("nombre").value.trim();
-    var detalle = document.getElementById("detalle").value.trim();
-    var cantidad = document.getElementById("cantidad").value.trim();
-    var valor = document.getElementById("valor").value.trim();
-    var imagen = document.getElementById("imagen").value.trim();
-    var estados = document.getElementById("estados").value.trim();
-    var accion = document.getElementById("accion").value.trim();
-    if (codigo === "" || nombre === "" || detalle === "" || cantidad === "" || valor === "" || imagen === "" || estados === "" || accion === "" || ) {
-
-    alert("Por favor, complete todos los campos.");
-    return false; // Detener el envío del formulario
-    }
-    return true; // Permitir el envío del formulario si todos los campos están llenos
-    }
-
-</script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -56,14 +38,26 @@
                                     <th>Cantidad</th>
                                     <th>Valor</th>
                                     <th>Imagen</th>
+                                    <th>Estado</th>
                                     <th>Acción</th>                                        
                                 </tr>
                             </thead>
                             <tbody>
                                 <%
+                                    EstadosDao mostrarEstado = new EstadosDao();
+                                    List<Estados> estados = mostrarEstado.mostrarListaEstaProductos();
+
                                     ConsumosDao lista_consumos = new ConsumosDao();
                                     List<Consumos> consumos = lista_consumos.mostrarListaConsumos();
-                                    for (Consumos consumo : consumos) {%>
+                                    for (Consumos consumo : consumos) {
+                                        int estadoConsu = consumo.getEstaId();
+                                        String nombreEstado = "";
+                                        for (Estados estado : estados) {
+                                            if (estado.getEstaId() == estadoConsu) {
+                                                nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
+                                                break;
+                                            }
+                                        }%>
                                 <tr>
                                     <td><%= consumo.getConsuId()%></td>
                                     <td><%=StringEscapeUtils.escapeHtml4(consumo.getConsuNombre())%></td>
@@ -71,7 +65,7 @@
                                     <td><%= consumo.getConsuCantidad()%></td>
                                     <td><%= consumo.getConsuValor()%></td>
                                     <td><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(consumo.getConsuImagen())%>" height="100" width="100"></td>
-                                    <td><%= consumo.getConsuId()%></td>
+                                    <td><%= nombreEstado%></td>
                                     <td>
                                         <!--Modificar Insumo-->
                                         <a href="consumos_editar.jsp?editar=true&id=<%=consumo.getConsuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>

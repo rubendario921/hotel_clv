@@ -70,7 +70,7 @@
                                     EstadosDao mostrarEstados = new EstadosDao();
                                     List<Estados> estados = mostrarEstados.mostrarListaEstaProductos();
                                     for (Estados estado : estados) {%>
-                                <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></option>                                        
+                                <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></option> 
                                 <% }%>
                             </select>
                             <br>

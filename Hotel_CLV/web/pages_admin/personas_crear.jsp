@@ -73,7 +73,7 @@
                             <label>Fecha de Registro: </label><input type="datetime-local" name="fregistro" id="fregistro" class="form-control" required />
                             <br>
                             <a href="menu_admin.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" class=" btn btn-primary" value="Registrar" name="nueva_persona" />
+                            <input type="submit" class=" btn btn-success" value="Registrar" name="nueva_persona" />
                         </form>
                     </div>
                 </div>

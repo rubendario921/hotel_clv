@@ -4,13 +4,15 @@
     Author     : USUARIO
 --%>
 
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Consumos"%>
 <%@page import="Controller.FormulariosDao"%>
 <%@page import="Controller.ConsumosDao"%>
-<%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page import="java.util.*"%>
-<%@include file="template/header_admin.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
+<%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 
 <script>
@@ -65,13 +67,17 @@
                             <label>Acción: </label>
                             <select name="estados_esta_id" id="estados_esta_id" class="form form-control" required>
                                 <option> </option>
-                                <option value="1">Activo</option>
-                                <option value="2">Inactivo</option>
-                                <option value="3">Disponible</option>
+                                <%
+                                    EstadosDao mostrarEstados = new EstadosDao();
+                                    List<Estados> estados = mostrarEstados.mostrarListaEstaProductos();
+                                    for (Estados estado : estados) {%>
+                                    <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></option>
+                                <% }
+                                %>
                             </select>
                             <br>
                             <a href="consumos_lista.jsp" class="btn btn-danger">Regresar</a>
-                            <input type="submit" value="Editar" name="editar" class="btn btn-primary"/>
+                            <input type="submit" value="Editar" name="editar" class="btn btn-warning"/>
                         </form>
                     </div>
                 </div>

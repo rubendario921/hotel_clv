@@ -4,11 +4,12 @@
     Author     : Wladimir Campaña
 --%>
 
-<%@page import="org.apache.commons.lang3.StringEscapeUtils"%>
+
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="org.apache.commons.lang3.StringEscapeUtils"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 <script>
@@ -46,7 +47,7 @@
                             <label> Cantidad: </label><input type="number" name="cantidad" id="cantidad" class="form-control" placeholder="Ingrese la cantidad del insumo. " min="1" maxlength="20" autocomplete="off" required/>
                             <label> Valor: </label><input type="number" name="valor" id="valor" class="form-control" placeholder="Ingrese el valor del insumo. " step="000.01" autocomplete="off" required/>
                             <label> Estado: </label>
-                            <select name="estado" id="estado" class="form form-control" required>                                
+                            <select name="estado" id="estado" class="form form-control" required>
                                 <option></option>
                                 <%
                                     EstadosDao mostrarEstados = new EstadosDao();
