@@ -130,11 +130,9 @@
         var correo = document.getElementById("correo").value.trim();
         var usuario = document.getElementById("usuario").value.trim();
         var clave = document.getElementById("clave").value.trim();
-        var fregistro = document.getElementById("fregistro").value.trim();
-
 
         // Validar campos obligatorios
-        if (nombres === "" || apellidos === "" || cedula === "" || usuario === "" || telefono === "" || correo === "" || clave === "" || fregistro === "") {
+        if (nombres === "" || apellidos === "" || cedula === "" || usuario === "" || telefono === "" || correo === "" || clave === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -159,10 +157,6 @@
                     <h3>Usuario Nuevo</h3>
                 </div>
                 <form action="Mantenimiento/crudcliente_crear.jsp" method="POST" onsubmit="return validarFormulario();">
-                    <div class="form-group">
-                        <label for="fregistro" class="label-text">Fecha de Registro</label>
-                        <input type="datetime-local" id="fregistro" name="fregistro" class="form-control" required autocomplete="true">
-                    </div>
                     <div class="form-group">
                         <label for="nombre" class="label-text">Nombres Completos</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ingrese sus dos nombres" class="form-control"   maxlength="200" autocomplete="true" required>

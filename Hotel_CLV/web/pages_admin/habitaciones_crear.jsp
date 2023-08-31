@@ -23,7 +23,7 @@
         var descripcion = document.getElementById("descripcion").value.trim();
         var valor = document.getElementById("valor").value.trim();
         var insumo = document.getElementById("insumo").value.trim();
-        var estado = document.getElementById("insumo").value.trim();
+        var estado = document.getElementById("estado").value.trim();
 
         // Validar campos obligatorios
         if (nombre === "" || tipo === "" || piso === "" || departamento === "" || descripcion === "" || valor === "" || insumo === "" || estado === "") {
@@ -49,7 +49,7 @@
                             <label>Piso </label><input type="number" class="form-control" name="piso" placeholder="Ingrese el piso donde se encuentra la habitación" maxlength="2" min="1" required/>
                             <label>Departamento: </label><input type="number" class="form-control" name="departamento" placeholder="Ingrese el número de la habitación" maxlength="3" min="1" required/>
                             <label>Descripción: </label><input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripción de la habitación" maxlength="500" required/>
-                            <label>Valor: </label><input type="number" class="form-control" name="valor" placeholder="Ingrese el valor" step="000.01" min="000.00" required/>
+                            <label>Valor: </label><input type="number" class="form-control" name="valor" placeholder="Ingrese el valor" step="0.01" min="0" required/>
                             <label>Insumo: </label>
                             <select name="insumo" id="insumo" class="form form-control" required>
                                 <%
@@ -73,7 +73,7 @@
                             </select>                           
                             <br>
                             <a href="habitaciones_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Registrar" name="nueva_habitacion" class=" btn btn-primary"/>
+                            <input type="submit" value="Registrar" name="nueva_habitacion" class=" btn btn-success"/>
                         </form>                           
                     </div>
                 </div>

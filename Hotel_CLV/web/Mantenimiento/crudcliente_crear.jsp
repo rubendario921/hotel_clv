@@ -19,8 +19,6 @@
     </head>
     <body>
         <%
-            String informacion = "";
-            String redireccion = "";
             if (request.getParameter("nuevo_cliente") != null) {
                 String perNombres = request.getParameter("nombre");
                 String perApellidos = request.getParameter("apellido");
@@ -29,10 +27,9 @@
                 String perCorreo = request.getParameter("correo");
                 String perUsuario = request.getParameter("usuario");
                 String perClave = request.getParameter("clave");
-                String perImagen = "assets\\img\\user_default.png";                
-                String fregistroString  = request.getParameter("fregistro");
-                LocalDateTime perFRegistro = LocalDateTime.parse(fregistroString.replace(" ", " "));
-                
+                String perImagen = "assets\\img\\user_default.png";
+                LocalDateTime perFRegistro = LocalDateTime.now();
+
                 Integer perfilId = 4;
                 Integer estaId = 1;
 
@@ -40,8 +37,8 @@
                 int resultado = crearP.crearPersona(perNombres, perApellidos, perCedula, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId, estaId);
                 switch (resultado) {
                     case 1:
-                        informacion = "Registro de Perfil Exitoso.";
-                        redireccion = "../login_cliente.jsp";
+                        String informacion = "Registro de Perfil Exitoso.";
+                        String redireccion = "../login_cliente.jsp";
                         break;
 
                     case 1062:

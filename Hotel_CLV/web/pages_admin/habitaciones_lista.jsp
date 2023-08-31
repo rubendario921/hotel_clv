@@ -5,11 +5,11 @@
 --%>
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
-<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@page import="Controller.Habitaciones"%>
 <%@page import="Controller.HabitacionesDao"%>
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 <div id="page-wrapper">

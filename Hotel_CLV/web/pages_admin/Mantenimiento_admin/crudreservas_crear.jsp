@@ -24,8 +24,6 @@
             if (request.getParameter("nueva_reserva") != null) {
                 Integer numDias = Integer.parseInt(request.getParameter("numDias"));
                 LocalDateTime reseFReserva = LocalDateTime.now();
-//String reseFReservaString = request.getParameter("fReserva");
-                //LocalDateTime reseFReserva = LocalDateTime.parse(reseFReservaString.replace(" ", " "));
                 String reseFInicioString = request.getParameter("fInicio");
                 LocalDateTime reseFInicio = LocalDateTime.parse(reseFInicioString.replace(" ", " "));
                 String reseFSalidaString = request.getParameter("fSalida");
