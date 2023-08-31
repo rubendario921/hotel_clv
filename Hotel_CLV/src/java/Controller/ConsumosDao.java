@@ -71,7 +71,7 @@ public class ConsumosDao {
         return consumo;
     }
 
-    public int crearConsumo(Integer consuId, String consuNombre, String consuDetalle, Integer consuCantidad, BigDecimal consuValor, String consuImagen, Integer estaId) {
+    public int crearConsumo(String consuNombre, String consuDetalle, Integer consuCantidad, BigDecimal consuValor, String consuImagen, Integer estaId) {
         int resultado = 0;
         try {
             String sql_crear = "INSERT INTO hotel_clv.consumos (consu_nombre,consu_detalle,consu_cantidad,consu_valor,consu_dimg,estados_esta_id) VALUES (?,?,?,?,?,?); ";
@@ -149,7 +149,7 @@ public class ConsumosDao {
     public int eliminarConsu(Integer consuId) {
         int resultado = 0;
         try {
-            String sql_eliminar = "DELETE FROM hotel_clv.consumos WHERE consu_id=?; ";
+            String sql_eliminar = "DELETE FROM hotel_clv.consumos WHERE consu_id=?;";
             PreparedStatement pst = con.getConexion().prepareCall(sql_eliminar);
             pst.setInt(1, consuId);
             int n = pst.executeUpdate();
@@ -158,7 +158,7 @@ public class ConsumosDao {
             } else {
                 resultado = 0;
             }
-
+            pst.close();
         } catch (SQLException e) {
             System.out.println("Error en ConsumosDao eliminarConsu: " + e.getMessage());
         } finally {

@@ -10,27 +10,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script tytype="text/javascript">
-            function mostrarMensaje(informacion, redireccion){
+        <script type="text/javascript">
+            function mostrarMensaje(informacion, redireccion) {
                 alert(informacion);
-                windown.location.href = redireccion;
+                window.location.href = redireccion;
             }
         </script>
     </head>
     <body>
-        
-     <% if (request.getParameter("eliminar") != null && request.getParameter("eliminar").equals("true")){
-         int id = Integer.parseInt(request.getParameter("id"));
-         ConsumosDao eliminarC = new ConsumosDao();
-         int resultado = eliminarC.eliminarConsu(id);
-         if (resultado ==1){
-             String informacion = "Consumo Eliminado";
-             String redireccion = "../consumos_lista.jsp";%>     
-             <script> mostrarMensaje ('<%= informacion%>', '<%= redireccion%>');</script>
-        <%} else {%>
-        <script>alert("Mensaje NO Eliminado, Intentalo nuevamente.");
+        <% if (request.getParameter("eliminar") != null && request.getParameter("eliminar").equals("true")) {
+                int id = Integer.parseInt(request.getParameter("id"));
+                ConsumosDao eliminarC = new ConsumosDao();
+                int resultado = eliminarC.eliminarConsu(id);
+                if (resultado == 1) {
+                    String informacion = "Consumo Eliminado";
+                    String redireccion = "../consumos_lista.jsp";
+        %>     
+        <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
+        <% } else {%>
+        <script>alert("Registro NO Eliminado, Intentalo nuevamente.");
             window.history.back();</script>
-        <%}%>
-        <%}%>
+            <% }
+                }%>
     </body>
 </html>

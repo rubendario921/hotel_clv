@@ -19,27 +19,25 @@
     </head>
     <body>
         <%
-        String informacion = "";
+            String informacion = "";
             String redireccion = "";
-            if (request.getParameter("Nuevo Consumo") != null) {
-                Integer consuId = Integer.parseInt(request.getParameter("id"));
+            if (request.getParameter("nuevo_consumo") != null) {
                 String consuNombre = request.getParameter("nombre");
-                String consuDetalle = request.getParameter("correo");
+                String consuDetalle = request.getParameter("detalle");
                 Integer consuCantidad = Integer.parseInt(request.getParameter("cantidad"));
                 BigDecimal consuValor = new BigDecimal(request.getParameter("valor"));
-                String consuImagen = request.getParameter("imagen");
+                String consuImagen = request.getParameter("consu_dimg");
                 Integer estaId = Integer.parseInt(request.getParameter("estados_esta_id"));
 
-            
-            ConsumosDao crearC = new ConsumosDao();
-            int resultado = crearC.crearConsumo(consuId, consuNombre, consuDetalle, consuCantidad, consuValor, consuImagen, estaId);
-            switch (resultado){
-                case 1:
-                    informacion = "Registro existoso";
-                    redireccion = "../consumos_lista.jsp";
-                    break;
-                    
-                case 2:
+                ConsumosDao crearC = new ConsumosDao();
+                int resultado = crearC.crearConsumo(consuNombre, consuDetalle, consuCantidad, consuValor, consuImagen, estaId);
+                switch (resultado) {
+                    case 1:
+                        informacion = "Registro existoso";
+                        redireccion = "../consumos_lista.jsp";
+                        break;
+
+                    case 2:
                         informacion = "El consumo  ya existe en la base de datos, intente nuevamente.";
                         redireccion = "../consumos_crear.jsp";
                         break;
@@ -50,10 +48,9 @@
                     case 4:
                         informacion = "Registro Incorrecto, intente nuevamente.";
                         redireccion = "../consumos_crear.jsp";
-                     break;
-            }%>
+                        break;
+                }%>
         <script>mostrarMensaje('<%=informacion%>', '<%=redireccion%>');</script>      
-        <%}%> 
-        
+        <% }%>
     </body>
 </html>

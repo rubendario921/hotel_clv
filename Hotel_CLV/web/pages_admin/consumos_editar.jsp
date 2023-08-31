@@ -48,17 +48,17 @@
                                     ConsumosDao mostrarC = new ConsumosDao();
                                     Consumos consumo = mostrarC.mostrarConsumo(id);
                                     if (consumo != null) {%> 
-                            <label> Codigo: </label><input type="text" value="<%=consumo.getConsuId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
+                            <label> Codigo: </label><input type="text" value="<%= consumo.getConsuId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
                             <br>
-                            <label> Nombre: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(consumo.getConsuNombre())%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del consumo"maxlength="50" required/>
+                            <label> Nombre: </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(consumo.getConsuNombre())%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del consumo"maxlength="50" required/>
                             <br>
-                            <label> Detalle: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(consumo.getConsuDetalle())%>" class="form-control" name="detalle"  placeholder="Ingrese el detalle del consumo"maxlength="200" required/>
+                            <label> Detalle: </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(consumo.getConsuDetalle())%>" class="form-control" name="detalle"  placeholder="Ingrese el detalle del consumo"maxlength="200" required/>
                             <br>
-                            <label> Cantidad: </label><input type="text" value="<%=consumo.getConsuCantidad() %>" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad"maxlength="100" required/>
+                            <label> Cantidad: </label><input type="text" value="<%= consumo.getConsuCantidad()%>" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad"maxlength="100" required/>
                             <br>
                             <label> Valor: </label><input type="text" value="<%= consumo.getConsuValor()%>" class="form-control" name="valor"  placeholder="Ingrese su valor"maxlength="100" required/>
                             <br>
-                            <label> Imagen: </label><input type="text" value="<%=StringEscapeUtils.escapeHtml4(consumo.getConsuImagen())%>" class="form-control" name="consu_dimg"  placeholder="Ingrese imagen"maxlength="20" required/>
+                            <label> Imagen: </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(consumo.getConsuImagen())%>" class="form-control" name="consu_dimg"  placeholder="Ingrese imagen"maxlength="20" required/>
                             <br>
                             <% }
                                 }%>
@@ -74,8 +74,9 @@
                             <input type="submit" value="Editar" name="editar" class="btn btn-primary"/>
                         </form>
                     </div>
-                </div>            
-            </div>        
-        </div>    
+                </div>
+            </div>
+        </div>
     </div>
-
+</div>
+<%@include file="template/footer_admin.jsp" %>

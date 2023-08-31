@@ -20,7 +20,7 @@
 
         //Validar campos obligatorios
 
-        if (nombre === " " || detalle === ""|| cantidad === ""|| valor === ""|| consu_dimg === ""|| estados_esta_id === "") {
+        if (nombre === " " || detalle === "" || cantidad === "" || valor === "" || consu_dimg === "" || estados_esta_id === "") {
             alert("Por favor, completar todos los campos.");
             return false;
         }
@@ -57,5 +57,3 @@
 </div>
 <!--Fin del Cuerpo -->
 <%@include file="template/footer_admin.jsp" %>
-</div>
-
