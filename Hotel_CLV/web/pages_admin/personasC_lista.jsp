@@ -34,7 +34,7 @@
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>Cédula</th>
-                                    <th>Telefono</th>
+                                    <th>Teléfono</th>
                                     <th>Correo</th>                                    
                                     <th>Estado</th>
                                     <th>Acciones</th>

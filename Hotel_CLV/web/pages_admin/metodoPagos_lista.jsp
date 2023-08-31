@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Metodos de Pago</h1>
+                <h1 class="page-header">Métodos de Pago</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">                        
                         <table style="width: 100%">

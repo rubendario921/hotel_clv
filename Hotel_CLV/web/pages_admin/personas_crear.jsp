@@ -53,11 +53,11 @@
                         <form action="Mantenimiento_admin/crudpersonas_crear.jsp" method="POST" onsubmit="return validarFormulario();" >
                             <label>Nombres Completos: </label><input type="text" name="nombres" id="nombres" class="form-control" placeholder="Ingrese sus dos nombres" maxlength="100" autocomplete="true" required /><br>
                             <label>Apellidos Completos: </label><input type="text" name="apellidos" id="apellidos" class="form-control" placeholder="Ingrese sus dos apellidos" maxlength="100" autocomplete="true" required /><br>
-                            <label>Cedula de Identidad: </label><input type="text" name="cedula" id="cedula" class="form-control" placeholder="Ingrese sus cedula de identidad" maxlength="13"  autocomplete="true" required /><br>
-                            <label>Telefono: </label><input type="text" name="telefono" id="telefono" class="form-control" placeholder="Ingrese su numero de telefono" maxlength="10" autocomplete="true" required /><br>
-                            <label>Correo Electronico: </label><input type="email" name="correo" id="correo" class="form-control"  placeholder="Ingrese su correo electronico" maxlength="100" autocomplete="true" required /><br>
+                            <label>Cedula de Identidad: </label><input type="text" name="cedula" id="cedula" class="form-control" placeholder="Ingrese su número de cédula de identidad" maxlength="13"  autocomplete="true" required /><br>
+                            <label>Teléfono: </label><input type="text" name="telefono" id="telefono" class="form-control" placeholder="Ingrese su número de teléfono" maxlength="10" autocomplete="true" required /><br>
+                            <label>Correo Electrónico: </label><input type="email" name="correo" id="correo" class="form-control"  placeholder="Ingrese su correo electrónico" maxlength="100" autocomplete="true" required /><br>
                             <label>Usuario: </label><input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingrese un usuario para el sistema" maxlength="20" autocomplete="true" required /><br>
-                            <label>Contraseña: </label><input type="password" name="clave" id="clave" class="form-control"  placeholder="De 8 a 16 digitos, Mayusculas, Minusculas y Numeros" maxlength="16" autocomplete="true" required /><br>
+                            <label>Contraseña: </label><input type="password" name="clave" id="clave" class="form-control"  placeholder="De 8 a 16 dígitos, Mayúsculas, Minúsculas y Números" maxlength="16" autocomplete="true" required /><br>
                             <label>Perfil: </label>
                             <select name="perfil" id="perfil" class="form-control" required>
                                 <option> </option>

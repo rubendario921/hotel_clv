@@ -42,7 +42,7 @@
                             <br>
                             <label>Descripción: </label><input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Ingrese el nombre del perfil" maxlength="20" autocomplete="true" required/>
                             <br>
-                            <label>Categoria: </label>
+                            <label>Categoría: </label>
                             <select name="categoria" id="categoria" class="form form-control" required>
                                 <option> </option>
                                 <%

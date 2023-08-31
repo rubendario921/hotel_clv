@@ -52,7 +52,7 @@
                                     <table class='table table-responsive'>
                                         <thead>
                                             <tr>                                                                                                 
-                                                <th colspan="2">Informacion de la Habitacion</th>
+                                                <th colspan="2">Informacion de la Habitación</th>
                                             </tr>                                            
                                         </thead>
                                         <tbody>

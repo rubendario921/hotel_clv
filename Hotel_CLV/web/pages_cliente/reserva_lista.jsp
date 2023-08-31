@@ -34,17 +34,17 @@
                         <table class="table table-responsive">
                             <thead>
                                 <tr>
-                                    <th>Codigo</th>
-                                    <th>Dias</th>
+                                    <th>Código</th>
+                                    <th>Días</th>
                                     <th>Fecha Registro</th>
                                     <th>Fecha Ingreso</th>
                                     <th>Fecha Salida</th>
                                     <th>Valor a Cancelar</th>
-                                    <th>Habitacion</th>
-                                    <th>Descripcion </th>
+                                    <th>Habitación</th>
+                                    <th>Descripción </th>
                                     <th>Consumo Adicionales</th>
                                     <th>Estado</th>
-                                    <th>Accion</th>
+                                    <th>Acción</th>
                                 </tr>
                             </thead>
                             <tbody>

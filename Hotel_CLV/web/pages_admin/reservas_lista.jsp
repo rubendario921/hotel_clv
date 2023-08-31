@@ -38,12 +38,12 @@
                             <thead>
                                 <tr>
                                     <th>Código</th>
-                                    <th>Dias</th>
+                                    <th>Días</th>
                                     <th>Fecha Reserva</th>
                                     <th>Fecha Ingreso</th>
                                     <th>Fecha Salida</th>
                                     <th>Valor Total</th>                                    
-                                    <th>Habitacion</th>
+                                    <th>Habitación</th>
                                     <th>Estado</th>
                                     <th>Cliente</th>
                                     <th>Consumos</th>                                    

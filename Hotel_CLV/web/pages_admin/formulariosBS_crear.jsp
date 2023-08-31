@@ -42,7 +42,7 @@
                         <form action="Mantenimiento_admin/crudformulariosBS_crear.jsp" method="POST"onsubmit="return validarFormulario();">
                             <label> Nombre: </label><input type="text" class="form-control" name="nombre"  placeholder="Ingrese su nombre. " maxlength="50" autocomplete="off" required />
                             <label> Correo: </label><input type="text" class="form-control" name="correo"  placeholder="Ingrese su email. " maxlength="50" autocomplete="off" required/>
-                            <label> Telefono: </label><input type="text" class="form-control" name="telefono"  placeholder="Ingrese su numero de telefono." maxlength="10" autocomplete="false" required/>
+                            <label> Teléfono: </label><input type="text" class="form-control" name="telefono"  placeholder="Ingrese su número de teléfono." maxlength="10" autocomplete="false" required/>
                             <label> Asunto: </label><input type="text" class="form-control" name="asunto"  placeholder="Ingrese su asunto. " maxlength="25" autocomplete="off" required/>
                             <label> Mensaje: </label><input type="text" class="form-control" name="mensaje"  placeholder="Ingrese su mensaje." maxlength="800" autocomplete="off" required/>
                             <label> Ciudad: </label><input type="text" class="form-control" name="ciudad"  placeholder="Ingrese nombre de la Ciudad." maxlength="50" autocomplete="off" required/>

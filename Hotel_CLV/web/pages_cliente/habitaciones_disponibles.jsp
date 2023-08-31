@@ -31,16 +31,16 @@
                         <table class="table table-responsive">
                             <thead>
                                 <tr>
-                                    <th>Codigo</th>
+                                    <th>Código</th>
                                     <th>Nombre</th>
                                     <th>Tipo</th>
                                     <th>Piso</th>
                                     <th>Departamento</th>
-                                    <th>Descripcion</th>
+                                    <th>Descripción</th>
                                     <th>Valor Diario</th>
                                     <th>Estado</th>
                                     <th>Imagen</th>
-                                    <th>Accion</th>
+                                    <th>Acción</th>
                                 </tr>
                             </thead>
                             <tbody>

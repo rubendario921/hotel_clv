@@ -52,7 +52,7 @@
                             <!-- <label>Fecha de Reserva: </label><input type="datetime-local" name="fReserva" id="fReserva" class="form-control" required /><br>-->
                             <label>Fecha de Ingreso: </label><input type="datetime-local" name="fInicio" id="fInicio" class="form-control" required /><br>
                             <label>Fecha de Salida: </label><input type="datetime-local" name="fSalida" id="fSalida" class="form-control" required /><br>
-                            <label>Habitacion: </label>
+                            <label>Habitación: </label>
                             <select name="habitacion" class="form form-control" required>
                                 <%
                                     HabitacionesDao mostrarHabi = new HabitacionesDao();

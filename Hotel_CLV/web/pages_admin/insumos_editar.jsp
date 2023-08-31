@@ -49,11 +49,11 @@
                                     InsumosDao mostrarI = new InsumosDao();
                                     Insumos insumo = mostrarI.mostrarInsumo(id);
                                     if (insumo != null) {%> 
-                            <label> Codigo: </label><input type="text"  name="codigo" id="codigo" value="<%=insumo.getInsuId()%>" class="form-control" placeholder="Ingrese 00 el codigo" maxlength="2" readonly="false"/>
+                            <label> Código: </label><input type="text"  name="codigo" id="codigo" value="<%=insumo.getInsuId()%>" class="form-control" placeholder="Ingrese 00 el codigo" maxlength="2" readonly="false"/>
                             <br>
                             <label> Nombre: </label><input type="text" name="nombre" id="nombre" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%>" class="form-control"  placeholder="Ingrese el nombre del insumo" autocomplete="off" maxlength="50" required/>
                             <br>
-                            <label> Detalle: </label><input type="text"name="detalle" id="detalle"  value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%>" class="form-control" placeholder="Ingrese el detalle del insumoo"maxlength="200" required/>
+                            <label> Detalle: </label><input type="text"name="detalle" id="detalle"  value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%>" class="form-control" placeholder="Ingrese el detalle del insumo"maxlength="200" required/>
                             <br>
                             <label> Cantidad: </label><input type="number" name="cantidad" id="cantidad" value="<%=insumo.getInsuCantidad()%>" class="form-control" placeholder="Ingrese la cantidad" min="1" maxlength="100" required/>
                             <br>

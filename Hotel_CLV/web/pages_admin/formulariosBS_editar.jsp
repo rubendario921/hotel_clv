@@ -46,13 +46,13 @@
                                     FormulariosDao mostrarF = new FormulariosDao();
                                     Formularios formulario = mostrarF.mostrarFormu(id);
                                     if (formulario != null) {%>
-                            <label>Codigo: </label><input type="text" name="codigo" id="codigo" value="<%= formulario.getFormuId()%>" class="form form-control"  maxlength="2" readonly="false"/>
+                            <label>Código: </label><input type="text" name="codigo" id="codigo" value="<%= formulario.getFormuId()%>" class="form form-control"  maxlength="2" readonly="false"/>
                             <br>
                             <label>Nombre: </label><input type="text" name="nombre" id="nombre" value="<%= StringEscapeUtils.escapeHtml4(formulario.getFormuNombre())%>" class="form form-control"  maxlength="20" readonly="false"/>
                             <br>
                             <label>Correo: </label><input type="text" name="correo" id="correo" value="<%= StringEscapeUtils.escapeHtml4(formulario.getFormuCorreo())%>" class="form form-control"  maxlength="25" readonly="false"/>
                             <br>
-                            <label>Telefono: </label><input type="text" name="telefono" id="telefono" value="<%= StringEscapeUtils.escapeHtml4(formulario.getFormuTelefono())%>" class="form form-control"  maxlength="15" readonly="false"/>
+                            <label>Teléfono: </label><input type="text" name="telefono" id="telefono" value="<%= StringEscapeUtils.escapeHtml4(formulario.getFormuTelefono())%>" class="form form-control"  maxlength="15" readonly="false"/>
                             <br>
                             <label>Asunto: </label><input type="text" name="asunto" id="asunto" value="<%= StringEscapeUtils.escapeHtml4(formulario.getFormuAsunto())%>" class="form form-control"  maxlength="100" readonly="false"/>
                             <br>
@@ -63,7 +63,7 @@
 
                             <% }
                                 }%>
-                            <label>Accion: </label>
+                            <label>Acción: </label>
                             <select name="estados_esta_id" id="estados_esta_id" class="form form-control" required>
                                 <option> </option>
                                 <option value="1">Recepción</option>

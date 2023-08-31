@@ -50,13 +50,13 @@
                         <table class="table table">
                             <thead>
                                 <tr>
-                                    <th>Codigo</th>
+                                    <th>Código</th>
                                     <th>Nombre</th>
                                     <th>Detalle</th>
                                     <th>Cantidad</th>
                                     <th>Valor</th>
                                     <th>Imagen</th>
-                                    <th>Accion</th>                                        
+                                    <th>Acción</th>                                        
                                 </tr>
                             </thead>
                             <tbody>
@@ -70,7 +70,7 @@
                                     <td><%=StringEscapeUtils.escapeHtml4(consumo.getConsuDetalle())%></td>
                                     <td><%= consumo.getConsuCantidad()%></td>
                                     <td><%= consumo.getConsuValor()%></td>
-                                    <td><%=StringEscapeUtils.escapeHtml4(consumo.getConsuImagen())%></td>
+                                    <td><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(consumo.getConsuImagen())%>" height="100" width="100"></td>
                                     <td><%= consumo.getConsuId()%></td>
                                     <td>
                                         <!--Modificar Insumo-->

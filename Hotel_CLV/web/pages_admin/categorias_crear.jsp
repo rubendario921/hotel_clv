@@ -1,5 +1,5 @@
 <%-- 
-    Document   : categorias_crear
+    Document   : categorías_crear
     Created on : 28/08/2023, 13:43:46
     Author     : Ruben Dario
 --%>
@@ -28,16 +28,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Categoria</h1>
+                <h1 class="page-header">Categoría</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3>Registro Nuevo</h3>
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudcategorias_crear.jsp" method="POST" onsubmit="return  validarFormulario()">
-                            <label>Nombre: </label><input type="text" name="catNombre" id="nombre" class="form-control" placeholder="Ingrese el nombre de la categoria" maxlength="30" autocomplete="true" required/>
+                            <label>Nombre: </label><input type="text" name="catNombre" id="nombre" class="form-control" placeholder="Ingrese el nombre de la categoría" maxlength="30" autocomplete="true" required/>
                             <br>
-                            <label>Descripción: </label><input type="text" name="catDescripcion" id="descripcion" class="form-control" placeholder="Ingrese la descripción de la categoria" maxlength="200" autocomplete="true" required/>
+                            <label>Descripción: </label><input type="text" name="catDescripcion" id="descripcion" class="form-control" placeholder="Ingrese la descripción de la categoría" maxlength="200" autocomplete="true" required/>
                             <br>
                             <a href="categorias_lista.jsp" class="btn btn-danger">Regresar</a>
                             <input type="submit" value="Registrar" name="nueva_categoria" class=" btn btn-success"/>

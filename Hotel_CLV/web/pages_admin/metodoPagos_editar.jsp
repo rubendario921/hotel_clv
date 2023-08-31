@@ -44,7 +44,7 @@
                                     MetodoPagos metodoPagos = mostrarM.mostrarMetodopagos(id);
                                     if (metodoPagos != null) {%>
 
-                            <label>Codigo: </label><input type="text" name="codigo" id="codigo" value="<%= metodoPagos.getPagoId()%>" class="form-control" maxlength="2" readonly="false"/>
+                            <label>Código: </label><input type="text" name="codigo" id="codigo" value="<%= metodoPagos.getPagoId()%>" class="form-control" maxlength="2" readonly="false"/>
                             <br>
                             <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(metodoPagos.getPagoLetra())%>" class="form-control" placeholder="Ingrese 2 letras de abreviatura"maxlength="2" autocomplete="off" required/>
                             <br>

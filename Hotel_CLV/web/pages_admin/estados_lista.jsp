@@ -33,11 +33,11 @@
                         <table class="table table"> 
                             <thead>
                                 <tr>
-                                    <th>Codigo</th>
+                                    <th>Código</th>
                                     <th>Letra</th>
-                                    <th>Descripcion</th>
-                                    <th>Categoria</th>
-                                    <th>Accion</th>
+                                    <th>Descripción</th>
+                                    <th>Categoría</th>
+                                    <th>Acción</th>
                                 </tr>
                             </thead>
                             <tbody>

@@ -29,12 +29,12 @@
                 <h1 class="page-header">Registro Nuevo</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Metodo de Pago Nuevo</h3>
+                        <h3>Método de Pago Nuevo</h3>
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudmetodoPagos_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                             <label>Letra: </label><input type="text" name="letra" id="letra" class="form-control" placeholder="Ingrese 2 letras de abreviatura" maxlength="2" autocomplete="off" required />
-                            <label>Nombre: </label><input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el metodo de pago" maxlength="20" autocomplete="off" required/>
+                            <label>Nombre: </label><input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el método de pago" maxlength="20" autocomplete="off" required/>
                             <br>
                             <a href="metodoPagos_lista.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" value="Registrar" name="nuevo_metodo" class=" btn btn-success"/>

@@ -15,12 +15,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Categorias del Sistema</h1>
+                <h1 class="page-header">Categorías del Sistema</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <table style="width: 100%">
                             <tr>
-                                <td><h3>Lista de Categoras</h3></td>
+                                <td><h3>Lista de Categorías</h3></td>
                                 <td align="rigth"><a href="categorias_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
                             </tr>
                         </table>
@@ -29,9 +29,9 @@
                         <table class="table table">
                             <thead>
                                 <tr>
-                                    <th>Codigo</th>
-                                    <th>Categoria</th>
-                                    <th>Descripcion</th>
+                                    <th>Código</th>
+                                    <th>Categoría</th>
+                                    <th>Descripción</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>

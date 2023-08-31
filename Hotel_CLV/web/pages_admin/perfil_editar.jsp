@@ -30,7 +30,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Modificar Perfil</h1>
+                <h1 class="page-header">Perfiles</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3>Editar Perfil</h3>                        
@@ -44,7 +44,7 @@
                                     PerfilesDao mostrarP = new PerfilesDao();
                                     Perfiles perfil = mostrarP.mostrarPerfil(id);
                                     if (perfil != null) {%>
-                            <label>Codigo: </label><input type="text" name="codigo" id="codigo" value="<%= perfil.getPerfilId()%>" class="form form-control"  maxlength="2" readonly="false"/>
+                            <label>Código: </label><input type="text" name="codigo" id="codigo" value="<%= perfil.getPerfilId()%>" class="form form-control"  maxlength="2" readonly="false"/>
                             <br>
                             <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(perfil.getPerfilLetra())%>" class="form form-control"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <br>

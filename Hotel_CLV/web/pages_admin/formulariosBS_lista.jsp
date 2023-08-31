@@ -46,7 +46,7 @@
                         <table class="table table">
                             <thead>
                                 <tr>
-                                    <th>Codigo</th>
+                                    <th>Código</th>
                                     <th>Nombre</th>
                                     <th>Correo</th>
                                     <th>Telefono</th>
@@ -54,7 +54,7 @@
                                     <th>Mensaje</th>
                                     <th>Ciudad</th>
                                     <th>Estado</th>
-                                    <th>Accion</th>                                        
+                                    <th>Acción</th>                                        
                                 </tr>
                             </thead>
                             <tbody>

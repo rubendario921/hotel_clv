@@ -31,7 +31,7 @@
                         <table class="table table">
                             <thead>
                                 <tr>
-                                    <th>Codigo</th>
+                                    <th>Código</th>
                                     <th>Letra</th>
                                     <th>Nombre</th>
                                     <th>Acciones</th>

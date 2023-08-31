@@ -30,10 +30,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Modificar Categoria</h1>
+                <h1 class="page-header">Categorías</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Editar</h3>                        
+                        <h3>Editar Categorías</h3>                        
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudcategorias_editar.jsp" method="POST" onsubmit="return validarFormulario()">
@@ -43,11 +43,11 @@
                                     CategoriasDao mostrarCate = new CategoriasDao();
                                     Categorias categoria = mostrarCate.mostrarCategoria(id);
                                     if (categoria != null) {%>
-                            <label>Codigo:</label><input type="text" name="codigo" id="codigo" value="<%= categoria.getCatId()%>" class="form-control" readonly="false"/>
+                            <label>Código:</label><input type="text" name="codigo" id="codigo" value="<%= categoria.getCatId()%>" class="form-control" readonly="false"/>
                             <br>
                             <label>Nombre:  </label><input type="text" name="nombre" id="nombre" value="<%= StringEscapeUtils.escapeHtml4(categoria.getCatNombre())%>" class="form-control"   placeholder="Ingrese el nombre de la Categoria"maxlength="30" required/>
                             <br>
-                            <label>Descripcion: </label><input type="text" name="descripcion" id="descripcion" value="<%= StringEscapeUtils.escapeHtml4(categoria.getCatDescripcion())%>" class="form-control"   placeholder="Ingrese una breve descripcion"maxlength="200" required/>
+                            <label>Descripción: </label><input type="text" name="descripcion" id="descripcion" value="<%= StringEscapeUtils.escapeHtml4(categoria.getCatDescripcion())%>" class="form-control"   placeholder="Ingrese una breve descripcion"maxlength="200" required/>
                             <br>
                             <% }
                                 }%>

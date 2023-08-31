@@ -40,15 +40,15 @@
                 <h1 class="page-header">Nuevo Registro</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Nueva Habitacion</h3>
+                        <h3>Nueva Habitación</h3>
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudhabitacion_crear.jsp" method="POST" onsubmit="return validarFormulario();">
-                            <label>Nombre: </label><input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre de la habitacion" maxlength="20" required/>
-                            <label>Tipo: </label><input type="text" class="form-control" name="tipo" placeholder="Ingrese el tipo de habitacion" maxlength="20" required/>
-                            <label>Piso </label><input type="number" class="form-control" name="piso" placeholder="Ingrese el psio donde se encuentra la habitacion" maxlength="2" min="1" required/>
-                            <label>Departamento: </label><input type="number" class="form-control" name="departamento" placeholder="Ingrese el numero de la habitacion" maxlength="3" min="1" required/>
-                            <label>Descripcion: </label><input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripcion de la habitacion" maxlength="500" required/>
+                            <label>Nombre: </label><input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre de la habitación" maxlength="20" required/>
+                            <label>Tipo: </label><input type="text" class="form-control" name="tipo" placeholder="Ingrese el tipo de habitación" maxlength="20" required/>
+                            <label>Piso </label><input type="number" class="form-control" name="piso" placeholder="Ingrese el piso donde se encuentra la habitación" maxlength="2" min="1" required/>
+                            <label>Departamento: </label><input type="number" class="form-control" name="departamento" placeholder="Ingrese el número de la habitación" maxlength="3" min="1" required/>
+                            <label>Descripción: </label><input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripción de la habitación" maxlength="500" required/>
                             <label>Valor: </label><input type="number" class="form-control" name="valor" placeholder="Ingrese el valor" step="000.01" min="000.00" required/>
                             <label>Insumo: </label>
                             <select name="insumo" id="insumo" class="form form-control" required>

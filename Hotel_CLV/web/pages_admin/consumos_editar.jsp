@@ -48,7 +48,7 @@
                                     ConsumosDao mostrarC = new ConsumosDao();
                                     Consumos consumo = mostrarC.mostrarConsumo(id);
                                     if (consumo != null) {%> 
-                            <label> Codigo: </label><input type="text" value="<%= consumo.getConsuId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el codigo"maxlength="2" readonly="false"/>
+                            <label> Código: </label><input type="text" value="<%= consumo.getConsuId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el código"maxlength="2" readonly="false"/>
                             <br>
                             <label> Nombre: </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(consumo.getConsuNombre())%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del consumo"maxlength="50" required/>
                             <br>
@@ -62,7 +62,7 @@
                             <br>
                             <% }
                                 }%>
-                            <label>Accion: </label>
+                            <label>Acción: </label>
                             <select name="estados_esta_id" id="estados_esta_id" class="form form-control" required>
                                 <option> </option>
                                 <option value="1">Activo</option>

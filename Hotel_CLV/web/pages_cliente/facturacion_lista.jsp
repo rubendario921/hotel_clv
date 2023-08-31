@@ -27,8 +27,8 @@
                                 <tr>
                                     <th>Número de Factura</th>
                                     <th>Fecha Emisión</th>
-                                    <th>Codigo de Reserva</th>
-                                    <th>Habitacion</th>
+                                    <th>Código de Reserva</th>
+                                    <th>Habitación</th>
                                     <th>Consumo Adicionales</th>
                                     <th>Metodo de Pago</th>
                                     <th>Valor Cancelado</th>                                    

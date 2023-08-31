@@ -172,14 +172,14 @@
                         <i class="fa fa-support fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div>Buzon de Sugerencia</div>
+                        <div>Buzón de Sugerencia</div>
                         <div class="huge"><%=cantFormu%></div>                        
                     </div>
                 </div>
             </div>
                     <a href="formulariosBS_lista.jsp">
                 <div class="panel-footer">
-                    <span class="pull-left">Atencion al Cliente</span>
+                    <span class="pull-left">Atención al Cliente</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                     <div class="clearfix"></div>
                 </div>

@@ -34,7 +34,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Modificar Estado</h1>
+                <h1 class="page-header">Estados</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3>Editar Estado</h3>                        
@@ -48,13 +48,13 @@
                                     EstadosDao mostrarEstado = new EstadosDao();
                                     Estados estado = mostrarEstado.mostrarEstado(id);
                                     if (estado != null) {%>
-                            <label>Codigo:</label><input type="text" name="codigo" id="codigo" value="<%= estado.getEstaId()%>" class="form-control"  readonly="false"/>
+                            <label>Código:</label><input type="text" name="codigo" id="codigo" value="<%= estado.getEstaId()%>" class="form-control"  readonly="false"/>
                             <br>
                             <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaLetra())%>" class="form-control"   placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
                             <br>
                             <label>Nombre: </label><input type="text" name="descripcion" id="descripcion" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%>" class="form-control"  placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
                             <br>
-                            <label>Categoria: </label>
+                            <label>Categoría: </label>
                             <select name="categoria" id="categoria" class="form form-control" required>
                                 <option> </option>
                                 <%

@@ -155,7 +155,7 @@
                                 <a href="reservas_lista.jsp">Reservaciones</a>
                             </li>
                             <li>
-                                <a href="#">Facturacion</a>
+                                <a href="#">Facturación</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -164,7 +164,7 @@
                         <a href="habitaciones_lista.jsp"><i class="fa fa-table fa-fw"></i>Habitaciones</a>
                     </li>
                     <li>
-                        <a href="formulariosBS_lista.jsp"><i class="fa fa-edit fa-fw"></i> Buzon de Sugerencias</a>
+                        <a href="formulariosBS_lista.jsp"><i class="fa fa-edit fa-fw"></i> Buzón de Sugerencias</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Configuraciones<span class="fa arrow"></span></a>
@@ -184,7 +184,7 @@
                                 <a href="insumos_lista.jsp">Inventario de Insumos</a>
                             </li>
                             <li>
-                                <a href="metodoPagos_lista.jsp"> Metodo de Pago</a>
+                                <a href="metodoPagos_lista.jsp"> Método de Pago</a>
                             </li>                            
                         </ul>                        
                     </li>              
@@ -201,7 +201,7 @@
                                 <a href="estados_lista.jsp">Lista de Estados</a>
                             </li>                            
                             <li>
-                                <a href="categorias_lista.jsp">Lista de Categorias</a>
+                                <a href="categorias_lista.jsp">Lista de Categorías</a>
                             </li>                            
                         </ul>
                         <% }%>
