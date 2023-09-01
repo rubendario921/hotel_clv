@@ -256,4 +256,29 @@ public class EstadosDao {
         }
         return estados;
     }
+    
+    public List<Estados> mostrarListaEstaFormulario() {
+        List<Estados> estados = new ArrayList<>();
+        try {
+            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'FORM%';";
+            Statement pst = con.getConexion().prepareStatement(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
+            while (rs.next()) {
+                int estaId = rs.getInt("esta_id");
+                String estaLetra = rs.getString("esta_letra");
+                String estaDescripcion = rs.getString("esta_descripcion");
+                int catId = rs.getInt("categorias_cat_id");
+
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                estados.add(estado);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+        } finally {
+        }
+        return estados;
+    }
 }

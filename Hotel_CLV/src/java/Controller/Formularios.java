@@ -18,12 +18,13 @@ public class Formularios {
     private String formuAsunto;
     private String formuMensaje;
     private String formuCiudad;
+    private String formuObservacion;
     private Integer estaId;
 
     public Formularios() {
     }
 
-    public Formularios(Integer formuId, String formuNombre, String formuCorreo, String formuTelefono, String formuAsunto, String formuMensaje, String formuCiudad, Integer estaId) {
+    public Formularios(Integer formuId, String formuNombre, String formuCorreo, String formuTelefono, String formuAsunto, String formuMensaje, String formuCiudad, String formuObservacion, Integer estaId) {
         this.formuId = formuId;
         this.formuNombre = formuNombre;
         this.formuCorreo = formuCorreo;
@@ -31,6 +32,7 @@ public class Formularios {
         this.formuAsunto = formuAsunto;
         this.formuMensaje = formuMensaje;
         this.formuCiudad = formuCiudad;
+        this.formuObservacion = formuObservacion;
         this.estaId = estaId;
     }
 
@@ -88,6 +90,14 @@ public class Formularios {
 
     public void setFormuCiudad(String formuCiudad) {
         this.formuCiudad = formuCiudad;
+    }
+
+    public String getFormuObservacion() {
+        return formuObservacion;
+    }
+
+    public void setFormuObservacion(String formuObservacion) {
+        this.formuObservacion = formuObservacion;
     }
 
     public Integer getEstaId() {

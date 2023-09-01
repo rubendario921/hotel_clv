@@ -4,8 +4,12 @@
     Author     :Wladimir Campaña
 --%>
 
+
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Formularios"%>
 <%@page import="Controller.FormulariosDao"%>
+<%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@include file="template/header_admin.jsp" %>
@@ -19,8 +23,9 @@
         var asunto = document.getElementById("asunto").value.trim();
         var mensaje = document.getElementById("mensaje").value.trim();
         var ciudad = document.getElementById("ciudad").value.trim();
-        var accion = document.getElementById("accion").value.trim();
-        if (codigo === "" || nombre === "" || correo === "" || telefono === "" || asunto === "" || mensaje === "" || ciudad === "" || accion === "") {
+        var observacion = document.getElementById("observacion").value.trim();
+        var estados = document.getElementById("estados").value.trim();
+        if (codigo === "" || nombre === "" || correo === "" || telefono === "" || asunto === "" || mensaje === "" || ciudad === "" || estados === "" || observacion === "") {
 
             alert("Por favor, complete todos los campos.");
             return false;
@@ -36,7 +41,7 @@
                 <h1 class="page-header">Editar Buzón de Sugerencias</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Buzón de Sugerencias</h3>                        
+                        <h3>Buzón de Sugerencias</h3>
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudformulariosBS_editar.jsp" method="POST" onsubmit="return validarFormulario();">
@@ -60,19 +65,24 @@
                             <br>
                             <label>Ciudad: </label><input type="text" name="ciudad" id="ciudad" value="<%= StringEscapeUtils.escapeHtml4(formulario.getFormuCiudad())%>" class="form form-control"  maxlength="10" readonly="false"/>
                             <br>
-
                             <% }
                                 }%>
+                            <label>Solucion del Requerimiento: </label>
+                            <textarea id="observacion" name="observacion" class="form form-control"  rows="4" placeholder="Escriba aquí su mensaje" required></textarea>
+                            <br>
                             <label>Acción: </label>
-                            <select name="estados_esta_id" id="estados_esta_id" class="form form-control" required>
-                                <option> </option>
-                                <option value="1">Recepción</option>
-                                <option value="2">Evaluación</option>
-                                <option value="3">implementación</option>
+                            <select name="estados" id="estados" class="form form-control" required>
+                                <option>Seleccione una opción</option>
+                                <%
+                                    EstadosDao mostrarEstado = new EstadosDao();
+                                    List<Estados> estados = mostrarEstado.mostrarListaEstaFormulario();
+                                    for (Estados estado : estados) {%>
+                                <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></option>
+                                <% }%>                                
                             </select>
                             <br>
                             <a href="formulariosBS_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Editar" name="editar" class=" btn btn-primary"/>                            
+                            <input type="submit" value="Atender tickets" name="editar" class=" btn btn-primary"/>      
                         </form>                           
                     </div>                    
                 </div>

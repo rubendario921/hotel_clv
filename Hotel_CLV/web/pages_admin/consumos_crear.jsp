@@ -44,7 +44,7 @@
                             <label> Nombre: </label><input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el nombre del consumo. " maxlength="50" autocomplete="off" required />
                             <label> Detalle: </label><input type="text" name="detalle" id="detalle" class="form-control" placeholder="Ingrese el detalle consumo. " maxlength="500" autocomplete="off" required/>
                             <label> Cantidad: </label><input type="number" name="cantidad" id="cantidad" class="form-control" placeholder="Ingrese la cantidad del consumo. " min="1" autocomplete="off" required/>
-                            <label> Valor: </label><input type="number" name="valor" id="valor" class="form-control" placeholder="Ingrese el valor del consumo. " min="0" step="0,00" autocomplete="off" required/>
+                            <label> Valor: </label><input type="text" name="valor" id="valor" class="form-control" placeholder="Ingrese el valor del consumo. " autocomplete="off" required/>
                             <label> Estado: </label>
                             <select name="estado" id="estado" class="form form-control" required>
                                 <option></option>

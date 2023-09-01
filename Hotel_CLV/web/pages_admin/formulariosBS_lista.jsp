@@ -3,36 +3,21 @@
     Created on : 23/08/2023, 21:01:20
     Author     : Wladimir Campaña
 --%>
-<%@page import="org.apache.commons.text.StringEscapeUtils"%>
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Formularios"%>
-<%@page import="java.util.*"%>
 <%@page import="Controller.FormulariosDao"%>
-<%@include file="template/header_admin.jsp" %>
+<%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="org.apache.commons.text.StringEscapeUtils"%>
+
+<%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
-<script>
-    function validarFormulario() {
-        var codigo = document.getElementById("codigo").value.trim();
-        var nombre = document.getElementById("nombre").value.trim();
-        var correo = document.getElementById("correo").value.trim();
-        var telefono = document.getElementById("telefono").value.trim();
-        var asunto = document.getElementById("asunto").value.trim();
-        var mensaje = document.getElementById("mensaje").value.trim();
-        var ciudad = document.getElementById("ciudad").value.trim();
-        var accion = document.getElementById("accion").value.trim();
-        if (codigo === "" || nombre === "" || correo === "" || telefono === "" || asunto === "" || mensaje === "" || ciudad === "" || accion === ""){
-       
-        alert("Por favor, complete todos los campos.");
-        return false;
-        }
-        return true;
-    }
-</script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Formulario</h1>
+                <h1 class="page-header">Atención al Cliente</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <table style="width: 100%">
@@ -59,9 +44,20 @@
                             </thead>
                             <tbody>
                                 <%
+                                    EstadosDao mostrarEstado = new EstadosDao();
+                                    List<Estados> estados = mostrarEstado.mostrarListaEstados();
+
                                     FormulariosDao mostrar_formularios = new FormulariosDao();
-                                   List<Formularios> formularios = mostrar_formularios.mostrarListaFormu();
-                                    for (Formularios formulario : formularios) {%>
+                                    List<Formularios> formularios = mostrar_formularios.mostrarListaFormu();
+                                    for (Formularios formulario : formularios) {
+                                        int estadoFormu = formulario.getEstaId();
+                                        String nombreEstado = "";
+                                        for (Estados estado : estados) {
+                                            if (estado.getEstaId() == estadoFormu) {
+                                                nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
+                                                break;
+                                            }
+                                        }%>
                                 <tr>
                                     <td><%= formulario.getFormuId()%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(formulario.getFormuNombre())%></td>
@@ -70,7 +66,8 @@
                                     <td><%= StringEscapeUtils.escapeHtml4(formulario.getFormuAsunto())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(formulario.getFormuMensaje())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(formulario.getFormuCiudad())%></td>
-                                    <td><%= formulario.getEstaId()%></td>
+                                    <td><%= nombreEstado%></td>
+                                    <td><%= StringEscapeUtils.escapeHtml4(formulario.getFormuObservacion())%></td>
                                     <td>
                                         <!--Modificar Insumo-->
                                         <a href="formulariosBS_editar.jsp?editar=true&id=<%=formulario.getFormuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>

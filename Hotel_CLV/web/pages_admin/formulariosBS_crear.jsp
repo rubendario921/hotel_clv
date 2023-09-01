@@ -8,7 +8,6 @@
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 <script>
-
     //Optener valores de los campos
     function validarFormulario() {
         var nombre = document.getElementById("nombre").value.trim();
@@ -27,7 +26,6 @@
         }
         return true;
     }
-
 </script>
 <div id="page-wrapper">
     <div class="container-fluid">

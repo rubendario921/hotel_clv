@@ -25,16 +25,17 @@ public class FormulariosDao {
             Statement pst = con.getConexion().prepareCall(sql_listaF);
             ResultSet rs = pst.executeQuery(sql_listaF);
             while (rs.next()) {
-                Integer formuId = rs.getInt("formu_id");
+                int formuId = rs.getInt("formu_id");
                 String formuNombre = rs.getString("formu_nombre");
                 String formuCorreo = rs.getString("formu_correo");
                 String formuTelefono = rs.getString("formu_telefono");
                 String formuAsunto = rs.getString("formu_asunto");
                 String formuMensaje = rs.getString("formu_mensaje");
                 String formuCiudad = rs.getString("formu_ciudad");
-                Integer estadosestaId = rs.getInt("estados_esta_id");
+                String formuObservacion = rs.getString("formu_observacion");
+                int estadosestaId = rs.getInt("estados_esta_id");
 
-                Formularios formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad, estadosestaId);
+                Formularios formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad, formuObservacion, estadosestaId);
                 formularios.add(formulario);
             }
             rs.close();
@@ -61,8 +62,9 @@ public class FormulariosDao {
                 String formuAsunto = rs.getString("formu_asunto");
                 String formuMensaje = rs.getString("formu_mensaje");
                 String formuCiudad = rs.getString("formu_ciudad");
+                String formuObservacion = rs.getString("formu_mensaje");
                 Integer estado = rs.getInt("estados_esta_id");
-                formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad, estado);
+                formulario = new Formularios(formuId, formuNombre, formuCorreo, formuTelefono, formuAsunto, formuMensaje, formuCiudad, formuObservacion, estado);
             }
             rs.close();
             pst.close();
@@ -107,10 +109,10 @@ public class FormulariosDao {
         return resultado;
     }
 
-    public int modificarFormu(Integer formu_id, String formu_nombre, String formu_correo, String formu_telefono, String formu_asunto, String formu_mensaje, String formu_ciudad, Integer estados_esta_id) {
+    public int modificarFormu(Integer formu_id, String formu_nombre, String formu_correo, String formu_telefono, String formu_asunto, String formu_mensaje, String formu_ciudad, String formu_observacion, Integer estados_esta_id) {
         int resultado = 0;
         try {
-            String sql = "UPDATE hotel_clv.formularios SET formu_nombre=?, formu_correo=?,formu_telefono=?,formu_asunto=?,formu_mensaje=?,formu_ciudad=?, estados_esta_id=? WHERE formu_id=? ;";
+            String sql = "UPDATE hotel_clv.formularios SET formu_nombre=?, formu_correo=?,formu_telefono=?,formu_asunto=?,formu_mensaje=?,formu_ciudad=?,formu_observacion=?, estados_esta_id=? WHERE formu_id=? ;";
             PreparedStatement pst = con.getConexion().prepareCall(sql);
             pst.setString(1, formu_nombre);
             pst.setString(2, formu_correo);
@@ -118,8 +120,9 @@ public class FormulariosDao {
             pst.setString(4, formu_asunto);
             pst.setString(5, formu_mensaje);
             pst.setString(6, formu_ciudad);
-            pst.setInt(7, estados_esta_id);
-            pst.setInt(8, formu_id);
+            pst.setString(7, formu_observacion);
+            pst.setInt(8, estados_esta_id);
+            pst.setInt(9, formu_id);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
