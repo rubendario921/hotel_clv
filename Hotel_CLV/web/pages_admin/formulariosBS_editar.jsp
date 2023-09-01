@@ -3,6 +3,7 @@
     Created on : 24/08/2023, 1:03:10
     Author     :Wladimir Campaña
 --%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
 <%@page import="Controller.Estados"%>
@@ -10,7 +11,6 @@
 <%@page import="Controller.Formularios"%>
 <%@page import="Controller.FormulariosDao"%>
 <%@page import="java.util.*"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
@@ -44,7 +44,7 @@
                         <h3>Buzón de Sugerencias</h3>
                     </div>
                     <div class="panel-body">
-                        <form action="Mantenimiento_admin/crudformulariosBS_editar.jsp" method="POST" onsubmit="return validarFormulario();">
+                        <form action="Mantenimiento_admin/crudformulariosBS_editar.jsp" method="POST" onsubmit="return validarFormulario();" accept-charset="UTF-8">
                             <%
                                 if (request.getParameter("editar") != null) {
                                     int id = Integer.parseInt(request.getParameter("id"));
@@ -71,8 +71,8 @@
                             <textarea id="observacion" name="observacion" class="form form-control"  rows="4" placeholder="Escriba aquí su mensaje" required></textarea>
                             <br>
                             <label>Acción: </label>
-                            <select name="estados" id="estados" class="form form-control" required>
-                                <option>Seleccione una opción</option>
+                            <select name="estados" id="estados" class="form form-control" required="TRUE">
+                                <option> </option>
                                 <%
                                     EstadosDao mostrarEstado = new EstadosDao();
                                     List<Estados> estados = mostrarEstado.mostrarListaEstaFormulario();

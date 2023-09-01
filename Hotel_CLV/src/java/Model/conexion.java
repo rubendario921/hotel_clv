@@ -18,7 +18,8 @@ public class conexion {
     public Connection getConexion() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel_clv?autoReconnect=true&useSSL=false", "root", "12345");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel_clv?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8", "root", "12345");            
+
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Error al obtener la conexión: " + e.getMessage());
         }

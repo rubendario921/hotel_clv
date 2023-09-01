@@ -38,13 +38,13 @@
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudformulariosBS_crear.jsp" method="POST"onsubmit="return validarFormulario();">
-                            <label> Nombre: </label><input type="text" class="form-control" name="nombre"  placeholder="Ingrese su nombre. " maxlength="50" autocomplete="off" required />
-                            <label> Correo: </label><input type="text" class="form-control" name="correo"  placeholder="Ingrese su email. " maxlength="50" autocomplete="off" required/>
-                            <label> Teléfono: </label><input type="text" class="form-control" name="telefono"  placeholder="Ingrese su número de teléfono." maxlength="10" autocomplete="false" required/>
-                            <label> Asunto: </label><input type="text" class="form-control" name="asunto"  placeholder="Ingrese su asunto. " maxlength="25" autocomplete="off" required/>
-                            <label> Mensaje: </label><input type="text" class="form-control" name="mensaje"  placeholder="Ingrese su mensaje." maxlength="800" autocomplete="off" required/>
-                            <label> Ciudad: </label><input type="text" class="form-control" name="ciudad"  placeholder="Ingrese nombre de la Ciudad." maxlength="50" autocomplete="off" required/>
-                            <label> Estado: </label><input type="text" class="form-control" name="estados_esta_id"  placeholder="Ingrese el estado. " maxlength="" autocomplete="off" required/>
+                            <label> Nombre: </label><input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre. " maxlength="50" autocomplete="off" required />
+                            <label> Correo: </label><input type="text" class="form-control" name="correo"  id="correo"placeholder="Ingrese su email. " maxlength="50" autocomplete="off" required/>
+                            <label> Teléfono: </label><input type="text" class="form-control" name="telefono"  id="telefono"placeholder="Ingrese su número de teléfono." maxlength="10" autocomplete="false" required/>
+                            <label> Asunto: </label><input type="text" class="form-control" name="asunto"  id="asunto"placeholder="Ingrese su asunto. " maxlength="25" autocomplete="off" required/>
+                            <label> Mensaje: </label><input type="text" class="form-control" name="mensaje"  id="mensaje" placeholder="Ingrese su mensaje." maxlength="800" autocomplete="off" required/>
+                            <label> Ciudad: </label><input type="text" class="form-control" name="ciudad"  id="ciudad" placeholder="Ingrese nombre de la Ciudad." maxlength="50" autocomplete="off" required/>
+                            <label> Estado: </label><input type="text" class="form-control" name="estados_esta_id" id="estados_esta_id" placeholder="Ingrese el estado. " maxlength="" autocomplete="off" required/>
                             <br>
                             <a href="formulariosBS_lista.jsp" class="btn btn-danger">Regresar</a>
                             <input type="submit" value="Registrar" name="nuevo_Sugerencia" class="btn bg-primary"/>

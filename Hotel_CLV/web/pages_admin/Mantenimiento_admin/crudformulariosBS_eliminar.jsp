@@ -10,10 +10,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script tytype="text/javascript">
+        <script type="text/javascript">
             function mostrarMensaje(informacion, redireccion){
                 alert(informacion);
-                windown.location.href = redireccion;
+                window.location.href = redireccion;
             }
         </script>
     </head>
