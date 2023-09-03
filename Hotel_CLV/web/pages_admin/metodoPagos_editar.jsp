@@ -53,7 +53,7 @@
                             <% }
                                 }%>
                             <a href="metodoPagos_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Editar" name="editar" class=" btn btn-success"/>                            
+                            <input type="submit" value="Editar" name="editar" class=" btn btn-warning"/>                            
                         </form>                           
                     </div>                    
                 </div>

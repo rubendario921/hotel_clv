@@ -66,7 +66,7 @@
                                     <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%></td>
                                     <td><%= habitacion.getHabiValorD()%></td>
-                                    <td class="btn btn-primary"><%= nombreCategoria%></td>
+                                    <td class="bg bg-light"><%= nombreCategoria%></td>
                                     <td><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" height="200" width="200"></td>
                                     <td>
                                         <!--modificar update=":tabMostrar"-->

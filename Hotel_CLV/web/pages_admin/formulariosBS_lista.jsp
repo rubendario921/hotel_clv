@@ -23,7 +23,7 @@
                         <table style="width: 100%">
                             <tr>
                                 <td><h3>Buzón de Sugerencias</h3></td>
-                                <td aling="rigth"><a href="formulariosBS_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
+                                <!-- <td aling="rigth"><a href="formulariosBS_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>-->
                             </tr>
                         </table>
                     </div>

@@ -82,7 +82,7 @@
                             </select>
                             <br>
                             <a href="formulariosBS_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Atender tickets" name="editar" class=" btn btn-primary"/>      
+                            <input type="submit" value="Atender tickets" name="editar" class=" btn btn-warning"/>      
                         </form>                           
                     </div>                    
                 </div>

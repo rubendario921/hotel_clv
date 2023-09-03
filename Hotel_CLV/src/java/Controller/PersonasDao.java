@@ -251,4 +251,88 @@ public class PersonasDao {
         }
         return resultado;
     }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public int crearCliente(String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro) {
+        int resultado = 0;
+        Connection conn = null;
+        PreparedStatement pstPerfil = null;
+        PreparedStatement pstEstado = null;
+        PreparedStatement pstCrearP = null;
+
+        try {
+            conn = con.getConexion();
+            // Obtener perfilId
+            String sql_perfil = "SELECT perfil_id FROM hotel_clv.perfiles WHERE perfil_nombre LIKE 'CLI%';";
+            pstPerfil = conn.prepareStatement(sql_perfil);
+            ResultSet rsPerfil = pstPerfil.executeQuery();
+
+            while (rsPerfil.next()) {
+                int perfilId = rsPerfil.getInt("perfil_id");
+
+                // Obtener estaId
+                String sql_estado = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'ACTI%';";
+                pstEstado = conn.prepareStatement(sql_estado);
+                ResultSet rsEstado = pstEstado.executeQuery();
+
+                while (rsEstado.next()) {
+                    int estaId = rsEstado.getInt("esta_id");
+
+                    // Insertar en personas
+                    String sql_crearP = "INSERT INTO hotel_clv.personas (per_nombres, per_apellidos, per_cedula, per_telefono, per_correo, per_usuario, per_clave, per_dimg, per_fregistro, perfiles_perfil_id, estados_esta_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                    pstCrearP = conn.prepareStatement(sql_crearP);
+                    pstCrearP.setString(1, perNombres);
+                    pstCrearP.setString(2, perApellidos);
+                    pstCrearP.setString(3, perCedula);
+                    pstCrearP.setString(4, perTelefono);
+                    pstCrearP.setString(5, perCorreo);
+                    pstCrearP.setString(6, perUsuario);
+                    pstCrearP.setString(7, perClave);
+                    pstCrearP.setString(8, perImagen);
+                    pstCrearP.setTimestamp(9, Timestamp.valueOf(perFRegistro));
+                    pstCrearP.setInt(10, perfilId);
+                    pstCrearP.setInt(11, estaId);
+
+                    int n = pstCrearP.executeUpdate();
+                    if (n > 0) {
+                        resultado = 1;
+                    } else {
+                        resultado = 0;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en PersonasDao crearPersona: " + e.getMessage());
+            int SQLError = e.getErrorCode();
+            switch (SQLError) {
+                case 1062:
+                    resultado = 1062;
+                    break;
+                case 1048:
+                    resultado = 1048;
+                    break;
+                default:
+                    resultado = SQLError;
+                    break;
+            }
+        } finally {
+            try {
+                if (pstCrearP != null) {
+                    pstCrearP.close();
+                }
+                if (pstEstado != null) {
+                    pstEstado.close();
+                }
+                if (pstPerfil != null) {
+                    pstPerfil.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return resultado;
+    }
 }

@@ -159,11 +159,11 @@
                 <form action="Mantenimiento/crudcliente_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                     <div class="form-group">
                         <label for="nombre" class="label-text">Nombres Completos</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ingrese sus dos nombres" class="form-control"   maxlength="200" autocomplete="true" required>
+                        <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus dos nombres" class="form-control"   maxlength="200" autocomplete="true" required>
                     </div>
                     <div class="form-group">
                         <label for="apellido" class="label-text">Apellidos Completos</label>
-                        <input type="text"  id="apellido" name="apellido" placeholder="Ingrese sus dos apellidos" class="form-control"   maxlength="200" autocomplete="true" required>
+                        <input type="text"  id="apellidos" name="apellidos" placeholder="Ingrese sus dos apellidos" class="form-control"   maxlength="200" autocomplete="true" required>
                     </div>
                     <div class="form-group">
                         <label for="cedula" class="label-text">Cédula de Identidad</label>

@@ -59,7 +59,7 @@
                             <br>
                             <label> Valor: </label><input type="text" name="valor" id="valor"  value="<%=insumo.getInsuValor()%>" class="form-control" step="0.01" min="1" placeholder="Ingrese su valor"maxlength="100" required/>
                             <br>
-                            <label> Imagen: </label><input type="text" name="insu_dimg" id="insu_dimg"  value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%>" class="form-control" placeholder="Ingrese imagen"maxlength="20" required/>
+                            <label> Imagen: </label><input type="text" name="insu_dimg" id="insu_dimg"  value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%>" class="form-control" placeholder="Ingrese imagen"maxlength="100" required/>
                             <br>
                             <% }
                                 }%>
@@ -75,7 +75,7 @@
                             </select>
                             <br>
                             <a href="insumos_lista.jsp" class="btn btn-danger">Regresar</a>
-                            <input type="submit" value="Editar" name="editar" class="btn btn-success"/>
+                            <input type="submit" value="Editar" name="editar" class="btn btn-warning"/>
                         </form>
                     </div>
                 </div>            
