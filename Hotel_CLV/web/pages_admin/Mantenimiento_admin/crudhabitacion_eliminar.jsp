@@ -23,12 +23,12 @@
                 int resultado = eliminarH.eliminarHabi(id);
                 if (resultado == 1) {
                     String informacion = "Registro Eliminado.";
-                    String redireccion = "../habitaciones_lista";%>
+                    String redireccion = "../habitaciones_lista.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
         <%} else {%>
         <script>alert("Registro No Eliminado, Intentalo nuevamente.");
             window.history.back();</script>
-        <%}%>
-        <%}%>
+            <% }
+                }%>
     </body>
 </html>
