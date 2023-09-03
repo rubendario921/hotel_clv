@@ -146,30 +146,36 @@ public class PersonasDao {
         return persona;
     }
 
-    public int crearPersona(String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId, Integer estaId) {
+    public int crearPersona(String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId) {
         int resultado = 0;
         try {
-            String sql_crearP = "INSERT INTO hotel_clv.personas (per_nombres, per_apellidos,per_cedula,per_telefono,per_correo,per_usuario,per_clave,per_dimg,per_fregistro,perfiles_perfil_id,estados_esta_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
-            PreparedStatement pst = con.getConexion().prepareCall(sql_crearP);
-            pst.setString(1, perNombres);
-            pst.setString(2, perApellidos);
-            pst.setString(3, perCedula);
-            pst.setString(4, perTelefono);
-            pst.setString(5, perCorreo);
-            pst.setString(6, perUsuario);
-            pst.setString(7, perClave);
-            pst.setString(8, perImagen);
-            pst.setTimestamp(9, Timestamp.valueOf(perFRegistro));
-            pst.setInt(10, perfilId);
-            pst.setInt(11, estaId);
-            int n = pst.executeUpdate();
-            if (n > 0) {
-                resultado = 1;
-            } else {
-                resultado = 0;
+            String sql_estado = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'ACTI%';";
+            PreparedStatement pstEstado = con.getConexion().prepareStatement(sql_estado);
+            ResultSet rsEstado = pstEstado.executeQuery(sql_estado);
+            while (rsEstado.next()) {
+                int estaId = rsEstado.getInt("esta_id");
+                String sql_crearP = "INSERT INTO hotel_clv.personas (per_nombres, per_apellidos,per_cedula,per_telefono,per_correo,per_usuario,per_clave,per_dimg,per_fregistro,perfiles_perfil_id,estados_esta_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+                PreparedStatement pst = con.getConexion().prepareCall(sql_crearP);
+                pst.setString(1, perNombres);
+                pst.setString(2, perApellidos);
+                pst.setString(3, perCedula);
+                pst.setString(4, perTelefono);
+                pst.setString(5, perCorreo);
+                pst.setString(6, perUsuario);
+                pst.setString(7, perClave);
+                pst.setString(8, perImagen);
+                pst.setTimestamp(9, Timestamp.valueOf(perFRegistro));
+                pst.setInt(10, perfilId);
+                pst.setInt(11, estaId);
+                int n = pst.executeUpdate();
+                if (n > 0) {
+                    resultado = 1;
+                } else {
+                    resultado = 0;
+                }
+                pst.close();
             }
-            pst.close();
-
+            rsEstado.close();
         } catch (SQLException e) {
             System.out.println("Error en PersonasDao crearPersona: " + e.getMessage());
             int SQLError = e.getErrorCode();

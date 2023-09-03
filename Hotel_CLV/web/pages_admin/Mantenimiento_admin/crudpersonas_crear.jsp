@@ -31,10 +31,9 @@
                 String fregistroString = request.getParameter("fregistro");
                 LocalDateTime perFRegistro = LocalDateTime.parse(fregistroString.replace(" ", " "));
                 Integer perfilId = Integer.parseInt(request.getParameter("perfil"));
-                Integer estaId = 1;
 
                 PersonasDao crearPersona = new PersonasDao();
-                int resultado = crearPersona.crearPersona(perNombres, perApellidos, perCedula, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId, estaId);
+                int resultado = crearPersona.crearPersona(perNombres, perApellidos, perCedula, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId);
 
                 switch (resultado) {
                     case 1:
