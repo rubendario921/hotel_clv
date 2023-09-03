@@ -64,20 +64,18 @@
                                     List<Reservas> reservas = mostrarReservas.mostrarListaReservaXid(id);
                                     for (Reservas reserva : reservas) {
 
-//Habitaciones
                                         int habiReserva = reserva.getHabiId();
                                         String nombreHabitacion = "";
 
                                         for (Habitaciones habitacion : habitaciones) {
                                             if (habitacion.getHabiId() == habiReserva) {
-                                                String piso = StringEscapeUtils.escapeHtml4(habitacion.getHabiPiso());
                                                 String depar = StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar());
                                                 String nombre = StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre());
-                                                nombreHabitacion = piso + depar + nombre;
+                                                nombreHabitacion = nombre + ' ' + depar;
                                                 break;
                                             }
                                         }
-//Consumos
+
                                         int consuReserva = reserva.getConsuId();
                                         String nombreConsumo = "";
 
@@ -87,7 +85,7 @@
                                                 break;
                                             }
                                         }
-//Estados
+
                                         int estadoReserva = reserva.getEstaId();
                                         String nombreEstado = "";
 
@@ -103,7 +101,7 @@
                                     <td><%= reserva.getReseFReserva()%></td>
                                     <td><%= reserva.getReseFInicio()%></td>
                                     <td><%= reserva.getReseFSalida()%></td>
-                                    <td><%= reserva.getReseVTotal()%></td>
+                                    <td class="bg bg-warning"><b>$<%= reserva.getReseVTotal()%></b></td>
                                     <td><%= reserva.getHabiId()%></label></td>
                                     <td><%= nombreHabitacion%></td>
                                     <td><%= nombreConsumo%></td>
