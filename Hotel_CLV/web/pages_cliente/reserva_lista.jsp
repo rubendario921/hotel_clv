@@ -31,7 +31,7 @@
                         </table>
                     </div>
                     <div class="panel-body">
-                        <table class="table table-responsive">
+                        <table class="table table-responsive align-items-center">
                             <thead>
                                 <tr>
                                     <th>Código</th>
@@ -102,7 +102,7 @@
                                     <td><%= reserva.getReseFInicio()%></td>
                                     <td><%= reserva.getReseFSalida()%></td>
                                     <td class="bg bg-warning"><b>$<%= reserva.getReseVTotal()%></b></td>
-                                    <td><%= reserva.getHabiId()%></label></td>
+                                    <td><%= reserva.getHabiId()%></td>
                                     <td><%= nombreHabitacion%></td>
                                     <td><%= nombreConsumo%></td>
                                     <td><%= nombreEstado%></td>                                    

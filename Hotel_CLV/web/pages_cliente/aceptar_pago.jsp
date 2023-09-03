@@ -40,10 +40,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Metodos de Pago</h1>
+                <h1 class="page-header ">Metodos de Pago</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Registro del Pago</h3>
+                        <h3 style="align-items: center ">Registro del Pago</h3>
                     </div>
                     <div class="panel-body">
                         <div class="container text-center">
@@ -63,10 +63,7 @@
                                                     ReservasDao mostrarResera = new ReservasDao();
                                                     Reservas reserva = mostrarResera.mostrarReserva(id);
                                                     if (reserva != null) {%>
-                                            <tr>
-                                                <th scope="row">Codigo de Reservacion: </th>
-                                                <td><%= reserva.getReseId()%></td>
-                                            </tr>
+
                                             <tr>
                                                 <th scope="row">Dias de Reservacion: </th>
                                                 <td><%= reserva.getNumDias()%></td>
@@ -97,16 +94,19 @@
                                 </div>
                                 <form action="" method="POST" onsubmit="return validarFormulario()">
                                     <div class="input-group mb-3">
-                                        <span class="input-group-text" id="codigo">Codigo Reserva: </span>
-                                        <input type="text"  name="codigo" id="codigo" value="<%= reserva.getReseId()%>" class="form-control" placeholder="Codigo de la Reserva" aria-label="Codigo de la Reserva" aria-describedby="codigo" readonly="off" required>
+                                        <span class="input-group-text" id="codigo">Código Reservacion: </span>
+                                        <input type="text"  name="codigo" id="codigo" value="<%= reserva.getReseId()%>" class="form form-control" aria-label="Codigo de la Reserva" aria-describedby="codigo" readonly="off" required>
                                     </div>
 
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="valorT">Valor a Cancelar: </span>
-                                        <input type="number"  name="valorT" id="valorT" value="<%= reserva.getReseVTotal()%>" class="form-control" placeholder="Codigo de la Reserva" aria-label="Codigo de la Reserva" aria-describedby="codigo" readonly="off" required>
+                                        <input type="number"  name="valorT" id="valorT" value="<%= reserva.getReseVTotal()%>" class="form form-control" placeholder="Codigo de la Reserva" aria-label="Codigo de la Reserva" aria-describedby="codigo" readonly="off" required>
                                     </div>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="metodoP">Metodo de Pago: </span>
+                                        <select name="metodoP" id=" metodoP" class="form form-control">
+                                            <option></option>
+                                        </select>
 
                                     </div>
                                     <a href="reserva_lista.jsp" class="btn btn-danger">Regresar</a>
