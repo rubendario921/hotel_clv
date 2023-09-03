@@ -22,11 +22,12 @@
         var numDias = document.getElementById("numDias").value.trim();
         var fInicio = document.getElementById("fInicio").value.trim();
         var fSalida = document.getElementById("fSalida").value.trim();
-        var consumo = document.getElementById("consumo").value.trim();
+        var consumoHabi = document.getElementById("consumoHabi").value.trim();
         var perId = document.getElementById("perId").value.trim();
+        var valorHabi = document.getElementById("valorHabi").value.trim();
 
         // Validar campos obligatorios
-        if (numDias === "" || fInicio === "" || fSalida === "" || consumo === "" || perId === "") {
+        if (numDias === "" || fInicio === "" || fSalida === "" || consumoHabi === "" || perId === "" || valorHabi === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -93,10 +94,6 @@
                                                 <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%></td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Valor de la Habitación: </th>
-                                                <td><%= habitacion.getHabiValorD()%></td>
-                                            </tr>
-                                            <tr>
                                                 <th scope="row">Insumos de la Habitación: </th>
                                                 <td><%= nombreInsumo%></td>
                                             </tr>
@@ -117,8 +114,12 @@
                                     <div class="panel panel-body">
                                         <form action="Mantenimiento_cliente/crudreserva_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text">Codigo Habitación</span>
-                                                <input type="number" name="habiId" id="habiId" value="<%= habitacion.getHabiId()%>" class="form-control" min="1" autocomplete="off" readonly="off" required>
+                                                <span class="input-group-text"><i class="fa fa-user-circle"></i>Codigo Cliente: </span>
+                                                <input type="text" name="perId" id="perId" class="form-control" required value="<%= session.getAttribute("perId")%>" title="<%= session.getAttribute("nombre")%>" readonly="off"/>                                                
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Codigo Habitación: </span>
+                                                <input type="number" name="habiId" id="habiId" value="<%= habitacion.getHabiId()%>" class="form-control" readonly="off" required>
                                             </div>
 
                                             <div class="input-group mb-3">
@@ -133,9 +134,16 @@
                                                 <span class="input-group-text">Fecha Salida</span>
                                                 <input type="datetime-local" name="fSalida" id="fSalida" class="form-control" required /><br>
                                             </div>
+
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">Valor Habitación: </span>
+                                                <input type="number" name="valorHabi" id="valorHabi" value="<%= habitacion.getHabiValorD()%>" class="form-control" min="1" autocomplete="off" readonly="off" required>
+                                            </div>
+
+
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text">Consumos Adicionales: </span>
-                                                <select name="consumo" id="consumo" class="form-control" required >
+                                                <select name="consumoHabi" id="consumoHabi" class="form-control" required >
                                                     <option></option>
                                                     <%
                                                         ConsumosDao mostrarConsumo = new ConsumosDao();
@@ -146,15 +154,6 @@
                                                     %>
                                                 </select>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text">Valor a Cancelar: </span>
-                                                <input type="number" class="form-control" name="valorT" placeholder="Ingrese el valor" step="000.01" min="0.00" required/>
-                                            </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text"><i class="fa fa-user-circle"></i>  Codigo Cliente: </span>
-                                                <input type="text" name="perId" id="perId" class="form-control" required value="<%= session.getAttribute("perId")%>" title="<%= session.getAttribute("nombre")%>" readonly="off"/>                                                
-                                            </div>
-
                                             <div class="container text-center">
                                                 <a href="habitaciones_disponibles.jsp" class="btn btn-danger">Regresar</a>
                                                 <input type="submit" value="Reservar" name="reservar" class="btn btn-warning"/>

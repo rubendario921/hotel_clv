@@ -4,6 +4,7 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="Controller.ConsumosDao"%>
 <%@page import="Controller.HabitacionesDao"%>
 <%@page import="Controller.ReservasDao"%>
 <%@page import="java.math.BigDecimal"%>
@@ -25,24 +26,29 @@
     <body>
         <%
             if (request.getParameter("reservar") != null) {
-                Integer numDias = Integer.parseInt(request.getParameter("numDias"));
-
-                String finicioString = request.getParameter("fInicio");
-                String fSalidaString = request.getParameter("fSalida");
+                int numDias = Integer.parseInt(request.getParameter("numDias"));
+                
                 LocalDateTime reseFReserva = LocalDateTime.now();
-
+                
+                String finicioString = request.getParameter("fInicio");
                 LocalDateTime reseFInicio = LocalDateTime.parse(finicioString);
-                LocalDateTime reseFSalida = LocalDateTime.parse(fSalidaString);
 
-                String valorStr = request.getParameter("valorT");
-                BigDecimal reseVTotal = new BigDecimal(valorStr);
-                Integer habiId = Integer.parseInt(request.getParameter("habiId"));//Cambio de Estado de la Habitacion
-                Integer estaId = 7; //Pendiente la Reserva
-                Integer perId = Integer.parseInt(request.getParameter("perId"));
-                Integer consuId = Integer.parseInt(request.getParameter("consumo"));
+                String fSalidaString = request.getParameter("fSalida");
+                LocalDateTime reseFSalida = LocalDateTime.parse(fSalidaString);
+                
+                int consuIdV = Integer.parseInt(request.getParameter("consumoHabi"));
+                ConsumosDao consumoIdValor = new ConsumosDao();
+                BigDecimal consumoValor = consumoIdValor.mostrarValorConsumo(consuIdV);
+                BigDecimal habitacionValor = new BigDecimal(request.getParameter("valorHabi"));
+                BigDecimal reseVTotal = consumoValor.add(habitacionValor);
+
+                int habiId = Integer.parseInt(request.getParameter("habiId"));//Cambio de Estado de la Habitacion
+
+                int perId = Integer.parseInt(request.getParameter("perId"));
+                int consuId = Integer.parseInt(request.getParameter("consumoHabi"));
 
                 ReservasDao crearReserva = new ReservasDao();
-                int resultado = crearReserva.crearReserva(numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);
+                int resultado = crearReserva.crearReserva(numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, perId, consuId);
 
                 switch (resultado) {
                     case 1:

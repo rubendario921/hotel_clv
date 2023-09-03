@@ -166,4 +166,23 @@ public class ConsumosDao {
         return resultado;
     }
 
+    //////////////////////////////////////////////////////////////////////////////////
+    public BigDecimal mostrarValorConsumo(Integer consu_id) {
+        BigDecimal consuValor = BigDecimal.ZERO;
+        try {
+            String sql_mostrar = "SELECT consu_valor FROM hotel_clv.consumos WHERE consu_id=?;";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_mostrar);
+            pst.setInt(1, consu_id);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                consuValor = rs.getBigDecimal("consu_valor");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Error en ConsumosDao mostrarValorConsumo: " + e.getMessage());
+        }
+        return consuValor;
+    }
+
 }

@@ -80,28 +80,35 @@ public class ReservasDao {
         return reserva;
     }
 
-    public int crearReserva(int numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer estaId, Integer perId, Integer consuId) {
+    public int crearReserva(int numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer perId, Integer consuId) {
         int resultado = 0;
         try {
-            String sql_crear = "INSERT INTO hotel_clv.reservas(rese_num_dias,rese_f_reserva,rese_f_inicio,rese_f_salida,rese_vtotal,habitaciones_habi_id,estados_esta_id,personas_per_id,consumos_consu_id) VALUES (?,?,?,?,?,?,?,?,?);";
-            PreparedStatement pst = con.getConexion().prepareCall(sql_crear);
-            pst.setInt(1, numDias);
-            pst.setTimestamp(2, Timestamp.valueOf(reseFReserva));
-            pst.setTimestamp(3, Timestamp.valueOf(reseFInicio));
-            pst.setTimestamp(4, Timestamp.valueOf(reseFSalida));
-            pst.setBigDecimal(5, reseVTotal);
-            pst.setInt(6, habiId);
-            pst.setInt(7, estaId);
-            pst.setInt(8, perId);
-            pst.setInt(9, consuId);
-
-            int n = pst.executeUpdate();
-            if (n > 0) {
-                resultado = 1;
-            } else {
-                resultado = 0;
+            String sql_estado = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'PENDI%';";
+            PreparedStatement pstEstado = con.getConexion().prepareStatement(sql_estado);
+            ResultSet rsEstado = pstEstado.executeQuery(sql_estado);
+            while (rsEstado.next()) {
+                int estaId = rsEstado.getInt("esta_id");
+                String sql_crear = "INSERT INTO hotel_clv.reservas(rese_num_dias,rese_f_reserva,rese_f_inicio,rese_f_salida,rese_vtotal,habitaciones_habi_id,estados_esta_id,personas_per_id,consumos_consu_id) VALUES (?,?,?,?,?,?,?,?,?);";
+                PreparedStatement pst = con.getConexion().prepareCall(sql_crear);
+                pst.setInt(1, numDias);
+                pst.setTimestamp(2, Timestamp.valueOf(reseFReserva));
+                pst.setTimestamp(3, Timestamp.valueOf(reseFInicio));
+                pst.setTimestamp(4, Timestamp.valueOf(reseFSalida));
+                pst.setBigDecimal(5, reseVTotal);
+                pst.setInt(6, habiId);
+                pst.setInt(7, estaId);
+                pst.setInt(8, perId);
+                pst.setInt(9, consuId);
+                int n = pst.executeUpdate();
+                if (n > 0) {
+                    resultado = 1;
+                } else {
+                    resultado = 0;
+                }
+                pst.close();
             }
-            pst.close();
+            rsEstado.close();
+
         } catch (SQLException e) {
             System.out.println("Error en ReservasDao crearPersona: " + e.getMessage());
             int SQLError = e.getErrorCode();
