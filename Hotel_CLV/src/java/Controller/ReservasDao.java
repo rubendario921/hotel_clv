@@ -180,7 +180,7 @@ public class ReservasDao {
             if (n > 0) {
                 resultado = 1;
             } else {
-                resultado = 2;
+                resultado = 0;
             }
             pst.close();
         } catch (SQLException e) {
