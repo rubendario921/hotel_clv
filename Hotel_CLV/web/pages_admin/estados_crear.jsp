@@ -38,9 +38,9 @@
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudestado_crear.jsp" method="POST" onsubmit="return validarFormulario()">
-                            <label>Letra:</label><input type="text" name="letra" id="letra" class="form-control" placeholder="Ingrese 2 letras de abreviatura" maxlength="2" autocomplete="true" required/>
+                            <label>Letra:</label><input type="text" name="letra" id="letra" class="form-control" placeholder="Ingrese 2 letras de abreviatura" maxlength="2" autocomplete="off" required/>
                             <br>
-                            <label>Descripción: </label><input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Ingrese el nombre del perfil" maxlength="20" autocomplete="true" required/>
+                            <label>Descripción: </label><input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Ingrese el nombre del perfil" maxlength="20"  autocomplete="off" required/>
                             <br>
                             <label>Categoría: </label>
                             <select name="categoria" id="categoria" class="form form-control" required>

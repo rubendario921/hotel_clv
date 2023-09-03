@@ -52,7 +52,7 @@
                             <% }
                                 }%>
                             <a href="categorias_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Modificar" name="editar" class=" btn btn-success"/>  
+                            <input type="submit" value="Modificar" name="editar" class=" btn btn-warning"/>  
                         </form>
                     </div>
                 </div>

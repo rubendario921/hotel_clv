@@ -50,9 +50,9 @@
                                     if (estado != null) {%>
                             <label>Código:</label><input type="text" name="codigo" id="codigo" value="<%= estado.getEstaId()%>" class="form-control"  readonly="false"/>
                             <br>
-                            <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaLetra())%>" class="form-control"   placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
+                            <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaLetra())%>" class="form-control"   placeholder="Ingrese 2 letras de abreviatura" maxlength="2"  autocomplete="off" required/>
                             <br>
-                            <label>Nombre: </label><input type="text" name="descripcion" id="descripcion" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%>" class="form-control"  placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
+                            <label>Nombre: </label><input type="text" name="descripcion" id="descripcion" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%>" class="form-control"  placeholder="Ingrese el nombre del perfil" maxlength="20"  autocomplete="off" required/>
                             <br>
                             <label>Categoría: </label>
                             <select name="categoria" id="categoria" class="form form-control" required>
@@ -68,7 +68,7 @@
                             <% }
                                 }%>
                             <a href="estados_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Modificar" name="editar" class=" btn btn-primary"/>  
+                            <input type="submit" value="Modificar" name="editar" class=" btn btn-warning"/>  
                         </form>
                     </div>
                 </div>
