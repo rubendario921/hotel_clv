@@ -43,11 +43,11 @@
                                     CategoriasDao mostrarCate = new CategoriasDao();
                                     Categorias categoria = mostrarCate.mostrarCategoria(id);
                                     if (categoria != null) {%>
-                            <label>Código:</label><input type="text" name="codigo" id="codigo" value="<%= categoria.getCatId()%>" class="form-control" readonly="false"/>
+                                    <label>Código:</label><input type="text" name="codigo" id="codigo" value="<%= categoria.getCatId()%>" class="form-control" readonly="false" autocomplete="off"/>
                             <br>
-                            <label>Nombre:  </label><input type="text" name="nombre" id="nombre" value="<%= StringEscapeUtils.escapeHtml4(categoria.getCatNombre())%>" class="form-control"   placeholder="Ingrese el nombre de la Categoria"maxlength="30" required/>
+                            <label>Nombre:  </label><input type="text" name="nombre" id="nombre" value="<%= StringEscapeUtils.escapeHtml4(categoria.getCatNombre())%>" class="form-control"   placeholder="Ingrese el nombre de la Categoria"maxlength="30" autocomplete="off" required/>
                             <br>
-                            <label>Descripción: </label><input type="text" name="descripcion" id="descripcion" value="<%= StringEscapeUtils.escapeHtml4(categoria.getCatDescripcion())%>" class="form-control"   placeholder="Ingrese una breve descripcion"maxlength="200" required/>
+                            <label>Descripción: </label><input type="text" name="descripcion" id="descripcion" value="<%= StringEscapeUtils.escapeHtml4(categoria.getCatDescripcion())%>" class="form-control"   placeholder="Ingrese una breve descripcion"maxlength="200" autocomplete="off" required/>
                             <br>
                             <% }
                                 }%>
