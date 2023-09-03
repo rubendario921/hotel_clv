@@ -50,7 +50,7 @@
                             <label>Departamento: </label><input type="number" name="departamento" id="departamento" class="form-control"  placeholder="Ingrese el número de la habitación" maxlength="3" min="1" autocomplete="off" required/>
                             <label>Descripción: </label><input type="text" name="descripcion" id="descripcion" class="form-control"  placeholder="Ingrese la descripción de la habitación" maxlength="255" autocomplete="off" required/>
                             <label>Valor: </label><input type="number" name="valor" id="valor" class="form-control"  placeholder="Ingrese el valor" step="0.01" min="0" autocomplete="off" required/>
-                            <label>Insumo:: </label>
+                            <label>Insumo: </label>
                             <select name="insumo" id="insumo" class="form form-control" required>
                                 <option> </option>
                                 <%

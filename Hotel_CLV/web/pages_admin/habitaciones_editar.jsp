@@ -6,9 +6,6 @@
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
 <%@ page import="org.apache.commons.text.StringEscapeUtils" %>
-
-
-
 <%@page import="java.util.*"%>
 <%@page import="Controller.Insumos"%>
 <%@page import="Controller.InsumosDao"%>
@@ -89,7 +86,7 @@
                             <select name="estado" id="estado" class="form form-control" required>
                                 <%
                                     EstadosDao mostrarEsta = new EstadosDao();
-                                    List<Estados> estados = mostrarEsta.mostrarListaEsta2();
+                                    List<Estados> estados = mostrarEsta.mostrarListaEstaHabitaciones();
                                     for (Estados estado : estados) {
                                 %>
                                 <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></option>
