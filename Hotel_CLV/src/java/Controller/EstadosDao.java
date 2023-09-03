@@ -22,7 +22,7 @@ public class EstadosDao {
     public List<Estados> mostrarListaEstados() {
         List<Estados> estados = new ArrayList<>();
         try {
-            String sql_lista = "SELECT * FROM hotel_clv.estados;";
+            String sql_lista = "SELECT * FROM hotel_clv.estados ORDER BY categorias_cat_id;";
             Statement pst = con.getConexion().prepareStatement(sql_lista);
             ResultSet rs = pst.executeQuery(sql_lista);
             while (rs.next()) {
