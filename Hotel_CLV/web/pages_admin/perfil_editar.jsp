@@ -39,21 +39,20 @@
                         <form action="Mantenimiento_admin/crudperfil_editar.jsp" method="POST" onsubmit="return validarFormulario();">
                             <%
                                 if (request.getParameter("editar") != null) {
-                                    int id = Integer.parseInt(request.getParameter("id"));
-                                    
+                                    int id = Integer.parseInt(request.getParameter("id"));                                    
                                     PerfilesDao mostrarP = new PerfilesDao();
                                     Perfiles perfil = mostrarP.mostrarPerfil(id);
                                     if (perfil != null) {%>
                             <label>Código: </label><input type="text" name="codigo" id="codigo" value="<%= perfil.getPerfilId()%>" class="form form-control"  maxlength="2" readonly="false"/>
                             <br>
-                            <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(perfil.getPerfilLetra())%>" class="form form-control"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" required/>
+                            <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(perfil.getPerfilLetra())%>" class="form form-control"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" autocomplete="off" required/>
                             <br>
-                            <label>Nombre: </label><input type="text"  name="nombre" id="nombre" value="<%= StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre())%>" class=" form form-control" placeholder="Ingrese el nombre del perfil" maxlength="20" required/>
+                            <label>Nombre: </label><input type="text"  name="nombre" id="nombre" value="<%= StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre())%>" class=" form form-control" placeholder="Ingrese el nombre del perfil" maxlength="20"  autocomplete="off" required/>
                             <br>
                             <% }
                                 }%>
                             <a href="perfil_lista.jsp" class="btn btn-danger" >Regresar</a>
-                            <input type="submit" value="Editar" name="editar" class=" btn btn-primary"/>                            
+                            <input type="submit" value="Editar" name="editar" class=" btn btn-warning"/>                            
                         </form>                           
                     </div>                    
                 </div>
