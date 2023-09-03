@@ -44,14 +44,15 @@
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudhabitacion_crear.jsp" method="POST" onsubmit="return validarFormulario();">
-                            <label>Nombre: </label><input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre de la habitación" maxlength="20" required/>
-                            <label>Tipo: </label><input type="text" class="form-control" name="tipo" placeholder="Ingrese el tipo de habitación" maxlength="20" required/>
-                            <label>Piso </label><input type="number" class="form-control" name="piso" placeholder="Ingrese el piso donde se encuentra la habitación" maxlength="2" min="1" required/>
-                            <label>Departamento: </label><input type="number" class="form-control" name="departamento" placeholder="Ingrese el número de la habitación" maxlength="3" min="1" required/>
-                            <label>Descripción: </label><input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripción de la habitación" maxlength="500" required/>
-                            <label>Valor: </label><input type="number" class="form-control" name="valor" placeholder="Ingrese el valor" step="0.01" min="0" required/>
+                            <label>Nombre: </label><input type="text" name="nombre" id="nombre" class="form-control"  placeholder="Ingrese el nombre de la habitación" maxlength="50" autocomplete="off" required/>
+                            <label>Tipo: </label><input type="text" name="tipo" id="tipo" class="form-control" placeholder="Ingrese el tipo de habitación" maxlength="50"  autocomplete="off" required/>
+                            <label>Piso </label><input type="number" name="piso" id="piso" class="form-control" placeholder="Ingrese el piso donde se encuentra la habitación" maxlength="2" min="1" autocomplete="off" required/>
+                            <label>Departamento: </label><input type="number" name="departamento" id="departamento" class="form-control"  placeholder="Ingrese el número de la habitación" maxlength="3" min="1" autocomplete="off" required/>
+                            <label>Descripción: </label><input type="text" name="descripcion" id="descripcion" class="form-control"  placeholder="Ingrese la descripción de la habitación" maxlength="255" autocomplete="off" required/>
+                            <label>Valor: </label><input type="number" name="valor" id="valor" class="form-control"  placeholder="Ingrese el valor" step="0.01" min="0" autocomplete="off" required/>
                             <label>Insumo: </label>
                             <select name="insumo" id="insumo" class="form form-control" required>
+                                <option> </option>
                                 <%
                                     InsumosDao mostrarInsu = new InsumosDao();
                                     List<Insumos> insumos = mostrarInsu.mostrarListaInsumos();
@@ -63,10 +64,11 @@
                             <br>
                             <label>Insumo: </label>
                             <select name="estado" id="estado" class="form form-control" required>
+                                <option> </option>
                                 <%
-                                EstadosDao mostrarEsta = new EstadosDao();
-                                List<Estados> estados = mostrarEsta.mostrarListaEstaHabitaciones();
-                                for (Estados estado : estados) {
+                                    EstadosDao mostrarEsta = new EstadosDao();
+                                    List<Estados> estados = mostrarEsta.mostrarListaEstaHabitaciones();
+                                    for (Estados estado : estados) {
                                 %>
                                 <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%> </option>
                                 <% }%>
