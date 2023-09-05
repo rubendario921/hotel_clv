@@ -198,7 +198,7 @@
                                 <i class="text-muted fa fa-star"></i>
                                 <i class="text-muted fa fa-star"></i>
                             </li>
-                            <li class="text-muted text-right">$480.00</li>
+                            <li class="text-muted text-right">$20.00</li>
                         </ul>
                         <a href="servicios.jsp" class="h2 text-decoration-none text-dark">Restaurantes</a>
                         <p class="card-text">
@@ -222,7 +222,7 @@
                                 <i class="text-warning fa fa-star"></i>
                                 <i class="text-warning fa fa-star"></i>
                             </li>
-                            <li class="text-muted text-right">$360.00</li>
+                            <li class="text-muted text-right">$25.00</li>
                         </ul>
                         <a href="servicios.jsp" class="h2 text-decoration-none text-dark">Recreación</a>
                         <p class="card-text">

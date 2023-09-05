@@ -61,7 +61,7 @@
             </div>
 
             <div class="col-md-4 pt-5">
-                <h2 class="h3 text-light border-bottom pb-3 border-light">Atencion al Cliente</h2>
+                <h2 class="h3 text-light border-bottom pb-3 border-light">Atención al Cliente</h2>
                 <ul class="list-unstyled text-light footer-link-list">
                     <li><a class="text-decoration-none" href=""></a></li>
                     <li><a class="text-decoration-none" href="">Servicio de 24 horas</a></li>
