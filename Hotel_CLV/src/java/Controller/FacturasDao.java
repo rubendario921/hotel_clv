@@ -79,7 +79,7 @@ public class FacturasDao {
         return factura;
     }
 
-    public int crearFactura(int factId, LocalDateTime factFEmision, BigDecimal factVTotal, int factNTransaccion, int reservaId, int metodoPagoId, int personaId) {
+    public int crearFactura(LocalDateTime factFEmision, BigDecimal factVTotal, int factNTransaccion, int reservaId, int metodoPagoId, int personaId) {
         int resultado = 0;
         try {
             int fEncabezado = 1;
@@ -98,11 +98,14 @@ public class FacturasDao {
                 pst.setInt(6, personaId);
                 pst.setInt(7, estadoId);
                 pst.setInt(8, fEncabezado);
-            }
 
-        } catch (Exception e) {
+                pst.close();
+            }
+            pstEstado.close();
+            rsEstado.close();
+
+        } catch (SQLException e) {
             System.out.println("Error en FacturasDao crearFactura: " + e.getMessage());
-        } finally {
         }
         return resultado;
     }
