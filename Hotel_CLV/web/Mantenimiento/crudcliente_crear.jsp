@@ -20,8 +20,8 @@
     <body>
         <%
             if (request.getParameter("nuevo_cliente") != null) {
-                String perNombres = request.getParameter("nombre");
-                String perApellidos = request.getParameter("apellido");
+                String perNombres = request.getParameter("nombres");
+                String perApellidos = request.getParameter("apellidos");
                 String perCedula = request.getParameter("cedula");
                 String perTelefono = request.getParameter("telefono");
                 String perCorreo = request.getParameter("correo");

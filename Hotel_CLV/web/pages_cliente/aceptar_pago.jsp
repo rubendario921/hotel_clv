@@ -4,6 +4,12 @@
     Author     : User
 --%>
 
+<%@page import="Controller.MetodoPagos"%>
+<%@page import="Controller.MetodoPagosDao"%>
+<%@page import="Controller.Consumos"%>
+<%@page import="Controller.ConsumosDao"%>
+<%@page import="Controller.Estados"%>
+<%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Reservas"%>
 <%@page import="Controller.ReservasDao"%>
 <%@page import="java.util.List"%>
@@ -14,21 +20,14 @@
 <script>
     function validarFormulario() {
         // Obtener los valores de los campos
-        var id = document.getElementById("id").value.trim();
-        var nombres = document.getElementById("nombres").value.trim();
-        var apellidos = document.getElementById("apellidos").value.trim();
-        var cedula = document.getElementById("cedula").value.trim();
-        var telefono = document.getElementById("telefono").value.trim();
-        var correo = document.getElementById("correo").value.trim();
-        var usuario = document.getElementById("usuario").value.trim();
-        var clave = document.getElementById("clave").value.trim();
-        var imagen = document.getElementById("imagen").value.trim();
-        var fregistro = document.getElementById("fregistro").value.trim();
-        var perfil = document.getElementById("perfil").value.trim();
-        var estado = document.getElementById("estado").value.trim();
+        var codigo = document.getElementById("codigo").value.trim();
+        var valorT = document.getElementById("valorT").value.trim();
+        var metodoP = document.getElementById("metodoP").value.trim();
+        var transaccion = document.getElementById("transaccion").value.trim();
+
 
         // Validar campos obligatorios
-        if (id === "" || nombres === "" || apellidos === "" || cedula === "" || telefono === "" || correo === "" || usuario === "" || clave === "" || imagen === "" || fregistro === "" || perfil === "" || estado === "") {
+        if (codigo === "" || valorT === "" || metodoP === "" || transaccion === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -58,15 +57,41 @@
                                         </thead>
                                         <tbody>
                                             <% if (request.getParameter("aceptar") != null) {
-                                                    int id = Integer.parseInt(request.getParameter("id"));
 
-                                                    ReservasDao mostrarResera = new ReservasDao();
-                                                    Reservas reserva = mostrarResera.mostrarReserva(id);
-                                                    if (reserva != null) {%>
+                                                    EstadosDao mostrarEstados = new EstadosDao();
+                                                    List<Estados> estados = mostrarEstados.mostrarListaEstados();
 
+                                                    ConsumosDao mostrarConsumos = new ConsumosDao();
+                                                    List<Consumos> consumos = mostrarConsumos.mostrarListaConsumos();
+
+                                                    int id_reserva = Integer.parseInt(request.getParameter("id_reserva"));
+
+                                                    ReservasDao mostrarReserva = new ReservasDao();
+                                                    Reservas reserva = mostrarReserva.mostrarReservaXid(id_reserva);
+                                                    if (reserva != null) {
+
+                                                        //Comparacion de Estado                                                    
+                                                        int reservaEstado = reserva.getEstaId();
+                                                        String nombreEstado = "";
+                                                        for (Estados estado : estados) {
+                                                            if (estado.getEstaId() == reservaEstado) {
+                                                                nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
+                                                                break;
+                                                            }
+
+                                                        }
+                                                        //Comparacion de Consumos
+                                                        int reservaConsumos = reserva.getConsuId();
+                                                        String nombreConsumo = "";
+                                                        for (Consumos consumo : consumos) {
+                                                            if (consumo.getConsuId() == reservaConsumos) {
+                                                                nombreConsumo = StringEscapeUtils.escapeHtml4(consumo.getConsuDetalle());
+                                                                break;
+                                                            }
+                                                        }%>
                                             <tr>
                                                 <th scope="row">Dias de Reservacion: </th>
-                                                <td><%= reserva.getNumDias()%></td>
+                                                <td><%= reserva.getNumDias()%> Días</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Fecha Registro: </th>
@@ -82,38 +107,47 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">Consumos Adicionales: </th>
-                                                <td><%= reserva.getConsuId()%></td>
+                                                <td><%= nombreConsumo%></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Estado la de la Reserva: </th>
-                                                <td><%= reserva.getEstaId()%></td>
+                                                <td><%= nombreEstado%></td>
                                             </tr>
-
-                                        </tbody>
+                                        </tbody>                                        
                                     </table>
                                 </div>
-                                <form action="" method="POST" onsubmit="return validarFormulario()">
+                                <form action="" method="POST" onsubmit="return validarFormulario();">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="codigo">Código Reservacion: </span>
-                                        <input type="text"  name="codigo" id="codigo" value="<%= reserva.getReseId()%>" class="form form-control" aria-label="Codigo de la Reserva" aria-describedby="codigo" readonly="off" required>
+                                        <input type="text"  name="codigo" id="codigo" value="<%= reserva.getReseId()%>" class="form form-control" readonly="off" required>
                                     </div>
 
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="valorT">Valor a Cancelar: </span>
-                                        <input type="number"  name="valorT" id="valorT" value="<%= reserva.getReseVTotal()%>" class="form form-control" placeholder="Codigo de la Reserva" aria-label="Codigo de la Reserva" aria-describedby="codigo" readonly="off" required>
+                                        <input type="number"  name="valorT" id="valorT" value="<%= reserva.getReseVTotal()%>" class="form form-control" readonly="off" required>
                                     </div>
                                     <div class="input-group mb-3">
-                                        <span class="input-group-text" id="metodoP">Metodo de Pago: </span>
-                                        <select name="metodoP" id=" metodoP" class="form form-control">
+                                        <span class="input-group-text" id="metodoP" required>Metodo de Pago: </span>
+                                        <select name="metodoP" id="metodoP" class="form form-control">
                                             <option></option>
+                                            <%
+                                                MetodoPagosDao mostrarListaMetodo = new MetodoPagosDao();
+                                                List<MetodoPagos> metodoP = mostrarListaMetodo.mostrarListaMetodoPago();
+                                                for (MetodoPagos metodoPago : metodoP) {%>
+                                            <option value="<%= metodoPago.getPagoId()%>"><%= StringEscapeUtils.escapeHtml4(metodoPago.getPagoNombre())%></option>
+                                            <% }%>
                                         </select>
-
                                     </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="transaccion">Nº Transaccion</span>
+                                        <input type="number"  name="transaccion" id="transaccion"  class="form form-control" min="1" required>
+                                    </div>
+
                                     <a href="reserva_lista.jsp" class="btn btn-danger">Regresar</a>
                                     <input type="submit" value="Pagar" name="nuevo_pago" class="btn btn-warning"/> 
-                                </form>
-                                <% }
-                                    }%>
+                                    <% }
+                                        }%>
+                                </form>                                
                             </div>
                         </div>
                     </div>

@@ -262,5 +262,36 @@ public class ReservasDao {
         }
         return resultado;
     }
+    
+    public Reservas mostrarReservaXid(int id_reserva) {
+        Reservas reserva = null;
+        try {
+            String sql_listaXid = "SELECT * FROM hotel_clv.reservas WHERE rese_id=?;";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_listaXid);
+            pst.setInt(1, id_reserva);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Integer reseId = rs.getInt("rese_id");
+                Integer numDias = rs.getInt("rese_num_dias");
+                LocalDateTime reseFReserva = rs.getTimestamp("rese_f_reserva").toLocalDateTime();
+                LocalDateTime reseFInicio = rs.getTimestamp("rese_f_inicio").toLocalDateTime();
+                LocalDateTime reseFSalida = rs.getTimestamp("rese_f_salida").toLocalDateTime();
+                BigDecimal reseVTotal = rs.getBigDecimal("rese_vtotal");
+                Integer habiId = rs.getInt("habitaciones_habi_id");
+                Integer estaId = rs.getInt("estados_esta_id");
+                Integer perId = rs.getInt("personas_per_id");
+                Integer consuId = rs.getInt("consumos_consu_id");
+
+                reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);                
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en ReservasDao mostrarListaReserva: " + e.getMessage());
+        } finally {
+        }
+        return reserva;
+    }
 
 }

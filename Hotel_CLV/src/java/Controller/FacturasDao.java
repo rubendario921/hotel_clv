@@ -121,7 +121,7 @@ public class FacturasDao {
             pst.setInt(6, personaId);
             pst.setInt(7, estadoId);
             pst.setInt(8, fEncabezado);
-            pst.setInt(1, factId);
+            pst.setInt(9, factId);
 
             int n = pst.executeUpdate();
             if (n > 0) {

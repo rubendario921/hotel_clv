@@ -56,6 +56,7 @@
                                         for (Estados estado : estados) {
                                             if (estado.getEstaId() == habitacionEstado) {
                                                 nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
+                                                break;
                                             }
                                         }%>
                                 <tr>

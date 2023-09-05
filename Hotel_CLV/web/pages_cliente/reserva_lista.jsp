@@ -61,7 +61,7 @@
                                     List<Estados> estados = mostrarEsta.mostrarListaEstados();
 
                                     ReservasDao mostrarReservas = new ReservasDao();
-                                    List<Reservas> reservas = mostrarReservas.mostrarListaReservaXid(id);
+                                    List<Reservas>reservas = mostrarReservas.mostrarListaReservaXid(id);
                                     for (Reservas reserva : reservas) {
 
                                         int habiReserva = reserva.getHabiId();
@@ -109,7 +109,7 @@
                                     <td>
                                         <%
                                             if (nombreEstado.equals("PENDIENTE")) {%>                                            
-                                        <a href="aceptar_pago.jsp?aceptar=true&id=<%= reserva.getReseId()%>" class="btn btn-primary"><i class="fa fa-tags" title="Aceptar" name="aceptar"></i></a>
+                                        <a href="aceptar_pago.jsp?aceptar=true&id_reserva=<%= reserva.getReseId()%>" class="btn btn-primary"><i class="fa fa-tags" title="Aceptar" name="aceptar"></i></a>
                                             <% }%>
                                             <%
                                                 if (!nombreEstado.equals("ANULADO")) {%>

@@ -123,8 +123,8 @@
 <script>
     function validarFormulario() {
         // Obtener los valores de los campos
-        var nombres = document.getElementById("nombre").value.trim();
-        var apellidos = document.getElementById("apellido").value.trim();
+        var nombres = document.getElementById("nombres").value.trim();
+        var apellidos = document.getElementById("apellidos").value.trim();
         var cedula = document.getElementById("cedula").value.trim();
         var telefono = document.getElementById("telefono").value.trim();
         var correo = document.getElementById("correo").value.trim();
