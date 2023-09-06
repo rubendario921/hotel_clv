@@ -135,7 +135,7 @@
                                             <a href="aceptar_pago.jsp?aceptar=true&id_reserva=<%= reserva.getReseId()%>" class="btn btn-primary"><i class="fa fa-tags" title="Aceptar" name="aceptar"></i></a>
                                                 <% }%>
                                                 <%
-                                                    if (!nombreEstado.equals("ANULADO")) {%>
+                                                    if (nombreEstado.equals("PENDIENTE")) {%>
                                             <a href="Mantenimiento_cliente/crudreserva_anular.jsp?anular=true&id=<%= reserva.getReseId()%>&habiId=<%= reserva.getHabiId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Anular" name="anular"></i></a>
                                                 <% }
                                                 %>

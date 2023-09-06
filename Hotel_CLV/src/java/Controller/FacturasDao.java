@@ -83,10 +83,10 @@ public class FacturasDao {
         int resultado = 0;
         try {
             int fEncabezado = 1;
-            String sql_estado = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'APRO%';";
+            String sql_estado = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'PEND%';";
             PreparedStatement pstEstado = con.getConexion().prepareStatement(sql_estado);
-            ResultSet rsEstado = pstEstado.executeQuery(sql_estado);
-            while (rsEstado.next()) {
+            ResultSet rsEstado = pstEstado.executeQuery();
+            if (rsEstado.next()) {
                 int estadoId = rsEstado.getInt("esta_id");
                 String sql_crearFactu = "INSERT INTO hotel_clv.facturas (fact_femision, fact_v_total, factu_transaccion, reservas_rese_id, metodo_pagos_pago_id, personas_per_id, estados_esta_id, f_encabezado_emp_id) VALUES (?,?,?,?,?,?,?,?);";
                 PreparedStatement pst = con.getConexion().prepareStatement(sql_crearFactu);
@@ -98,6 +98,8 @@ public class FacturasDao {
                 pst.setInt(6, personaId);
                 pst.setInt(7, estadoId);
                 pst.setInt(8, fEncabezado);
+                
+                resultado = pst.executeUpdate();
 
                 pst.close();
             }

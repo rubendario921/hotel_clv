@@ -262,7 +262,7 @@ public class ReservasDao {
         }
         return resultado;
     }
-    
+
     public Reservas mostrarReservaXid(int id_reserva) {
         Reservas reserva = null;
         try {
@@ -282,7 +282,7 @@ public class ReservasDao {
                 Integer perId = rs.getInt("personas_per_id");
                 Integer consuId = rs.getInt("consumos_consu_id");
 
-                reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);                
+                reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);
             }
             rs.close();
             pst.close();
@@ -292,6 +292,46 @@ public class ReservasDao {
         } finally {
         }
         return reserva;
+    }
+
+    public int reservadoReserva(Integer reseId) {
+        int resultado = 0;
+        try {
+            String estadoAprobar = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'RESER%'";
+            PreparedStatement pst = con.getConexion().prepareStatement(estadoAprobar);
+            ResultSet rsEstado = pst.executeQuery(estadoAprobar);
+            while (rsEstado.next()) {
+                Integer estadoNuevo = rsEstado.getInt("esta_id");
+                String sql_aprobar = "UPDATE hotel_clv.reservas SET estados_esta_id=? WHERE rese_id=?";
+                PreparedStatement pstUpdate = con.getConexion().prepareStatement(sql_aprobar);
+                pstUpdate.setInt(1, estadoNuevo);
+                pstUpdate.setInt(2, reseId);
+                int n = pstUpdate.executeUpdate();
+                if (n > 0) {
+                    resultado = 1;
+                } else {
+                    resultado = 0;
+                }
+                pstUpdate.close();
+            }
+            rsEstado.close();
+        } catch (SQLException e) {
+            System.out.println("Error en ReservasDao aprobarReserva: " + e.getMessage());
+            int SQLError = e.getErrorCode();
+            switch (SQLError) {
+                case 1062:
+                    resultado = 1062;
+                    break;
+                case 1048:
+                    resultado = 1048;
+                    break;
+                default:
+                    resultado = SQLError;
+                    break;
+            }
+        } finally {
+        }
+        return resultado;
     }
 
 }

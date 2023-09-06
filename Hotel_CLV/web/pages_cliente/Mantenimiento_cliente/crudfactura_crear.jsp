@@ -4,6 +4,7 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="Controller.ReservasDao"%>
 <%@page import="Controller.FacturasDao"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="java.time.LocalDateTime"%>
@@ -37,7 +38,15 @@
 
                 switch (resultado) {
                     case 1:
-                        String informacion = "Registro Exitoso";
+                        int reseId = Integer.parseInt(request.getParameter("codigo"));
+
+                        ReservasDao cambioEstado = new ReservasDao();
+                        int resultadoCambioEstado = cambioEstado.reservadoReserva(reseId);
+                        if (resultadoCambioEstado == 1) {
+                            String observacion = "Aprobación de Reservas";
+                        }
+
+                        String informacion = "La transaccion esta siendo revisada en nuestro sistema. Será notificado de la manera inmediata";
                         String redireccion = "../facturacion_lista.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
         <%break;
