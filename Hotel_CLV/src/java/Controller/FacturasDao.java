@@ -172,4 +172,35 @@ public class FacturasDao {
         }
         return resultado;
     }
+    //////////////////////////// Procesos Adicionales
+        public List<Facturas> mostrarListaFacturasXid(int id) {
+        List<Facturas> facturas = new ArrayList<>();
+        try {
+            String sql_listaId = "SELECT * FROM hotel_clv.facturas WHERE personas_per_id=?;";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_listaId);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                int factId = rs.getInt("fact_id");
+                LocalDateTime factFEmision = rs.getTimestamp("fact_femision").toLocalDateTime();
+                BigDecimal factVTotal = rs.getBigDecimal("fact_v_total");
+                int factNTransaccion = rs.getInt("factu_transaccion");
+                int reservaId = rs.getInt("reservas_rese_id");
+                int metodoPagoId = rs.getInt("metodo_pagos_pago_id");
+                Integer personaId = rs.getInt("personas_per_id");
+                int estadoId = rs.getInt("estados_esta_id");
+                int fEncabezado = rs.getInt("f_encabezado_emp_id");
+
+                Facturas factura = new Facturas(factId, factFEmision, factVTotal, factNTransaccion, reservaId, metodoPagoId, personaId, estadoId, fEncabezado);
+                facturas.add(factura);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en FacturasDao mostrarListaFacturas: " + e.getMessage());
+        } finally {
+        }
+        return facturas;
+    }
 }

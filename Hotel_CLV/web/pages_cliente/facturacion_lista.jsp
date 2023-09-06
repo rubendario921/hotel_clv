@@ -52,7 +52,7 @@
                                     List<Estados> estados = mostrarEstados.mostrarListaEstados();
 
                                     FacturasDao mostrarFacturas = new FacturasDao();
-                                    List<Facturas> facturas = mostrarFacturas.mostrarListaFacturas();
+                                    List<Facturas> facturas = mostrarFacturas.mostrarListaFacturasXid(id);
                                     for (Facturas factura : facturas) {
                                         int metodoP = factura.getMetodoPagoId();
                                         String nombreMetodoP = "";
