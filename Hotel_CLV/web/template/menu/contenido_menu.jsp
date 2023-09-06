@@ -115,12 +115,11 @@
         <div class="row text-center py-3">
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">Video demostrativo</h1>
-                
                 <video width="100%" controls>
-                    <source src="https://youtu.be/56NMP5fAwJk?si=K3qetSaR7MeFkIhe" type="">
-                    
+                    <source src="https://youtu.be/56NMP5fAwJk?si=odJ7DLNnly3c-k7E" type="video/mp4">
+                    <source src="https://youtu.be/56NMP5fAwJk?si=odJ7DLNnly3c-k7E" type="video/webm">
+                                        
                 </video>
-                
                 <br>
                 <br>
                 <h1 class="h1">Nuestros servicios</h1>
@@ -131,16 +130,15 @@
             </div>
         </div>
     </div>
-        
-        
-        
-        
-        
+
+
+    <div class="container">
         <div class="row">
+            <!-- 1: Habitaciones -->
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
                     <a href="habitaciones.jsp">
-                        <img src="./assets/img/banner_img_04.jpeg" class="card-img-top" alt="...">
+                        <img src="./assets/img/banner_img_04.jpeg" class="card-img-top" alt="Imagen de Habitaciones">
                     </a>
                     <div class="card-body">
                         <ul class="list-unstyled d-flex justify-content-between">
@@ -161,10 +159,12 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 2: Restaurantes -->
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
                     <a href="servicios.jsp">
-                        <img src="./assets/img/banner_img_restaurante.jpg" class="card-img-top" alt="...">
+                        <img src="./assets/img/banner_img_restaurante.jpg" class="card-img-top" alt="Imagen de Restaurantes">
                     </a>
                     <div class="card-body">
                         <ul class="list-unstyled d-flex justify-content-between">
@@ -179,16 +179,18 @@
                         </ul>
                         <a href="servicios.jsp" class="h2 text-decoration-none text-dark">Restaurantes</a>
                         <p class="card-text">
-                            Hablando de los Restaurantes un lugasr muy importange para el usuario. El desayuno se sirve en un restaurante informal. También hay una cocina compartida y un salón.
+                            Hablando de los Restaurantes un lugar muy importante para el usuario. El desayuno se sirve en un restaurante informal. También hay una cocina compartida y un salón.
                         </p>
                         <p class="text-muted">Reviews (48)</p>
                     </div>
                 </div>
             </div>
+
+            <!-- 3: Recreación -->
             <div class="col-12 col-md-4 mb-4">
                 <div class="card h-100">
                     <a href="servicios.jsp">
-                        <img src="./assets/img/banner_img_piscina.jpg" class="card-img-top" alt="...">
+                        <img src="./assets/img/banner_img_piscina.jpg" class="card-img-top" alt="Imagen de Recreación">
                     </a>
                     <div class="card-body">
                         <ul class="list-unstyled d-flex justify-content-between">
@@ -203,7 +205,7 @@
                         </ul>
                         <a href="servicios.jsp" class="h2 text-decoration-none text-dark">Recreación</a>
                         <p class="card-text">
-                            El área de recreación es algo indispensable y para eso disponemos de una piscina super comoda para el uso de todos los usuarios. 
+                            El área de recreación es algo indispensable y para eso disponemos de una piscina super cómoda para el uso de todos los usuarios.
                         </p>
                         <p class="text-muted">Reviews (74)</p>
                     </div>
@@ -212,7 +214,3 @@
         </div>
     </div>
 </section>
-<!-- End Featured Product -->
-
-
-<!-- Fin de content -->

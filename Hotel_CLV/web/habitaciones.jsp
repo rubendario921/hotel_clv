@@ -13,9 +13,12 @@
 
 <%@include file="template/menu/header_menu.jsp" %>
 <div class="container">
-    <h2">Nuestras Habitaciones</h2>
+    <div class="text-center my-5">
+        <h2>Nuestras Habitaciones</h2>
+        <p>Descubre nuestras cómodas habitaciones y disfruta de una estadía inolvidable en nuestro hotel.</p>
+    </div>
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">            
+        <ol class="carousel-indicators">             
             <%
                 HabitacionesDao mostar_habitaciones = new HabitacionesDao();
                 List<Habitaciones> habitaciones = mostar_habitaciones.mostrarMenuHabi();
@@ -48,4 +51,6 @@
         </a>
     </div>
 </div>
+            <br>
+            <br>
 <%@include file="template/menu/footer_menu.jsp" %>

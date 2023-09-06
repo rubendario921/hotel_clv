@@ -3,7 +3,7 @@
 <%@include file="template/menu/header_menu.jsp" %>
 
 <style>
-    /* Estilos para el formulario */
+    /* Estilos para todo el formulario */
     .container {
         margin-top: 30px;
     }
@@ -13,6 +13,7 @@
         padding: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .form-label {
@@ -25,6 +26,11 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         padding: 10px;
+        transition: border-color 0.3s;
+    }
+
+    .form-control:focus {
+        border-color: #007bff; 
     }
 
     .btn-primary {
@@ -34,18 +40,31 @@
         padding: 10px 20px;
         color: #fff;
         cursor: pointer;
+        transition: background-color 0.3s;
     }
 
     .btn-primary:hover {
-        background-color: #0056b3;
+        background-color: #0056b3; 
     }
 
     /* Estilos para la imagen */
     .img-fluid img {
         width: 100%;
         border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    
+    h2 {
+        color: #007bff;
+    }
+
+    
+    body {
+        background-color: #f3f3f3;
     }
 </style>
+
 <script>
     function validarFormulario() {
         // Obtener los valores de los campos
@@ -56,19 +75,20 @@
         var mensaje = document.getElementById("mensaje").value.trim();
         var ciudad = document.getElementById("ciudad").value.trim();
 
-        // Validar campos obligatorios
+        // las validaciones de campos obligatorios
         if (nombres === "" || correo === "" || telefono === "" || asunto === "" || mensaje === "" || ciudad === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
-        return true; // Permitir el envío del formulario si todos los campos están llenos
+        return true; 
     }
 </script>
+
 <div class="container text-center">
     <div class="row justify-content-center">
-        <!--Formulario/ Section lado izquierdo-->
+        <!-- Formulario quew  va al lado izquierdo -->
         <div class="col-md-6">
-            <h2>Formulario de Contacto</h2>
+            <h2>Contáctanos</h2>
             <div class="card">
                 <section>
                     <form class="row g-3" action="Mantenimiento/crudcontacto_crear.jsp" method="POST" onsubmit="return validarFormulario();">
@@ -108,7 +128,7 @@
                 </section>
             </div>
         </div>
-        <!--Imagen lado derecho-->
+        <!-- aqui va la imagen del lado derecho -->
         <div class="col-md-4">
             <div class="img-fluid">
                 <img src="assets/img/shop_07.jpg" alt="Imagen">
@@ -116,4 +136,5 @@
         </div>
     </div>
 </div>
+
 <%@include file="template/menu/footer_menu.jsp" %>
