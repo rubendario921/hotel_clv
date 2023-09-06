@@ -25,7 +25,6 @@
         var metodoP = document.getElementById("metodoP").value.trim();
         var transaccion = document.getElementById("transaccion").value.trim();
 
-
         // Validar campos obligatorios
         if (codigo === "" || valorT === "" || metodoP === "" || transaccion === "") {
             alert("Por favor, complete todos los campos.");
@@ -42,7 +41,7 @@
                 <h1 class="page-header ">Metodos de Pago</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 style="align-items: center ">Registro del Pago</h3>
+                        <h3>Registro del Pago</h3>
                     </div>
                     <div class="panel-body">
                         <div class="container text-center">
@@ -116,7 +115,12 @@
                                         </tbody>                                        
                                     </table>
                                 </div>
-                                <form action="" method="POST" onsubmit="return validarFormulario();">
+                                <form action="Mantenimiento_cliente/crudfactura_crear.jsp" method="POST" onsubmit="return validarFormulario();">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text"><i class="fa fa-user-circle"></i> Codigo Cliente: </span>
+                                        <input type="text" name="perId" id="perId" class="form-control" required value="<%= session.getAttribute("perId")%>" title="<%= session.getAttribute("nombre")%>" readonly="off"/>                                                
+                                    </div>
+
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="codigo">Código Reservacion: </span>
                                         <input type="text"  name="codigo" id="codigo" value="<%= reserva.getReseId()%>" class="form form-control" readonly="off" required>
@@ -142,7 +146,6 @@
                                         <span class="input-group-text" id="transaccion">Nº Transaccion</span>
                                         <input type="number"  name="transaccion" id="transaccion"  class="form form-control" min="1" required>
                                     </div>
-
                                     <a href="reserva_lista.jsp" class="btn btn-danger">Regresar</a>
                                     <input type="submit" value="Pagar" name="nuevo_pago" class="btn btn-warning"/> 
                                     <% }
