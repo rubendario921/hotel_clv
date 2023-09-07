@@ -24,18 +24,14 @@
         <%
             if (request.getParameter("nuevo_pago") != null) {
                 LocalDateTime factFEmision = LocalDateTime.now();
-
                 String valorStr = request.getParameter("valorT");
                 BigDecimal factVTotal = new BigDecimal(valorStr);
-
                 int factNTransaccion = Integer.parseInt(request.getParameter("transaccion"));
                 int reservaId = Integer.parseInt(request.getParameter("codigo"));
                 int metodoPagoId = Integer.parseInt(request.getParameter("metodoP"));
                 int personaId = Integer.parseInt(request.getParameter("perId"));
-
                 FacturasDao crearFactura = new FacturasDao();
                 int resultado = crearFactura.crearFactura(factFEmision, factVTotal, factNTransaccion, reservaId, metodoPagoId, personaId);
-
                 switch (resultado) {
                     case 1:
                         int reseId = Integer.parseInt(request.getParameter("codigo"));
