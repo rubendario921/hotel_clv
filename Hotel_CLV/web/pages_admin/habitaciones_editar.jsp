@@ -65,7 +65,7 @@
                             <br>
                             <label>Departamento:  </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar())%>" class="form-control" name="departamento"  placeholder="Ingrese el número de la habitación" maxlength="3" required/>
                             <br>
-                            <label>Descripción:  </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%>" class="form-control" name="descripcion"  placeholder="Ingrese una descripción de la habitación" maxlength="500" required/>
+                            <label>Descripción:  </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%>" class="form-control" name="descripcion"  placeholder="Ingrese una descripción de la habitación" maxlength="500" required readonly="off"/> 
                             <br>
                             <label>Valor Diario:  </label><input type="number" value="<%= habitacion.getHabiValorD()%>" class="form-control" name="valor"  placeholder="Ingrese el valor de la habitación" step="000.01" maxlength="6" required/>
                             <br>

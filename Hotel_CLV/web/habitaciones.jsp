@@ -36,7 +36,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre())%></h5>
                     <!--<p><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiTipo())%></p>-->
-                    <p><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%></p>
+                    <p ><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%></p>
                 </div>
             </div>
             <% }%>

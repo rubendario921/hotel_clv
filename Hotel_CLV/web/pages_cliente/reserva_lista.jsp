@@ -128,7 +128,7 @@
                                         <td><%= reserva.getHabiId()%></td>
                                         <td><%= nombreHabitacion%></td>
                                         <td><%= nombreConsumo%></td>
-                                        <td><%= nombreEstado%></td>
+                                        <td class="bg-success"><b><%= nombreEstado%></b></td>
                                         <td>
                                             <%
                                                 if (nombreEstado.equals("PENDIENTE")) {%>
