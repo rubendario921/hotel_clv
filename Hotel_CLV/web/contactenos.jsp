@@ -68,7 +68,7 @@
 <script>
     function validarFormulario() {
         // Obtener los valores de los campos
-        var nombres = document.getElementById("nombre").value.trim();
+        var nombres = document.getElementById("nombres").value.trim();
         var correo = document.getElementById("correo").value.trim();
         var telefono = document.getElementById("telefono").value.trim();
         var asunto = document.getElementById("asunto").value.trim();
@@ -93,8 +93,8 @@
                 <section>
                     <form class="row g-3" action="Mantenimiento/crudcontacto_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                         <div class="col-md-6">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre" maxlength="50" autocomplete="true" required>
+                            <label for="nombres" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Ingrese su nombre" maxlength="50" autocomplete="true" required>
                         </div>
                         <div class="col-md-6">
                             <label for="correo" class="form-label">Correo Electrónico</label>
