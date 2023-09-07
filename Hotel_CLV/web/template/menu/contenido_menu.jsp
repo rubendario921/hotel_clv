@@ -134,13 +134,8 @@
     <div class="container py-5">
         <div class="row text-center py-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1">Video demostrativo</h1>
-                <video width="100%" controls>
-                    <source src="https://youtu.be/56NMP5fAwJk?si=odJ7DLNnly3c-k7E" type="video/mp4">
-                    <source src="https://youtu.be/56NMP5fAwJk?si=odJ7DLNnly3c-k7E" type="video/webm">
-
-                </video>
-                <br>
+                
+                
                 <br>
                 <h1 class="h1">Nuestros servicios</h1>
                 <p>
