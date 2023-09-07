@@ -47,19 +47,19 @@
             String redireccion = "../pages_admin/menu_admin.jsp";
             switch (resultado) {
                 case 1:
-                    mensaje = "Bienvenido Administrador";
+                    mensaje = "Bienvenido  Administrador " + nombre;
                     break;
 
                 case 2:
-                    mensaje = "Bienvenido Supervisor";
+                    mensaje = "Bienvenido Supervisor " + nombre;
                     break;
 
                 case 3:
-                    mensaje = "Bienvenido Recepcionista";
+                    mensaje = "Bienvenido Recepcionista " + nombre;
                     break;
 
                 case 4:
-                    mensaje = "Bienvenido Cliente";
+                    mensaje = "Bienvenido Cliente " + nombre;
                     redireccion = "../pages_cliente/menu_dashboard.jsp";
                     break;
             }

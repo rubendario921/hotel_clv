@@ -144,7 +144,7 @@
                                     </div>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="transaccion">Nº Transaccion</span>
-                                        <input type="text"  name="transaccion" id="transaccion"  class="form form-control" maxlength="10" required>
+                                        <input type="text"  name="transaccion" id="transaccion"  class="form form-control" maxlength="10"  autocomplete="off"required>
                                     </div>
                                     <a href="reserva_lista.jsp" class="btn btn-danger">Regresar</a>
                                     <input type="submit" value="Pagar" name="nuevo_pago" class="btn btn-warning"/> 

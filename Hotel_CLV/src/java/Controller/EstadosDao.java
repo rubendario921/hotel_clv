@@ -232,10 +232,10 @@ public class EstadosDao {
         return estados;
     }
 
-    public List<Estados> mostrarListaEstaFinanciero() {
+    public List<Estados> mostrarListaEstaFacturacion() {
         List<Estados> estados = new ArrayList<>();
         try {
-            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'FINA%';";
+            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'FACTU%';";
             Statement pst = con.getConexion().prepareStatement(sql_lista);
             ResultSet rs = pst.executeQuery(sql_lista);
             while (rs.next()) {

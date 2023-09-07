@@ -3,8 +3,6 @@
     Created on : 20-ago-2023, 22:52:48
     Author     : Ruben Dario 921
 --%>
-
-
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Perfiles"%>
@@ -101,7 +99,7 @@
                                 }%>
                             <br>
                             <a href="menu_admin.jsp" class="btn btn-danger">Regresar</a>
-                            <input type="submit" value="Editar" name="editar" class="btn btn-primary"/>                                
+                            <input type="submit" value="Modificar" name="editar" class="btn btn-warning"/>                                
                         </form>
                     </div>
                 </div>

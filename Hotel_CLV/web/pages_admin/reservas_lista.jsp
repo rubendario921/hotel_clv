@@ -117,7 +117,7 @@
                                     <td><%= cedulaPersona%></td>
                                     <td><%= nombreConsumo%></td>
                                     <td>
-                                        <a href="?editar=true&id=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="reservas_editar.jspeditar=true&id=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                             <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
                                         <a href="Mantenimiento_admin/crudreservas_eliminar.jsp?eliminar=true&id=<%= reserva.getReseId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                             <% }%>
