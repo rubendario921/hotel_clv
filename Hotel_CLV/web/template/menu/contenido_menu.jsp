@@ -7,6 +7,26 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 
+<img class="d-block w-100" alt="450" height="500" width="600" src="assets/img/hotel_1.jpg" alt="">
+<a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#videoModal">Reproducir video</a>
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="videoModalLabel"> Hotel CLV </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe width="1600" height="900" src="https://www.youtube.com/embed/U3HsFcQbvXY" title="Top 8 Things to Do in Honolulu, Hawaii" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
 
 <!-- Modal -->
 <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -118,7 +138,7 @@
                 <video width="100%" controls>
                     <source src="https://youtu.be/56NMP5fAwJk?si=odJ7DLNnly3c-k7E" type="video/mp4">
                     <source src="https://youtu.be/56NMP5fAwJk?si=odJ7DLNnly3c-k7E" type="video/webm">
-                                        
+
                 </video>
                 <br>
                 <br>
