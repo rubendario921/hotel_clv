@@ -13,18 +13,18 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="videoModalLabel"> Hotel CLV </h5>
+                <h5 class="modal-title" id="videoModalLabel">Hotel CLV</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="1600" height="900" src="https://www.youtube.com/embed/U3HsFcQbvXY" title="Top 8 Things to Do in Honolulu, Hawaii" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+                    <iframe width="1600" height="900" src="https://www.youtube.com/embed/U3HsFcQbvXY?autoplay=1" title="Top 8 Things to Do in Honolulu, Hawaii" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </div>
-</div> 
+</div>
+
 
 
 
