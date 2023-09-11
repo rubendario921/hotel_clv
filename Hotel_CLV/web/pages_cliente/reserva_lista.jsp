@@ -121,7 +121,7 @@
                                     <tr>
                                         <td><%= reserva.getReseId()%></td>
                                         <td><%= reserva.getNumDias()%></td>
-                                        <td><%= reserva.getReseFReserva()%></td>
+                                        <td><label><%= reserva.getReseFReserva()%></label></td>
                                         <td><%= reserva.getReseFInicio()%></td>
                                         <td><%= reserva.getReseFSalida()%></td>
                                         <td class="bg-warning"><b>$<%= reserva.getReseVTotal()%></b></td>
