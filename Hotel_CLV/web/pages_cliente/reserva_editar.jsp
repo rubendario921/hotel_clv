@@ -16,13 +16,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Editar Reserva</h1>
+                <h1 class="page-header" style="text-align: center">Editar Reserva</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3>Información de la Reserva</h3>
                     </div>
-                    <div class="panel-body">
-                        <form action="" method="POST" onsubmit="">
+                    <div class="panel-body" style="text-align: center">
+                        <form action="" method="POST" class="col-5" onsubmit="">
                             <%                                if (request.getParameter("editar") != null) {
                                     int id = Integer.parseInt(request.getParameter("id_reserva"));
 
@@ -47,7 +47,7 @@
                                 <input type="text" id="codigo" name ="codigo" value="<%= reserva.getHabiId()%>" class="form form-control" readonly="off" required>
                             </div>
                             <h3>Cambios o Modificaciones a realizar: </h3>
-                            
+
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="codigo">Números de Días: </span>
                                 <input type="number" id="numDias" name ="numDias" value="<%= reserva.getNumDias()%>" class="form form-control" min="1" placeholder="Ingrese la cantidad de los días a reservar" required>
