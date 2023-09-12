@@ -125,16 +125,37 @@
         // Obtener los valores de los campos
         var nombres = document.getElementById("nombres").value.trim();
         var apellidos = document.getElementById("apellidos").value.trim();
-        var cedula = document.getElementById("cedula").value.trim();
+        var cedulaValor = document.getElementById("cedula").value.trim();
         var telefono = document.getElementById("telefono").value.trim();
         var correo = document.getElementById("correo").value.trim();
         var usuario = document.getElementById("usuario").value.trim();
         var clave = document.getElementById("clave").value.trim();
 
         // Validar campos obligatorios
-        if (nombres === "" || apellidos === "" || cedula === "" || usuario === "" || telefono === "" || correo === "" || clave === "") {
+        if (nombres === "" || apellidos === "" || cedulaValor === "" || usuario === "" || telefono === "" || correo === "" || clave === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
+        }
+        //Validacion de la cedula de identidad
+        var cedula = cedulaValor;
+
+        // Verificar que la cédula tenga 10 dígitos numéricos
+        if (!/^\d{10}$/.test(cedula)) {
+            alert("La cédula debe tener 10 dígitos numéricos");
+            return false;
+        }
+        // Validar el dígito verificador
+        var coeficientes = [2, 1, 2, 1, 2, 1, 2, 1, 2];
+        var total = 0;
+        for (var i = 0; i < 9; i++) {
+            var digito = parseInt(cedula.charAt(i), 10);
+            var producto = digito * coeficientes[i];
+            total += producto >= 10 ? producto - 9 : producto;
+        }
+        var digitoVerificador = (Math.ceil(total / 10) * 10) - total;
+        if (digitoVerificador !== parseInt(cedula.charAt(9), 10)) {
+            alert("La cédula no es válida");
+            return false;
         }
         // Validar que la contraseña contenga al menos una mayúscula, una minúscula y un número
         var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/;
@@ -142,9 +163,6 @@
             alert("La contraseña debe contener al menos una mayúscula, una minúscula y un número.");
             return false; // Detener el envío del formulario
         }
-
-        // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
-
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
@@ -159,32 +177,32 @@
                 <form action="Mantenimiento/crudcliente_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                     <div class="form-group">
                         <label for="nombre" class="label-text">Nombres Completos</label>
-                        <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus dos nombres" class="form-control"   maxlength="200" autocomplete="true" required>
+                        <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus dos nombres" class="form-control"   maxlength="200" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="apellido" class="label-text">Apellidos Completos</label>
-                        <input type="text"  id="apellidos" name="apellidos" placeholder="Ingrese sus dos apellidos" class="form-control"   maxlength="200" autocomplete="true" required>
+                        <input type="text"  id="apellidos" name="apellidos" placeholder="Ingrese sus dos apellidos" class="form-control"   maxlength="200" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="cedula" class="label-text">Cédula de Identidad</label>
-                        <input type="text" id="cedula" name="cedula" placeholder="Ingrese su numero de cedula o RUC" class="form-control"   maxlength="13" autocomplete="true" required>
+                        <input type="text" id="cedula" name="cedula" placeholder="Ingrese su número de cedula" class="form-control" minlength="10"  maxlength="10" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="telefono" class="label-text">Teléfono</label>
-                        <input type="text" id="telefono" name="telefono" placeholder="Ingrese su numero telefonico" class="form-control" maxlength="10" autocomplete="true" required >
+                        <input type="text" id="telefono" name="telefono" placeholder="Ingrese su numero telefonico" class="form-control" maxlength="10" autocomplete="off" required >
                     </div>
                     <div class="form-group">
                         <label for="usuario" class="label-text">Ingrese un Usuario</label>
-                        <input type="text" id="usuario" name="usuario" placeholder="Ingrese un usuario para el sistema" class="form-control" maxlength="45" autocomplete="true" required>
+                        <input type="text" id="usuario" name="usuario" placeholder="Ingrese un usuario para el sistema" class="form-control" maxlength="45" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="correo" class="label-text">Correo Electrónico</label>
-                        <input type="email" id="correo" name="correo" placeholder="Ingrese su correo electronico" class="form-control" maxlength="200" autocomplete="true" required>
+                        <input type="email" id="correo" name="correo" placeholder="Ingrese su correo electronico" class="form-control" maxlength="200" autocomplete="off" required>
                         <small class="form-text">*Su inicio de sesión será con el correo electrónico</small>
                     </div>
                     <div class="form-group">
                         <label for="clave" class="label-text">Contraseña</label>
-                        <input type="password" id="clave" name="clave"  placeholder="Ingrese su contraseña personal" class="form-control" required maxlength="16" autocomplete="true">
+                        <input type="password" id="clave" name="clave"  placeholder="Ingrese su contraseña personal" class="form-control" required maxlength="16" autocomplete="off">
                         <small class="form-text">*Entre 8 y 16 dígitos con caracteres especiales</small>
                     </div>
                     <button class="btn btn-registrar" value="Registrar" name="nuevo_cliente">Registrar</button>
