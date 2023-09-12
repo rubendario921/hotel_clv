@@ -1,4 +1,4 @@
-  <%@page import="Controller.Consumos"%>
+<%@page import="Controller.Consumos"%>
 <%@page import="Controller.ConsumosDao"%>
 <%-- 
     Document   : reservas_lista
@@ -20,7 +20,7 @@
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 <div id="page-wrapper">
-    <div class="container-fluid">
+    <div class="container-fluid container">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Reservaciones</h1>
@@ -34,10 +34,9 @@
                         </table>
                     </div>
                     <div class="panel-body">
-                        <table class="table table">
+                        <table class="table-hover" style="width: auto; text-align: center">
                             <thead>
                                 <tr>
-                                    <th>Código</th>
                                     <th>Días</th>
                                     <th>Fecha Reserva</th>
                                     <th>Fecha Ingreso</th>
@@ -45,8 +44,7 @@
                                     <th>Valor Total</th>                                    
                                     <th>Habitación</th>
                                     <th>Estado</th>
-                                    <th>Cliente</th>
-                                    <th>Consumos</th>                                    
+                                    <th>Cliente</th>                                                                 
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -61,9 +59,6 @@
                                     PersonasDao mostrarPerso = new PersonasDao();
                                     List<Personas> personas = mostrarPerso.mostrarListaPersonas();
                                     
-                                    ConsumosDao mostarConsu = new ConsumosDao();
-                                    List<Consumos> consumos = mostarConsu.mostrarListaConsumos();
-
                                     ReservasDao mostrarReser = new ReservasDao();
                                     List<Reservas> reservas = mostrarReser.mostrarListaReserva();
                                     for (Reservas reserva : reservas) {
@@ -75,8 +70,9 @@
                                                 nombreHabitacion = StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre());
                                                 break;
                                             }
-
+                                            
                                         }
+                                        
                                         //Comparacion Reserva Y Estados
                                         int reservaEstaId = reserva.getEstaId();
                                         String nombreEstado = "";
@@ -86,6 +82,7 @@
                                                 break;
                                             }
                                         }
+                                        
                                         //Comparacion Reserva y Persona
                                         int reservaPerId = reserva.getPerId();
                                         String cedulaPersona = "";
@@ -94,30 +91,18 @@
                                                 cedulaPersona = StringEscapeUtils.escapeHtml4(persona.getPerCedula());
                                                 break;
                                             }
-                                        }
-                                
-                                 //Comparacion Reserva y Consumo
-                                        int reservaConsuId = reserva.getConsuId();
-                                        String nombreConsumo = "";
-                                        for (Consumos consumo : consumos) {
-                                            if (consumo.getConsuId() == reservaConsuId) {
-                                                nombreConsumo = StringEscapeUtils.escapeHtml4(consumo.getConsuNombre());
-                                                break;
-                                            }
                                         }%>
                                 <tr>
-                                    <td><%= reserva.getReseId()%></td>
-                                    <td><%= reserva.getNumDias()%></td>
-                                    <td><%= reserva.getReseFReserva()%></td>
-                                    <td><%= reserva.getReseFInicio()%></td>
-                                    <td><%= reserva.getReseFSalida()%></td>
-                                    <td><%= reserva.getReseVTotal()%></td>
-                                    <td><%= nombreHabitacion%></td>
-                                    <td><%= nombreEstado%></td>
-                                    <td><%= cedulaPersona%></td>
-                                    <td><%= nombreConsumo%></td>
+                                    <td><input type="number" id="numDias" class="form-control" style="font-size: small" value="<%= reserva.getNumDias()%>" readonly="off"/></td>
+                                    <td><input type="datetime-local" id="fRegistro" class="form-control" style="font-size: small" value="<%= reserva.getReseFReserva()%>" readonly="off"/></td>
+                                    <td><input type="datetime-local" id="fIngreso" class="form-control" style="font-size: small" value="<%= reserva.getReseFInicio()%>" readonly="off"/></td>
+                                    <td><input type="datetime-local" id="fSalida" class="form-control" style="font-size: small" value="<%= reserva.getReseFSalida()%>" readonly="off" /></td>
+                                    <td><input type="number" id="valorT" class="form-control" style="font-size: small" value="<%= reserva.getReseVTotal()%>"  readonly="off"/></td>
+                                    <td><input type="text" id="nombreHabitacion" class="form-control" style="font-size: small" value="<%= nombreHabitacion%>" readonly="off"/></td>
+                                    <td><input type="text" id="nombreEstado" class="form-control" style="font-size: small" value="<%= nombreEstado%>" readonly="off"/></td>
+                                    <td><input type="text" id="cedulaPersona" class="form-control" style="font-size: small" value="<%= cedulaPersona%>" readonly="off"</td>
                                     <td>
-                                        <a href="reservas_editar.jsp?editar=true&id=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
+                                        <a href="reservas_editar.jsp?editar=true&id=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a><br>
                                             <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
                                         <a href="Mantenimiento_admin/crudreservas_eliminar.jsp?eliminar=true&id=<%= reserva.getReseId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                             <% }%>
