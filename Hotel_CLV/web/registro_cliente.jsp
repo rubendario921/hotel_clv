@@ -175,7 +175,7 @@
                     </div>
                     <div class="form-group">
                         <label for="usuario" class="label-text">Ingrese un Usuario</label>
-                        <input type="text" id="usuario" name="usuario" placeholder="Ingrese un usuario para el sistema" class="form-control" maxlength="45" required>
+                        <input type="text" id="usuario" name="usuario" placeholder="Ingrese un usuario para el sistema" class="form-control" maxlength="45" autocomplete="true" required>
                     </div>
                     <div class="form-group">
                         <label for="correo" class="label-text">Correo Electrónico</label>
