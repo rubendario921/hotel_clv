@@ -94,19 +94,19 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">Fecha Registro: </th>
-                                                <td><%= reserva.getReseFReserva()%></td>
+                                                <td><input type="datetime-local" value="<%= reserva.getReseFReserva()%>" class="form form-control" readonly="off" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Fecha de Ingreso: </th>
-                                                <td><%= reserva.getReseFInicio()%></td>
+                                                <td><input type="datetime-local" value="<%= reserva.getReseFInicio()%>" class="form form-control" readonly="off" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Fecha de Salida: </th>
-                                                <td><%= reserva.getReseFSalida()%></td>
+                                                <td><input type="datetime-local" value="<%= reserva.getReseFSalida()%>" class="form form-control" readonly="off" /></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Consumos Adicionales: </th>
-                                                <td><%= nombreConsumo%></td>
+                                                <td ><%= nombreConsumo%></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Estado la de la Reserva: </th>
@@ -144,7 +144,7 @@
                                     </div>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="transaccion">Nº Transaccion</span>
-                                        <input type="text"  name="transaccion" id="transaccion"  class="form form-control" maxlength="10"  autocomplete="off"required>
+                                        <input type="number"  name="transaccion" id="transaccion"  class="form form-control" maxlength="10" min="1"  autocomplete="off"required>
                                     </div>
                                     <a href="reserva_lista.jsp" class="btn btn-danger">Regresar</a>
                                     <input type="submit" value="Pagar" name="nuevo_pago" class="btn btn-warning"/> 

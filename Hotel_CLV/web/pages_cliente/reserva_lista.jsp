@@ -53,7 +53,7 @@
                                 <h3>Reservaciones</h3>
                             </div>
                             <div class="panel-body">
-                                <table class="table table-striped table-bordered">
+                                <table class="table table-responsive table-hover">
                                     <thead>
                                         <tr>
                                             <th>Código</th>
