@@ -86,21 +86,18 @@
                             <label for="telefono" class="form-label">Teléfono</label>
                             <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de contacto" autocomplete="true" maxlength="10" required>
                         </div>
-
+                        <div class="col-md-6">
+                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad de residencia" maxlength="45" autocomplete="true" required>
+                        </div>
                         <div class="col-md-12">
                             <label for="asunto" class="form-label">Asunto</label>
                             <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Ingrese el asunto del mensaje" autocomplete="true" required>
                         </div>
-
                         <div class="col-md-12">
                             <label for="mensaje" class="form-label">Mensaje</label>
                             <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Escriba aquí su mensaje" required></textarea>
                         </div>
-
-                        <div class="col-md-6">
-                            <label for="ciudad" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad de residencia" maxlength="45" autocomplete="true" required>
-                        </div>                                              
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary btn-block" value="nuevo_formulario" name="nuevo_formulario">Enviar</button>
                         </div>
@@ -111,7 +108,7 @@
         <!--Imagen lado derecho-->
         <div class="col-md-4">
             <div class="img-fluid">
-                <img src="assets/img/shop_07.jpg" alt="Imagen">
+                <img src="assets/img/shop_07.jpg" alt="">
             </div>
         </div>
     </div>
