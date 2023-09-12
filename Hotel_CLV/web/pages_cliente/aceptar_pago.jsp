@@ -94,15 +94,15 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">Fecha Registro: </th>
-                                                <td><%= reserva.getReseFReserva()%></td>
+                                                <td><input id="fregistro" class="form form-control" type="datetime-local" value="<%= reserva.getReseFReserva()%>" readonly="off"></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Fecha de Ingreso: </th>
-                                                <td><%= reserva.getReseFInicio()%></td>
+                                                <td><input id="fingreso" class="form form-control" type="datetime-local" value="<%= reserva.getReseFInicio()%>" readonly="off"></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Fecha de Salida: </th>
-                                                <td><%= reserva.getReseFSalida()%></td>
+                                                <td><input id="fSalida" class="form form-control" type="datetime-local" value="<%= reserva.getReseFSalida()%>" readonly="off"></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Consumos Adicionales: </th>

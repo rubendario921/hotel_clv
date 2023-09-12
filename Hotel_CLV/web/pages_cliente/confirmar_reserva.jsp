@@ -121,10 +121,9 @@
                                                 <span class="input-group-text">Codigo Habitación: </span>
                                                 <input type="number" name="habiId" id="habiId" value="<%= habitacion.getHabiId()%>" class="form-control" readonly="off" required>
                                             </div>
-
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text">Días a reservar</span>
-                                                <input type="number" name="numDias" id="numDias" class="form-control" min="1" autocomplete="off" placeholder="Ingrese los días a reservar" required>
+                                                <input type="number" name="numDias" id="numDias" class="form-control" min="1" placeholder="Ingrese los días a reservar" required>
                                             </div>
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text">Fecha Ingreso</span>
@@ -134,13 +133,10 @@
                                                 <span class="input-group-text">Fecha Salida</span>
                                                 <input type="datetime-local" name="fSalida" id="fSalida" class="form-control" required /><br>
                                             </div>
-
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text">Valor Habitación: </span>
-                                                <input type="number" name="valorHabi" id="valorHabi" value="<%= habitacion.getHabiValorD()%>" class="form-control" min="1" autocomplete="off" readonly="off" required>
+                                                <input type="number" name="valorHabi" id="valorHabi" value="<%= habitacion.getHabiValorD()%>" class="form-control" min="1" readonly="off" required>
                                             </div>
-
-
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text">Consumos Adicionales: </span>
                                                 <select name="consumoHabi" id="consumoHabi" class="form-control" required >
