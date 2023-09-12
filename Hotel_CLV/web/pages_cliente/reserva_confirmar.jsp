@@ -98,7 +98,7 @@
                                                 <td><%= nombreInsumo%></td>
                                             </tr>
                                             <tr>
-                                                <td colspan="2"><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" height="200" width="200"></td>
+                                                <td colspan="2"><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" height="500" width="500"></td>
 
                                             </tr>
                                         </tbody>
@@ -114,7 +114,7 @@
                                     <div class="panel panel-body">
                                         <form action="Mantenimiento_cliente/crudreserva_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text"><i class="fa fa-user-circle"></i>Código Cliente: </span>
+                                                <span class="input-group-text"><i class="fa fa-user-circle"></i>  Código Cliente: </span>
                                                 <input type="text" name="perId" id="perId" class="form-control" required value="<%= session.getAttribute("perId")%>" title="<%= session.getAttribute("nombre")%>" readonly="off"/>                                                
                                             </div>
                                             <div class="input-group mb-3">
@@ -126,11 +126,11 @@
                                                 <input type="number" name="numDias" id="numDias" class="form-control" min="1" autocomplete="off" placeholder="Ingrese los días a reservar" required>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text">Fecha Ingreso</span>
+                                                <span class="input-group-text">Fecha Ingreso (Check-In): </span>
                                                 <input type="datetime-local" name="fInicio" id="fInicio" class="form-control" required /><br>
                                             </div>
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text">Fecha Salida</span>
+                                                <span class="input-group-text">Fecha Salida (Check-Out):</span>
                                                 <input type="datetime-local" name="fSalida" id="fSalida" class="form-control" required /><br>
                                             </div>
 

@@ -59,8 +59,8 @@
                                             <th>Código</th>
                                             <th>Días</th>
                                             <th>Fecha Registro</th>
-                                            <th>Fecha Ingreso</th>
-                                            <th>Fecha Salida</th>
+                                            <th>Fecha Ingreso (Check - In)</th>
+                                            <th>Fecha Salida (Check - Out)</th>
                                             <th>Valor a Cancelar</th>
                                             <th>Habitación</th>
                                             <th>Descripción</th>
@@ -70,7 +70,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%                                        String id_perId = String.valueOf(session.getAttribute("perId"));
+                                        <%                                            String id_perId = String.valueOf(session.getAttribute("perId"));
                                             int id = Integer.parseInt(id_perId);
 
                                             HabitacionesDao mostrarHabi = new HabitacionesDao();
@@ -115,15 +115,14 @@
                                                     if (estado.getEstaId() == estadoReserva) {
                                                         nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
                                                     }
-                                                }
-                                        %>
+                                                }%>
                                         <tr>
                                             <td><%= reserva.getReseId()%></td>
                                             <td><%= reserva.getNumDias()%></td>
                                             <td><input id="fregistro" class="form-control" type="datetime-local" value="<%= reserva.getReseFReserva()%>" readonly="off"></td>
                                             <td><input id="fingreso" class="form-control" type="datetime-local" value="<%= reserva.getReseFInicio()%>" readonly="off"></td>
                                             <td><input id="fSalida" class="form-control" type="datetime-local" value="<%= reserva.getReseFSalida()%>" readonly="off"></td>
-                                            <td class="bg-warning"><b>$<%= reserva.getReseVTotal()%></b></td>
+                                            <td style="color: #f71515"><b>$ <%= reserva.getReseVTotal()%></b></td>
                                             <td><%= reserva.getHabiId()%></td>
                                             <td><%= nombreHabitacion%></td>
                                             <td><%= nombreConsumo%></td>
@@ -131,7 +130,7 @@
                                             <td>
                                                 <%
                                                     if (nombreEstado.equals("PENDIENTE")) {%>
-                                                <a href="aceptar_pago.jsp?aceptar=true&id_reserva=<%= reserva.getReseId()%>" class="btn btn-success"><i class="fa fa-book" title="Aceptar" name="aceptar"></i></a>
+                                                    <a href="aceptar_pago.jsp?aceptar=true&id_reserva=<%= reserva.getReseId()%>" class="btn btn-success"><i class="fa fa-book" title="Realizar Pago" name="aceptar"></i></a>
                                                 <a href="reserva_editar.jsp?editar=true&id_reserva=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar Reserva" name="editar"></i></a>
                                                 <a href="Mantenimiento_cliente/crudreserva_anular.jsp?anular=true&id=<%= reserva.getReseId()%>&habiId=<%= reserva.getHabiId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Anular" name="anular"></i></a>
                                                     <% }%>
@@ -150,5 +149,4 @@
         </div>
     </body>
 </html>
-
 <%@include file="template/cliente/footer_cliente.jsp" %>
