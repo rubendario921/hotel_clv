@@ -19,7 +19,7 @@
     <body>
         <%
             if (request.getParameter("nuevo_formulario") != null) {
-                String nombre = request.getParameter("nombre");
+                String nombre = request.getParameter("nombres");
                 String correo = request.getParameter("correo");
                 String telefono = request.getParameter("telefono");
                 String asunto = request.getParameter("asunto");
