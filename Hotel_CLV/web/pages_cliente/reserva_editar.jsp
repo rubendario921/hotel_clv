@@ -53,12 +53,12 @@
                                 <input type="number" id="numDias" name ="numDias" value="<%= reserva.getNumDias()%>" class="form form-control" min="1" placeholder="Ingrese la cantidad de los días a reservar" required>
                             </div>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="codigo">Fecha Ingreso: </span>
+                                <span class="input-group-text" id="codigo">Fecha Ingreso (Check In): </span>
                                 <input type="datetime-local" id="fIngreso" name ="fIngreso" value="<%= reserva.getReseFInicio()%>" class="form form-control" required>
                             </div>
 
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="codigo">Fecha Salida:  </span>
+                                <span class="input-group-text" id="codigo">Fecha Salida (Check Out):  </span>
                                 <input type="datetime-local" id="fSalida" name ="fSalida" value="<%= reserva.getReseFSalida()%>" class="form form-control" required>
                             </div>
 

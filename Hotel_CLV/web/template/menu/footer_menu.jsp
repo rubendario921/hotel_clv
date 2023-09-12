@@ -20,7 +20,7 @@
                     </li>
                     <li>
                         <i class="fa fa-phone fa-fw"></i>
-                        <a class="text-decoration-none" href="(+593) 0984322045">(+593) 0984322045</a>
+                        <a class="text-decoration-none" href="https://api.whatsapp.com/send?phone=593969921589&text=Bienvenido%20al%20Hotel%20CLV%20Deluxe%20%C2%BFC%C3%B3mo%20podemos%20ayudarte%3F">(+593) 0984322045</a>
                     </li>
                     <li>
                         <i class="fa fa-envelope fa-fw"></i>
