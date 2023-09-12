@@ -136,12 +136,18 @@
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
+        
+        // Verifica que el número  tenga 10 dígitos numéricos
+        if (!/^\d{10}$/.test(telefono)) {
+            alert("La teléfono de contacto debe tener 10 dígitos numéricos");
+            return false;
+        }
         //Validacion de la cedula de identidad
         var cedula = cedulaValor;
 
         // Verificar que la cédula tenga 10 dígitos numéricos
         if (!/^\d{10}$/.test(cedula)) {
-            alert("La cédula debe tener 10 dígitos numéricos");
+            alert("La cédula de identidad debe tener 10 dígitos numéricos");
             return false;
         }
         // Validar el dígito verificador
@@ -154,7 +160,7 @@
         }
         var digitoVerificador = (Math.ceil(total / 10) * 10) - total;
         if (digitoVerificador !== parseInt(cedula.charAt(9), 10)) {
-            alert("La cédula no es válida");
+            alert("La cédula de identidad no es válida");
             return false;
         }
         // Validar que la contraseña contenga al menos una mayúscula, una minúscula y un número
@@ -189,7 +195,7 @@
                     </div>
                     <div class="form-group">
                         <label for="telefono" class="label-text">Teléfono</label>
-                        <input type="text" id="telefono" name="telefono" placeholder="Ingrese su numero telefonico" class="form-control" maxlength="10" autocomplete="off" required >
+                        <input type="text" id="telefono" name="telefono" placeholder="Ingrese su número telefonico" class="form-control" minlength="10" maxlength="10" autocomplete="off" required >
                     </div>
                     <div class="form-group">
                         <label for="usuario" class="label-text">Ingrese un Usuario</label>
@@ -203,7 +209,7 @@
                     <div class="form-group">
                         <label for="clave" class="label-text">Contraseña</label>
                         <input type="password" id="clave" name="clave"  placeholder="Ingrese su contraseña personal" class="form-control" required maxlength="16" autocomplete="off">
-                        <small class="form-text">*Entre 8 y 16 dígitos con caracteres especiales</small>
+                        <small class="form-text"><b>*Entre 8 y 16 dígitos con MAYUSCULAS, minusculas, c@r@ctere$ e$peciales</b></small>
                     </div>
                     <button class="btn btn-registrar" value="Registrar" name="nuevo_cliente">Registrar</button>
                 </form>
