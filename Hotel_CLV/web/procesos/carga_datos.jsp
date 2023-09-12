@@ -60,7 +60,7 @@
 
                 case 4:
                     mensaje = "Bienvenido Cliente " + nombre;
-                    redireccion = "../pages_cliente/menu_dashboard.jsp";
+                    redireccion = "../pages_cliente/habitaciones_disponibles.jsp";
                     break;
             }
         %>
