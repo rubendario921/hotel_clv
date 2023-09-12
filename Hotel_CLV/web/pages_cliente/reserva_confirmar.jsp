@@ -65,7 +65,7 @@
                                     <table class='table table-responsive'>
                                         <thead>
                                             <tr>                                                                                                 
-                                                <th colspan="2">Informacion de la Habitación</th>
+                                                <th colspan="2">Información de la Habitación</th>
                                             </tr>                                            
                                         </thead>
                                         <tbody>
@@ -102,7 +102,7 @@
                                                 <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar())%></td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Informacion de la Habitación: </th>
+                                                <th scope="row">Información de la Habitación: </th>
                                                 <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%></td>
                                             </tr>
                                             <tr>
@@ -126,11 +126,11 @@
                                     <div class="panel panel-body">
                                         <form action="Mantenimiento_cliente/crudreserva_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text"><i class="fa fa-user-circle"></i>Codigo Cliente: </span>
+                                                <span class="input-group-text"><i class="fa fa-user-circle"></i>Código Cliente: </span>
                                                 <input type="text" name="perId" id="perId" class="form-control" required value="<%= session.getAttribute("perId")%>" title="<%= session.getAttribute("nombre")%>" readonly="off"/>                                                
                                             </div>
                                             <div class="input-group mb-3">
-                                                <span class="input-group-text">Codigo Habitación: </span>
+                                                <span class="input-group-text">Código Habitación: </span>
                                                 <input type="number" name="habiId" id="habiId" value="<%= habitacion.getHabiId()%>" class="form-control" readonly="off" required>
                                             </div>
                                             <div class="input-group mb-3">
