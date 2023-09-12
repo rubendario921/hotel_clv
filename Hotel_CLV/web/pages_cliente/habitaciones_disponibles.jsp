@@ -97,7 +97,7 @@
                                         <td><%= habitacion.getHabiValorD()%></td>
                                         <td class="btn btn-success"><%= nombreEstado%></td>
                                         <td><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" alt="Habitación"></td>
-                                        <td><a href="confirmar_reserva.jsp?editar=true&id=<%= habitacion.getHabiId()%>" class="btn btn-editar"><i class="fa fa-shopping-cart" title="Editar" name="editar"></i></a></td>
+                                        <td><a href="reserva_confirmar.jsp?editar=true&id=<%= habitacion.getHabiId()%>" class="btn btn-editar"><i class="fa fa-shopping-cart" title="Editar" name="editar"></i></a></td>
                                     </tr>
                                     <% }%>
                                 </tbody>

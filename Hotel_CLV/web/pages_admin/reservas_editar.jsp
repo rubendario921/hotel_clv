@@ -25,11 +25,8 @@
                         <form action="" method="POST" onsubmit="return validarFormulario();">
                             <%
                                 if (request.getParameter("editar") != null) {
-                                    int id = Integer.parseInt(request.getParameter("id"));
+                                    int id = Integer.parseInt(request.getParameter("id")); 
                                     
-                                    
-                                    
-
                                     ReservasDao mostrarReserva = new ReservasDao();
                                     Reservas reserva = mostrarReserva.mostrarReserva(id);
                                     if (reserva != null) {%>

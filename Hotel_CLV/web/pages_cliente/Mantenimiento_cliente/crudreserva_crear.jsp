@@ -27,25 +27,29 @@
         <%
             if (request.getParameter("reservar") != null) {
                 int numDias = Integer.parseInt(request.getParameter("numDias"));
-                
+
                 LocalDateTime reseFReserva = LocalDateTime.now();
-                
+
                 String finicioString = request.getParameter("fInicio");
                 LocalDateTime reseFInicio = LocalDateTime.parse(finicioString);
 
                 String fSalidaString = request.getParameter("fSalida");
                 LocalDateTime reseFSalida = LocalDateTime.parse(fSalidaString);
-                
-                int consuIdV = Integer.parseInt(request.getParameter("consumoHabi"));
-                ConsumosDao consumoIdValor = new ConsumosDao();
-                BigDecimal consumoValor = consumoIdValor.mostrarValorConsumo(consuIdV);
-                BigDecimal habitacionValor = new BigDecimal(request.getParameter("valorHabi"));
-                BigDecimal reseVTotal = consumoValor.add(habitacionValor);
 
                 int habiId = Integer.parseInt(request.getParameter("habiId"));//Cambio de Estado de la Habitacion
 
                 int perId = Integer.parseInt(request.getParameter("perId"));
+                
                 int consuId = Integer.parseInt(request.getParameter("consumoHabi"));
+
+                //Realizar el calculo numDias *(valorHabi + consumoHabi)
+                int consumoId = Integer.parseInt(request.getParameter("consumoHabi"));
+                ConsumosDao consumoValorHabi = new ConsumosDao();
+                BigDecimal consumoValor = consumoValorHabi.mostrarValorConsumo(consumoId);
+
+                BigDecimal habitacionValor = new BigDecimal(request.getParameter("valorHabi"));
+                // Calcular reseVTotal
+                BigDecimal reseVTotal = habitacionValor.add(consumoValor).multiply(new BigDecimal(numDias));
 
                 ReservasDao crearReserva = new ReservasDao();
                 int resultado = crearReserva.crearReserva(numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, perId, consuId);
