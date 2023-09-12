@@ -39,7 +39,7 @@
                 int habiId = Integer.parseInt(request.getParameter("habiId"));//Cambio de Estado de la Habitacion
 
                 int perId = Integer.parseInt(request.getParameter("perId"));
-                
+
                 int consuId = Integer.parseInt(request.getParameter("consumoHabi"));
 
                 //Realizar el calculo numDias *(valorHabi + consumoHabi)
@@ -51,8 +51,13 @@
                 // Calcular reseVTotal
                 BigDecimal reseVTotal = habitacionValor.add(consumoValor).multiply(new BigDecimal(numDias));
 
-                ReservasDao crearReserva = new ReservasDao();
-                int resultado = crearReserva.crearReserva(numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, perId, consuId);
+                int resultado = 0;
+                if (reseFSalida.isAfter(reseFInicio)) {
+                    ReservasDao crearReserva = new ReservasDao();
+                    resultado = crearReserva.crearReserva(numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, perId, consuId);
+                } else {
+                    resultado = 10;
+                }
 
                 switch (resultado) {
                     case 1:
@@ -65,22 +70,27 @@
                         String informacion = "Registro Exitoso";
                         String redireccion = "../reserva_lista.jsp";%>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <%break;
+        <% break;
+            case 10:%>
+        <script>alert("La fechas entre el CheckIN y el CheckOut no son las correctas. Intente nuevamente");
+            window.history.back();
+        </script>
+        <% break;
             case 1062:%>
         <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
             window.history.back();
         </script>    
-        <%break;
+        <% break;
             case 1048:%>
         <script>alert("Los campos no puede estar vacios, intente nuevamente.");
             window.history.back();
         </script>              
-        <%break;
+        <% break;
             default:%>
         <script>alert("Registro Incorrecto, intente nuevamente");
             window.history.back();
         </script>             
-        <%break;
+        <% break;
                 }
             }%>
     </body>

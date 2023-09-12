@@ -50,10 +50,10 @@
                         <h1 class="page-header">Reservaciones</h1>
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3>Reservaciones</h3>
+                                <h3>Mis Reservaciones</h3>
                             </div>
                             <div class="panel-body">
-                                <table class="table table-responsive table-hover">
+                                <table class="table table-responsive">
                                     <thead>
                                         <tr>
                                             <th>Código</th>
@@ -120,9 +120,9 @@
                                         <tr>
                                             <td><%= reserva.getReseId()%></td>
                                             <td><%= reserva.getNumDias()%></td>
-                                            <td><input id="fregistro" class="form form-control" type="datetime-local" value="<%= reserva.getReseFReserva()%>" readonly="off"></td>
-                                            <td><input id="fingreso" class="form form-control" type="datetime-local" value="<%= reserva.getReseFInicio()%>" readonly="off"></td>
-                                            <td><input id="fSalida" class="form form-control" type="datetime-local" value="<%= reserva.getReseFSalida()%>" readonly="off"></td>
+                                            <td><input id="fregistro" class="form-control" type="datetime-local" value="<%= reserva.getReseFReserva()%>" readonly="off"></td>
+                                            <td><input id="fingreso" class="form-control" type="datetime-local" value="<%= reserva.getReseFInicio()%>" readonly="off"></td>
+                                            <td><input id="fSalida" class="form-control" type="datetime-local" value="<%= reserva.getReseFSalida()%>" readonly="off"></td>
                                             <td class="bg-warning"><b>$<%= reserva.getReseVTotal()%></b></td>
                                             <td><%= reserva.getHabiId()%></td>
                                             <td><%= nombreHabitacion%></td>
