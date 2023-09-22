@@ -97,7 +97,7 @@ Author     : Ruben Dario 921
                                             <td>
                                                 <%
                                                     if (nombreEstado.equals("PENDIENTE")) {%>
-                                                <a href="?aceptar=true&id_reserva=<%%>" class="btn btn-success"><i class="fas fa-search" title="Realizar Pago" name="aceptar"></i></a>
+                                                    <a href="facturacion_ver.jsp?aceptar=true&id_reserva=<%= factura.getFactId()%>" class="btn btn-success"><i class="fas fa-search" title="Ver Factura" name="ver_factu"></i></a>
                                                     <% }%>
                                             </td>
                                         </tr>
