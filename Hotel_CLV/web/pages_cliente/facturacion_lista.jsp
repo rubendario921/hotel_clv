@@ -49,10 +49,11 @@ Author     : Ruben Dario 921
                                             <th>Código de Reserva</th>
                                             <th>Método de Pago</th>
                                             <th  class="nombre-estado">Estado del Pago</th>
+                                            <th>Visualizar Factura</th>                                            
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%                                        String id_perfil = String.valueOf(session.getAttribute("perId"));
+                                        <%                                            String id_perfil = String.valueOf(session.getAttribute("perId"));
                                             int id = Integer.parseInt(id_perfil);
 
                                             // Metodo de Pago
@@ -93,6 +94,12 @@ Author     : Ruben Dario 921
                                             <td><%= factura.getReservaId()%></td>
                                             <td><%= nombreMetodoP%></td>
                                             <td class="nombre-estado"><%= nombreEstado%></td>
+                                            <td>
+                                                <%
+                                                    if (nombreEstado.equals("PENDIENTE")) {%>
+                                                <a href="?aceptar=true&id_reserva=<%%>" class="btn btn-success"><i class="fas fa-search" title="Realizar Pago" name="aceptar"></i></a>
+                                                    <% }%>
+                                            </td>
                                         </tr>
                                         <% }%>
                                     </tbody>

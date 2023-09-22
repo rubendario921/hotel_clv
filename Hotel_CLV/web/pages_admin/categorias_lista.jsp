@@ -26,7 +26,7 @@
                         </table>
                     </div>
                     <div class="panel-body">
-                        <table class="table table">
+                        <table class="table table-responsive">
                             <thead>
                                 <tr>
                                     <th>Código</th>
@@ -49,7 +49,7 @@
                                         <a href="categorias_editar.jsp?editar=true&id=<%= categoria.getCatId()%>" class="btn btn-warning"> <i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--eliminar update=":tabMostrar"-->
                                         <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
-                                        <a href="Mantenimiento_admin/crudcategorias_eliminar.jsp?eliminar=true&id_cate=<%= categoria.getCatId()%>"class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>                                        
+                                        <a href="Mantenimiento_admin/crudcategorias_eliminar.jsp?eliminar=true&id_cate=<%= categoria.getCatId()%>"class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                             <% }%>
                                     </td>
                                 </tr>

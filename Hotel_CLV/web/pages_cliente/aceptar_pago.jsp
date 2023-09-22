@@ -38,10 +38,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header ">Metodos de Pago</h1>
+                <h1 class="page-heade" style="text-align: center">Metodos de Pago</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Registro del Pago</h3>
+                        <h3  style="text-align: center">Registro del Pago</h3><br>
                     </div>
                     <div class="panel-body">
                         <div class="container text-center">

@@ -70,7 +70,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%                                            String id_perId = String.valueOf(session.getAttribute("perId"));
+                                        <%                                            
+                                            String id_perId = String.valueOf(session.getAttribute("perId"));
                                             int id = Integer.parseInt(id_perId);
 
                                             HabitacionesDao mostrarHabi = new HabitacionesDao();
@@ -130,7 +131,7 @@
                                             <td>
                                                 <%
                                                     if (nombreEstado.equals("PENDIENTE")) {%>
-                                                    <a href="aceptar_pago.jsp?aceptar=true&id_reserva=<%= reserva.getReseId()%>" class="btn btn-success"><i class="fa fa-book" title="Realizar Pago" name="aceptar"></i></a>
+                                                <a href="aceptar_pago.jsp?aceptar=true&id_reserva=<%= reserva.getReseId()%>" class="btn btn-success"><i class="fa fa-book" title="Realizar Pago" name="aceptar"></i></a>
                                                 <a href="reserva_editar.jsp?editar=true&id_reserva=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar Reserva" name="editar"></i></a>
                                                 <a href="Mantenimiento_cliente/crudreserva_anular.jsp?anular=true&id=<%= reserva.getReseId()%>&habiId=<%= reserva.getHabiId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Anular" name="anular"></i></a>
                                                     <% }%>

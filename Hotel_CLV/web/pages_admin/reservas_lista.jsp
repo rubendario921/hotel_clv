@@ -20,7 +20,7 @@
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
 <div id="page-wrapper">
-    <div class="container-fluid container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Reservaciones</h1>
@@ -34,10 +34,10 @@
                         </table>
                     </div>
                     <div class="panel-body">
-                        <table class="table-hover" style="width: auto; text-align: center">
+                        <table class="table table-responsive">
                             <thead>
-                                <tr>
-                                    <th>Días</th>
+                                <tr>                                    
+                                    <th># Días</th>
                                     <th>Fecha Reserva</th>
                                     <th>Fecha Ingreso</th>
                                     <th>Fecha Salida</th>
@@ -58,7 +58,7 @@
 
                                     PersonasDao mostrarPerso = new PersonasDao();
                                     List<Personas> personas = mostrarPerso.mostrarListaPersonas();
-                                    
+
                                     ReservasDao mostrarReser = new ReservasDao();
                                     List<Reservas> reservas = mostrarReser.mostrarListaReserva();
                                     for (Reservas reserva : reservas) {
@@ -70,9 +70,8 @@
                                                 nombreHabitacion = StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre());
                                                 break;
                                             }
-                                            
                                         }
-                                        
+
                                         //Comparacion Reserva Y Estados
                                         int reservaEstaId = reserva.getEstaId();
                                         String nombreEstado = "";
@@ -82,7 +81,17 @@
                                                 break;
                                             }
                                         }
-                                        
+
+                                        //Color de fondo integrado con clase
+                                        String colorFondo = "";
+                                        if ("PENDIENTE".equals(nombreEstado)) {
+                                            colorFondo = "alert alert-warning";
+                                        } else if ("ANULADO".equals(nombreEstado)) {
+                                            colorFondo = "alert alert-danger";
+                                        } else if ("PAGADO".equals(nombreEstado)) {
+                                            colorFondo = "alert alert-success";
+                                        }
+
                                         //Comparacion Reserva y Persona
                                         int reservaPerId = reserva.getPerId();
                                         String cedulaPersona = "";
@@ -93,16 +102,16 @@
                                             }
                                         }%>
                                 <tr>
-                                    <td><input type="number" id="numDias" class="form-control" style="font-size: small" value="<%= reserva.getNumDias()%>" readonly="off"/></td>
-                                    <td><input type="datetime-local" id="fRegistro" class="form-control" style="font-size: small" value="<%= reserva.getReseFReserva()%>" readonly="off"/></td>
-                                    <td><input type="datetime-local" id="fIngreso" class="form-control" style="font-size: small" value="<%= reserva.getReseFInicio()%>" readonly="off"/></td>
-                                    <td><input type="datetime-local" id="fSalida" class="form-control" style="font-size: small" value="<%= reserva.getReseFSalida()%>" readonly="off" /></td>
-                                    <td><input type="number" id="valorT" class="form-control" style="font-size: small" value="<%= reserva.getReseVTotal()%>"  readonly="off"/></td>
-                                    <td><input type="text" id="nombreHabitacion" class="form-control" style="font-size: small" value="<%= nombreHabitacion%>" readonly="off"/></td>
-                                    <td><input type="text" id="nombreEstado" class="form-control" style="font-size: small" value="<%= nombreEstado%>" readonly="off"/></td>
-                                    <td><input type="text" id="cedulaPersona" class="form-control" style="font-size: small" value="<%= cedulaPersona%>" readonly="off"</td>
+                                    <td><%= reserva.getNumDias()%> Días</td>
+                                    <td><input type="datetime-local" id="fRegistro" class="form-control" value="<%= reserva.getReseFReserva()%>" readonly="off"/></td>
+                                    <td><input type="datetime-local" id="fIngreso" class="form-control" value="<%= reserva.getReseFInicio()%>" readonly="off"/></td>
+                                    <td><input type="datetime-local" id="fSalida" class="form-control" value="<%= reserva.getReseFSalida()%>" readonly="off" /></td>
+                                    <td><%= reserva.getReseVTotal()%></td>
+                                    <td><%= nombreHabitacion%></td>
+                                    <td><div type="text" class="<%= colorFondo%> "><%= nombreEstado%></div></td>
+                                    <td><%= cedulaPersona%></td>
                                     <td>
-                                        <a href="reservas_editar.jsp?editar=true&id=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a><br>
+                                        <a href="reservas_editar.jsp?editar=true&id=<%= reserva.getReseId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                             <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
                                         <a href="Mantenimiento_admin/crudreservas_eliminar.jsp?eliminar=true&id=<%= reserva.getReseId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                             <% }%>

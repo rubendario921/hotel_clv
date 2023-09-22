@@ -13,7 +13,9 @@
         <link rel="stylesheet" href="assets/css/templatemo.css">
         <link rel="stylesheet" href="assets/css/custom.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-        <link rel="stylesheet" href="assets/css/fontawesome.min.css">  
+        <link rel="stylesheet" href="assets/css/fontawesome.min.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha384-oMBOJHfCgf7fy4bAn56Uqws82+Sg0x5X43F8ygHfDnA89wO6qdq5ZAAph+Ilz5n1" crossorigin="anonymous">
+
         <%
 
             // Agrega los encabezados para evitar el almacenamiento en caché
