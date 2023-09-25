@@ -4,6 +4,7 @@
     Author     : Ruben Dario
 --%>
 
+<%@page import="java.math.BigDecimal"%>
 <%@page import="Controller.Consumos"%>
 <%@page import="Controller.ConsumosDao"%>
 <%@page import="Controller.Habitaciones"%>
@@ -97,6 +98,7 @@
                                                         break;
                                                     }
                                                 }
+
                                     %>
                                 <br>
                                 <div class="container text-center">
@@ -115,16 +117,12 @@
                                         <div class="input-group mb-3">
                                             <span class="input-group-text"><b>Nombre y Apellidos:</b></span>
                                             <input type="text" id="factuNombre" class="form form-control" value="<%= apellidoPersona%> <%= nombrePersona%>" readonly="off"/>
-                                        </div>
-                                        <div class="input-group mb-3">
                                             <span class="input-group-text"><b>Cedula de Identidad:</b></span>
                                             <input type="text" id="factuNombre" class="form form-control" value="<%= cedulaPersonas%>" readonly="off"/>
-                                        </div>
+                                        </div>                                      
                                         <div class="input-group mb-3">
                                             <span class="input-group-text"><b>Correo Electronico:</b></span>
                                             <input type="text" id="factuNombre" class="form form-control" value="<%= correoPersonas%>" readonly="off"/>
-                                        </div>
-                                        <div class="input-group mb-3">
                                             <span class="input-group-text"><b>Telefono Contacto:</b></span>
                                             <input type="text" id="factuNombre" class="form form-control" value="0<%= contactoPersonas%>" readonly="off"/>
                                         </div>                                        
@@ -135,31 +133,95 @@
                                 <br>
                                 <tbody>
                                     <!-- Datos de la factura-->
+                                    <%
+                                        int codigoReserva = factura.getReservaId();
+                                        
+                                        String nombreHabitacion = "";
+                                        String pisoHabitacion = "";
+                                        String deparHabitacion = "";
+                                        int cantDias = 0;
+                                        BigDecimal valorTReserva = BigDecimal.ZERO;
+                                        BigDecimal valorDiario = BigDecimal.ZERO;
+                                        
+                                        
+                                        for (Reservas reserva : mostrarR) {
+                                            if (reserva.getReseId() == codigoReserva) {
+                                                int codigoHabitacion = reserva.getHabiId();
+                                                cantDias = reserva.getNumDias();
+                                                valorTReserva = reserva.getReseVTotal();
+
+                                                for (Habitaciones habitacion : mostrarH) {
+                                                    if (habitacion.getHabiId() == codigoHabitacion) {
+                                                        nombreHabitacion = StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre());
+                                                        pisoHabitacion = habitacion.getHabiPiso();
+                                                        deparHabitacion = habitacion.getHabiDepar();
+                                                        valorDiario = habitacion.getHabiValorD();
+
+                                                    }
+                                                }
+
+                                            }
+                                        }
+
+
+                                    %>
                                 <div class="container text-center">
                                     <div class="row">
                                         <div class="col">Código</div>
                                         <div class="col">Detalle</div>
                                         <div class="col"># Días</div>
-                                        <div class="col">Precio</div>
+                                        <div class="col">Precio Unitario</div>
+                                        <div class="col">Valor</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col"><%= factura.getReservaId()%></div>
+                                        <div class="col"><%= pisoHabitacion%> - <%= deparHabitacion%> - <%= nombreHabitacion%></div>
+                                        <div class="col"><%= cantDias%></div>
+                                        <div class="col">$<%= valorDiario%></div>
+                                        <div class="col">$<%= valorTReserva%></div>
                                     </div>
                                 </div>
                                 <!-- Fin de los datos de la Factura-->
 
                                 <!-- Valor de la factura-->
-                                <div class="container text-center">
+                                <div class="container text-center" style="background: #f7f7f7">
+
                                     <div class="row row-cols-4">
                                         <div class="col"></div>
                                         <div class="col"></div>
-                                        <div class="col">Impuesto</div>
-                                        <div class="col">Column</div>
+                                        <div class="col">SUBTOTAL:</div>
+                                        <div class="col">IVA 12%</div>                                        
                                     </div>
+                                    <div class="row row-cols-4">
+                                        <div class="col"></div>
+                                        <div class="col"></div>
+                                        <div class="col">SUBTOTAL:</div>
+                                        <div class="col">IVA 12%</div>                                        
+                                    </div>
+                                    <div class="col">ICE 0%</div>
                                 </div>
                                 <!-- Fin valor de la factura-->
 
                                 <!-- Pie de la factura-->
+                                <div class="row justify-content-md-center">
+                                    <div class="col col-lg-2">
+                                        <label><b>Información Adicional: </b></label><br>
+                                        <label><b>Metodo de Pago: </b><%%></label><br>
+                                    </div>
+                                    <div class="col-md-auto">
+
+                                        <label><b>Dirección: </b><%= fencabezado.getEmp_direccion()%></label><br>
+                                        <label><b>Correo Electronico: </b><%= fencabezado.getEmp_correo()%></label><br>
+                                        <label><b>Web Site: </b>hotel_clv.com</label><br>
+                                        <label><b>Contacto: </b><%= fencabezado.getEmp_contacto()%></label><br>
+                                    </div>
+                                    <div class="col col-lg-2">                                    
+                                        <label><b>Emisión: </b> NORMAL</label><br>
+                                    </div>
+                                </div>
 
                                 <!-- Fin de la pie de la factura-->
-                                <% }
+                                <%                                        }
                                     }%>      
                                 </tbody>
                             </table>
