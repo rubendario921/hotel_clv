@@ -32,7 +32,7 @@ public class FacturasDao {
                 int factNTransaccion = rs.getInt("factu_transaccion");
                 int reservaId = rs.getInt("reservas_rese_id");
                 int metodoPagoId = rs.getInt("metodo_pagos_pago_id");
-                Integer personaId = rs.getInt("personas_per_id");
+                int personaId = rs.getInt("personas_per_id");
                 int estadoId = rs.getInt("estados_esta_id");
                 int fEncabezado = rs.getInt("f_encabezado_emp_id");
 
@@ -63,7 +63,7 @@ public class FacturasDao {
                 int factNTransaccion = rs.getInt("factu_transaccion");
                 int reservaId = rs.getInt("reservas_rese_id");
                 int metodoPagoId = rs.getInt("metodo_pagos_pago_id");
-                Integer personaId = rs.getInt("personas_per_id");
+                int personaId = rs.getInt("personas_per_id");
                 int estadoId = rs.getInt("estados_esta_id");
                 int fEncabezado = rs.getInt("f_encabezado_emp_id");
 
