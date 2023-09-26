@@ -70,11 +70,12 @@
                                             //Reserva
                                             ReservasDao mostrarReserva = new ReservasDao();
                                             List<Reservas> mostrarR = mostrarReserva.mostrarListaReserva();
-//Habitacion
+                                            
+                                            //Habitacion
                                             HabitacionesDao mostrarHabi = new HabitacionesDao();
                                             List<Habitaciones> mostrarH = mostrarHabi.mostrarListaHabi();
-
-//Consumos
+                                            
+                                            //Consumos
                                             ConsumosDao mostrarConsumo = new ConsumosDao();
                                             List<Consumos> mostrarC = mostrarConsumo.mostrarListaConsumos();
 
@@ -247,17 +248,18 @@
                                     </div>
                                 </div>
                                 <!-- Fin valor de la factura-->
-                                <!-- Pie de la factura-->                         
+                                
+                                <!-- Pie de la factura-->
 
                                 <!-- Fin de la pie de la factura-->
                                 <%                                        }
                                     }%>      
                                 </tbody>
                             </table>
-                                <br>
+                            <br>
                         </div>
                     </div>
-                                <a href="facturacion_lista.jsp" class="btn btn-block btn-primary">Mis Facturas</a>                
+                    <a href="facturacion_lista.jsp" class="btn btn-block btn-primary">Mis Facturas</a><br>
                 </div>                
             </div>
         </div>
