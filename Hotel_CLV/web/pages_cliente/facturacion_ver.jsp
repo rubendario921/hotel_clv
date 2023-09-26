@@ -259,7 +259,7 @@
                             <br>
                         </div>
                     </div>
-                    <a href="facturacion_lista.jsp" class="btn btn-block btn-primary">Mis Facturas</a><br>
+                    <a href="facturacion_lista.jsp" class="btn btn-block btn-primary">Regresar</a><br>
                 </div>                
             </div>
         </div>
