@@ -8,42 +8,6 @@
 <%@page import="java.sql.*"%>
 
 <img class="d-block w-100" alt="450" height="500" width="600" src="assets/img/hotel_1.jpg" alt="">
-<a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#videoModal">Reproducir video</a>
-<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="videoModalLabel">Hotel CLV</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="1600" height="900" src="https://www.youtube.com/embed/U3HsFcQbvXY?autoplay=1" title="Top 8 Things to Do in Honolulu, Hawaii" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<!-- Modal -->
-<div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="w-100 pt-1 mb-5 text-right">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="" method="get" class="modal-content modal-body border-0 p-0">
-            <div class="input-group mb-2">
-                <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                <button type="submit" class="input-group-text bg-success text-light">
-                    <i class="fa fa-fw fa-search text-white"></i>
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
 
 <!-- Start Banner Hero -->
 <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -72,17 +36,14 @@
                                 Cada detalle ha sido pensado para que tenga la mejor experiencia posible, que una habitación de huéspedes puede brindar. 
                                 En CLV Hotel Delux en Quito te ofrecerá todo el confort que deseas: ropa de cama de lujo, camas con colchones especialmente diseñados para el mejor 
                                 descanso posible, cómodas áreas de descanso que puedes ajustar a tu necesidad particular y una televisión pantalla plana de alta definición. 
-                                Todo ello complementado con la comodidad de nuestras instalaciones y el mejor servicio para que disfrute de una estancia de lujo. 
-
+                                Todo ello complementado con la comodidad de nuestras instalaciones y el mejor servicio para que disfrute de una estancia de lujo.
                             </p>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
         <div class="carousel-item">
-
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
