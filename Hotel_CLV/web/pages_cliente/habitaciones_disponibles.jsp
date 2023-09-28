@@ -11,8 +11,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habitaciones Disponibles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
     <style>
         .page-header {
             text-align: center;
@@ -51,10 +50,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Habitaciones Disponibles</h1>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3>Bienvenidos a Hotel CLV</h3>
-                        </div>
+                    <div class="panel panel-primary">                        
                         <div class="panel-body">
                             <table class="table table-striped table-bordered">
                                 <thead>
@@ -65,10 +61,9 @@
                                         <th>Piso</th>
                                         <th>Departamento</th>
                                         <th>Descripción</th>
-                                        <th>Valor Diario</th>
-                                        <th>Estado</th>
+                                        <th>Valor Diario</th>                                        
                                         <th>Imagen</th>
-                                        <th>Acción</th>
+                                        <th>Reservar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -94,8 +89,7 @@
                                         <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiPiso())%></td>
                                         <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar())%></td>
                                         <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%></td>
-                                        <td><%= habitacion.getHabiValorD()%></td>
-                                        <td class="btn btn-success"><%= nombreEstado%></td>
+                                        <td><%= habitacion.getHabiValorD()%></td>                                        
                                         <td><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" alt="Habitación"></td>
                                         <td><a href="reserva_confirmar.jsp?editar=true&id=<%= habitacion.getHabiId()%>" class="btn btn-editar"><i class="fa fa-shopping-cart" title="Editar" name="editar"></i></a></td>
                                     </tr>

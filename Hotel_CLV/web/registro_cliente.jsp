@@ -136,7 +136,7 @@
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
-        
+
         // Verifica que el número  tenga 10 dígitos numéricos
         if (!/^\d{10}$/.test(telefono)) {
             alert("La teléfono de contacto debe tener 10 dígitos numéricos");
@@ -183,29 +183,39 @@
                 <form action="Mantenimiento/crudcliente_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                     <div class="form-group">
                         <label for="nombre" class="label-text">Nombres Completos</label>
-                        <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus dos nombres" class="form-control"   maxlength="200" autocomplete="off" required>
+                        <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus nombres" class="form-control"   maxlength="200" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="apellido" class="label-text">Apellidos Completos</label>
                         <input type="text"  id="apellidos" name="apellidos" placeholder="Ingrese sus dos apellidos" class="form-control"   maxlength="200" autocomplete="off" required>
+                    </div>                    
+                    <div class="form-group">
+                        <!-- Tipo de Cedula-->
+                        <label for="tipocedula" class="label-text">Tipo de Documento</label>
+                        <select class=" form form-control">
+                            <option> </option>
+                            <option class="label-text">Cedula de Cuidadania </option>
+                            <option class="label-text">Cedula de Identidad </option>                            
+                            <option class="label-text">Pasaporte </option>                            
+                        </select>
+
+                        <!-- Tipo de Cedula-->
+                        <label for="cedula" class="label-text">Número de Documento.</label>
+                        <input type="text" id="cedula" name="cedula" placeholder="Ingrese su número unico de identificación" class="form-control" minlength="10"  maxlength="10" autocomplete="off" required>
                     </div>
                     <div class="form-group">
-                        <label for="cedula" class="label-text">Cédula de Identidad</label>
-                        <input type="text" id="cedula" name="cedula" placeholder="Ingrese su número de cedula" class="form-control" minlength="10"  maxlength="10" autocomplete="off" required>
+                        <label for="telefono" class="label-text">Teléfono Celular</label>
+                        <input type="text" id="telefono" name="telefono" placeholder="Ingrese su número telefonico celular" class="form-control" minlength="10" maxlength="10" autocomplete="off" required >
                     </div>
-                    <div class="form-group">
-                        <label for="telefono" class="label-text">Teléfono</label>
-                        <input type="text" id="telefono" name="telefono" placeholder="Ingrese su número telefonico" class="form-control" minlength="10" maxlength="10" autocomplete="off" required >
-                    </div>
-                    <div class="form-group">
-                        <label for="usuario" class="label-text">Ingrese un Usuario</label>
-                        <input type="text" id="usuario" name="usuario" placeholder="Ingrese un usuario para el sistema" class="form-control" maxlength="45" autocomplete="off" required>
-                    </div>
-                    <div class="form-group">
+                       <div class="form-group">
                         <label for="correo" class="label-text">Correo Electrónico</label>
                         <input type="email" id="correo" name="correo" placeholder="Ingrese su correo electronico" class="form-control" maxlength="200" autocomplete="off" required>
                         <small class="form-text">*Su inicio de sesión será con el correo electrónico</small>
                     </div>
+                    <div class="form-group">
+                        <label for="usuario" class="label-text">Usuario Personal</label>
+                        <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario para el sistema" class="form-control" maxlength="45" autocomplete="off" required>
+                    </div>                 
                     <div class="form-group">
                         <label for="clave" class="label-text">Contraseña</label>
                         <input type="password" id="clave" name="clave"  placeholder="Ingrese su contraseña personal" class="form-control" required maxlength="16" autocomplete="off">

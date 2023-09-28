@@ -48,23 +48,18 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">Reservaciones</h1>
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3>Mis Reservaciones</h3>
-                            </div>
+                        <div class="panel panel-primary">                            
                             <div class="panel-body">
                                 <table class="table table-responsive">
                                     <thead>
-                                        <tr>
-                                            <th>Código</th>
+                                        <tr>                                            
                                             <th>Días</th>
                                             <th>Fecha Registro</th>
                                             <th>Fecha Ingreso (Check - In)</th>
                                             <th>Fecha Salida (Check - Out)</th>
                                             <th>Valor a Cancelar</th>
-                                            <th>Habitación</th>
-                                            <th>Descripción</th>
-                                            <th>Consumo Adicionales</th>
+                                            <th>Piso - Número</th>
+                                            <th>Descripción</th>                                            
                                             <th>Estado</th>
                                             <th>Acción</th>
                                         </tr>
@@ -89,12 +84,15 @@
 
                                                 int habiReserva = reserva.getHabiId();
                                                 String nombreHabitacion = "";
+                                                String habiDepar = "";
+                                                String habiPiso = "";
 
                                                 for (Habitaciones habitacion : habitaciones) {
-                                                    if (habitacion.getHabiId() == habiReserva) {
-                                                        String depar = StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar());
-                                                        String nombre = StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre());
-                                                        nombreHabitacion = nombre + ' ' + depar;
+                                                    if (habitacion.getHabiId() == habiReserva) {                                                        
+                                                        habiDepar = StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar());
+                                                        habiPiso = StringEscapeUtils.escapeHtml4(habitacion.getHabiPiso());
+                                                        nombreHabitacion = StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre());
+                                                        
                                                         break;
                                                     }
                                                 }
@@ -117,16 +115,14 @@
                                                         nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
                                                     }
                                                 }%>
-                                        <tr>
-                                            <td><%= reserva.getReseId()%></td>
+                                        <tr>                                            
                                             <td><%= reserva.getNumDias()%></td>
                                             <td><input id="fregistro" class="form-control" type="datetime-local" value="<%= reserva.getReseFReserva()%>" readonly="off"></td>
                                             <td><input id="fingreso" class="form-control" type="datetime-local" value="<%= reserva.getReseFInicio()%>" readonly="off"></td>
                                             <td><input id="fSalida" class="form-control" type="datetime-local" value="<%= reserva.getReseFSalida()%>" readonly="off"></td>
                                             <td style="color: #f71515"><b>$ <%= reserva.getReseVTotal()%></b></td>
-                                            <td><%= reserva.getHabiId()%></td>
-                                            <td><%= nombreHabitacion%></td>
-                                            <td><%= nombreConsumo%></td>
+                                            <td><%= habiPiso%> - <%= habiDepar%></td>
+                                            <td><%= nombreHabitacion%></td>                                            
                                             <td style="color: darkblue"><b><%= nombreEstado%></b></td>
                                             <td>
                                                 <%

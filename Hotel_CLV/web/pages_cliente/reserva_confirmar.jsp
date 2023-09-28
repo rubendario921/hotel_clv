@@ -30,8 +30,8 @@
         if (numDias === "" || fInicio === "" || fSalida === "" || consumoHabi === "" || perId === "" || valorHabi === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
-        }       
-        
+        }
+
         // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
@@ -41,10 +41,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header text-center">Reservación de Habitación</h1>
-                <div class="panel panel-primary">
-                    <div class="panel-heading text-center">
-                        <h3>Confirmación de la Reserva</h3>
-                    </div>
+                <div class="panel panel-primary">                    
                     <div class="panel-body">                        
                         <div class="container text-center">
                             <div class="row">
@@ -53,7 +50,7 @@
                                     <table class='table table-responsive'>
                                         <thead>
                                             <tr>                                                                                                 
-                                                <th colspan="2">Información de la Habitación</th>
+                                                <th colspan="2">Información</th>
                                             </tr>                                            
                                         </thead>
                                         <tbody>

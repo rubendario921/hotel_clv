@@ -38,11 +38,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-heade" style="text-align: center">Metodos de Pago</h1>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3  style="text-align: center">Registro del Pago</h3><br>
-                    </div>
+                <h1 class="page-heade" style="text-align: center">Registro del Pago</h1>
+                <div class="panel panel-primary">                    
                     <div class="panel-body">
                         <div class="container text-center">
                             <div class="row">
@@ -51,7 +48,7 @@
                                     <table class='table table-responsive'>
                                         <thead>
                                             <tr>                                                                                                 
-                                                <th colspan="2">Informacion de la Reserva</th>
+                                                <th colspan="2">Información</th>
                                             </tr>                                            
                                         </thead>
                                         <tbody>
@@ -117,7 +114,7 @@
                                 </div>
                                 <form action="Mantenimiento_cliente/crudfactura_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                                     <div class="input-group mb-3">
-                                        <span class="input-group-text"><i class="fa fa-user-circle"></i> Codigo Cliente: </span>
+                                        <span class="input-group-text"><i class="fa fa-user-circle"></i> Código Cliente: </span>
                                         <input type="text" name="perId" id="perId" class="form-control" required value="<%= session.getAttribute("perId")%>" title="<%= session.getAttribute("nombre")%>" readonly="off"/>                                                
                                     </div>
 
