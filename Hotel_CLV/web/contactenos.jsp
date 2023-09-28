@@ -88,21 +88,21 @@
     <div class="row justify-content-center">
         <!-- Formulario quew  va al lado izquierdo -->
         <div class="col-md-6">
-            <h2>Contáctanos</h2>
+            <h2>Buzón de Sugerencias</h2>
             <div class="card">
                 <section>
                     <form class="row g-3" action="Mantenimiento/crudcontacto_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                         <div class="col-md-6">
-                            <label for="nombres" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Ingrese su nombre" maxlength="50" autocomplete="true" required>
+                            <label for="nombres" class="form-label">Nombre y Apellido</label>
+                            <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Ingrese su nombre y apellido" maxlength="50" autocomplete="true" required>
                         </div>
                         <div class="col-md-6">
                             <label for="correo" class="form-label">Correo Electrónico</label>
                             <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su correo electrónico" autocomplete="true" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su numero de contacto" autocomplete="true" maxlength="10" required>
+                            <label for="telefono" class="form-label">Teléfono de Contacto</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su teléfono de contacto" autocomplete="true" maxlength="10" required>
                         </div>
                         <div class="col-md-6">
                             <label for="ciudad" class="form-label">Ciudad</label>
@@ -124,12 +124,11 @@
             </div>
         </div>
         <!-- aqui va la imagen del lado derecho -->
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="img-fluid">
                 <img src="assets/img/shop_07.jpg" alt="Imagen">
             </div>
         </div>
     </div>
 </div>
-
 <%@include file="template/menu/footer_menu.jsp" %>

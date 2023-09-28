@@ -174,10 +174,14 @@
 </script>
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="img-fluid">
+                <img src="assets/img/shop_11.jpg" alt="Imagen">
+            </div>
+        </div>
         <div class="col-md-6">
             <div class="form-wrapper">
                 <div class="form-header">
-                    <img class="img-fluid oval-image" src="assets/img/banner_img_logo_opcional.jpg" alt="">
                     <h3>Usuario Nuevo</h3>
                 </div>
                 <form action="Mantenimiento/crudcliente_crear.jsp" method="POST" onsubmit="return validarFormulario();">
@@ -207,7 +211,7 @@
                         <label for="telefono" class="label-text">Teléfono Celular</label>
                         <input type="text" id="telefono" name="telefono" placeholder="Ingrese su número telefonico celular" class="form-control" minlength="10" maxlength="10" autocomplete="off" required >
                     </div>
-                       <div class="form-group">
+                    <div class="form-group">
                         <label for="correo" class="label-text">Correo Electrónico</label>
                         <input type="email" id="correo" name="correo" placeholder="Ingrese su correo electronico" class="form-control" maxlength="200" autocomplete="off" required>
                         <small class="form-text">*Su inicio de sesión será con el correo electrónico</small>
