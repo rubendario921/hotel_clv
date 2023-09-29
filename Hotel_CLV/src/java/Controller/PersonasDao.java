@@ -28,17 +28,19 @@ public class PersonasDao {
                 Integer perId = rs.getInt("per_id");
                 String perNombres = rs.getString("per_nombres");
                 String perApellidos = rs.getString("per_apellidos");
-                String perCedula = rs.getString("per_cedula");
+                Integer tipoDocumento = rs.getInt("tipodocumento_docI_id");
+                String pernumDocumento = rs.getString("per_numDocumento");
+                Integer prefijosTelefono = rs.getInt("prefijos_perfiCont_id");
                 String perTelefono = rs.getString("per_telefono");
                 String perCorreo = rs.getString("per_correo");
-                String usuario = rs.getString("per_usuario");
+                String perUsuario = rs.getString("per_usuario");
                 String perClave = rs.getString("per_clave");
                 String perImagen = rs.getString("per_dimg");
                 LocalDateTime perFRegistro = rs.getTimestamp("per_fregistro").toLocalDateTime();
                 Integer perfilId = rs.getInt("perfiles_perfil_id");
                 Integer estaId = rs.getInt("estados_esta_id");
 
-                Personas persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perFRegistro, perfilId, estaId);
+                Personas persona = new Personas(perId, perNombres, perApellidos, tipoDocumento, pernumDocumento, prefijosTelefono, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId, estaId);
                 personas.add(persona);
             }
             rs.close();
@@ -60,17 +62,19 @@ public class PersonasDao {
                 Integer perId = rs.getInt("per_id");
                 String perNombres = rs.getString("per_nombres");
                 String perApellidos = rs.getString("per_apellidos");
-                String perCedula = rs.getString("per_cedula");
+                Integer tipoDocumento = rs.getInt("tipodocumento_docI_id");
+                String pernumDocumento = rs.getString("per_numDocumento");
+                Integer prefijosTelefono = rs.getInt("prefijos_perfiCont_id");
                 String perTelefono = rs.getString("per_telefono");
                 String perCorreo = rs.getString("per_correo");
-                String usuario = rs.getString("per_usuario");
+                String perUsuario = rs.getString("per_usuario");
                 String perClave = rs.getString("per_clave");
                 String perImagen = rs.getString("per_dimg");
                 LocalDateTime perFRegistro = rs.getTimestamp("per_fregistro").toLocalDateTime();
                 Integer perfilId = rs.getInt("perfiles_perfil_id");
                 Integer estaId = rs.getInt("estados_esta_id");
 
-                Personas persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perFRegistro, perfilId, estaId);
+                Personas persona = new Personas(perId, perNombres, perApellidos, tipoDocumento, pernumDocumento, prefijosTelefono, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId, estaId);
                 personas.add(persona);
             }
             rs.close();
@@ -92,17 +96,19 @@ public class PersonasDao {
                 Integer perId = rs.getInt("per_id");
                 String perNombres = rs.getString("per_nombres");
                 String perApellidos = rs.getString("per_apellidos");
-                String perCedula = rs.getString("per_cedula");
+                Integer tipoDocumento = rs.getInt("tipodocumento_docI_id");
+                String pernumDocumento = rs.getString("per_numDocumento");
+                Integer prefijosTelefono = rs.getInt("prefijos_perfiCont_id");
                 String perTelefono = rs.getString("per_telefono");
                 String perCorreo = rs.getString("per_correo");
-                String usuario = rs.getString("per_usuario");
+                String perUsuario = rs.getString("per_usuario");
                 String perClave = rs.getString("per_clave");
                 String perImagen = rs.getString("per_dimg");
                 LocalDateTime perFRegistro = rs.getTimestamp("per_fregistro").toLocalDateTime();
                 Integer perfilId = rs.getInt("perfiles_perfil_id");
                 Integer estaId = rs.getInt("estados_esta_id");
 
-                Personas persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perFRegistro, perfilId, estaId);
+                Personas persona = new Personas(perId, perNombres, perApellidos, tipoDocumento, pernumDocumento, prefijosTelefono, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId, estaId);
                 personas.add(persona);
             }
             rs.close();
@@ -125,17 +131,19 @@ public class PersonasDao {
                 Integer perId = rs.getInt("per_id");
                 String perNombres = rs.getString("per_nombres");
                 String perApellidos = rs.getString("per_apellidos");
-                String perCedula = rs.getString("per_cedula");
+                Integer tipoDocumento = rs.getInt("tipodocumento_docI_id");
+                String pernumDocumento = rs.getString("per_numDocumento");
+                Integer prefijosTelefono = rs.getInt("prefijos_perfiCont_id");
                 String perTelefono = rs.getString("per_telefono");
                 String perCorreo = rs.getString("per_correo");
-                String usuario = rs.getString("per_usuario");
+                String perUsuario = rs.getString("per_usuario");
                 String perClave = rs.getString("per_clave");
                 String perImagen = rs.getString("per_dimg");
                 LocalDateTime perFRegistro = rs.getTimestamp("per_fregistro").toLocalDateTime();
                 Integer perfilId = rs.getInt("perfiles_perfil_id");
                 Integer estaId = rs.getInt("estados_esta_id");
 
-                persona = new Personas(perId, perNombres, perApellidos, perCedula, perTelefono, perCorreo, usuario, perClave, perImagen, perFRegistro, perfilId, estaId);
+                persona = new Personas(perId, perNombres, perApellidos, tipoDocumento, pernumDocumento, prefijosTelefono, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId, estaId);
             }
             rs.close();
             pst.close();
@@ -146,7 +154,7 @@ public class PersonasDao {
         return persona;
     }
 
-    public int crearPersona(String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId) {
+    public int crearPersona(String perNombres, String perApellidos, Integer tipoDocumento, String pernumDocumento, Integer prefijosTelefono, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId) {
         int resultado = 0;
         try {
             String sql_estado = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'ACTI%';";
@@ -154,19 +162,21 @@ public class PersonasDao {
             ResultSet rsEstado = pstEstado.executeQuery(sql_estado);
             while (rsEstado.next()) {
                 int estaId = rsEstado.getInt("esta_id");
-                String sql_crearP = "INSERT INTO hotel_clv.personas (per_nombres, per_apellidos,per_cedula,per_telefono,per_correo,per_usuario,per_clave,per_dimg,per_fregistro,perfiles_perfil_id,estados_esta_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+                String sql_crearP = "INSERT INTO hotel_clv.personas (per_nombres, per_apellidos,tipodocumento_docI_id,per_numDocumento,prefijos_perfiCont_id,per_telefono,per_correo,per_usuario,per_clave,per_dimg,per_fregistro,perfiles_perfil_id,estados_esta_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
                 PreparedStatement pst = con.getConexion().prepareCall(sql_crearP);
                 pst.setString(1, perNombres);
                 pst.setString(2, perApellidos);
-                pst.setString(3, perCedula);
-                pst.setString(4, perTelefono);
-                pst.setString(5, perCorreo);
-                pst.setString(6, perUsuario);
-                pst.setString(7, perClave);
-                pst.setString(8, perImagen);
-                pst.setTimestamp(9, Timestamp.valueOf(perFRegistro));
-                pst.setInt(10, perfilId);
-                pst.setInt(11, estaId);
+                pst.setInt(3, tipoDocumento);
+                pst.setString(4, pernumDocumento);
+                pst.setInt(5, prefijosTelefono);
+                pst.setString(6, perTelefono);
+                pst.setString(7, perCorreo);
+                pst.setString(8, perUsuario);
+                pst.setString(9, perClave);
+                pst.setString(10, perImagen);
+                pst.setTimestamp(11, Timestamp.valueOf(perFRegistro));
+                pst.setInt(12, perfilId);
+                pst.setInt(13, estaId);
                 int n = pst.executeUpdate();
                 if (n > 0) {
                     resultado = 1;
@@ -195,23 +205,25 @@ public class PersonasDao {
         return resultado;
     }
 
-    public int modificarPersona(Integer id, String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId, Integer estaId) {
+    public int modificarPersona(Integer perId, String perNombres, String perApellidos, Integer tipoDocumento, String pernumDocumento, Integer prefijosTelefono, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId, Integer estaId) {
         int resultado = 0;
         try {
-            String sql_modifcarP = "UPDATE hotel_clv.personas SET per_nombres=?, per_apellidos=?,per_cedula=?,per_telefono=?,per_correo=?,per_usuario=?,per_clave=?, per_dimg=?,per_fregistro = ?,perfiles_perfil_id=?,estados_esta_id=? WHERE per_id=?;";
+            String sql_modifcarP = "UPDATE hotel_clv.personas SET per_nombres=?, per_apellidos=?,tipodocumento_docI_id=?,per_numDocumento=?,prefijos_perfiCont_id=?,per_telefono=?,per_correo=?,per_usuario=?,per_clave=?, per_dimg=?,per_fregistro = ?,perfiles_perfil_id=?,estados_esta_id=? WHERE per_id=?;";
             PreparedStatement pst = con.getConexion().prepareCall(sql_modifcarP);
             pst.setString(1, perNombres);
             pst.setString(2, perApellidos);
-            pst.setString(3, perCedula);
-            pst.setString(4, perTelefono);
-            pst.setString(5, perCorreo);
-            pst.setString(6, perUsuario);
-            pst.setString(7, perClave);
-            pst.setString(8, perImagen);
-            pst.setTimestamp(9, Timestamp.valueOf(perFRegistro));
-            pst.setInt(10, perfilId);
-            pst.setInt(11, estaId);
-            pst.setInt(12, id);
+            pst.setInt(3, tipoDocumento);
+            pst.setString(4, pernumDocumento);
+            pst.setInt(5, prefijosTelefono);
+            pst.setString(6, perTelefono);
+            pst.setString(7, perCorreo);
+            pst.setString(8, perUsuario);
+            pst.setString(9, perClave);
+            pst.setString(10, perImagen);
+            pst.setTimestamp(11, Timestamp.valueOf(perFRegistro));
+            pst.setInt(12, perfilId);
+            pst.setInt(13, estaId);
+            pst.setInt(14, perId);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;

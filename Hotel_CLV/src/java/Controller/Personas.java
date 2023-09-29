@@ -16,7 +16,9 @@ public class Personas {
     private Integer perId;
     private String perNombres;
     private String perApellidos;
-    private String perCedula;
+    private Integer tipoDocumento;
+    private String pernumDocumento;
+    private Integer prefijosTelefono;
     private String perTelefono;
     private String perCorreo;
     private String perUsuario;
@@ -29,11 +31,13 @@ public class Personas {
     public Personas() {
     }
 
-    public Personas(Integer perId, String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId, Integer estaId) {
+    public Personas(Integer perId, String perNombres, String perApellidos, Integer tipoDocumento, String pernumDocumento, Integer prefijosTelefono, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro, Integer perfilId, Integer estaId) {
         this.perId = perId;
         this.perNombres = perNombres;
         this.perApellidos = perApellidos;
-        this.perCedula = perCedula;
+        this.tipoDocumento = tipoDocumento;
+        this.pernumDocumento = pernumDocumento;
+        this.prefijosTelefono = prefijosTelefono;
         this.perTelefono = perTelefono;
         this.perCorreo = perCorreo;
         this.perUsuario = perUsuario;
@@ -68,12 +72,28 @@ public class Personas {
         this.perApellidos = perApellidos;
     }
 
-    public String getPerCedula() {
-        return perCedula;
+    public Integer getTipoDocumento() {
+        return tipoDocumento;
     }
 
-    public void setPerCedula(String perCedula) {
-        this.perCedula = perCedula;
+    public void setTipoDocumento(Integer tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public String getPernumDocumento() {
+        return pernumDocumento;
+    }
+
+    public void setPernumDocumento(String pernumDocumento) {
+        this.pernumDocumento = pernumDocumento;
+    }
+
+    public Integer getPrefijosTelefono() {
+        return prefijosTelefono;
+    }
+
+    public void setPrefijosTelefono(Integer prefijosTelefono) {
+        this.prefijosTelefono = prefijosTelefono;
     }
 
     public String getPerTelefono() {

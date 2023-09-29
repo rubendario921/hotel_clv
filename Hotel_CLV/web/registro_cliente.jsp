@@ -3,6 +3,9 @@
     Created on: 17-jul-2023, 19:27:08
     Author: Ruben Dario 921
 --%>
+<%@page import="Controller.TipoDocumentos"%>
+<%@page import="java.util.List"%>
+<%@page import="Controller.TipoDocumentoDao"%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ include file="template/menu/header_menu.jsp" %>
 <style>
@@ -10,13 +13,7 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         padding: 10px;
-    }
-
-    .form-control:focus {
-        outline: none;
-        box-shadow: 0 0 5px #719ECE;
-        border-color: #719ECE;
-    }
+    }  
 
     .btn {
         padding: 10px 20px;
@@ -124,13 +121,13 @@
         // Obtener los valores de los campos
         var nombres = document.getElementById("nombres").value.trim();
         var apellidos = document.getElementById("apellidos").value.trim();
-        var cedulaValor = document.getElementById("cedula").value.trim();
+        var numDocumento = document.getElementById("numDocumento").value.trim();
         var telefono = document.getElementById("telefono").value.trim();
         var correo = document.getElementById("correo").value.trim();
         var usuario = document.getElementById("usuario").value.trim();
         var clave = document.getElementById("clave").value.trim();
         // Validar campos obligatorios
-        if (nombres === "" || apellidos === "" || cedulaValor === "" || usuario === "" || telefono === "" || correo === "" || clave === "") {
+        if (nombres === "" || apellidos === "" || numDocumento === "" || usuario === "" || telefono === "" || correo === "" || clave === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -141,7 +138,7 @@
             return false;
         }
         //Validacion de la cedula de identidad
-        var cedula = cedulaValor;
+        var cedula = numDocumento;
         // Verificar que la cédula tenga 10 dígitos numéricos
         if (!/^\d{10}$/.test(cedula)) {
             alert("La cédula de identidad debe tener 10 dígitos numéricos");
@@ -193,19 +190,28 @@
                         <input type="text"  id="apellidos" name="apellidos" placeholder="Ingrese sus dos apellidos" class="form-control"   maxlength="200" autocomplete="off" required>
                     </div>                    
                     <div class="form-group">
+                        <%
+                            TipoDocumentoDao mostrar_tipoDoc = new TipoDocumentoDao();
+                            List<TipoDocumentos> tipoDocumentos = mostrar_tipoDoc.mostrarListaTipoDocumento();
+                            for (TipoDocumentos tipoDoc : tipoDocumentos) {
+                        %>
                         <!-- Tipo de Cedula-->
-                        <label for="tipocedula" class="label-text">Tipo de Documento</label>
-                        <select class=" form form-control">
-                            <option> </option>
-                            <option class="label-text">Cedula de Cuidadania </option>
-                            <option class="label-text">Cedula de Identidad </option>                            
-                            <option class="label-text">Pasaporte </option>                            
-                        </select>
-
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="tipoDoc">Tipo de Documento</label>
+                            <select class="form-select" id="tipoDoc">
+                                <option selected>Seleccione una Opción</option>
+                                <option value="<%= tipoDoc.getDocI_id()%>"><%= tipoDoc.getDocI_nombre()%></option>                                
+                            </select>
+                            <input type="text" id="numDocumento" name="numDocumento" placeholder="Ingrese su número de documento" class="form-control mb-0" minlength="10"  maxlength="10" autocomplete="off" required>
+                        </div>
+                        <% }%>
                         <!-- Tipo de Cedula-->
-                        <label for="cedula" class="label-text">Número de Documento.</label>
-                        <input type="text" id="cedula" name="cedula" placeholder="Ingrese su número unico de identificación" class="form-control" minlength="10"  maxlength="10" autocomplete="off" required>
+                        
+                        
                     </div>
+                        <!--Tipo de Prefijo-->
+                        
+                        <!--Tipo de Prefijo-->
                     <div class="form-group">
                         <label for="telefono" class="label-text">Teléfono Celular</label>
                         <input type="text" id="telefono" name="telefono" placeholder="Ingrese su número telefonico celular" class="form-control" minlength="10" maxlength="10" autocomplete="off" required >
