@@ -3,19 +3,22 @@
     Created on : 23-jul-2023, 21:05:46
     Author     : Ruben Dario 921
 --%>
-
 <%@page import="Controller.Habitaciones"%>
 <%@page import="java.util.List"%>
 <%@page import="Controller.HabitacionesDao"%>
 <%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-
 <%@include file="template/menu/header_menu.jsp" %>
+<style>
+    h2 {
+        color: #007bff;
+    }
+</style>
 <div class="container">
     <div class="text-center my-5">
         <h2>Nuestras Habitaciones</h2>
-        <p>Descubre nuestras cómodas habitaciones y disfruta de una estadía inolvidable en nuestro hotel.</p>
+        <p><i>Descubre nuestras cómodas habitaciones y disfruta de una estadía inolvidable en nuestro hotel.</i></p>
     </div>
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">             
@@ -51,6 +54,5 @@
         </a>
     </div>
 </div>
-            <br>
-            <br>
+<br />
 <%@include file="template/menu/footer_menu.jsp" %>

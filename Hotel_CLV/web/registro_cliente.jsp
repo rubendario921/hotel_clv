@@ -6,10 +6,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ include file="template/menu/header_menu.jsp" %>
 <style>
-    .container {
-        margin-top: 50px;
-    }
-
     .form-control {
         border: 1px solid #ccc;
         border-radius: 5px;
@@ -118,6 +114,9 @@
         font-weight: bold;
         color: #333;
     }
+    h2 {
+        color: #007bff;    
+    }
 </style>
 
 <script>
@@ -130,7 +129,6 @@
         var correo = document.getElementById("correo").value.trim();
         var usuario = document.getElementById("usuario").value.trim();
         var clave = document.getElementById("clave").value.trim();
-
         // Validar campos obligatorios
         if (nombres === "" || apellidos === "" || cedulaValor === "" || usuario === "" || telefono === "" || correo === "" || clave === "") {
             alert("Por favor, complete todos los campos.");
@@ -144,7 +142,6 @@
         }
         //Validacion de la cedula de identidad
         var cedula = cedulaValor;
-
         // Verificar que la cédula tenga 10 dígitos numéricos
         if (!/^\d{10}$/.test(cedula)) {
             alert("La cédula de identidad debe tener 10 dígitos numéricos");
@@ -172,6 +169,7 @@
         return true; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
+<br />
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-5">
@@ -182,12 +180,13 @@
         <div class="col-md-6">
             <div class="form-wrapper">
                 <div class="form-header">
-                    <h3>Usuario Nuevo</h3>
+                    <h2>Usuario Nuevo</h2>
                 </div>
                 <form action="Mantenimiento/crudcliente_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                     <div class="form-group">
                         <label for="nombre" class="label-text">Nombres Completos</label>
-                        <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus nombres" class="form-control"   maxlength="200" autocomplete="off" required>
+                        <input type="text
+                               " id="nombres" name="nombres" placeholder="Ingrese sus nombres" class="form-control"   maxlength="200" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="apellido" class="label-text">Apellidos Completos</label>

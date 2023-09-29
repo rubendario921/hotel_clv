@@ -4,10 +4,6 @@
 
 <style>
     /* Estilos para todo el formulario */
-    .container {
-        margin-top: 30px;
-    }
-
     .card {
         background-color: #f9f9f9;
         padding: 20px;
@@ -83,7 +79,7 @@
         return true;
     }
 </script>
-
+<br />
 <div class="container text-center">
     <div class="row justify-content-center">
         <!-- Formulario quew  va al lado izquierdo -->
