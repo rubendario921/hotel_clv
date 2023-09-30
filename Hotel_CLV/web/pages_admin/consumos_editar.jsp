@@ -17,27 +17,30 @@
 
 <script>
     function validarFormulario() {
+        var codigo = document.getElementById("codigo").value.trim();
         var nombre = document.getElementById("nombre").value.trim();
         var detalle = document.getElementById("detalle").value.trim();
         var cantidad = document.getElementById("cantidad").value.trim();
         var valor = document.getElementById("valor").value.trim();
         var consu_dimg = document.getElementById("consu_dimg").value.trim();
-        var estados_esta_id = document.getElementById("estados_esta_id").value.trim();
+        var estados = document.getElementById("estados").value.trim();
 
         //Validar campos obligatorios
-
-        if (nombre === " " || detalle === "" || cantidad === "" || valor === "" || consu_dimg === "" || estados_esta_id === "") {
+        if (codigo === " " || nombre === "" || detalle === "" || cantidad === "" || valor === "" || consu_dimg === "" || estados === "Por favor, elija una opción.") {
             alert("Por favor, completar todos los campos.");
             return false;
         }
-        return true;
+        // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
+
+        var confirmacion = confirm("¿Está de acuerdo con actualizar el registro?");
+        return confirmacion; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Modificar Consumo</h1>
+                <h1 class="page-header">Consumos del Hotel</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3>Editar Consumo</h3>
@@ -50,32 +53,37 @@
                                     ConsumosDao mostrarC = new ConsumosDao();
                                     Consumos consumo = mostrarC.mostrarConsumo(id);
                                     if (consumo != null) {%> 
-                            <label> Código: </label><input type="text" value="<%= consumo.getConsuId()%>" class="form-control" name="codigo"  placeholder="Ingrese 00 el código"maxlength="2" readonly="false"/>
-                            <br>
-                            <label> Nombre: </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(consumo.getConsuNombre())%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre del consumo"maxlength="50" required/>
-                            <br>
-                            <label> Detalle: </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(consumo.getConsuDetalle())%>" class="form-control" name="detalle"  placeholder="Ingrese el detalle del consumo"maxlength="200" required/>
-                            <br>
-                            <label> Cantidad: </label><input type="text" value="<%= consumo.getConsuCantidad()%>" class="form-control" name="cantidad"  placeholder="Ingrese la cantidad"maxlength="100" required/>
-                            <br>
-                            <label> Valor: </label><input type="text" value="<%= consumo.getConsuValor()%>" class="form-control" name="valor"  placeholder="Ingrese su valor"maxlength="100" required/>
-                            <br>
-                            <label> Imagen: </label><input type="text" value="<%= StringEscapeUtils.escapeHtml4(consumo.getConsuImagen())%>" class="form-control" name="consu_dimg"  placeholder="Ingrese imagen"maxlength="20" required/>
-                            <br>
+                            <label> Código: </label>
+                            <input type="text" name="codigo" id="codigo" value="<%= consumo.getConsuId()%>" class="form form-control"   placeholder="Ingrese 00 el código"maxlength="2" readonly="false"/>
+
+                            <label> Nombre: </label>
+                            <input type="text" name="nombre" id="nombre"  value="<%= StringEscapeUtils.escapeHtml4(consumo.getConsuNombre())%>" class="form form-control"  placeholder="Ingrese el nombre del consumo"maxlength="50" required/>
+
+                            <label> Detalle: </label>
+                            <input type="text" name="detalle" id="detalle"  value="<%= StringEscapeUtils.escapeHtml4(consumo.getConsuDetalle())%>" class="form form-control"   placeholder="Ingrese el detalle del consumo"maxlength="200" required/>
+
+                            <label> Cantidad: </label>
+                            <input type="number" name="cantidad" id="cantidad"  value="<%= consumo.getConsuCantidad()%>" class="form form-control"  placeholder="Ingrese la cantidad" min="1" required/>
+
+                            <label> Valor: </label>
+                            <input type="number"name="valor" id="valor"  value="<%= consumo.getConsuValor()%>" class="form form-control"   placeholder="Ingrese su valor" min="1" required/>
+
+                            <label> Imagen: </label>
+                            <input type="text" name="consu_dimg"id="consu_dimg"  value="<%= StringEscapeUtils.escapeHtml4(consumo.getConsuImagen())%>" class="form form-control"   placeholder="Ingrese imagen"maxlength="20" required/>
+
                             <% }
                                 }%>
-                            <label>Acción: </label>
-                            <select name="estados_esta_id" id="estados_esta_id" class="form form-control" required>
-                                <option> </option>
+                            <label>Estado: </label>
+                            <select name="estados" id="estados" class="form form-control" required>
+                                <option>Por favor, elija una opción.</option>
                                 <%
                                     EstadosDao mostrarEstados = new EstadosDao();
                                     List<Estados> estados = mostrarEstados.mostrarListaEstaProductos();
                                     for (Estados estado : estados) {%>
-                                    <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></option>
-                                <% }
-                                %>
+                                <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></option>
+                                <% }%>
                             </select>
-                            <br>
+                            <br />
                             <a href="consumos_lista.jsp" class="btn btn-danger">Regresar</a>
                             <input type="submit" value="Editar" name="editar" class="btn btn-warning"/>
                         </form>

@@ -1,0 +1,18 @@
+"esta_id";"esta_letra";"esta_descripcion";"categorias_cat_id";"colorNoti_colorN_id"
+1;"AC";"ACTIVO";1;3
+2;"IN";"INACTIVO";1;4
+3;"BL";"BLOQUEADO";1;5
+4;"DI";"DISPONIBLE";2;3
+5;"LI";"LIMPIEZA";2;6
+6;"OC";"OCUPADO";2;5
+7;"RE";"RESERVADO";2;4
+8;"PE";"PENDIENTE";4;1
+9;"AP";"APROBADO";4;3
+10;"AN";"ANULADO";4;5
+11;"MA";"MANTENIMIENTO";2;6
+12;"DE";"DEVOLUCION";4;4
+13;"ST";"STOCK";3;3
+14;"SS";"SIN STOCK";3;5
+15;"CC";"CONTACTADO";5;3
+16;"NC";"NO CONTACTADO";5;4
+17;"NA";"NO APLICA";5;5

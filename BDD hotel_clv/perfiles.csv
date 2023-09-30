@@ -1,5 +1,5 @@
-perfil_id,perfil_letra,perfil_nombre
-1,AD,ADMINISTRATIVO
-2,SU,SUPERVISOR
-3,RE,RECEPCIONISTA
-4,CL,CLIENTE
+"perfil_id";"perfil_letra";"perfil_nombre";"colorNoti_colorN_id"
+1;"AD";"ADMINISTRATIVO";5
+2;"SU";"SUPERVISOR";1
+3;"RE";"RECEPCIONISTA";2
+4;"CL";"CLIENTE";3

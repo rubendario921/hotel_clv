@@ -173,7 +173,7 @@ public class EstadosDao {
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
                 int catId = rs.getInt("categorias_cat_id");
-                int estaColorNId = rs.getInt("estaColorNId");
+                int estaColorNId = rs.getInt("colorNoti_colorN_id");
 
                 Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId, estaColorNId);
                 estados.add(estado);
@@ -199,7 +199,7 @@ public class EstadosDao {
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
                 int catId = rs.getInt("categorias_cat_id");
-                int estaColorNId = rs.getInt("estaColorNId");
+                int estaColorNId = rs.getInt("colorNoti_colorN_id");
 
                 Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId, estaColorNId);
                 estados.add(estado);
@@ -225,7 +225,7 @@ public class EstadosDao {
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
                 int catId = rs.getInt("categorias_cat_id");
-                int estaColorNId = rs.getInt("estaColorNId");
+                int estaColorNId = rs.getInt("colorNoti_colorN_id");
 
                 Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId, estaColorNId);
                 estados.add(estado);
@@ -234,7 +234,7 @@ public class EstadosDao {
             pst.close();
 
         } catch (SQLException e) {
-            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+            System.out.println("Error en EstadoDao mostrarListaEstaProductos: " + e.getMessage());
         } finally {
         }
         return estados;
@@ -251,7 +251,7 @@ public class EstadosDao {
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
                 int catId = rs.getInt("categorias_cat_id");
-                int estaColorNId = rs.getInt("estaColorNId");
+                int estaColorNId = rs.getInt("colorNoti_colorN_id");
 
                 Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId, estaColorNId);
                 estados.add(estado);
@@ -260,7 +260,7 @@ public class EstadosDao {
             pst.close();
 
         } catch (SQLException e) {
-            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+            System.out.println("Error en EstadoDao mostrarListaEstaFacturacion: " + e.getMessage());
         } finally {
         }
         return estados;
@@ -277,7 +277,7 @@ public class EstadosDao {
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
                 int catId = rs.getInt("categorias_cat_id");
-                int estaColorNId = rs.getInt("estaColorNId");               
+                int estaColorNId = rs.getInt("colorNoti_colorN_id");               
 
                 Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId, estaColorNId);
                 estados.add(estado);
@@ -286,7 +286,7 @@ public class EstadosDao {
             pst.close();
 
         } catch (SQLException e) {
-            System.out.println("Error en EstadoDao Lista mostrarListaEsta1: " + e.getMessage());
+            System.out.println("Error en EstadoDao mostrarListaEstaFormulario: " + e.getMessage());
         } finally {
         }
         return estados;

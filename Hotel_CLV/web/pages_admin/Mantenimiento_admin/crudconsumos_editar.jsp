@@ -10,6 +10,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript">
             function mostrarMensaje(informacion, redireccion) {
                 alert(informacion);
@@ -19,9 +20,6 @@
     </head>
     <body>
         <%
-            String informacion = "";
-            String redireccion = "";
-
             if (request.getParameter("editar") != null) {
                 Integer consuId = Integer.parseInt(request.getParameter("codigo"));
                 String consuNombre = request.getParameter("nombre");
@@ -29,30 +27,34 @@
                 Integer consuCantidad = Integer.parseInt(request.getParameter("cantidad"));
                 BigDecimal consuValor = new BigDecimal(request.getParameter("valor"));
                 String consuImagen = request.getParameter("consu_dimg");
-                Integer estaId = Integer.parseInt(request.getParameter("estados_esta_id"));
+                Integer estaId = Integer.parseInt(request.getParameter("estados"));
 
                 ConsumosDao editarC = new ConsumosDao();
                 int resultado = editarC.modiConsumo(consuId, consuNombre, consuDetalle, consuCantidad, consuValor, consuImagen, estaId);
 
-                switch (resultado) {
+                                switch (resultado) {
                     case 1:
-                        informacion = "Modificación de Mensaje Exitoso";
-                        redireccion = "../consumos_lista.jsp";
-                        break;
-                    case 2:
-                        informacion = "El registro  ya existe en la base de datos, intente nuevamente.";
-                        redireccion = "../consumos_editar.jsp";
-                        break;
-                    case 3:
-                        informacion = "Los campos no puede estar vacios, intente nuevamente.";
-                        redireccion = "../consumos_editar.jsp";
-                        break;
-                    default:
-                        informacion = "Registro Incorrecto, intente nuevamente.";
-                        redireccion = "../consumos_editar.jsp";
-                        break;
-                }%>
+                        String informacion = "Registro Modificado";
+                        String redireccion = "../consumos_lista.jsp";
+        %>
         <script>mostrarMensaje('<%= informacion%>', '<%= redireccion%>');</script>
-        <% }%>
+        <%break;
+            case 1062:%>
+        <script>alert("El registro  ya existe en la base de datos, intente nuevamente.");
+            window.history.back();
+        </script>    
+        <%break;
+            case 1048:%>
+        <script>alert("Los campos no puede estar vacios, intente nuevamente.");
+            window.history.back();
+        </script>              
+        <%break;
+            default:%>
+        <script>alert("Registro Incorrecto, intente nuevamente");
+            window.history.back();
+        </script>             
+        <%break;
+                }
+            }%>
     </body>
 </html>

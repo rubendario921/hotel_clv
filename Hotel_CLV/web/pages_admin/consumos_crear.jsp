@@ -27,27 +27,34 @@
             alert("Por favor, completar todos los campos.");
             return false;
         }
-        return true;
+        // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
+
+        var confirmacion = confirm("¿Desea continuar con la creación del registro?");
+        return confirmacion; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Registro Consumo</h1>
+                <h1 class="page-header">Consumos del Hotel</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3>Nuevo Consumo</h3>
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudconsumos_crear.jsp" method="POST"onsubmit="return validarFormulario();">
-                            <label> Nombre: </label><input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese el nombre del consumo. " maxlength="50" autocomplete="off" required />
-                            <label> Detalle: </label><input type="text" name="detalle" id="detalle" class="form-control" placeholder="Ingrese el detalle consumo. " maxlength="500" autocomplete="off" required/>
-                            <label> Cantidad: </label><input type="number" name="cantidad" id="cantidad" class="form-control" placeholder="Ingrese la cantidad del consumo. " min="1" autocomplete="off" required/>
-                            <label> Valor: </label><input type="text" name="valor" id="valor" class="form-control" placeholder="Ingrese el valor del consumo. " autocomplete="off" required/>
+                            <label> Nombre: </label>
+                            <input type="text" name="nombre" id="nombre" class="form form-control" placeholder="Ingrese el nombre del consumo. " maxlength="50" autocomplete="off" required />
+                            <label> Detalle: </label>
+                            <input type="text" name="detalle" id="detalle" class="form form-control" placeholder="Ingrese el detalle consumo. " maxlength="500" autocomplete="off" required/>
+                            <label> Cantidad: </label>
+                            <input type="number" name="cantidad" id="cantidad" class="form form-control" placeholder="Ingrese la cantidad del consumo. " min="1" autocomplete="off" required/>
+                            <label> Valor: </label>
+                            <input type="number" name="valor" id="valor" class="form form-control" placeholder="Ingrese el valor del consumo. " min="1" autocomplete="off" required/>
                             <label> Estado: </label>
                             <select name="estado" id="estado" class="form form-control" required>
-                                <option></option>
+                                <option selected>Por favor, elija una opción.</option>
                                 <%
                                     EstadosDao mostrarEstado = new EstadosDao();
                                     List<Estados> estados = mostrarEstado.mostrarListaEstaProductos();

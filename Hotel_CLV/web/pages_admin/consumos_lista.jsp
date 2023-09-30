@@ -4,6 +4,8 @@
     Author     : Johns 
 --%>
 
+<%@page import="Controller.colorNotificaciones"%>
+<%@page import="Controller.colorNotificacionesDao"%>
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
 <%@page import="Controller.Consumos"%>
@@ -14,6 +16,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
+<script>
+    function confirmarEliminacion() {
+        var confirmacion = confirm("¿Seguro de que deseas eliminar este registro?");
+        return confirmacion; // Devolver true si el usuario hace clic en OK, de lo contrario, false
+    }
+</script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -31,8 +39,7 @@
                     <div class="panel-body">
                         <table class="table table">
                             <thead>
-                                <tr>
-                                    <th>Código</th>
+                                <tr>                                   
                                     <th>Nombre</th>
                                     <th>Detalle</th>
                                     <th>Cantidad</th>
@@ -45,33 +52,44 @@
                             <tbody>
                                 <%
                                     EstadosDao mostrarEstado = new EstadosDao();
-                                    List<Estados> estados = mostrarEstado.mostrarListaEstaProductos();
+                                    List<Estados> estados = mostrarEstado.mostrarListaEstados();
+
+                                    colorNotificacionesDao mostrarColorN = new colorNotificacionesDao();
+                                    List<colorNotificaciones> colornotificaciones = mostrarColorN.mostrarListaColor();
 
                                     ConsumosDao lista_consumos = new ConsumosDao();
                                     List<Consumos> consumos = lista_consumos.mostrarListaConsumos();
                                     for (Consumos consumo : consumos) {
+
                                         int estadoConsu = consumo.getEstaId();
                                         String nombreEstado = "";
+                                        String colorEstado = "";
                                         for (Estados estado : estados) {
                                             if (estado.getEstaId() == estadoConsu) {
                                                 nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
+                                                int colorEstadoId = estado.getColorNotiId();
+                                                for (colorNotificaciones colorNoti : colornotificaciones) {
+                                                    if (colorNoti.getColorNId() == colorEstadoId) {
+                                                        colorEstado = StringEscapeUtils.escapeHtml4(colorNoti.getColorNcodigo());
+                                                        break;
+                                                    }
+                                                }
                                                 break;
                                             }
                                         }%>
                                 <tr>
-                                    <td><%= consumo.getConsuId()%></td>
                                     <td><%=StringEscapeUtils.escapeHtml4(consumo.getConsuNombre())%></td>
                                     <td><%=StringEscapeUtils.escapeHtml4(consumo.getConsuDetalle())%></td>
                                     <td><%= consumo.getConsuCantidad()%></td>
-                                    <td><%= consumo.getConsuValor()%></td>
+                                    <td>$ <%= consumo.getConsuValor()%></td>
                                     <td><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(consumo.getConsuImagen())%>" height="100" width="100"></td>
-                                    <td><%= nombreEstado%></td>
+                                    <td style="color: <%= colorEstado%>"><b><%= nombreEstado%></b></td>
                                     <td>
                                         <!--Modificar Insumo-->
                                         <a href="consumos_editar.jsp?editar=true&id=<%=consumo.getConsuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--Eliminar Insumo-->
                                         <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
-                                        <a href="Mantenimiento_admin/crudconsumos_eliminar.jsp?eliminar=true&id=<%= consumo.getConsuId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar" disable="true"></i></a>
+                                        <a href="Mantenimiento_admin/crudconsumos_eliminar.jsp?eliminar=true&id=<%= consumo.getConsuId()%>" class="btn btn-danger" onclick="return confirmarEliminacion();"><i class="fa fa-trash" title="Eliminar" name="eliminar" disable="true"></i></a>
                                             <% }%>
                                     </td>
                                 </tr>

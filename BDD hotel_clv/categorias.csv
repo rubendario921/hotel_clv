@@ -1,6 +1,6 @@
-cat_id,cat_nombre,cat_descripcion
-1,Personas,"Activo, Inactivo, Bloqueado"
-2,Habitaciones,"Disponible, Ocupado, Reservado, Limpieza, Mantenimiento"
-3,Productos,"Stock, Sin Stock"
-4,Facturacion,"Abonado, Pagado, Anulado"
-5,Formulario,"Atendido, Anulado, Pendiente"
+"cat_id";"cat_nombre";"cat_descripcion"
+1;"Personas";"Activo, Inactivo, Bloqueado"
+2;"Habitaciones";"Disponible, Ocupado, Reservado, Limpieza, Mantenimiento"
+3;"Productos";"Stock, Sin Stock"
+4;"Facturacion";"Abonado, Pagado, Anulado"
+5;"Formulario";"Atendido, Anulado, Pendiente"
