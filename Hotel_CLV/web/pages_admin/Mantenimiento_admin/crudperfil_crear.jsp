@@ -19,11 +19,12 @@
     <body>
         <%
             if (request.getParameter("nuevo_perfil") != null) {
-                String letra = request.getParameter("letra");
-                String nombre = request.getParameter("nombre");
+                String perfletra = request.getParameter("letra");
+                String perfnombre = request.getParameter("nombre");
+                int perfcolorId = Integer.parseInt(request.getParameter("color"));
 
                 PerfilesDao registrarP = new PerfilesDao();
-                int resultado = registrarP.crearPerfil(letra, nombre);
+                int resultado = registrarP.crearPerfil(perfletra, perfnombre, perfcolorId);
 
                 switch (resultado) {
                     case 1:

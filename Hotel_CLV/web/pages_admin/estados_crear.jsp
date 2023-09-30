@@ -26,7 +26,10 @@
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
-        return true; // Permitir el envío del formulario si todos los campos están llenos
+        // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
+
+        var confirmacion = confirm("¿Desea continuar con la creación del registro?");
+        return confirmacion; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
 <div id="page-wrapper">

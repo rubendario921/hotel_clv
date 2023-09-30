@@ -23,7 +23,9 @@
             return false; // Detener el envío del formulario
         }
         // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
-        return true; // Permitir el envío del formulario si todos los campos están llenos
+
+        var confirmacion = confirm("¿Está de acuerdo con actualizar el registro?");
+        return confirmacion; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
 <div id="page-wrapper">
@@ -43,7 +45,7 @@
                                     CategoriasDao mostrarCate = new CategoriasDao();
                                     Categorias categoria = mostrarCate.mostrarCategoria(id);
                                     if (categoria != null) {%>
-                                    <label>Código:</label><input type="text" name="codigo" id="codigo" value="<%= categoria.getCatId()%>" class="form-control" readonly="false" autocomplete="off"/>
+                            <label>Código:</label><input type="text" name="codigo" id="codigo" value="<%= categoria.getCatId()%>" class="form-control" readonly="false" autocomplete="off"/>
                             <br>
                             <label>Nombre:  </label><input type="text" name="nombre" id="nombre" value="<%= StringEscapeUtils.escapeHtml4(categoria.getCatNombre())%>" class="form-control"   placeholder="Ingrese el nombre de la Categoria"maxlength="30" autocomplete="off" required/>
                             <br>

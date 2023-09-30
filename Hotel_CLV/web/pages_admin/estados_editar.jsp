@@ -29,7 +29,9 @@
             return false; // Detener el envío del formulario
         }
         // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
-        return true; // Permitir el envío del formulario si todos los campos están llenos
+
+        var confirmacion = confirm("¿Está de acuerdo con actualizar el registro?");
+        return confirmacion; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
 <div id="page-wrapper">

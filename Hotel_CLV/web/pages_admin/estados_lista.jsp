@@ -18,7 +18,7 @@
 <!DOCTYPE html>    
 <script>
     function confirmarEliminacion() {
-        var confirmacion = confirm("¿Estás seguro de que deseas eliminar este registro?");
+        var confirmacion = confirm("¿Está seguro de que deseas eliminar este registro?");
         return confirmacion; // Devolver true si el usuario hace clic en OK, de lo contrario, false
     }
 </script>
