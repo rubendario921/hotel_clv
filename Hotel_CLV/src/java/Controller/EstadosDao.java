@@ -30,8 +30,9 @@ public class EstadosDao {
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
                 int catId = rs.getInt("categorias_cat_id");
+                int colorNotiId = rs.getInt("colorNoti_colorN_id");
 
-                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId, colorNotiId);
                 estados.add(estado);
             }
             rs.close();
@@ -44,19 +45,20 @@ public class EstadosDao {
         return estados;
     }
 
-    public Estados mostrarEstado(Integer id) {
+    public Estados mostrarEstado(Integer id_estado) {
         Estados estado = null;
         try {
             String sql_mostrarE = "SELECT * FROM hotel_clv.estados WHERE esta_id=?;";
             PreparedStatement pst = con.getConexion().prepareStatement(sql_mostrarE);
-            pst.setInt(1, id);
+            pst.setInt(1, id_estado);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Integer estaId = rs.getInt("esta_id");
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescri = rs.getString("esta_descripcion");
                 Integer catId = rs.getInt("categorias_cat_id");
-                estado = new Estados(estaId, estaLetra, estaDescri, catId);
+                int colorNotiId = rs.getInt("colorNoti_colorN_id");
+                estado = new Estados(estaId, estaLetra, estaDescri, catId, colorNotiId);
             }
             rs.close();
             pst.close();
@@ -68,14 +70,15 @@ public class EstadosDao {
         return estado;
     }
 
-    public int crearEstado(String letra, String descripcion, Integer categoria) {
+    public int crearEstado(String estaLetra, String estaDescripcion, Integer estaCateId, Integer estaColorNId) {
         int resultado = 0;
         try {
-            String sql_crear = "INSERT INTO hotel_clv.estados (esta_letra, esta_descripcion,categorias_cat_id ) VALUES (?, ?,?);";
+            String sql_crear = "INSERT INTO hotel_clv.estados (esta_letra, esta_descripcion,categorias_cat_id,colorNoti_colorN_id) VALUES (?,?, ?,?);";
             PreparedStatement pst = con.getConexion().prepareStatement(sql_crear);
-            pst.setString(1, letra);
-            pst.setString(2, descripcion);
-            pst.setInt(3, categoria);
+            pst.setString(1, estaLetra);
+            pst.setString(2, estaDescripcion);
+            pst.setInt(3, estaCateId);
+            pst.setInt(4, estaColorNId);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
@@ -102,15 +105,16 @@ public class EstadosDao {
         return resultado;
     }
 
-    public int modificarEstado(Integer id, String letra, String descripcion, Integer categoria) {
+    public int modificarEstado(Integer estaId, String estaLetra, String estaDescripcion, Integer estaCateId, Integer estaColorNId) {
         int resultado = 0;
         try {
-            String sql_modi = "UPDATE hotel_clv.estados SET esta_letra=?, esta_descripcion=?, categorias_cat_id=? WHERE esta_id=?;";
+            String sql_modi = "UPDATE hotel_clv.estados SET esta_letra=?, esta_descripcion=?, categorias_cat_id=?,colorNoti_colorN_id=? WHERE esta_id=?;";
             PreparedStatement pst = con.getConexion().prepareStatement(sql_modi);
-            pst.setString(1, letra);
-            pst.setString(2, descripcion);
-            pst.setInt(3, categoria);
-            pst.setInt(4, id);
+            pst.setString(1, estaLetra);
+            pst.setString(2, estaDescripcion);
+            pst.setInt(3, estaCateId);
+            pst.setInt(4, estaColorNId);
+            pst.setInt(5, estaId);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
@@ -157,10 +161,11 @@ public class EstadosDao {
         return resultado;
     }
 ////////////////////////////////////////////////////////Procesos Adicionales
+
     public List<Estados> mostrarListaEstaPersonas() {
         List<Estados> estados = new ArrayList<>();
         try {
-            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'PERSONA%';";
+            String sql_lista = "SELECT * FROM hotel_clv.estados INNER JOIN hotel_clv.categorias ON estados.categorias_cat_id = categorias.cat_id WHERE cat_nombre  LIKE 'PERS%';";
             Statement pst = con.getConexion().prepareStatement(sql_lista);
             ResultSet rs = pst.executeQuery(sql_lista);
             while (rs.next()) {
@@ -168,8 +173,9 @@ public class EstadosDao {
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
                 int catId = rs.getInt("categorias_cat_id");
+                int estaColorNId = rs.getInt("estaColorNId");
 
-                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId, estaColorNId);
                 estados.add(estado);
             }
             rs.close();
@@ -193,8 +199,9 @@ public class EstadosDao {
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
                 int catId = rs.getInt("categorias_cat_id");
+                int estaColorNId = rs.getInt("estaColorNId");
 
-                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId, estaColorNId);
                 estados.add(estado);
             }
             rs.close();
@@ -218,8 +225,9 @@ public class EstadosDao {
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
                 int catId = rs.getInt("categorias_cat_id");
+                int estaColorNId = rs.getInt("estaColorNId");
 
-                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId, estaColorNId);
                 estados.add(estado);
             }
             rs.close();
@@ -243,8 +251,9 @@ public class EstadosDao {
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
                 int catId = rs.getInt("categorias_cat_id");
+                int estaColorNId = rs.getInt("estaColorNId");
 
-                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId, estaColorNId);
                 estados.add(estado);
             }
             rs.close();
@@ -256,7 +265,7 @@ public class EstadosDao {
         }
         return estados;
     }
-    
+
     public List<Estados> mostrarListaEstaFormulario() {
         List<Estados> estados = new ArrayList<>();
         try {
@@ -268,8 +277,9 @@ public class EstadosDao {
                 String estaLetra = rs.getString("esta_letra");
                 String estaDescripcion = rs.getString("esta_descripcion");
                 int catId = rs.getInt("categorias_cat_id");
+                int estaColorNId = rs.getInt("estaColorNId");               
 
-                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId);
+                Estados estado = new Estados(estaId, estaLetra, estaDescripcion, catId, estaColorNId);
                 estados.add(estado);
             }
             rs.close();

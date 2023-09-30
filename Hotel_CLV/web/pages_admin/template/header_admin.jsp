@@ -203,6 +203,9 @@
                             </li>                            
                             <li>
                                 <a href="categorias_lista.jsp">Lista de Categorías</a>
+                            </li>
+                            <li>
+                                <a href="colorNotificacion_lista.jsp">Paleta de Colores</a>
                             </li>                            
                         </ul>
                         <% }%>

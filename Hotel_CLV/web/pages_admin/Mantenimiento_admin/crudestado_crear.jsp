@@ -19,12 +19,13 @@
     <body>
         <%
             if (request.getParameter("nuevo_estado") != null) {
-                String letra = request.getParameter("letra");
-                String descripcion = request.getParameter("descripcion");
-                Integer categoria = Integer.parseInt(request.getParameter("categoria"));
+                String estaLetra = request.getParameter("letra");
+                String estaDescripcion = request.getParameter("descripcion");
+                Integer estaCateId = Integer.parseInt(request.getParameter("categoria"));
+                Integer estaColorNId = Integer.parseInt(request.getParameter("color"));
 
                 EstadosDao crearE = new EstadosDao();
-                int resultado = crearE.crearEstado(letra, descripcion, categoria);
+                int resultado = crearE.crearEstado(estaLetra, estaDescripcion, estaCateId, estaColorNId);
 
                 switch (resultado) {
                     case 1:

@@ -15,15 +15,17 @@ public class Estados {
     private String estaLetra;
     private String estaDescripcion;
     private Integer catId;
+    private Integer colorNotiId;
 
     public Estados() {
     }
 
-    public Estados(Integer estaId, String estaLetra, String estaDescripcion, Integer catId) {
+    public Estados(Integer estaId, String estaLetra, String estaDescripcion, Integer catId, Integer colorNotiId) {
         this.estaId = estaId;
         this.estaLetra = estaLetra;
         this.estaDescripcion = estaDescripcion;
         this.catId = catId;
+        this.colorNotiId = colorNotiId;
     }
 
     public Integer getEstaId() {
@@ -56,6 +58,14 @@ public class Estados {
 
     public void setCatId(Integer catId) {
         this.catId = catId;
+    }
+
+    public Integer getColorNotiId() {
+        return colorNotiId;
+    }
+
+    public void setColorNotiId(Integer colorNotiId) {
+        this.colorNotiId = colorNotiId;
     }
 
 }

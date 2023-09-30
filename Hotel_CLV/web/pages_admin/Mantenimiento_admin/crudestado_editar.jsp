@@ -20,13 +20,14 @@
     <body>
         <%
             if (request.getParameter("editar") != null) {
-                Integer id = Integer.parseInt(request.getParameter("codigo"));
-                String letra = request.getParameter("letra");
-                String descripcion = request.getParameter("descripcion");
-                Integer categoria = Integer.parseInt(request.getParameter("categoria"));
+                Integer estaId = Integer.parseInt(request.getParameter("codigo"));
+                String estaLetra = request.getParameter("letra");
+                String estaDescripcion = request.getParameter("descripcion");
+                Integer estaCateId = Integer.parseInt(request.getParameter("categoria"));
+                Integer estaColorNId = Integer.parseInt(request.getParameter("color"));
 
                 EstadosDao editarE = new EstadosDao();
-                int resultado = editarE.modificarEstado(id, letra, descripcion, categoria);
+                int resultado = editarE.modificarEstado(estaId, estaLetra, estaDescripcion, estaCateId, estaColorNId);
 
                 switch (resultado) {
                     case 1:

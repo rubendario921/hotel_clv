@@ -1,0 +1,8 @@
+consu_id,consu_nombre,consu_detalle,consu_cantidad,consu_valor,consu_dimg,estados_esta_id
+1,"Bebidas ",Alcoholicas,1,10.50,assets/img/consumos_1.jpg,3
+2,Desayuno,"Continental, costeño",1,5.50,assets/img/consumos_3.jpg,3
+3,Almuerzo,"Almuerzos tipo buffet",1,8.50,assets/img/consumos_6.jpg,3
+4,Meriendas,"Merienda Saludable",1,6.50,assets/img/consumos_7.jpg,3
+5,Snacks,"Picaditas ",1,2.00,assets/img/consumos_4.jpg,3
+6," Cerveza","Cerveza Pilsener pequeña",1,2.50,assets/img/insumos_4.jpg,3
+7,Gaseosas,Gaseosas,1,1.50,assets/img/consumos_2.jpg,3

@@ -4,7 +4,8 @@
     Author     : Ruben Dario
 --%>
 
-
+<%@page import="Controller.colorNotificaciones"%>
+<%@page import="Controller.colorNotificacionesDao"%>
 <%@page import="Controller.Categorias"%>
 <%@page import="Controller.CategoriasDao"%>
 <%@page import="Controller.Estados"%>
@@ -20,9 +21,10 @@
         var letra = document.getElementById("letra").value.trim();
         var descripcion = document.getElementById("descripcion").value.trim();
         var categoria = document.getElementById("categoria").value.trim();
+        var color = document.getElementById("color").value.trim();
 
         // Validar campos obligatorios
-        if (letra === "" || descripcion === "" || categoria === "") {
+        if (letra === "" || descripcion === "" || categoria === ""|| color === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -37,7 +39,7 @@
                 <h1 class="page-header">Estados</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Editar Estado</h3>                        
+                        <h3>Editar</h3>                        
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudestado_editar.jsp" method="POST" onsubmit="return validarFormulario();">
@@ -56,7 +58,7 @@
                             <br>
                             <label>Categoría: </label>
                             <select name="categoria" id="categoria" class="form form-control" required>
-                                <option> </option>
+                                <option selected>Seleccione una Opción</option>
                                 <%
                                     CategoriasDao mostrarCategoria = new CategoriasDao();
                                     List<Categorias> categorias = mostrarCategoria.mostrarListaCategorias();
@@ -67,6 +69,18 @@
                             <br>
                             <% }
                                 }%>
+                                <label>Color:</label>
+                            <select name="color" id="color" class="form form-control" required>
+                                <option selected>Seleccione una Opción</option>
+                                <%
+                                    colorNotificacionesDao mostrarColor = new colorNotificacionesDao();
+                                    List<colorNotificaciones> colorNotificacion = mostrarColor.mostrarListaColor();
+                                    for (colorNotificaciones colorNoti : colorNotificacion) {
+                                %>
+                                <option value="<%= colorNoti.getColorNId()%>" style="color:<%=  StringEscapeUtils.escapeHtml4(colorNoti.getColorNcodigo())%>"><%=  StringEscapeUtils.escapeHtml4(colorNoti.getColorNNombre())%></option>
+                                <% }%>
+                            </select>
+                                <br />
                             <a href="estados_lista.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" value="Modificar" name="editar" class=" btn btn-warning"/>  
                         </form>

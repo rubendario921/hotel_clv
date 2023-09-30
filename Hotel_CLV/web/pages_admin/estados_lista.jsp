@@ -4,6 +4,8 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="Controller.colorNotificaciones"%>
+<%@page import="Controller.colorNotificacionesDao"%>
 <%@page import="Controller.Categorias"%>
 <%@page import="Controller.CategoriasDao"%>
 <%@page import="Controller.Estados"%>
@@ -33,9 +35,9 @@
                         <table class="table table"> 
                             <thead>
                                 <tr>
-                                    <th>Código</th>
                                     <th>Letra</th>
                                     <th>Descripción</th>
+                                    <th>Color</th>
                                     <th>Categoría</th>
                                     <th>Acción</th>
                                 </tr>
@@ -47,24 +49,40 @@
                                     CategoriasDao mostrarCategoria = new CategoriasDao();
                                     List<Categorias> categorias = mostrarCategoria.mostrarListaCategorias();
 
+                                    //Lista de Colores para la consulta
+                                    colorNotificacionesDao mostrarColor = new colorNotificacionesDao();
+                                    List<colorNotificaciones> colorNotificacion = mostrarColor.mostrarListaColor();
+
                                     //Lista de Estados para la consulta
                                     EstadosDao mostrar_estados = new EstadosDao();
                                     List<Estados> estados = mostrar_estados.mostrarListaEstados();
                                     for (Estados estado : estados) {
+
                                         int estadoCatId = estado.getCatId();
                                         String nombreCategoria = "";
-
                                         for (Categorias categoria : categorias) {
                                             if (categoria.getCatId() == estadoCatId) {
                                                 nombreCategoria = StringEscapeUtils.escapeHtml4(categoria.getCatNombre());
                                                 break;
                                             }
-                                        } %>
-                                <tr>
-                                    <td><%= estado.getEstaId()%></td>
+                                        }
+
+                                        int estadoColor = estado.getColorNotiId();
+                                        String codigoColor = "";
+                                        for (colorNotificaciones colorNoti : colorNotificacion) {
+                                            if (colorNoti.getColorNId() == estadoColor) {
+                                                codigoColor = StringEscapeUtils.escapeHtml4(colorNoti.getColorNcodigo());
+                                            }
+                                        }
+
+                                %>
+                                <tr>                                    
                                     <td><%= StringEscapeUtils.escapeHtml4(estado.getEstaLetra())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></td>
                                     <!--Union con otra tabla y muestra el resultado -->
+                                    <td>
+                                        <label class="bg bg-white" style="color: <%= codigoColor%>">■■■■</label>
+                                    </td>
                                     <td><%= nombreCategoria%></td>
                                     <td>                        
                                         <!--modificar update=":tabMostrar"-->
