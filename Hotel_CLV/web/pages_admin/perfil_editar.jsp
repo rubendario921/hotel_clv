@@ -4,6 +4,9 @@
     Author     : Ruben Dario
 --%>
 
+<%@page import="Controller.colorNotificaciones"%>
+<%@page import="java.util.List"%>
+<%@page import="Controller.colorNotificacionesDao"%>
 <%@page import="Controller.Perfiles"%>
 <%@page import="Controller.PerfilesDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -16,13 +19,15 @@
         var codigo = document.getElementById("codigo").value.trim();
         var letra = document.getElementById("letra").value.trim();
         var nombre = document.getElementById("nombre").value.trim();
+        var color = document.getElementById("color").value.trim();
         // Validar campos obligatorios
-        if (codigo === "" || letra === "" || nombre === "") {
+        if (codigo === "" || letra === "" || nombre === "" || color === "Seleccione una Opción") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
-        // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
-        return true; // Permitir el envío del formulario si todos los campos están llenos
+        // Mensaje de Confirmacion
+        var confirmacion = confirm("¿Estás seguro de que deseas editar este perfil?");
+        return confirmacion; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
 <!--Inicio del Cuerpo-->
@@ -39,16 +44,28 @@
                         <form action="Mantenimiento_admin/crudperfil_editar.jsp" method="POST" onsubmit="return validarFormulario();">
                             <%
                                 if (request.getParameter("editar") != null) {
-                                    int id = Integer.parseInt(request.getParameter("id"));                                    
+                                    int id = Integer.parseInt(request.getParameter("id"));
                                     PerfilesDao mostrarP = new PerfilesDao();
                                     Perfiles perfil = mostrarP.mostrarPerfil(id);
                                     if (perfil != null) {%>
                             <label>Código: </label><input type="text" name="codigo" id="codigo" value="<%= perfil.getPerfilId()%>" class="form form-control"  maxlength="2" readonly="false"/>
-                            <br>
+                            <br />
                             <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(perfil.getPerfilLetra())%>" class="form form-control"  placeholder="Ingrese 2 letras de abreviatura"maxlength="2" autocomplete="off" required/>
-                            <br>
+                            <br />
                             <label>Nombre: </label><input type="text"  name="nombre" id="nombre" value="<%= StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre())%>" class=" form form-control" placeholder="Ingrese el nombre del perfil" maxlength="20"  autocomplete="off" required/>
-                            <br>
+                            <br />
+                            <label>Color:</label>
+                            <select name="color" id="color" class="form form-control" required>
+                                <option selected>Seleccione una Opción</option>
+                                <%
+                                    colorNotificacionesDao mostrarColor = new colorNotificacionesDao();
+                                    List<colorNotificaciones> colorNotificacion = mostrarColor.mostrarListaColor();
+                                    for (colorNotificaciones colorNoti : colorNotificacion) {
+                                %>
+                                <option value="<%= colorNoti.getColorNId()%>" style="color:<%=  StringEscapeUtils.escapeHtml4(colorNoti.getColorNcodigo())%>"><%=  StringEscapeUtils.escapeHtml4(colorNoti.getColorNNombre())%></option>
+                                <% }%>
+                            </select>
+                            <br />
                             <% }
                                 }%>
                             <a href="perfil_lista.jsp" class="btn btn-danger" >Regresar</a>

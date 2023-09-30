@@ -24,7 +24,7 @@
         var color = document.getElementById("color").value.trim();
 
         // Validar campos obligatorios
-        if (letra === "" || descripcion === "" || categoria === ""|| color === "") {
+        if (letra === "" || descripcion === "" || categoria === "" || color === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -66,10 +66,10 @@
                                 <option value="<%= categoria.getCatId()%>"><%= StringEscapeUtils.escapeHtml4(categoria.getCatNombre())%></option>
                                 <% }%>
                             </select> 
-                            <br>
+                            <br />
                             <% }
                                 }%>
-                                <label>Color:</label>
+                            <label>Color:</label>
                             <select name="color" id="color" class="form form-control" required>
                                 <option selected>Seleccione una Opción</option>
                                 <%
@@ -80,7 +80,7 @@
                                 <option value="<%= colorNoti.getColorNId()%>" style="color:<%=  StringEscapeUtils.escapeHtml4(colorNoti.getColorNcodigo())%>"><%=  StringEscapeUtils.escapeHtml4(colorNoti.getColorNNombre())%></option>
                                 <% }%>
                             </select>
-                                <br />
+                            <br />
                             <a href="estados_lista.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" value="Modificar" name="editar" class=" btn btn-warning"/>  
                         </form>

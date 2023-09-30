@@ -19,12 +19,13 @@
     <body>
         <%
             if (request.getParameter("editar") != null) {
-                Integer id = Integer.parseInt(request.getParameter("codigo"));
-                String letra = request.getParameter("letra");
-                String nombre = request.getParameter("nombre");
+                Integer perfId = Integer.parseInt(request.getParameter("codigo"));
+                String perfletra = request.getParameter("letra");
+                String perfnombre = request.getParameter("nombre");
+                Integer perfcolorId = Integer.parseInt(request.getParameter("color"));
 
                 PerfilesDao modificarP = new PerfilesDao();
-                int resultado = modificarP.modificarPerfil(id, letra, nombre);
+                int resultado = modificarP.modificarPerfil(perfId, perfletra, perfnombre, perfcolorId);
 
                 switch (resultado) {
                     case 1:
