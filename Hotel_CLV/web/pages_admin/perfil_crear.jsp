@@ -15,8 +15,7 @@
         // Obtener los valores de los campos
         var letra = document.getElementById("letra").value.trim();
         var nombre = document.getElementById("nombre").value.trim();
-        var color;
-        = document.getElementById("(color").value.trim();
+        var color = document.getElementById("color").value.trim();
 
         // Validar campos obligatorios
         if (letra === "" || nombre === "" || color === "") {
@@ -24,7 +23,7 @@
             return false; // Detener el envío del formulario
         }
         
-        var confirmacion = confirm("¿Desea registrar los datos ingresados?");
+        var confirmacion = confirm("¿Desea continuar con la creación del registro?");
         return confirmacion; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
@@ -41,9 +40,9 @@
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudperfil_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                             <label>Letra: </label><input type="text" name="letra" id="letra" class="form form-control" placeholder="Ingrese 2 letras de abreviatura"maxlength="2" autocomplete="off" required/>
-                            <br>
+                            <br />
                             <label>Nombre: </label><input type="text" name="nombre" id="nombre" class="form form-control" placeholder="Ingrese el nombre del perfil" maxlength="20" autocomplete="off" required/>
-                            <br>
+                            <br />
                             <label>Color:</label>
                             <select name="color" id="color" class="form form-control" required>
                                 <option selected>Seleccione una Opción</option>
@@ -55,7 +54,7 @@
                                 <option value="<%= colorNoti.getColorNId()%>" style="color:<%=  StringEscapeUtils.escapeHtml4(colorNoti.getColorNcodigo())%>"><%=  StringEscapeUtils.escapeHtml4(colorNoti.getColorNNombre())%></option>
                                 <% }%>
                             </select>
-                            <br />  b
+                            <br />
                             <a href="perfil_lista.jsp" class="btn btn-danger" >Regresar</a>
                             <input type="submit" value="Registrar" name="nuevo_perfil" class=" btn btn-success"/>
                         </form>

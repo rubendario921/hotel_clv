@@ -26,7 +26,7 @@
             return false; // Detener el envío del formulario
         }
         // Mensaje de Confirmacion
-        var confirmacion = confirm("¿Estás seguro de que deseas editar este perfil?");
+        var confirmacion = confirm("¿Está de acuerdo con actualizar el registro?");
         return confirmacion; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>

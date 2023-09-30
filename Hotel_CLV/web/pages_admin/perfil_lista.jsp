@@ -13,7 +13,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@include file="template/header_admin.jsp" %>
-<!DOCTYPE html>    
+<!DOCTYPE html>
+<script>
+    function confirmarEliminacion() {
+        var confirmacion = confirm("¿Seguro de que deseas eliminar este registro?");
+        return confirmacion; // Devolver true si el usuario hace clic en OK, de lo contrario, false
+    }
+</script>
 <!--Tabla para mostrar el listado de los perfiles-->
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -69,7 +75,7 @@
                                         <a href="perfil_editar.jsp?editar=true&id=<%= perfil.getPerfilId()%>" class="btn btn-warning"> <i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--eliminar update=":tabMostrar"-->
                                         <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
-                                        <a href="Mantenimiento_admin/crudperfil_eliminar.jsp?eliminar=true&id=<%= perfil.getPerfilId()%>"class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                        <a href="Mantenimiento_admin/crudperfil_eliminar.jsp?eliminar=true&id=<%= perfil.getPerfilId()%>"class="btn btn-danger" onclick="return confirmarEliminacion();"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                             <% }%>
                                     </td>
                                 </tr>
