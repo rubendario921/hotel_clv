@@ -22,14 +22,15 @@ public class PerfilesDao {
         List<Perfiles> perfiles = new ArrayList<>();
         try {
             String sql = "SELECT * FROM hotel_clv.perfiles;";
-            Statement pst = con.getConexion().prepareCall(sql);
+            Statement pst = con.getConexion().prepareStatement(sql);
             ResultSet rs = pst.executeQuery(sql);
             while (rs.next()) {
                 int perfilId = rs.getInt("perfil_id");
                 String perfilLetra = rs.getString("perfil_letra");
                 String perfilNombre = rs.getString("perfil_nombre");
+                int colorNotiId = rs.getInt("colorNoti_colorN_id");
 
-                Perfiles perfil = new Perfiles(perfilId, perfilLetra, perfilNombre);
+                Perfiles perfil = new Perfiles(perfilId, perfilLetra, perfilNombre, colorNotiId);
                 perfiles.add(perfil);
             }
             rs.close();
@@ -45,14 +46,15 @@ public class PerfilesDao {
         Perfiles perfil = null;
         try {
             String sql = "SELECT * FROM hotel_clv.perfiles WHERE perfil_id = ?;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql);
+            PreparedStatement pst = con.getConexion().prepareStatement(sql);
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Integer perfilId = rs.getInt("perfil_id");
                 String perfilLetra = rs.getString("perfil_letra");
                 String perfilNombre = rs.getString("perfil_nombre");
-                perfil = new Perfiles(perfilId, perfilLetra, perfilNombre);
+                int colorNotiId = rs.getInt("colorNoti_colorN_id");
+                perfil = new Perfiles(perfilId, perfilLetra, perfilNombre, colorNotiId);
             }
             rs.close();
             pst.close();
@@ -64,13 +66,14 @@ public class PerfilesDao {
         return perfil;
     }
 
-    public int crearPerfil(String letra, String nombre) {
+    public int crearPerfil(String perfletra, String perfnombre, Integer perfcolorId) {
         int resultado = 0;
         try {
-            String sql = "INSERT INTO hotel_clv.perfiles (perfil_letra, perfil_nombre) VALUES (?,?);";
-            PreparedStatement pst = con.getConexion().prepareCall(sql);
-            pst.setString(1, letra);
-            pst.setString(2, nombre);
+            String sql = "INSERT INTO hotel_clv.perfiles (perfil_letra, perfil_nombre,colorNoti_colorN_id) VALUES (?,?,?);";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql);
+            pst.setString(1, perfletra);
+            pst.setString(2, perfnombre);
+            pst.setInt(3, perfcolorId);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
@@ -97,15 +100,16 @@ public class PerfilesDao {
         return resultado;
     }
 
-    public int modificarPerfil(Integer id, String letra, String nombre) {
+    public int modificarPerfil(Integer perfId, String perfletra, String perfnombre, Integer perfcolorId) {
         int resultado = 0;
         try {
-            String sql = "UPDATE hotel_clv.perfiles SET perfil_letra=?,perfil_nombre=? WHERE perfil_id=? ;";
-            PreparedStatement pst = con.getConexion().prepareCall(sql);
-            pst.setString(1, letra);
-            pst.setString(2, nombre);
-            pst.setInt(3, id);
-            
+            String sql = "UPDATE hotel_clv.perfiles SET perfil_letra=?,perfil_nombre=?, colorNoti_colorN_id=? WHERE perfil_id=? ;";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql);
+            pst.setString(1, perfletra);
+            pst.setString(2, perfnombre);
+            pst.setInt(3, perfcolorId);
+            pst.setInt(4, perfId);
+
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;

@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="Controller.colorNotificaciones"%>
+<%@page import="Controller.colorNotificacionesDao"%>
 <%@page import="Controller.Perfiles"%>
 <%@page import="Controller.PerfilesDao"%>
 <%@page import="java.util.*"%>
@@ -31,22 +33,37 @@
                         <table class="table table">
                             <thead>
                                 <tr>
-                                    <th>Código</th>
                                     <th>Letra</th>
                                     <th>Nombre</th>
+                                    <th>Color</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!--Extraer la informacion de la java class-->
                                 <%
+                                    //Lista de Colores para la consulta
+                                    colorNotificacionesDao mostrarColor = new colorNotificacionesDao();
+                                    List<colorNotificaciones> colorNotificacion = mostrarColor.mostrarListaColor();
+
                                     PerfilesDao mostrar_perfiles = new PerfilesDao();
                                     List<Perfiles> perfiles = mostrar_perfiles.mostrarListaPerfil();
-                                    for (Perfiles perfil : perfiles) {%>
-                                <tr>
-                                    <td><%= perfil.getPerfilId()%></td>
-                                    <td><%= StringEscapeUtils.escapeHtml4(perfil.getPerfilLetra())%></td>
+                                    for (Perfiles perfil : perfiles) {
+
+                                        int perfilColor = perfil.getColorNotiId();
+                                        String codigoColor = "";
+                                        for (colorNotificaciones colorNoti : colorNotificacion) {
+                                            if (colorNoti.getColorNId() == perfilColor) {
+                                                codigoColor = StringEscapeUtils.escapeHtml4(colorNoti.getColorNcodigo());
+                                            }
+                                        }
+                                %>
+                                <tr>                                   
+                                    <td><%= StringEscapeUtils.escapeHtml4(perfil.getPerfilLetra())%></td>                                    
                                     <td><%= StringEscapeUtils.escapeHtml4(perfil.getPerfilNombre())%></td>
+                                    <td>
+                                        <label class="bg bg-white" style="color: <%= codigoColor%>">■■■■</label>
+                                    </td>
                                     <td>                        
                                         <!--modificar update=":tabMostrar"-->
                                         <a href="perfil_editar.jsp?editar=true&id=<%= perfil.getPerfilId()%>" class="btn btn-warning"> <i class="fa fa-edit" title="Editar" name="editar"></i></a>

@@ -14,14 +14,16 @@ public class Perfiles {
     private Integer perfilId;
     private String perfilLetra;
     private String perfilNombre;
+    private Integer colorNotiId;
 
     public Perfiles() {
     }
 
-    public Perfiles(Integer perfilId, String perfilLetra, String perfilNombre) {
+    public Perfiles(Integer perfilId, String perfilLetra, String perfilNombre, Integer colorNotiId) {
         this.perfilId = perfilId;
         this.perfilLetra = perfilLetra;
         this.perfilNombre = perfilNombre;
+        this.colorNotiId = colorNotiId;
     }
 
     public Integer getPerfilId() {
@@ -46,6 +48,14 @@ public class Perfiles {
 
     public void setPerfilNombre(String perfilNombre) {
         this.perfilNombre = perfilNombre;
+    }
+
+    public Integer getColorNotiId() {
+        return colorNotiId;
+    }
+
+    public void setColorNotiId(Integer colorNotiId) {
+        this.colorNotiId = colorNotiId;
     }
 
 }
