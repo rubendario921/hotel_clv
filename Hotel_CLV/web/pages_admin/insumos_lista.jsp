@@ -4,6 +4,8 @@
     Author     : Wladimir Campaña
 --%>
 
+<%@page import="Controller.colorNotificaciones"%>
+<%@page import="Controller.colorNotificacionesDao"%>
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
 <%@page import="org.apache.commons.text.StringEscapeUtils"%>
@@ -13,6 +15,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
+<script>
+    function confirmarEliminacion() {
+        var confirmacion = confirm("¿Seguro de que deseas eliminar este registro?");
+        return confirmacion; // Devolver true si el usuario hace clic en OK, de lo contrario, false
+    }
+</script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -30,8 +38,7 @@
                     <div class="panel-body">
                         <table class="table table">
                             <thead>
-                                <tr>
-                                    <th>Código</th>
+                                <tr>s
                                     <th>Nombre</th>
                                     <th>Detalle</th>
                                     <th>Cantidad</th>
@@ -44,27 +51,38 @@
                             <tbody>
                                 <%
                                     EstadosDao mostrarEstado = new EstadosDao();
-                                    List<Estados> estados = mostrarEstado.mostrarListaEstaProductos();
+                                    List<Estados> estados = mostrarEstado.mostrarListaEstados();
+
+                                    colorNotificacionesDao mostrarColorN = new colorNotificacionesDao();
+                                    List<colorNotificaciones> colornotificaciones = mostrarColorN.mostrarListaColor();
 
                                     InsumosDao lista_insumos = new InsumosDao();
                                     List<Insumos> insumos = lista_insumos.mostrarListaInsumos();
                                     for (Insumos insumo : insumos) {
+
                                         int estadoInsu = insumo.getEstaId();
                                         String nombreEstado = "";
+                                        String colorEstado = "";
                                         for (Estados estado : estados) {
-                                            if (estado.getEstaId()==estadoInsu) {
+                                            if (estado.getEstaId() == estadoInsu) {
                                                 nombreEstado = StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion());
+                                                int colorEstadoId = estado.getColorNotiId();
+                                                for (colorNotificaciones colorNoti : colornotificaciones) {
+                                                    if (colorNoti.getColorNId() == colorEstadoId) {
+                                                        colorEstado = StringEscapeUtils.escapeHtml4(colorNoti.getColorNcodigo());
+                                                        break;
+                                                    }
+                                                }
                                                 break;
                                             }
                                         }%>
                                 <tr>
-                                    <td><%= insumo.getInsuId()%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%></td>
                                     <td><%= insumo.getInsuCantidad()%></td>
                                     <td><%= insumo.getInsuValor()%></td>                                    
                                     <td><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%>" height="100" width="100"></td>
-                                    <td><%= nombreEstado%></td>
+                                    <td style="color: <%= colorEstado%>"><b><%= nombreEstado%></b></td>
                                     <td>
                                         <!--Modificar Insumo-->
                                         <a href="insumos_editar.jsp?editar=true&id=<%= insumo.getInsuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
