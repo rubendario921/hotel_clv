@@ -188,30 +188,35 @@
                     <div class="form-group">
                         <label for="apellido" class="label-text">Apellidos Completos</label>
                         <input type="text"  id="apellidos" name="apellidos" placeholder="Ingrese sus dos apellidos" class="form-control"   maxlength="200" autocomplete="off" required>
-                    </div>                    
-                    <div class="form-group">
-                        <%
-                            TipoDocumentoDao mostrar_tipoDoc = new TipoDocumentoDao();
-                            List<TipoDocumentos> tipoDocumentos = mostrar_tipoDoc.mostrarListaTipoDocumento();
-                            for (TipoDocumentos tipoDoc : tipoDocumentos) {
-                        %>
-                        <!-- Tipo de Cedula-->
-                        <div class="input-group mb-3">
-                            <label class="input-group-text" for="tipoDoc">Tipo de Documento</label>
-                            <select class="form-select" id="tipoDoc">
-                                <option selected>Seleccione una Opción</option>
-                                <option value="<%= tipoDoc.getDocI_id()%>"><%= tipoDoc.getDocI_nombre()%></option>                                
-                            </select>
-                            <input type="text" id="numDocumento" name="numDocumento" placeholder="Ingrese su número de documento" class="form-control mb-0" minlength="10"  maxlength="10" autocomplete="off" required>
-                        </div>
-                        <% }%>
-                        <!-- Tipo de Cedula-->
-                        
-                        
                     </div>
-                        <!--Tipo de Prefijo-->
-                        
-                        <!--Tipo de Prefijo-->
+
+                    <!-- Tipo de Documento-->
+
+                    <label for="nombre" class="label-text">Tipo</label>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-auto">                             
+                                <select class="form-select">
+                                    <option selected>Seleccione una opción</option>
+                                    <%
+                                        TipoDocumentoDao mostrar_tipoDoc = new TipoDocumentoDao();
+                                        List<TipoDocumentos> tipoDocumentos = mostrar_tipoDoc.mostrarListaTipoDocumento();
+                                        for (TipoDocumentos tipoDoc : tipoDocumentos) {
+                                    %>
+                                    <option value="<%= tipoDoc.getDocI_id()%>"><%= tipoDoc.getDocI_nombre()%></option>
+                                    <% }%>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="numDocumento" name="numDocumento" placeholder="Número de Documento" class="form-control" minlength="20"  maxlength="20" autocomplete="off" required>
+                            </div>                               
+
+                        </div>
+                    </div>
+
+                    <!--Tipo de Prefijo-->
+
+                    <!--Tipo de Prefijo-->
                     <div class="form-group">
                         <label for="telefono" class="label-text">Teléfono Celular</label>
                         <input type="text" id="telefono" name="telefono" placeholder="Ingrese su número telefonico celular" class="form-control" minlength="10" maxlength="10" autocomplete="off" required >
