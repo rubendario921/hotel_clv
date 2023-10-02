@@ -4,6 +4,8 @@
     Author     : Ruben Dario 921
 --%>
 
+<%@page import="Controller.Prefijos"%>
+<%@page import="Controller.PrefijosDao"%>
 <%@page import="Controller.colorNotificaciones"%>
 <%@page import="Controller.colorNotificacionesDao"%>
 <%@page import="Controller.TipoDocumentoDao"%>
@@ -59,6 +61,10 @@
                                     TipoDocumentoDao mostrarTipoDocu = new TipoDocumentoDao();
                                     List<TipoDocumentos> tipodocumentos = mostrarTipoDocu.mostrarListaTipoDocumento();
 
+                                    //Lista de PrefijosContactacto
+                                    PrefijosDao mostrarPrefijos = new PrefijosDao();
+                                    List<Prefijos> prefijos = mostrarPrefijos.mostrarListaPrefijos();
+
                                     //Lista de Perfiles
                                     PerfilesDao mostrarPerfil = new PerfilesDao();
                                     List<Perfiles> perfiles = mostrarPerfil.mostrarListaPerfil();
@@ -81,6 +87,17 @@
                                         for (TipoDocumentos tipoDocu : tipodocumentos) {
                                             if (tipoDocu.getDocI_id() == tipoDocumento) {
                                                 nombreDocumento = StringEscapeUtils.escapeHtml4(tipoDocu.getDocI_letra());
+                                            }
+                                        }
+
+                                        //Comparacion de Prefijos
+                                        int perPrefijoId = persona.getPrefijosTelefono();
+                                        String codPrefijo = "";
+                                        String paisPrefijo = "";
+                                        for (Prefijos prefijo : prefijos) {
+                                            if (prefijo.getPrefiId() == perPrefijoId) {
+                                                codPrefijo = StringEscapeUtils.escapeHtml4(prefijo.getPrefiCodigo());
+                                                paisPrefijo = StringEscapeUtils.escapeHtml4(prefijo.getPrefiPais());
                                             }
                                         }
 
@@ -115,7 +132,7 @@
                                     <td><%= StringEscapeUtils.escapeHtml4(persona.getPerApellidos())%></td>
                                     <td><%= nombreDocumento%> - <%= StringEscapeUtils.escapeHtml4(persona.getPernumDocumento())%></td>                                    
                                     <td><%= StringEscapeUtils.escapeHtml4(persona.getPerUsuario())%></td>                                    
-                                    <td><%= StringEscapeUtils.escapeHtml4(persona.getPerTelefono())%></td>
+                                    <td title="<%= paisPrefijo%>"><%= codPrefijo%> <%= StringEscapeUtils.escapeHtml4(persona.getPerTelefono())%></td>
                                     <td><%= nombrePerfil%></td>
                                     <td style="color: <%= colorEstado%>"><b><%= nombreEstado%></b></td>                                        
                                     <td>
