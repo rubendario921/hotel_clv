@@ -38,7 +38,7 @@
                     <div class="panel-body">
                         <table class="table table">
                             <thead>
-                                <tr>s
+                                <tr>
                                     <th>Nombre</th>
                                     <th>Detalle</th>
                                     <th>Cantidad</th>
@@ -80,7 +80,7 @@
                                     <td><%= StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%></td>
                                     <td><%= insumo.getInsuCantidad()%></td>
-                                    <td><%= insumo.getInsuValor()%></td>                                    
+                                    <td>$ <%= insumo.getInsuValor()%></td>                                    
                                     <td><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%>" height="100" width="100"></td>
                                     <td style="color: <%= colorEstado%>"><b><%= nombreEstado%></b></td>
                                     <td>
@@ -88,7 +88,7 @@
                                         <a href="insumos_editar.jsp?editar=true&id=<%= insumo.getInsuId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--Eliminar Insumo-->
                                         <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
-                                        <a href="Mantenimiento_admin/crudinsumos_eliminar.jsp?eliminar=true&id=<%= insumo.getInsuId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar" disable="true"></i></a>
+                                        <a href="Mantenimiento_admin/crudinsumos_eliminar.jsp?eliminar=true&id=<%= insumo.getInsuId()%>" class="btn btn-danger" onclick="return confirmarEliminacion();"><i class="fa fa-trash" title="Eliminar" name="eliminar" disable="true"></i></a>
                                             <% }%>
                                     </td>
                                 </tr>

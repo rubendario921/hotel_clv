@@ -29,14 +29,17 @@
             alert("Por favor, completar todos los campos.");
             return false;
         }
-        return true;
+        // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
+
+        var confirmacion = confirm("¿Está de acuerdo con actualizar el registro?");
+        return confirmacion; // Permitir el envío del formulario si todos los campos están llenos        
     }
 </script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Modificar Insumo</h1>
+                <h1 class="page-header">Insumos del Hotel</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3>Editar Insumo</h3>
@@ -49,18 +52,23 @@
                                     InsumosDao mostrarI = new InsumosDao();
                                     Insumos insumo = mostrarI.mostrarInsumo(id);
                                     if (insumo != null) {%> 
-                            <label> Código: </label><input type="text"  name="codigo" id="codigo" value="<%=insumo.getInsuId()%>" class="form-control" placeholder="Ingrese 00 el codigo" maxlength="2" readonly="false"/>
-                            <br>
-                            <label> Nombre: </label><input type="text" name="nombre" id="nombre" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%>" class="form-control"  placeholder="Ingrese el nombre del insumo" autocomplete="off" maxlength="50" required/>
-                            <br>
-                            <label> Detalle: </label><input type="text"name="detalle" id="detalle"  value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%>" class="form-control" placeholder="Ingrese el detalle del insumo"maxlength="200" required/>
-                            <br>
-                            <label> Cantidad: </label><input type="number" name="cantidad" id="cantidad" value="<%=insumo.getInsuCantidad()%>" class="form-control" placeholder="Ingrese la cantidad" min="1" maxlength="100" required/>
-                            <br>
-                            <label> Valor: </label><input type="text" name="valor" id="valor"  value="<%=insumo.getInsuValor()%>" class="form-control" step="0.01" min="1" placeholder="Ingrese su valor"maxlength="100" required/>
-                            <br>
-                            <label> Imagen: </label><input type="text" name="insu_dimg" id="insu_dimg"  value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%>" class="form-control" placeholder="Ingrese imagen"maxlength="100" required/>
-                            <br>
+                            <label> Código: </label>
+                            <input type="text"  name="codigo" id="codigo" value="<%=insumo.getInsuId()%>" class="form-control" placeholder="Ingrese 00 el codigo" maxlength="2" readonly="false"/>
+
+                            <label> Nombre: </label>
+                            <input type="text" name="nombre" id="nombre" value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%>" class="form-control"  placeholder="Ingrese el nombre del insumo" autocomplete="off" maxlength="50" required/>
+
+                            <label> Detalle: </label>
+                            <input type="text"name="detalle" id="detalle"  value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle())%>" class="form-control" placeholder="Ingrese el detalle del insumo"maxlength="200" required/>
+
+                            <label> Cantidad: </label>
+                            <input type="number" name="cantidad" id="cantidad" value="<%=insumo.getInsuCantidad()%>" class="form-control" placeholder="Ingrese la cantidad" min="1" maxlength="100" required/>
+
+                            <label> Valor: </label>
+                            <input type="text" name="valor" id="valor"  value="<%=insumo.getInsuValor()%>" class="form-control" step="0.01" min="1" placeholder="Ingrese su valor"maxlength="100" required/>
+
+                            <label> Imagen: </label>
+                            <input type="text" name="insu_dimg" id="insu_dimg"  value="<%=StringEscapeUtils.escapeHtml4(insumo.getInsuImagen())%>" class="form-control" placeholder="Ingrese imagen"maxlength="100" required/>                            
                             <% }
                                 }%>
                             <label>Estado: </label>
@@ -82,4 +90,6 @@
             </div>        
         </div>    
     </div>
-
+</div>
+<!--Fin del Cuerpo -->
+<%@include file="template/footer_admin.jsp" %>
