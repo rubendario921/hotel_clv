@@ -32,7 +32,7 @@
                 <h1 class="page-header">Nómina de Empleados</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <table style="width: 100%">
+                        <table style="width: 100%" class="table-responsive">
                             <tr>
                                 <td><h3>Lista de Empleados</h3></td>
                                 <td aling="rigth"><a href="personas_crear.jsp" class="btn btn-success"><i class="fa fa-edit" title="Nuevo Registro"></i></a></td>
@@ -40,14 +40,14 @@
                         </table>
                     </div>
                     <div class="panel-body">
-                        <table class="table table">
+                        <table class="table table-responsive">
                             <thead>
                                 <tr>                                    
                                     <th>Nombre</th>
                                     <th>Apellido</th>
-                                    <th>Número de Documento</th>
+                                    <th>Identificación</th>
                                     <th>Usuario</th> 
-                                    <th>Teléfono</th>
+                                    <th>Número de Contacto</th>
                                     <th>Perfil</th>
                                     <th>Estado</th>
                                     <th>Acciones</th>
