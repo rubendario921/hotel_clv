@@ -32,7 +32,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Categorías</h1>
+                <h1 class="page-header">Categorías del Sistema</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3>Editar Categorías</h3>                        
