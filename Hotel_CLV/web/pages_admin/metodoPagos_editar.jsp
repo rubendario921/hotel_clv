@@ -33,7 +33,7 @@
                 <h1 class="page-header">Modificar Método de Pago</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Editar Método</h3>                        
+                        <h3>Editar Método de Pago</h3>                        
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudmetodoPagos_editar.jsp" method="POST" onsubmit="return validarFormulario();">

@@ -11,7 +11,7 @@
 <%@page import="Controller.Estados"%>
 <%@page import="Controller.EstadosDao"%>
 <%@page import="java.util.*"%>s
-<%@ page import="org.apache.commons.text.StringEscapeUtils" %>
+<%@ page import="org.apache.commons.text.StringEscapeUtils"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
@@ -38,10 +38,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Estados</h1>
+                <h1 class="page-header">Estados del Sistema</h1>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Editar</h3>                        
+                        <h3>Editar Estado</h3>                        
                     </div>
                     <div class="panel-body">
                         <form action="Mantenimiento_admin/crudestado_editar.jsp" method="POST" onsubmit="return validarFormulario();">
@@ -52,12 +52,15 @@
                                     EstadosDao mostrarEstado = new EstadosDao();
                                     Estados estado = mostrarEstado.mostrarEstado(id);
                                     if (estado != null) {%>
-                            <label>Código:</label><input type="text" name="codigo" id="codigo" value="<%= estado.getEstaId()%>" class="form-control"  readonly="false"/>
-                            <br>
-                            <label>Letra: </label><input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaLetra())%>" class="form-control"   placeholder="Ingrese 2 letras de abreviatura" maxlength="2"  autocomplete="off" required/>
-                            <br>
-                            <label>Nombre: </label><input type="text" name="descripcion" id="descripcion" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%>" class="form-control"  placeholder="Ingrese el nombre del perfil" maxlength="20"  autocomplete="off" required/>
-                            <br>
+                            <label>Código:</label>
+                            <input type="text" name="codigo" id="codigo" value="<%= estado.getEstaId()%>" class="form-control"  readonly="false"/>
+
+                            <label>Letra: </label>
+                            <input type="text" name="letra" id="letra" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaLetra())%>" class="form-control"   placeholder="Ingrese 2 letras de abreviatura" maxlength="2"  autocomplete="off" required/>
+
+                            <label>Nombre: </label>
+                            <input type="text" name="descripcion" id="descripcion" value="<%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%>" class="form-control"  placeholder="Ingrese el nombre del perfil" maxlength="20"  autocomplete="off" required/>
+
                             <label>Categoría: </label>
                             <select name="categoria" id="categoria" class="form form-control" required>
                                 <option selected>Seleccione una Opción</option>
