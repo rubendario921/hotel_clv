@@ -33,10 +33,9 @@ public class HabitacionesDao {
                 String habiDescripcion = rs.getString("habi_descripcion");
                 BigDecimal habiValorD = rs.getBigDecimal("habi_valor_diario");
                 String habiImg = rs.getString("habi_dimg");
-                int insuId = rs.getInt("insumos_insu_id");
                 int estaId = rs.getInt("estados_esta_id");
 
-                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, insuId, estaId);
+                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, estaId);
                 habitaciones.add(habitacion);
             }
             rs.close();
@@ -64,9 +63,8 @@ public class HabitacionesDao {
                 String habiDescripcion = rs.getString("habi_descripcion");
                 BigDecimal habiValorD = rs.getBigDecimal("habi_valor_diario");
                 String habiImg = rs.getString("habi_dimg");
-                Integer insuId = rs.getInt("insumos_insu_id");
                 Integer estaId = rs.getInt("estados_esta_id");
-                habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, insuId, estaId);
+                habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, estaId);
             }
             rs.close();
             pst.close();
@@ -78,10 +76,10 @@ public class HabitacionesDao {
         return habitacion;
     }
 
-    public int crearHabi(String nombre, String tipo, String piso, String depar, String descripcion, BigDecimal valor, String imagen, Integer insumo, Integer estado) {
+    public int crearHabi(String nombre, String tipo, String piso, String depar, String descripcion, BigDecimal valor, String imagen, Integer estado) {
         int resultado = 0;
         try {
-            String sql_crear = "INSERT INTO hotel_clv.habitaciones (habi_nombre, habi_tipo, habi_piso, habi_depar, habi_descripcion,habi_valor_diario,habi_dimg,insumos_insu_id,estados_esta_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql_crear = "INSERT INTO hotel_clv.habitaciones (habi_nombre, habi_tipo, habi_piso, habi_depar, habi_descripcion,habi_valor_diario,habi_dimg,estados_esta_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement pst = con.getConexion().prepareCall(sql_crear);
             pst.setString(1, nombre);
             pst.setString(2, tipo);
@@ -90,8 +88,7 @@ public class HabitacionesDao {
             pst.setString(5, descripcion);
             pst.setBigDecimal(6, valor);
             pst.setString(7, imagen);
-            pst.setInt(8, insumo);
-            pst.setInt(9, estado);
+            pst.setInt(8, estado);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
@@ -118,10 +115,10 @@ public class HabitacionesDao {
         return resultado;
     }
 
-    public int modiHabi(Integer id, String nombre, String tipo, String piso, String depar, String descripcion, BigDecimal valor, String imagen, Integer insumo, Integer estado) {
+    public int modiHabi(Integer id, String nombre, String tipo, String piso, String depar, String descripcion, BigDecimal valor, String imagen, Integer estado) {
         int resultado = 0;
         try {
-            String sql_modi = "UPDATE hotel_clv.habitaciones SET habi_nombre = ?, habi_tipo =?, habi_piso = ?, habi_depar =?, habi_descripcion = ?, habi_valor_diario = ?, habi_dimg=?,insumos_insu_id=?,estados_esta_id=? WHERE habi_id = ?;";
+            String sql_modi = "UPDATE hotel_clv.habitaciones SET habi_nombre = ?, habi_tipo =?, habi_piso = ?, habi_depar =?, habi_descripcion = ?, habi_valor_diario = ?, habi_dimg=?,estados_esta_id=? WHERE habi_id = ?;";
             PreparedStatement pst = con.getConexion().prepareCall(sql_modi);
             pst.setString(1, nombre);
             pst.setString(2, tipo);
@@ -130,9 +127,8 @@ public class HabitacionesDao {
             pst.setString(5, descripcion);
             pst.setBigDecimal(6, valor);
             pst.setString(7, imagen);
-            pst.setInt(8, insumo);
-            pst.setInt(9, estado);
-            pst.setInt(10, id);
+            pst.setInt(8, estado);
+            pst.setInt(9, id);
             int n = pst.executeUpdate();
             if (n > 0) {
                 resultado = 1;
@@ -196,10 +192,9 @@ public class HabitacionesDao {
                 String habiDescripcion = rs.getString("habi_descripcion");
                 BigDecimal habiValorD = rs.getBigDecimal("habi_valor_diario");
                 String habiImg = rs.getString("habi_dimg");
-                Integer insuId = rs.getInt("insumos_insu_id");
                 Integer estaId = rs.getInt("estados_esta_id");
 
-                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, insuId, estaId);
+                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, estaId);
                 habitaciones.add(habitacion);
             }
             rs.close();
@@ -225,10 +220,9 @@ public class HabitacionesDao {
                 String habiDescripcion = rs.getString("habi_descripcion");
                 BigDecimal habiValorD = rs.getBigDecimal("habi_valor_diario");
                 String habiImg = rs.getString("habi_dimg");
-                int insuId = rs.getInt("insumos_insu_id");
                 int estaId = rs.getInt("estados_esta_id");
 
-                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, insuId, estaId);
+                Habitaciones habitacion = new Habitaciones(habiId, habiNombre, habiTipo, habiPiso, habiDepar, habiDescripcion, habiValorD, habiImg, estaId);
                 habitaciones.add(habitacion);
             }
             rs.close();
@@ -318,6 +312,24 @@ public class HabitacionesDao {
         } finally {
         }
         return resultado;
+    }
+
+    public int ultimoregistro() {
+        int habiId = 0;
+        try {
+            String sql_consulta = "SELECT MAX(habi_id) AS habiId FROM hotel_clv.habitaciones;";
+            PreparedStatement pst = con.getConexion().prepareStatement(sql_consulta);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                habiId = rs.getInt("habiId");
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en HabitacionesDao ultimoregistro: " + e.getMessage());
+        }
+        return habiId;
     }
 
 }

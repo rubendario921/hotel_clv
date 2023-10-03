@@ -21,9 +21,9 @@ public class InsumosDao {
     public List<Insumos> mostrarListaInsumos() {
         List<Insumos> insumos = new ArrayList<>();
         try {
-            String sql_listaI = "SELECT * FROM hotel_clv.insumos ;";
-            Statement pst = con.getConexion().prepareCall(sql_listaI);
-            ResultSet rs = pst.executeQuery(sql_listaI);
+            String sql_lista = "SELECT * FROM hotel_clv.insumos ;";
+            Statement pst = con.getConexion().prepareCall(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
             while (rs.next()) {
                 Integer insuId = rs.getInt("insu_id");
                 String insuNombre = rs.getString("insu_nombre");
@@ -170,4 +170,35 @@ public class InsumosDao {
         }
         return resultado;
     }
+    ///// Lista de Insumos Disponibles
+    public List<Insumos> mostrarInsumosDisponibles() {
+        List<Insumos> insumos = new ArrayList<>();
+        try {
+            String sql_lista = "SELECT * FROM hotel_clv.insumos INNER JOIN hotel_clv.estados ON insumos.estados_esta_id = estados.esta_id WHERE esta_descripcion LIKE 'STOCK%';";
+            Statement pst = con.getConexion().prepareCall(sql_lista);
+            ResultSet rs = pst.executeQuery(sql_lista);
+            while (rs.next()) {
+                Integer insuId = rs.getInt("insu_id");
+                String insuNombre = rs.getString("insu_nombre");
+                String insuDetalle = rs.getString("insu_detalle");
+                Integer insuCantidad = rs.getInt("insu_cantidad");
+                BigDecimal insuValor = rs.getBigDecimal("insu_valor");
+                String insuImagen = rs.getString("insu_dimg");
+                Integer estaId = rs.getInt("estados_esta_id");
+
+                Insumos insumo = new Insumos(insuId, insuNombre, insuDetalle, insuCantidad, insuValor, insuImagen, estaId);
+                insumos.add(insumo);
+            }
+            rs.close();
+            pst.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error en InsumosDao mostrarInsumosDisponibles: " + e.getMessage());
+
+        } finally {
+        }
+
+        return insumos;
+    }
+    
 }

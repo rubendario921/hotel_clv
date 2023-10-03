@@ -4,6 +4,7 @@
     Author     : Ruben Dario
 --%>
 
+<%@page import="Model.HabitacionInsumosDao"%>
 <%@page import="Controller.HabitacionesDao"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,6 +21,7 @@
     <body>
         <%
             if (request.getParameter("nueva_habitacion") != null) {
+
                 String nombre = request.getParameter("nombre");
                 String tipo = request.getParameter("tipo");
                 String piso = request.getParameter("piso");
@@ -28,12 +30,20 @@
                 String valorStr = request.getParameter("valor");
                 BigDecimal valor = new BigDecimal(valorStr);
                 String imagen = "assets\\img\\user_default.png";
-                Integer insumo = Integer.parseInt(request.getParameter("insumo"));
                 Integer estado = Integer.parseInt(request.getParameter("estado"));
-                
 
-                HabitacionesDao crearHabi = new HabitacionesDao();
-                int resultado = crearHabi.crearHabi(nombre, tipo, piso, depar, descripcion, valor, imagen, insumo, estado);
+                HabitacionesDao crearHabitacion = new HabitacionesDao();
+                int resultado = crearHabitacion.crearHabi(nombre, tipo, piso, depar, descripcion, valor, imagen, estado);
+                
+                HabitacionesDao ultimoregistro = new HabitacionesDao();
+                int habiId = ultimoregistro.ultimoregistro();
+
+                String[] idInsumo = request.getParameterValues("insumo");
+                
+                System.out.println("idInsumo");
+                                
+                HabitacionInsumosDao registroHabiInsumo = new HabitacionInsumosDao();
+                registroHabiInsumo.registrarRelacion(habiId, idInsumo);
 
                 switch (resultado) {
                     case 1:

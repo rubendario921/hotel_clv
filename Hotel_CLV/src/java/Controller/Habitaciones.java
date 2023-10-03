@@ -21,13 +21,12 @@ public class Habitaciones {
     private String habiDescripcion;
     private BigDecimal habiValorD;
     private String habiImg;
-    private Integer insuId;
     private Integer estaId;
 
     public Habitaciones() {
     }
 
-    public Habitaciones(Integer habiId, String habiNombre, String habiTipo, String habiPiso, String habiDepar, String habiDescripcion, BigDecimal habiValorD, String habiImg, Integer insuId, Integer estaId) {
+    public Habitaciones(Integer habiId, String habiNombre, String habiTipo, String habiPiso, String habiDepar, String habiDescripcion, BigDecimal habiValorD, String habiImg, Integer estaId) {
         this.habiId = habiId;
         this.habiNombre = habiNombre;
         this.habiTipo = habiTipo;
@@ -36,7 +35,6 @@ public class Habitaciones {
         this.habiDescripcion = habiDescripcion;
         this.habiValorD = habiValorD;
         this.habiImg = habiImg;
-        this.insuId = insuId;
         this.estaId = estaId;
     }
 
@@ -102,14 +100,6 @@ public class Habitaciones {
 
     public void setHabiImg(String habiImg) {
         this.habiImg = habiImg;
-    }
-
-    public Integer getInsuId() {
-        return insuId;
-    }
-
-    public void setInsuId(Integer insuId) {
-        this.insuId = insuId;
     }
 
     public Integer getEstaId() {

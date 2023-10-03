@@ -12,6 +12,12 @@
 <%@ page import="org.apache.commons.text.StringEscapeUtils" %>
 <%@include file="template/header_admin.jsp" %>
 <!DOCTYPE html>
+<script>
+    function confirmarEliminacion() {
+        var confirmacion = confirm("¿Seguro de que deseas eliminar este registro?");
+        return confirmacion; // Devolver true si el usuario hace clic en OK, de lo contrario, false
+    }
+</script>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -29,8 +35,7 @@
                     <div class="panel-body">
                         <table class='table table-responsive'>
                             <thead>
-                                <tr>
-                                    <th>Código</th>
+                                <tr>                                    
                                     <th>Nombre</th>
                                     <th>Tipo</th>
                                     <th>Piso</th>
@@ -58,8 +63,7 @@
                                                 break;
                                             }
                                         }%>
-                                <tr>
-                                    <td><%= habitacion.getHabiId()%></td>
+                                <tr>                                    
                                     <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiTipo())%></td>
                                     <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiPiso())%></td>
@@ -73,7 +77,7 @@
                                         <a href="habitaciones_editar.jsp?editar=true&id=<%= habitacion.getHabiId()%>" class="btn btn-warning"><i class="fa fa-edit" title="Editar" name="editar"></i></a>
                                         <!--eliminar update=":tabMostrar"-->
                                         <% if ("ADMINISTRATIVO".equals((String) session.getAttribute("perfil"))) {%>
-                                        <a href="Mantenimiento_admin/crudhabitacion_eliminar.jsp?eliminar=true&id=<%= habitacion.getHabiId()%>" class="btn btn-danger"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
+                                        <a href="Mantenimiento_admin/crudhabitacion_eliminar.jsp?eliminar=true&id=<%= habitacion.getHabiId()%>" class="btn btn-danger" onclick="return confirmarEliminacion();"><i class="fa fa-trash" title="Eliminar" name="eliminar"></i></a>
                                             <% }%>
                                     </td>
                                 </tr>
