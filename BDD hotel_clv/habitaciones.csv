@@ -1,0 +1,15 @@
+habi_id,habi_nombre,habi_tipo,habi_piso,habi_depar,habi_descripcion,habi_valor_diario,habi_dimg,insumos_insu_id,estados_esta_id
+1,"Suite principal",Suite,1,101,"La mas lujosa del complejo hotelero, con mas espacio y servicios que el resto. ",80.00,assets/img/habitacion_1.jpg,1,6
+2,"Habitaciones matrimoniales",Matrimonial,2,102,"Habitaciones dobles donde las dos plazas para dormir se situaran en una cama matrimonial, para diferenciarlas de las dobles con dos camas separadas",75.00,assets/img/habitacion_4.jpg,1,3
+3,"Habitaciones familiares",Familiar,1,103,"Estas habitaciones se diferencian de las demás por ser espaciosas y admitir la posibilidad de camas supletorias, incluidas camas individuales pequeñas para niños.",60.00,assets/img/habitacion_3.jpg,1,3
+4,"Habitaciones compartidas",Compartida,1,104,"Habitaciones con camas que  están dispuestas en literas. Su público objetivo suele ser el más joven y ofrecen aforo desde 4 personas a más de 10",55.00,assets/img/habitacion_5.jpg,1,3
+5,"Habitaciones Normales",Normal,1,105,"Habitación con una cama que cuenta con el servicio de WIFI, SmartTV, Agua Caliente",45.00,assets/img/habitacion_2.jpg,1,3
+6,"Habitaciones Individuales",Individual,1,106,""Habitación simple que cuenta con el servicio de WIFI, SmartTV, Agua Caliente"",25.00,assets/img/habitacion_6.jpg,1,3
+7,"Habitaciones dobles",Doble,2,201,"Habitación con una cama doble, baño privado, TV de pantalla plana y WiFi gratis.",49.00,assets/img/habitacion_11.jpg,1,3
+8,"Habitaciones dobles Delux con balcón","Doble Delux",1,115,"Habitación con una cama doble, baño privado, TV de pantalla plana, WiFi gratis, balcón y vista a la ciudad.",53.00,assets/img/habitacion_8.jpg,1,3
+9,"Habitacion simple",Personal,2,225,"Habitación pequeña con una cama individual con capacidad para una persona.",15.00,assets/img/habitacion_24.jpg,1,3
+10,"Habitación pareja",Pareja,3,301,"Habitación diseñada para brindar comodidad y privacidad a las parejas que desean pasar tiempo juntas en un entorno acogedor y relajante.",35.99,assets/img/habitacion_7.jpg,1,3
+11,"Suite Serenidad con Balcón Privado","Suite Serenidad",3,305,"La habitación principal está elegantemente decorada con tonos suaves y detalles cuidadosamente seleccionados que crean un ambiente acogedor y sofisticado.",75.00,assets/img/habitacion_9.jpg,1,3
+12,"Suite Tríple de Lujo","Triple Lujo",3,310,"Suite Tríple de Lujo, diseñada para brindarte una experiencia inolvidable de comodidad y estilo. Esta amplia habitación ha sido cuidadosamente decorada con elementos de lujo y comodidades modernas para garantizar una estancia inigualable.",85.00,assets/img/habitacion_10.jpg,1,3
+13,"Habitación Compartido con Literas",Compartido,3,325,"Nuestra habitación compartida con literas es ideal para viajeros individuales o grupos que buscan una experiencia de alojamiento asequible.",25.00,assets/img/habitacion_15.jpg,1,3
+14,"Suite Yacuzzi","Suite romantica",2,220,"Estas habitaciones suelen ofrecer una experiencia más lujosa y romántica para los huéspedes, ya que pueden relajarse en el jacuzzi privado después de un largo día de actividades.",90.00,assets/img/habitacion_18.jpg,1,3

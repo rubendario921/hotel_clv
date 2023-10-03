@@ -21,7 +21,7 @@ public class FormulariosDao {
     public List<Formularios> mostrarListaFormu() {
         List<Formularios> formularios = new ArrayList<>();
         try {
-            String sql_listaF = "SELECT * FROM hotel_clv.formularios ;";
+            String sql_listaF = "SELECT * FROM hotel_clv.formularios ORDER BY estados_esta_id ASC;";
             Statement pst = con.getConexion().prepareCall(sql_listaF);
             ResultSet rs = pst.executeQuery(sql_listaF);
             while (rs.next()) {

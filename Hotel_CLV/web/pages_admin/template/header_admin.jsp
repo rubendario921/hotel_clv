@@ -14,18 +14,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content=""> 
-
-
     <title>CLV Deluxe - Administrativo</title>
 
-
-
     <!-- Bootstrap Core CSS -->
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-
 
     <!-- MetisMenu CSS -->
     <link href="template/css/metisMenu.min.css" rel="stylesheet">
@@ -50,9 +43,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
     <%
-
         // Agrega los encabezados para evitar el almacenamiento en caché
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         response.setHeader("Pragma", "no-cache");
@@ -69,9 +60,7 @@
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="menu_admin.jsp">Panel Administrativo</a>                
-            </div>
+            <a class="navbar-brand" href="menu_admin.jsp">Panel Administrativo</a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -81,56 +70,10 @@
             <!--<ul class="nav navbar-nav navbar-left navbar-top-links">
              <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
              </ul>-->
-            <ul class="nav navbar-right navbar-top-links">
-                <li class="dropdown navbar-inverse">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> Cliente Nuevos
-                                    <span class="pull-right text-muted small">4 minutes</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Nuevo Pedido
-                                    <span class="pull-right text-muted small">6 minutes</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> Compra Realizada
-                                    <span class="pull-right text-muted small">2 minutes</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Resultados
-                                    <span class="pull-right text-muted small">1 minutes</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+            <ul class="nav navbar-right navbar-top-links">               
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <%out.println("<i class='fa fa-user fa-fw'></i>" + session.getAttribute("nombre") + "<b class='caret'></b>");%>
+                        <%out.println("<i class='fa fa-user fa-fw'></i>" + session.getAttribute("nombre"));%>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
@@ -141,8 +84,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="procesos/cerrar_sesion_admin.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión                           
-                            </a>
+                            <a href="procesos/cerrar_sesion_admin.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión</a>
                         </li>
                     </ul>
                 </li>
@@ -223,7 +165,6 @@
                 </ul>
             </div>
         </aside>
-
         <!--Barra de Aside-->
         <!-- /.sidebar -->
-    </div>    
+    </div>

@@ -12,10 +12,10 @@
 <%
     // Consultas SQL para obtener la cantidad de clientes, empleadores y productos
     String sql_clientes = "SELECT COUNT(*) as cant_cliente FROM hotel_clv.personas WHERE perfiles_perfil_id =4;";
-    String sql_empleadores = "SELECT COUNT(*) AS cant_empleador FROM personas WHERE perfiles_perfil_id NOT IN ('4');";
-    String sql_habitaciones = "SELECT COUNT(*) AS cant_habitaciones FROM habitaciones WHERE estados_esta_id = 3;";
-    String sql_reservaciones_pendientes = "SELECT count(*) as cant_reservas_pendiente FROM hotel_clv.reservas WHERE estados_esta_id = 7;";
-    String sql_formu = "SELECT count(*) as cant_formu FROM hotel_clv.formularios WHERE estados_esta_id= 7;";
+    String sql_empleadores = "SELECT COUNT(*) AS cant_empleador FROM personas WHERE perfiles_perfil_id != 4;";
+    String sql_habitaciones = "SELECT COUNT(*) AS cant_habitaciones FROM hotel_clv.habitaciones INNER JOIN hotel_clv.estados ON habitaciones.estados_esta_id = estados.esta_id WHERE estados.esta_descripcion LIKE 'DISPO%';";
+    String sql_reservaciones_pendientes = "SELECT count(*) as cant_reservas_pendiente FROM hotel_clv.reservas INNER JOIN hotel_clv.estados ON reservas.estados_esta_id = estados.esta_id WHERE estados.esta_descripcion LIKE 'PENDI%';";
+    String sql_formu = "SELECT count(*) as cant_formu  FROM hotel_clv.formularios INNER JOIN hotel_clv.estados ON formularios.estados_esta_id = estados.esta_id WHERE estados.esta_descripcion LIKE 'PENDI%';";
 
     // Ejecuta las consultas y guarda los resultados en variables
     int cantClientes = 0;
