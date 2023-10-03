@@ -19,11 +19,16 @@
     </head>
     <body>
         <% if (request.getParameter("editar") != null) {
-                Integer id = Integer.parseInt(request.getParameter("id"));
+                Integer perId = Integer.parseInt(request.getParameter("personaId"));
                 String perNombres = request.getParameter("nombres");
                 String perApellidos = request.getParameter("apellidos");
-                String perCedula = request.getParameter("cedula");
+
+                int tipoDocumento = Integer.parseInt(request.getParameter("tipoDocumento"));
+                String pernumDocumento = request.getParameter("numDocumento");
+
+                int prefijosTelefono = Integer.parseInt(request.getParameter("prefijo"));
                 String perTelefono = request.getParameter("telefono");
+                
                 String perCorreo = request.getParameter("correo");
                 String perUsuario = request.getParameter("usuario");
                 String perClave = request.getParameter("clave");
@@ -34,7 +39,7 @@
                 Integer estaId = Integer.parseInt(request.getParameter("estado"));
 
                 PersonasDao modiPersona = new PersonasDao();
-                int resultado = modiPersona.modificarPersona(id, perNombres, perApellidos, perCedula, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId, estaId);
+                int resultado = modiPersona.modificarPersona(perId, perNombres, perApellidos, tipoDocumento, pernumDocumento, prefijosTelefono, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId, estaId);
 
                 switch (resultado) {
                     case 1:

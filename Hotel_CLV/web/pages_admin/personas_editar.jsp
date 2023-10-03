@@ -20,11 +20,12 @@
 <!DOCTYPE html>
 <script>
     function validarFormulario() {
-        // Obtener los valores de los campos
-        var id = document.getElementById("id").value.trim();
+        var personaId = document.getElementById("personaId").value.trim();
         var nombres = document.getElementById("nombres").value.trim();
         var apellidos = document.getElementById("apellidos").value.trim();
-        var cedula = document.getElementById("cedula").value.trim();
+        var tipoDocumento = document.getElementById("tipoDocumento").value.trim();
+        var numDocumento = document.getElementById("numDocumento").value.trim();
+        var prefijo = document.getElementById("prefijo").value.trim();
         var telefono = document.getElementById("telefono").value.trim();
         var correo = document.getElementById("correo").value.trim();
         var usuario = document.getElementById("usuario").value.trim();
@@ -35,7 +36,7 @@
         var estado = document.getElementById("estado").value.trim();
 
         // Validar campos obligatorios
-        if (id === "" || nombres === "" || apellidos === "" || cedula === "" || telefono === "" || correo === "" || usuario === "" || clave === "" || imagen === "" || fregistro === "" || perfil === "" || estado === "") {
+        if (personaId === "" || nombres === "" || apellidos === "" || tipoDocumento === "Seleccion una opción" || numDocumento === "" || prefijo === "Seleccion una opción" || telefono === "" || correo === "" || usuario === "" || clave === "" || imagen === "" || fregistro === "" || perfil === "Seleccion una opción" || estado === "Seleccion una opción") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -65,12 +66,12 @@
                             <%
                                 if (request.getParameter("editar") != null) {
                                     int id = Integer.parseInt(request.getParameter("id"));
-
+                                    
                                     PersonasDao mostrarP = new PersonasDao();
                                     Personas persona = mostrarP.mostrarPersona(id);
                                     if (persona != null) {%>
                             <label>Código: </label>
-                            <input type="text" name="id" id="id" value="<%= persona.getPerId()%>" class=" form form-control" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" readonly="false" required/><br />
+                            <input type="text" name="personaId" id="personaId" value="<%= persona.getPerId()%>" class=" form form-control" placeholder="Ingrese sus dos nombres" maxlength="100"  autocomplete="off" readonly="false" required/><br />
                             <label>Nombres Completos: </label>
                             <input type="text" name="nombres" id="nombres" value="<%= StringEscapeUtils.escapeHtml4(persona.getPerNombres())%>" class="form form-control" placeholder="Ingrese sus dos nombres" maxlength="100" autocomplete="true" required /><br />
                             <label>Apellidos Completos: </label>
@@ -117,19 +118,7 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+                            <!-- Informacion del cliente-->
                             <label>Correo Electrónico: </label>
                             <input type="email" name="correo" id="correo" value="<%= StringEscapeUtils.escapeHtml4(persona.getPerCorreo())%>"class="form-control" placeholder="Ingrese su correo electrónico" maxlength="100" autocomplete="true" required /><br />
                             <label>Usuario: </label>                            
@@ -141,7 +130,7 @@
                             <input type="datetime-local" name="fregistro" id="fregistro" value="<%= persona.getPerFRegistro()%>"class="form-control" placeholder="Fecha del primer registro" maxlength="16"   autocomplete="off" required /><br />
                             <label>Perfil: </label>
                             <select name="perfil" id="perfil" class="form-control" required>
-                                <option> </option>
+                                <option selected>Seleccion una opción</option>
                                 <%
                                     PerfilesDao mostrarPerfil = new PerfilesDao();
                                     List<Perfiles> perfiles = mostrarPerfil.mostrarListaPerfil();
@@ -152,14 +141,14 @@
                             <br />
                             <label>Estado: </label>
                             <select name="estado" id="estado"class="form-control" required>
-                                <option> </option>
+                                <option selected>Seleccion una opción</option>
                                 <%
                                     EstadosDao mostrarEstado = new EstadosDao();
                                     List<Estados> estados = mostrarEstado.mostrarListaEstaPersonas();
                                     for (Estados estado : estados) {%>
                                 <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></option>
                                 <% }%>
-                            </select>                            
+                            </select>
                             <% }
                                 }%>
                             <br />

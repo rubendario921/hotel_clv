@@ -26,7 +26,7 @@
         var estados = document.getElementById("estados").value.trim();
 
         //Validar campos obligatorios
-        if (codigo === " " || nombre === "" || detalle === "" || cantidad === "" || valor === "" || consu_dimg === "" || estados === "Por favor, elija una opción.") {
+        if (codigo === " " || nombre === "" || detalle === "" || cantidad === "" || valor === "" || consu_dimg === "" || estados === "Seleccion una opción") {
             alert("Por favor, completar todos los campos.");
             return false;
         }
@@ -66,7 +66,7 @@
                             <input type="number" name="cantidad" id="cantidad"  value="<%= consumo.getConsuCantidad()%>" class="form form-control"  placeholder="Ingrese la cantidad" min="1" required/>
 
                             <label> Valor: </label>
-                            <input type="number"name="valor" id="valor"  value="<%= consumo.getConsuValor()%>" class="form form-control"   placeholder="Ingrese su valor" min="1" required/>
+                            <input type="number"name="valor" id="valor"  value="<%= consumo.getConsuValor()%>" class="form form-control"   placeholder="Ingrese su valor" min="1" step="0.01" required/>
 
                             <label> Imagen: </label>
                             <input type="text" name="consu_dimg"id="consu_dimg"  value="<%= StringEscapeUtils.escapeHtml4(consumo.getConsuImagen())%>" class="form form-control"   placeholder="Ingrese imagen"maxlength="20" required/>
@@ -75,7 +75,7 @@
                                 }%>
                             <label>Estado: </label>
                             <select name="estados" id="estados" class="form form-control" required>
-                                <option>Por favor, elija una opción.</option>
+                                <option selected>Seleccion una opción</option>
                                 <%
                                     EstadosDao mostrarEstados = new EstadosDao();
                                     List<Estados> estados = mostrarEstados.mostrarListaEstaProductos();
