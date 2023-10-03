@@ -191,8 +191,7 @@
                     </div>
 
                     <!-- Tipo de Documento-->
-
-                    <label for="nombre" class="label-text">Tipo</label>
+                    <label for="nombre" class="label-text">Identificación</label>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-auto">                             
@@ -209,13 +208,9 @@
                             </div>
                             <div class="col-auto">
                                 <input type="text" id="numDocumento" name="numDocumento" placeholder="Número de Documento" class="form-control" minlength="20"  maxlength="20" autocomplete="off" required>
-                            </div>                               
-
+                            </div>
                         </div>
                     </div>
-
-                    <!--Tipo de Prefijo-->
-
                     <!--Tipo de Prefijo-->
                     <div class="form-group">
                         <label for="telefono" class="label-text">Teléfono Celular</label>

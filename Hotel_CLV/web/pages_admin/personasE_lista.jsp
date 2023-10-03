@@ -48,7 +48,7 @@
                                     <th>Nombre</th>
                                     <th>Apellido</th>
                                     <th>Identificación</th>
-                                    <th>Usuario</th> 
+                                    <th>Usuario</th>
                                     <th>Número de Contacto</th>
                                     <th>Perfil</th>
                                     <th>Estado</th>
@@ -110,6 +110,7 @@
                                                 break;
                                             }
                                         }
+                                        
                                         //Comparacion de Estado
                                         int estadoId = persona.getEstaId();
                                         String nombreEstado = "";

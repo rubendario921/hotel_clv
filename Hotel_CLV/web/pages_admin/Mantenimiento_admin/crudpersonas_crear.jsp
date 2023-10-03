@@ -22,18 +22,25 @@
             if (request.getParameter("nueva_persona") != null) {
                 String perNombres = request.getParameter("nombres");
                 String perApellidos = request.getParameter("apellidos");
-                String perCedula = request.getParameter("cedula");
+                
+                int tipoDocumento = Integer.parseInt(request.getParameter("tipoDocumento"));
+                String pernumDocumento = request.getParameter("numDocumento");
+                
+                int prefijosTelefono = Integer.parseInt(request.getParameter("prefijo"));
                 String perTelefono = request.getParameter("telefono");
+                
                 String perCorreo = request.getParameter("correo");
                 String perUsuario = request.getParameter("usuario");
                 String perClave = request.getParameter("clave");
                 String perImagen = "assets\\img\\user_default.png";
-                String fregistroString = request.getParameter("fregistro");
-                LocalDateTime perFRegistro = LocalDateTime.parse(fregistroString.replace(" ", " "));
+               
                 Integer perfilId = Integer.parseInt(request.getParameter("perfil"));
+                
+                 String fregistroString = request.getParameter("fregistro");
+                LocalDateTime perFRegistro = LocalDateTime.parse(fregistroString.replace(" ", " "));
 
-                PersonasDao crearPersona = new PersonasDao();
-                int resultado = crearPersona.crearPersona(perNombres, perApellidos, perCedula, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId);
+                PersonasDao crearP = new PersonasDao();
+                int resultado = crearP.crearPersona(perNombres, perApellidos, tipoDocumento, pernumDocumento, prefijosTelefono, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro, perfilId);
 
                 switch (resultado) {
                     case 1:

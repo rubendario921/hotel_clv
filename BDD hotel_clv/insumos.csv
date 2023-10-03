@@ -1,6 +1,6 @@
-insu_id,insu_nombre,insu_detalle,insu_cantidad,insu_valor,insu_dimg,estados_esta_id
-1,"Artículos de Aseo Personal","Set de champú, acondicionador, jabón y loción corporal en presentación individual.",1,28.50,assets/img/insumos_1.jpg,3
-2,"Toallas de Algodón","Juego de 4 toallas de algodón suave y absorbente.",1,65.00,assets/img/insumos_2.jpg,3
-5,"Set de limpieza ","Productos de limpieza (detergente, desinfectante, limpiavidrios, etc.)",1,45.99,assets/img/insumos_3.jpg,3
-6,"Papel Hotelero","Papel para hotel (Papel higiénico, toallas de pape, servilletas, ect.)",1,38.65,assets/img/insumos_4.jpg,3
-7,Alcohol,"Alcohol al 95% ",1,35.00,assets/img/insumos_5.jpg,3
+"insu_id";"insu_nombre";"insu_detalle";"insu_cantidad";"insu_valor";"insu_dimg";"estados_esta_id"
+1;"Articulos de Aseo Personal";"Set de champo, acondicionador, jabon y locion corporal en presentacion individual.";1;28.5;"assets/img/insumos_1.jpg";13
+2;"Toallas de algodon";"Juego de 4 toallas de algodon suave y absorbente.";1;65.0;"assets/img/insumos_2.jpg";13
+5;"Set de limpieza ";"Productos de limpieza (detergente, desinfectante, limpiavidrios, etc.)";1;45.99;"assets/img/insumos_3.jpg";13
+6;"Papel Hotelero";"Papel para hotel (Papel higenico, toallas de pape, servilletas, ect.)";1;38.65;"assets/img/insumos_4.jpg";13
+7;"Alcohol";"Alcohol al 95% ";1;35.0;"assets/img/insumos_5.jpg";13
