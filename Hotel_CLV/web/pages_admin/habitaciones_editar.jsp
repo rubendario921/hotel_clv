@@ -32,10 +32,10 @@
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
-
         // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
 
-        return true; // Permitir el envío del formulario si todos los campos están llenos
+        var confirmacion = confirm("¿Está de acuerdo con actualizar el registro?");
+        return confirmacion; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
 <div id="page-wrapper">
@@ -56,35 +56,36 @@
                                     Habitaciones habitacion = mostrarH.mostrarHabi(id);
                                     if (habitacion != null) {%>
                             <label>Código: </label>
-                            <input type="text" value="<%=  habitacion.getHabiId()%>" class="form-control" name="codigo"  maxlength="2" readonly="false"/> <br />
+                            <input type="text" id="codigo" name="codigo"value="<%=  habitacion.getHabiId()%>" class="form-control" maxlength="2" readonly="false"/> <br />
                             <label>Nombre:  </label>
-                            <input type="text" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre())%>" class="form-control" name="nombre"  placeholder="Ingrese el nombre de la habitación" maxlength="40" autocomplete="off" required/><br />
+                            <input type="text"id="nombre" name="nombre" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre())%>" class="form-control"   placeholder="Ingrese el nombre de la habitación" maxlength="40" autocomplete="off" required/><br />
                             <label>Tipo:  </label>
-                            <input type="text" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiTipo())%>" class="form-control" name="tipo"  placeholder="Ingrese el tipo de habitación" maxlength="40"  autocomplete="off"required/> <br />
+                            <input type="text" id="tipo" name="tipo" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiTipo())%>" class="form-control"   placeholder="Ingrese el tipo de habitación" maxlength="40"  autocomplete="off"required/> <br />
                             <label>Piso:  </label>
-                            <input type="number" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiPiso())%>" class="form-control" name="piso"  placeholder="Ingrese el piso de la habitación" maxlength="2" autocomplete="off" required/><br />
+                            <input type="number" id="piso" name="piso" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiPiso())%>" class="form-control"   placeholder="Ingrese el piso de la habitación" maxlength="2" autocomplete="off" required/><br />
                             <label>Departamento:  </label>
-                            <input type="text" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar())%>" class="form-control" name="departamento"  placeholder="Ingrese el número de la habitación" maxlength="3" autocomplete="off" required/><br />
+                            <input type="text" id="departamento"name="departamento" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar())%>" class="form-control" placeholder="Ingrese el número de la habitación" maxlength="3" autocomplete="off" required/><br />
                             <label>Descripción:  </label>
-                            <input type="text" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%>" class="form-control" name="descripcion"  placeholder="Ingrese una descripción de la habitación" maxlength="500" required readonly="off"/><br />
+                            <input type="text" id="descripcion" name="descripcion" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%>" class="form-control" placeholder="Ingrese una descripción de la habitación" maxlength="500" required readonly="off"/><br />
                             <label>Valor Diario:  </label>
-                            <input type="number" value="<%= habitacion.getHabiValorD()%>" class="form-control" name="valor"  placeholder="Ingrese el valor de la habitación" step="000.01" maxlength="6" required/><br />
+                            <input type="number" id="valor" name="valor" value="<%= habitacion.getHabiValorD()%>" class="form-control" placeholder="Ingrese el valor de la habitación" step="000.01" maxlength="6" required/><br />
                             <label>Imagen:  </label>
-                            <input type="text" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" class="form-control" name="imagen"  placeholder="Ingrese el nombre de la habitación" autocomplete="off" maxlength="40" required/><br />
+                            <input type="text" id="imagen" name="imagen" value="<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" class="form-control" placeholder="Ingrese el nombre de la habitación" autocomplete="off" maxlength="40" required/><br />
                             <label>Insumo:  </label>
-                                <%
-                                    InsumosDao mostrarInsu = new InsumosDao();
-                                    List<Insumos> insumos = mostrarInsu.mostrarListaInsumos();
-                                    for (Insumos insumo : insumos) {
-                                %>
-                               <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="insumo" name="insumo[]" value="<%= insumo.getInsuId()%>" required>
+                            <%
+                                InsumosDao mostrarInsu = new InsumosDao();
+                                List<Insumos> insumos = mostrarInsu.mostrarListaInsumos();
+                                for (Insumos insumo : insumos) {
+                            %>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="insumo" name="insumo" value="<%= insumo.getInsuId()%>">
                                 <label class="form-check-label" for="insumo"><%= StringEscapeUtils.escapeHtml4(insumo.getInsuNombre())%></label>
                             </div>
                             <% }%>
                             <br />
                             <label>Estado  </label>
                             <select name="estado" id="estado" class="form form-control" required>
+                                <option selected>Seleccione una Opción</option>
                                 <%
                                     EstadosDao mostrarEsta = new EstadosDao();
                                     List<Estados> estados = mostrarEsta.mostrarListaEstaHabitaciones();

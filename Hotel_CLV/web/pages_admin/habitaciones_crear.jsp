@@ -73,7 +73,7 @@
                             <br />
                             <label>Estado:  </label>
                             <select name="estado" id="estado" class="form form-control" required>
-                                <option> </option>
+                                <option selected>Seleccione una Opción</option>
                                 <%
                                     EstadosDao mostrarEsta = new EstadosDao();
                                     List<Estados> estados = mostrarEsta.mostrarListaEstaHabitaciones();

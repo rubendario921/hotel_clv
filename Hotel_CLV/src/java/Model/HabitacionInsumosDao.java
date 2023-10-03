@@ -32,4 +32,11 @@ public class HabitacionInsumosDao {
         }
     }
 
+    public void modificarRelacion(int habiId, String[] idInsumo) {
+        try {
+            String sql_modificar ="UPDATE hotel_clv.habitaciones_has_insumos SET habitaciones_habi_id = ?, insumos_insu_id =? WHERE (`habitaciones_habi_id` = '5') and (`insumos_insu_id` = '1');";
+        } catch (Exception e) {
+        }
+    }
+
 }

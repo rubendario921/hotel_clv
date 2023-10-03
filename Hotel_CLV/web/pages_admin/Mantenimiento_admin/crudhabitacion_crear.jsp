@@ -34,14 +34,12 @@
 
                 HabitacionesDao crearHabitacion = new HabitacionesDao();
                 int resultado = crearHabitacion.crearHabi(nombre, tipo, piso, depar, descripcion, valor, imagen, estado);
-                
+
                 HabitacionesDao ultimoregistro = new HabitacionesDao();
                 int habiId = ultimoregistro.ultimoregistro();
 
                 String[] idInsumo = request.getParameterValues("insumo");
-                
-                System.out.println("idInsumo");
-                                
+
                 HabitacionInsumosDao registroHabiInsumo = new HabitacionInsumosDao();
                 registroHabiInsumo.registrarRelacion(habiId, idInsumo);
 

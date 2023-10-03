@@ -73,7 +73,7 @@
                                 }%>
                             <label>Estado: </label>
                             <select name="estados" id="estados" class="form form-control" required>
-                                <option> </option>
+                                <option selected>Seleccione una Opción</option>
                                 <%
                                     EstadosDao mostrarEstados = new EstadosDao();
                                     List<Estados> estados = mostrarEstados.mostrarListaEstaProductos();
@@ -81,7 +81,7 @@
                                 <option value="<%= estado.getEstaId()%>"><%= StringEscapeUtils.escapeHtml4(estado.getEstaDescripcion())%></option> 
                                 <% }%>
                             </select>
-                            <br>
+                             <br />
                             <a href="insumos_lista.jsp" class="btn btn-danger">Regresar</a>
                             <input type="submit" value="Editar" name="editar" class="btn btn-warning"/>
                         </form>

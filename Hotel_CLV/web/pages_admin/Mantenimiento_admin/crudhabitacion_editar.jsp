@@ -4,6 +4,7 @@
     Author     : Ruben Dario
 --%>
 
+<%@page import="Model.HabitacionInsumosDao"%>
 <%@page import="java.math.BigDecimal"%>
 <%@page import="Controller.HabitacionesDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,6 +21,7 @@
     <body>
         <%
             if (request.getParameter("editar") != null) {
+                
                 Integer id = Integer.parseInt(request.getParameter("codigo"));
                 String nombre = request.getParameter("nombre");
                 String tipo = request.getParameter("tipo");
@@ -29,11 +31,14 @@
                 String valorStr = request.getParameter("valor");
                 BigDecimal valor = new BigDecimal(valorStr);
                 String imagen = request.getParameter("imagen");
-                Integer insumo = Integer.parseInt(request.getParameter("insumo"));
+                
                 Integer estado = Integer.parseInt(request.getParameter("estado"));
 
                 HabitacionesDao modificarH = new HabitacionesDao();
-                int resultado = modificarH.modiHabi(id, nombre, tipo, piso, depar, descripcion, valor, imagen, insumo, estado);
+                int resultado = modificarH.modiHabi(id, nombre, tipo, piso, depar, descripcion, valor, imagen, estado);
+                
+                String[] idInsumo = request.getParameterValues("insumos");
+                //Completar el codigo
 
                 switch (resultado) {
                     case 1:
