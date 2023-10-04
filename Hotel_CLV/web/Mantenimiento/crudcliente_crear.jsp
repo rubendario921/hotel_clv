@@ -22,7 +22,9 @@
             if (request.getParameter("nuevo_cliente") != null) {
                 String perNombres = request.getParameter("nombres");
                 String perApellidos = request.getParameter("apellidos");
-                String perCedula = request.getParameter("cedula");
+                int tipoDocumento =Integer.parseInt(request.getParameter("tipoDocumento"));
+                String numDocumento = request.getParameter("numDocumento");
+                int prefijosCont = Integer.parseInt(request.getParameter("prefijo"));
                 String perTelefono = request.getParameter("telefono");
                 String perCorreo = request.getParameter("correo");
                 String perUsuario = request.getParameter("usuario");
@@ -31,7 +33,7 @@
                 LocalDateTime perFRegistro = LocalDateTime.now();
 
                 PersonasDao crearP = new PersonasDao();
-                int resultado = crearP.crearCliente(perNombres, perApellidos, perCedula, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro);
+                int resultado = crearP.crearCliente(perNombres, perApellidos, tipoDocumento, numDocumento, prefijosCont, perTelefono, perCorreo, perUsuario, perClave, perImagen, perFRegistro);
                 switch (resultado) {
                     case 1:
                         String informacion = "Registro Exitoso.";

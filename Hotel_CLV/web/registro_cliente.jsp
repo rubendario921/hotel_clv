@@ -3,6 +3,8 @@
     Created on: 17-jul-2023, 19:27:08
     Author: Ruben Dario 921
 --%>
+<%@page import="Controller.Prefijos"%>
+<%@page import="Controller.PrefijosDao"%>
 <%@page import="Controller.TipoDocumentos"%>
 <%@page import="java.util.List"%>
 <%@page import="Controller.TipoDocumentoDao"%>
@@ -121,13 +123,18 @@
         // Obtener los valores de los campos
         var nombres = document.getElementById("nombres").value.trim();
         var apellidos = document.getElementById("apellidos").value.trim();
+
+        var tipoDocumento = document.getElementById("tipoDocumento").value.trim();
         var numDocumento = document.getElementById("numDocumento").value.trim();
+
+        var prefijo = document.getElementById("prefijo").value.trim();
         var telefono = document.getElementById("telefono").value.trim();
+
         var correo = document.getElementById("correo").value.trim();
         var usuario = document.getElementById("usuario").value.trim();
         var clave = document.getElementById("clave").value.trim();
         // Validar campos obligatorios
-        if (nombres === "" || apellidos === "" || numDocumento === "" || usuario === "" || telefono === "" || correo === "" || clave === "") {
+        if (nombres === "" || apellidos === "" || tipoDocumento === "Seleccione una opción" || numDocumento === "" || prefijo === "Seleccione una opción" || telefono === "" || correo === "" || usuario === "" || clave === "") {
             alert("Por favor, complete todos los campos.");
             return false; // Detener el envío del formulario
         }
@@ -163,7 +170,10 @@
             alert("La contraseña debe contener al menos una mayúscula, una minúscula y un número.");
             return false; // Detener el envío del formulario
         }
-        return true; // Permitir el envío del formulario si todos los campos están llenos
+        // Puedes agregar más validaciones si es necesario (por ejemplo, verificar el formato del correo, etc.)
+
+        var confirmacion = confirm("¿Desea continuar con la creación del registro?");
+        return confirmacion; // Permitir el envío del formulario si todos los campos están llenos
     }
 </script>
 <br />
@@ -182,20 +192,19 @@
                 <form action="Mantenimiento/crudcliente_crear.jsp" method="POST" onsubmit="return validarFormulario();">
                     <div class="form-group">
                         <label for="nombre" class="label-text">Nombres Completos</label>
-                        <input type="text
-                               " id="nombres" name="nombres" placeholder="Ingrese sus nombres" class="form-control"   maxlength="200" autocomplete="off" required>
+                        <input type="text" id="nombres" name="nombres" placeholder="Ingrese sus nombres" class="form-control"   maxlength="200" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="apellido" class="label-text">Apellidos Completos</label>
-                        <input type="text"  id="apellidos" name="apellidos" placeholder="Ingrese sus dos apellidos" class="form-control"   maxlength="200" autocomplete="off" required>
+                        <input type="text"  id="apellidos" name="apellidos" placeholder="Ingrese sus apellidos" class="form-control"   maxlength="200" autocomplete="off" required>
                     </div>
 
                     <!-- Tipo de Documento-->
-                    <label for="nombre" class="label-text">Identificación</label>
+                    <label class="label-text">Identificación</label>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-auto">                             
-                                <select class="form-select">
+                                <select id="tipoDocumento" name="tipoDocumento" class="form-select">
                                     <option selected>Seleccione una opción</option>
                                     <%
                                         TipoDocumentoDao mostrar_tipoDoc = new TipoDocumentoDao();
@@ -207,15 +216,31 @@
                                 </select>
                             </div>
                             <div class="col-auto">
-                                <input type="text" id="numDocumento" name="numDocumento" placeholder="Número de Documento" class="form-control" minlength="20"  maxlength="20" autocomplete="off" required>
+                                <input type="text" id="numDocumento" name="numDocumento" placeholder="Número de Documento" class="form-control" minlength="10"  maxlength="10" autocomplete="off" required>
                             </div>
                         </div>
                     </div>
                     <!--Tipo de Prefijo-->
+                    <label class="label-text">Contacto</label>
                     <div class="form-group">
-                        <label for="telefono" class="label-text">Teléfono Celular</label>
-                        <input type="text" id="telefono" name="telefono" placeholder="Ingrese su número telefonico celular" class="form-control" minlength="10" maxlength="10" autocomplete="off" required >
-                    </div>
+                        <div class="row">
+                            <div class="col-auto">                             
+                                <select id="prefijo" name="prefijo" class="form-select">
+                                    <option selected>Seleccione una opción</option>
+                                    <%
+                                        PrefijosDao mostrarPrefijo = new PrefijosDao();
+                                        List<Prefijos> prefijos = mostrarPrefijo.mostrarListaPrefijos();
+                                        for (Prefijos prefijo : prefijos) {
+                                    %>
+                                    <option value="<%= prefijo.getPrefiId()%>"><%= prefijo.getPrefiPais()%> <%= prefijo.getPrefiCodigo()%></option>
+                                    <% }%>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <input type="text" id="telefono" name="telefono" placeholder="Número de Telefono" class="form-control" minlength="10"  maxlength="10" autocomplete="off" required>
+                            </div>
+                        </div>
+                    </div>                   
                     <div class="form-group">
                         <label for="correo" class="label-text">Correo Electrónico</label>
                         <input type="email" id="correo" name="correo" placeholder="Ingrese su correo electronico" class="form-control" maxlength="200" autocomplete="off" required>

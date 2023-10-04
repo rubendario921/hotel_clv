@@ -271,7 +271,7 @@ public class PersonasDao {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public int crearCliente(String perNombres, String perApellidos, String perCedula, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro) {
+    public int crearCliente(String perNombres, String perApellidos, int tipoDocumento, String numDocumento, int prefijosCont, String perTelefono, String perCorreo, String perUsuario, String perClave, String perImagen, LocalDateTime perFRegistro) {
         int resultado = 0;
         Connection conn = null;
         PreparedStatement pstPerfil = null;
@@ -297,19 +297,21 @@ public class PersonasDao {
                     int estaId = rsEstado.getInt("esta_id");
 
                     // Insertar en personas
-                    String sql_crearP = "INSERT INTO hotel_clv.personas (per_nombres, per_apellidos, per_cedula, per_telefono, per_correo, per_usuario, per_clave, per_dimg, per_fregistro, perfiles_perfil_id, estados_esta_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+                    String sql_crearP = "INSERT INTO hotel_clv.personas (per_nombres, per_apellidos, tipodocumento_docI_id,per_numDocumento,prefijos_perfiCont_id , per_telefono, per_correo, per_usuario, per_clave, per_dimg, per_fregistro, perfiles_perfil_id, estados_esta_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?);";
                     pstCrearP = conn.prepareStatement(sql_crearP);
                     pstCrearP.setString(1, perNombres);
                     pstCrearP.setString(2, perApellidos);
-                    pstCrearP.setString(3, perCedula);
-                    pstCrearP.setString(4, perTelefono);
-                    pstCrearP.setString(5, perCorreo);
-                    pstCrearP.setString(6, perUsuario);
-                    pstCrearP.setString(7, perClave);
-                    pstCrearP.setString(8, perImagen);
-                    pstCrearP.setTimestamp(9, Timestamp.valueOf(perFRegistro));
-                    pstCrearP.setInt(10, perfilId);
-                    pstCrearP.setInt(11, estaId);
+                    pstCrearP.setInt(3, tipoDocumento);
+                    pstCrearP.setString(4, numDocumento);
+                    pstCrearP.setInt(5, prefijosCont);
+                    pstCrearP.setString(6, perTelefono);
+                    pstCrearP.setString(7, perCorreo);
+                    pstCrearP.setString(8, perUsuario);
+                    pstCrearP.setString(9, perClave);
+                    pstCrearP.setString(10, perImagen);
+                    pstCrearP.setTimestamp(11, Timestamp.valueOf(perFRegistro));
+                    pstCrearP.setInt(12, perfilId);
+                    pstCrearP.setInt(13, estaId);
 
                     int n = pstCrearP.executeUpdate();
                     if (n > 0) {
