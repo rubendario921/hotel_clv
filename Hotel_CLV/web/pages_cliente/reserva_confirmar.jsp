@@ -62,14 +62,7 @@
 
                                                     HabitacionesDao mostrarhabi = new HabitacionesDao();
                                                     Habitaciones habitacion = mostrarhabi.mostrarHabi(id);
-                                                    if (habitacion != null) {
-                                                        int habiInsumo = habitacion.getInsuId();
-                                                        String nombreInsumo = "";
-                                                        for (Insumos insumo : insumos) {
-                                                            if (insumo.getInsuId() == habiInsumo) {
-                                                                nombreInsumo = StringEscapeUtils.escapeHtml4(insumo.getInsuDetalle());
-                                                            }
-                                                        }%>                                           
+                                                    if (habitacion != null) {%>                                           
                                             <tr>
                                                 <th scope="row">Nombre de la Habitación: </th>
                                                 <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre())%></td>
@@ -89,11 +82,7 @@
                                             <tr>
                                                 <th scope="row">Información de la Habitación: </th>
                                                 <td><%= StringEscapeUtils.escapeHtml4(habitacion.getHabiDescripcion())%></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Insumos de la Habitación: </th>
-                                                <td><%= nombreInsumo%></td>
-                                            </tr>
+                                            </tr>                                           
                                             <tr>
                                                 <td colspan="2"><img class="img-fluid" src="../<%= StringEscapeUtils.escapeHtml4(habitacion.getHabiImg())%>" height="500" width="500"></td>
 
@@ -135,19 +124,17 @@
                                                 <span class="input-group-text">Valor Habitación: </span>
                                                 <input type="number" name="valorHabi" id="valorHabi" value="<%= habitacion.getHabiValorD()%>" class="form-control" min="1" autocomplete="off" readonly="off" required>
                                             </div>
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text">Consumos Adicionales: </span>
-                                                <select name="consumoHabi" id="consumoHabi" class="form-control" required >
-                                                    <option></option>
-                                                    <%
-                                                        ConsumosDao mostrarConsumo = new ConsumosDao();
-                                                        List<Consumos> consumos = mostrarConsumo.mostrarListaConsumos();
-                                                        for (Consumos consumo : consumos) {%>
-                                                    <option value="<%= consumo.getConsuId()%>"><%=  StringEscapeUtils.escapeHtml4(consumo.getConsuNombre())%> - <%=  consumo.getConsuValor()%></option>                                                        
-                                                    <% }
-                                                    %>
-                                                </select>
+                                            <label class="form form-control"><b>Consumos Adicionales:</b></label><br />
+                                            <%
+                                                ConsumosDao mostrarConsumo = new ConsumosDao();
+                                                List<Consumos> consumos = mostrarConsumo.mostrarListaConsumos();
+                                                for (Consumos consumo : consumos) {%>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="consumoHabi" name="consumoHabi" value="<%= consumo.getConsuId()%>" />
+                                                <label class="form-check-label" for="consumoHabi"><%=  StringEscapeUtils.escapeHtml4(consumo.getConsuNombre())%> - <%=  consumo.getConsuValor()%></label>
                                             </div>
+                                            <% }%>
+                                            </ br>
                                             <div class="container text-center">
                                                 <a href="habitaciones_disponibles.jsp" class="btn btn-danger">Regresar</a>
                                                 <input type="submit" value="Reservar" name="reservar" class="btn btn-warning"/>

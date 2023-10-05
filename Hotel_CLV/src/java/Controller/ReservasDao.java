@@ -35,9 +35,8 @@ public class ReservasDao {
                 Integer habiId = rs.getInt("habitaciones_habi_id");
                 Integer estaId = rs.getInt("estados_esta_id");
                 Integer perId = rs.getInt("personas_per_id");
-                Integer consuId = rs.getInt("consumos_consu_id");
 
-                Reservas reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);
+                Reservas reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId);
                 reservas.add(reserva);
             }
             rs.close();
@@ -67,9 +66,8 @@ public class ReservasDao {
                 Integer habiId = rs.getInt("habitaciones_habi_id");
                 Integer estaId = rs.getInt("estados_esta_id");
                 Integer perId = rs.getInt("personas_per_id");
-                Integer consuId = rs.getInt("consumos_consu_id");
 
-                reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);
+                reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId);
             }
             rs.close();
             pst.close();
@@ -80,7 +78,7 @@ public class ReservasDao {
         return reserva;
     }
 
-    public int crearReserva(int numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer perId, Integer consuId) {
+    public int crearReserva(int numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer perId) {
         int resultado = 0;
         try {
             String sql_estado = "SELECT esta_id FROM hotel_clv.estados WHERE esta_descripcion LIKE 'PENDI%';";
@@ -88,7 +86,7 @@ public class ReservasDao {
             ResultSet rsEstado = pstEstado.executeQuery(sql_estado);
             while (rsEstado.next()) {
                 int estaId = rsEstado.getInt("esta_id");
-                String sql_crear = "INSERT INTO hotel_clv.reservas(rese_num_dias,rese_f_reserva,rese_f_inicio,rese_f_salida,rese_vtotal,habitaciones_habi_id,estados_esta_id,personas_per_id,consumos_consu_id) VALUES (?,?,?,?,?,?,?,?,?);";
+                String sql_crear = "INSERT INTO hotel_clv.reservas(rese_num_dias,rese_f_reserva,rese_f_inicio,rese_f_salida,rese_vtotal,habitaciones_habi_id,estados_esta_id,personas_per_id) VALUES (?,?,?,?,?,?,?,?);";
                 PreparedStatement pst = con.getConexion().prepareCall(sql_crear);
                 pst.setInt(1, numDias);
                 pst.setTimestamp(2, Timestamp.valueOf(reseFReserva));
@@ -98,7 +96,6 @@ public class ReservasDao {
                 pst.setInt(6, habiId);
                 pst.setInt(7, estaId);
                 pst.setInt(8, perId);
-                pst.setInt(9, consuId);
                 int n = pst.executeUpdate();
                 if (n > 0) {
                     resultado = 1;
@@ -128,10 +125,10 @@ public class ReservasDao {
         return resultado;
     }
 
-    public int modificarReserva(Integer reseId, Integer numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer estaId, Integer perId, Integer consuId) {
+    public int modificarReserva(Integer reseId, Integer numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer estaId, Integer perId) {
         int resultado = 0;
         try {
-            String sql_modificar = "UPDATE hotel_clv.reservas SET rese_num_dias=?,rese_f_reserva=?,rese_f_inicio=?,rese_f_salida=?,rese_vtotal=?,habitaciones_habi_id=?,estados_esta_id=?,personas_per_id=?,consumos_consu_id=? WHERE rese_id=?";
+            String sql_modificar = "UPDATE hotel_clv.reservas SET rese_num_dias=?,rese_f_reserva=?,rese_f_inicio=?,rese_f_salida=?,rese_vtotal=?,habitaciones_habi_id=?,estados_esta_id=?,personas_per_id=? WHERE rese_id=?";
             PreparedStatement pst = con.getConexion().prepareCall(sql_modificar);
             pst.setInt(1, numDias);
             pst.setTimestamp(2, Timestamp.valueOf(reseFReserva));
@@ -140,9 +137,8 @@ public class ReservasDao {
             pst.setBigDecimal(5, reseVTotal);
             pst.setInt(6, habiId);
             pst.setInt(7, estaId);
-            pst.setInt(8, perId);
-            pst.setInt(9, consuId);
-            pst.setInt(10, reseId);
+            pst.setInt(8, perId);           
+            pst.setInt(9, reseId);
 
             int n = pst.executeUpdate();
             if (n > 0) {
@@ -207,10 +203,9 @@ public class ReservasDao {
                 BigDecimal reseVTotal = rs.getBigDecimal("rese_vtotal");
                 Integer habiId = rs.getInt("habitaciones_habi_id");
                 Integer estaId = rs.getInt("estados_esta_id");
-                Integer perId = rs.getInt("personas_per_id");
-                Integer consuId = rs.getInt("consumos_consu_id");
+                Integer perId = rs.getInt("personas_per_id");                
 
-                Reservas reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);
+                Reservas reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId);
                 reservas.add(reserva);
             }
             rs.close();
@@ -280,9 +275,8 @@ public class ReservasDao {
                 Integer habiId = rs.getInt("habitaciones_habi_id");
                 Integer estaId = rs.getInt("estados_esta_id");
                 Integer perId = rs.getInt("personas_per_id");
-                Integer consuId = rs.getInt("consumos_consu_id");
 
-                reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId, consuId);
+                reserva = new Reservas(reseId, numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, estaId, perId);
             }
             rs.close();
             pst.close();

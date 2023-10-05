@@ -54,7 +54,7 @@
                 int resultado = 0;
                 if (reseFSalida.isAfter(reseFInicio)) {
                     ReservasDao crearReserva = new ReservasDao();
-                    resultado = crearReserva.crearReserva(numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, perId, consuId);
+                    resultado = crearReserva.crearReserva(numDias, reseFReserva, reseFInicio, reseFSalida, reseVTotal, habiId, perId);
                 } else {
                     resultado = 10;
                 }

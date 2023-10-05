@@ -23,12 +23,11 @@ public class Reservas {
     private Integer habiId;
     private Integer estaId;
     private Integer perId;
-    private Integer consuId;
 
     public Reservas() {
     }
 
-    public Reservas(Integer reseId, Integer numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer estaId, Integer perId, Integer consuId) {
+    public Reservas(Integer reseId, Integer numDias, LocalDateTime reseFReserva, LocalDateTime reseFInicio, LocalDateTime reseFSalida, BigDecimal reseVTotal, Integer habiId, Integer estaId, Integer perId) {
         this.reseId = reseId;
         this.numDias = numDias;
         this.reseFReserva = reseFReserva;
@@ -38,7 +37,6 @@ public class Reservas {
         this.habiId = habiId;
         this.estaId = estaId;
         this.perId = perId;
-        this.consuId = consuId;
     }
 
     public Integer getReseId() {
@@ -112,13 +110,4 @@ public class Reservas {
     public void setPerId(Integer perId) {
         this.perId = perId;
     }
-
-    public Integer getConsuId() {
-        return consuId;
-    }
-
-    public void setConsuId(Integer consuId) {
-        this.consuId = consuId;
-    }
-    
 }

@@ -75,15 +75,6 @@
                                                                 break;
                                                             }
 
-                                                        }
-                                                        //Comparacion de Consumos
-                                                        int reservaConsumos = reserva.getConsuId();
-                                                        String nombreConsumo = "";
-                                                        for (Consumos consumo : consumos) {
-                                                            if (consumo.getConsuId() == reservaConsumos) {
-                                                                nombreConsumo = StringEscapeUtils.escapeHtml4(consumo.getConsuDetalle());
-                                                                break;
-                                                            }
                                                         }%>
                                             <tr>
                                                 <th scope="row">Dias de Reservacion: </th>
@@ -100,10 +91,6 @@
                                             <tr>
                                                 <th scope="row">Fecha de Salida: </th>
                                                 <td><input type="datetime-local" value="<%= reserva.getReseFSalida()%>" class="form form-control" readonly="off" /></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Consumos Adicionales: </th>
-                                                <td ><%= nombreConsumo%></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Estado la de la Reserva: </th>

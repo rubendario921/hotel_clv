@@ -65,8 +65,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%                                            
-                                            String id_perId = String.valueOf(session.getAttribute("perId"));
+                                        <%                                            String id_perId = String.valueOf(session.getAttribute("perId"));
                                             int id = Integer.parseInt(id_perId);
 
                                             HabitacionesDao mostrarHabi = new HabitacionesDao();
@@ -88,25 +87,15 @@
                                                 String habiPiso = "";
 
                                                 for (Habitaciones habitacion : habitaciones) {
-                                                    if (habitacion.getHabiId() == habiReserva) {                                                        
+                                                    if (habitacion.getHabiId() == habiReserva) {
                                                         habiDepar = StringEscapeUtils.escapeHtml4(habitacion.getHabiDepar());
                                                         habiPiso = StringEscapeUtils.escapeHtml4(habitacion.getHabiPiso());
                                                         nombreHabitacion = StringEscapeUtils.escapeHtml4(habitacion.getHabiNombre());
-                                                        
+
                                                         break;
                                                     }
                                                 }
-
-                                                int consuReserva = reserva.getConsuId();
-                                                String nombreConsumo = "";
-
-                                                for (Consumos consumo : consumos) {
-                                                    if (consumo.getConsuId() == consuReserva) {
-                                                        nombreConsumo = StringEscapeUtils.escapeHtml4(consumo.getConsuNombre());
-                                                        break;
-                                                    }
-                                                }
-
+                                                
                                                 int estadoReserva = reserva.getEstaId();
                                                 String nombreEstado = "";
 

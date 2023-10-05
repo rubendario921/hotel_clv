@@ -29,7 +29,7 @@ Author     : Ruben Dario 921
             <div class="row">
                 <div class="col col-auto mx-auto">
                     <h1 class="page-header text-center">
-                        <img class="img-fluid oval-image" src="assets/img/banner_img_logo_opcional.jpg" alt=""> Facturación
+                        <img class="img-fluid oval-image" src="assets/img/logo_sin_fondo.png" alt="" width="200"> Facturación
                     </h1>
 
                     <div class="panel panel-primary">

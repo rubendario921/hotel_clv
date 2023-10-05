@@ -70,11 +70,11 @@
                                             //Reserva
                                             ReservasDao mostrarReserva = new ReservasDao();
                                             List<Reservas> mostrarR = mostrarReserva.mostrarListaReserva();
-                                            
+
                                             //Habitacion
                                             HabitacionesDao mostrarHabi = new HabitacionesDao();
                                             List<Habitaciones> mostrarH = mostrarHabi.mostrarListaHabi();
-                                            
+
                                             //Consumos
                                             ConsumosDao mostrarConsumo = new ConsumosDao();
                                             List<Consumos> mostrarC = mostrarConsumo.mostrarListaConsumos();
@@ -94,7 +94,7 @@
                                                     if (persona.getPerId() == nombreP) {
                                                         nombrePersona = StringEscapeUtils.escapeHtml4(persona.getPerNombres());
                                                         apellidoPersona = StringEscapeUtils.escapeHtml4(persona.getPerApellidos());
-                                                        cedulaPersonas = StringEscapeUtils.escapeHtml4(persona.getPerCedula());
+                                                        cedulaPersonas = StringEscapeUtils.escapeHtml4(persona.getPernumDocumento());
                                                         contactoPersonas = StringEscapeUtils.escapeHtml4(persona.getPerTelefono());
                                                         correoPersonas = StringEscapeUtils.escapeHtml4(persona.getPerCorreo());
                                                         break;
@@ -178,21 +178,6 @@
                                                         precioUnitarioHabi = (valorDiarioHabi.subtract(ivaHabi)).setScale(2, RoundingMode.HALF_UP);
                                                     }
                                                 }
-
-                                                int codConsu = reserva.getConsuId();
-
-                                                for (Consumos consumo : mostrarC) {
-                                                    if (consumo.getConsuId() == codConsu) {
-                                                        codigoConsumo = consumo.getConsuId();
-                                                        nombreConsumo = consumo.getConsuNombre();
-                                                        detalleConsumo = consumo.getConsuDetalle();
-                                                        BigDecimal valorConsumo = consumo.getConsuValor();
-                                                        //Valores sin Impuesto
-                                                        ivaConsu = (valorConsumo.multiply(impuesto)).setScale(2, RoundingMode.HALF_UP);
-                                                        precioUnitarioConsu = (valorConsumo.subtract(ivaConsu)).setScale(2, RoundingMode.HALF_UP);
-
-                                                    }
-                                                }
                                             }
                                         }
                                         BigDecimal precioTotalHabi = precioUnitarioHabi.multiply(new BigDecimal(cantDias));
@@ -216,13 +201,7 @@
                                         <div class="col">$<%= precioUnitarioHabi%></div>                                        
                                         <div class="col">$<%= precioTotalHabi%></div>                                        
                                     </div>
-                                    <div class="row bg bg-light">
-                                        <div class="col"><%= codigoConsumo%></div>
-                                        <div class="col"><%= nombreConsumo%> - <%= detalleConsumo%></div>
-                                        <div class="col"><%= cantDias%></div>
-                                        <div class="col">$<%= precioUnitarioConsu%></div>                                        
-                                        <div class="col">$<%= precioTotalConsu%></div>                                        
-                                    </div>
+
                                 </div>
                                 <!-- Fin de los datos de la Factura-->
 
@@ -248,7 +227,7 @@
                                     </div>
                                 </div>
                                 <!-- Fin valor de la factura-->
-                                
+
                                 <!-- Pie de la factura-->
 
                                 <!-- Fin de la pie de la factura-->
